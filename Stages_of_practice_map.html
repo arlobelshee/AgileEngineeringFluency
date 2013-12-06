@@ -1,0 +1,876 @@
+<html>
+<head>
+    <title>adaptive engineering proficiencies</title>
+    <script type="text/javascript">
+
+        var verticals = [
+            { id: 0, name: "Check your work" },
+            { id: 1, name: "Write good code" },
+            { id: 2, name: "Ship" },
+            { id: 3, name: "Know what to build" },
+            { id: 4, name: "Discipline and learning" },
+            { id: 5, name: "Improve as a Team" },
+            { id: 6, name: "Not hurried" }
+        ];
+
+        var groups = [
+            { id: 0, name: "Traditional done well" },
+            { id: 1, name: "Core modern engineering" },
+            { id: 2, name: "Leverage new capabilities" },
+            { id: 3, name: "Eliminate debt and change the rules" },
+            { id: 4, name: "Take advantage of being awesome" }
+        ];
+
+        var linkKind = [
+            { id: 0, name: "Doing A is nearly required to do B" },
+            { id: 1, name: "Doing A helps a lot when doing B" }
+        ];
+
+        var skills = [
+            { 
+                id: 0,
+                name: "Quality Assurance", 
+                group: 0,
+                vertical: 0,
+                links: [
+                    { skill: 1, kind: 0 }
+                ]
+            },
+            {
+                id: 1,
+                name: "Developer Checking",
+                group: 0,
+                vertical: 0,
+                links: [
+                    { skill: 2, kind: 0 }
+                ]
+            },
+            {
+                id: 2,
+                name: "Automated developer testing",
+                group: 1,
+                vertical: 0,
+                links: [
+                    { skill: 3, kind: 0 },
+                    { skill: 4, kind: 0 }
+                ]
+            },
+            {
+                id: 3,
+                name: "Test first",
+                group: 1,
+                vertical: 0,
+                links: [
+                    { skill: 5, kind: 0 }
+                ]
+            },
+            {
+                id: 4,
+                name: "Test units",
+                group: 1,
+                vertical: 0,
+                links: [
+                    { skill: 5, kind: 0 },
+                    { skill: 6, kind: 0 }
+                ]
+            },
+            {
+                id: 5,
+                name: "Red, green, refactor",
+                group: 3,
+                vertical: 0,
+                links: [
+                    { skill: 7, kind: 0 }
+                ]
+            },
+            {
+                id: 6,
+                name: "Legacy code under test",
+                group: 3,
+                vertical: 0,
+                links: []
+            },
+            {
+                id: 7,
+                name: "Test-driven design",
+                group: 4,
+                vertical: 0,
+                links: [
+                    { skill: 11, kind: 0 },
+                ]
+            },
+            {
+                id: 8,
+                name: "Legacy code recovery",
+                group: 3,
+                vertical: 1,
+                links: [
+                    { skill: 10, kind: 0 },
+                    { skill: 11, kind: 0 },
+                    { skill: 6, kind: 0 }
+                ]
+            },
+            {
+                id: 9,
+                name: "Code whispering",
+                group: 4,
+                vertical: 1,
+                links: [{ skill: 7, kind: 0 }],
+            },
+            {
+                id: 10,
+                name: "Simultaneous Phases",
+                group: 4,
+                vertical: 1,
+                links: []
+            },
+            {
+                id: 11,
+                name: "Evolutionary Design",
+                vertical: 1,
+                group: 4,
+                links: [
+                    { skill: 12, kind: 0 }
+                ]
+            },
+            {
+                id: 12,
+                name: "No bugs",
+                vertical: 1,
+                group: 4,
+                links: [{ skill: 13, kind: 0 }]
+            },
+            {
+                id: 13,
+                name: "YAGNI and simplest thing",
+                vertical: 1,
+                group: 4,
+                links: [
+                    { skill: 9, kind: 0 }
+                ]
+            },
+            {
+                id: 14,
+                name: "Continuous delivery",
+                vertical: 2,
+                group: 4,
+                links: [
+                    { skill: 15, kind: 0 },
+                    { skill: 12, kind: 0 }
+                ]
+            },
+            {
+                id: 15,
+                name: "Continuous deployment",
+                group: 4,
+                vertical: 2,
+                links: []
+            },
+            {
+                id: 16,
+                name: "Greenfield project",
+                group: 3,
+                vertical: 1,
+                links: [
+                    { skill: 11, kind: 0 }
+                ]
+            },
+            {
+                id: 17,
+                name: "Cowboy coding",
+                group: 0,
+                vertical: 1,
+                links: [
+                    { skill: 18, kind: 0 }
+                ]
+            },
+            {
+                id: 18,
+                name: "Big design up front",
+                group: 0,
+                vertical: 1,
+                links: [
+                    { skill: 19, kind: 0 }
+                ]
+            },
+            {
+                id: 19,
+                name: "Pattern-oriented design",
+                group: 0,
+                vertical: 1,
+                links: [
+                    { skill: 20, kind: 0 },
+                    { skill: 21, kind: 0 }
+                ]
+            },
+            {
+                id: 20,
+                name: "Don't repeat yourself",
+                group: 1,
+                vertical: 1,
+                links: [
+                    { skill: 25, kind: 0},
+                ]
+            },
+            {
+                id: 21,
+                name: "Just architecture up front",
+                vertical: 1,
+                group: 0,
+                links: [
+                    { skill: 22, kind: 0 }
+                ]
+            },
+            {
+                id: 22,
+                name: "Smell-based predictive design",
+                vertical: 1,
+                group: 0,
+                links: [
+                    { skill: 23, kind: 0 },
+                ]
+            },
+            {
+                id: 23,
+                name: "Iterated predictive design",
+                vertical: 1,
+                group: 0,
+                links: []
+            },
+            {
+                id: 24,
+                name: "Local refactoring",
+                vertical: 1,
+                group: 1,
+                links: [
+                    { skill: 4, kind: 0 },
+                    { skill: 20, kind: 0 },
+                ]
+            },
+            {
+                id: 25,
+                name: "Reflective design",
+                vertical: 1,
+                group: 1,
+                links: [
+                    { skill: 5, kind: 0 },
+                    { skill: 8, kind: 0 },
+                    { skill: 11, kind: 0 },
+                ]
+            },
+            {
+                id: 26,
+                name: "Manual build and package",
+                vertical: 2,
+                group: 0,
+                links: [
+                    { skill: 27, kind: 0 }
+                ]
+            },
+            {
+                id: 27,
+                name: "Automated package",
+                vertical: 2,
+                group: 0,
+                links: [
+                    { skill: 28, kind: 0 }
+                ]
+            },
+            {
+                id: 28,
+                name: "Automated build verification",
+                vertical: 2,
+                group: 1,
+                links: [
+                    { skill: 2, kind: 0 },
+                    { skill: 29, kind: 0 }
+                ]
+            },
+            {
+                id: 29,
+                name: "Automated deploy",
+                vertical: 2,
+                group: 2,
+                links: [
+                    { skill: 30, kind: 0 },
+                    { skill: 31, kind: 0 }
+                ]
+            },
+            {
+                id: 30,
+                name: "Feature isolation",
+                vertical: 2,
+                group: 4,
+                links: [
+                    { skill: 14, kind: 0 }
+                ]
+            },
+            {
+                id: 31,
+                name: "Automated deploy verification",
+                vertical: 2,
+                group: 3,
+                links: [
+                    { skill: 32, kind: 0 }
+                ]
+            },
+            {
+                id: 32,
+                name: "Automated rollback",
+                vertical: 2,
+                group: 4,
+                links: [
+                    { skill: 15, kind: 0 }
+                ]
+            },
+            {
+                id: 33,
+                name: "Build for myself",
+                vertical: 3,
+                group: 0,
+                links: [
+                    { skill: 34, kind: 0 }
+                ]
+            },
+            {
+                id: 34,
+                name: "Product requirements",
+                vertical: 3,
+                group: 0,
+                links: [
+                    { skill: 35, kind: 0 }
+                ]
+            },
+            {
+                id: 35,
+                name: "Build slack in",
+                vertical: 3,
+                group: 0,
+                links: [
+                    { skill: 36, kind: 0 }
+                ]
+            },
+            {
+                id: 36,
+                name: "Small specs",
+                vertical: 3,
+                group: 0,
+                links: [
+                    { skill: 2, kind: 0 },
+                    { skill: 37, kind: 0 },
+                    { skill: 40, kind: 0 }
+                ]
+            },
+            {
+                id: 37,
+                name: "Stories",
+                vertical: 3,
+                group: 2,
+                links: [
+                    { skill: 3, kind: 1 },
+                    { skill: 38, kind: 0 },
+                    { skill: 39, kind: 0 },
+                    { skill: 40, kind: 1 }
+                ]
+            },
+            {
+                id: 38,
+                name: "Verify examples",
+                vertical: 3,
+                group: 4,
+                links: [
+                    { skill: 3, kind: 0 }
+                ]
+            },
+            {
+                id: 39,
+                name: "Story clustering",
+                vertical: 3,
+                group: 2,
+                links: [
+                    { skill: 41, kind: 0 },
+                    { skill: 43, kind: 0 },
+                    { skill: 42, kind: 0 }
+                ]
+            },
+            {
+                id: 40,
+                name: "Adaptive planning",
+                vertical: 3,
+                group: 2,
+                links: [
+                    { skill: 42, kind: 0 }
+                ]
+            },
+            {
+                id: 41,
+                name: "Hypothesis stories",
+                vertical: 3,
+                group: 4,
+                links: [
+                    { skill: 82, kind: 0 }
+                ]
+            },
+            {
+                id: 42,
+                name: "Rolling-wave planning",
+                vertical: 3,
+                group: 2,
+                links: [
+                ]
+            },
+            {
+                id: 43,
+                name: "Experience focus",
+                vertical: 3,
+                group: 4,
+                links: [
+                    { skill: 44, kind: 0 },
+                    { skill: 46, kind: 0 }
+                ]
+            },
+            {
+                id: 44,
+                name: "Business metric focus",
+                vertical: 3,
+                group: 4,
+                links: [
+                    { skill: 45, kind: 0 },
+                ]
+            },
+            {
+                id: 45,
+                name: "Lean startup",
+                vertical: 3,
+                group: 4,
+                links: []
+            },
+            {
+                id: 46,
+                name: "Whole team business innovation",
+                vertical: 3,
+                group: 4,
+                links: [
+                    { skill: 45, kind: 0 }
+                ]
+            },
+            {
+                id: 47,
+                name: "Ad-hoc helping",
+                vertical: 4,
+                group: 0,
+                links: [
+                    { skill: 48, kind: 0 },
+                    { skill: 52, kind: 0 }
+                ]
+            },
+            { 
+                id: 48,
+                name: "Team leads",
+                vertical: 4,
+                group: 0,
+                links: [
+                    { skill: 49, kind: 0 }
+                ]
+            },
+            { 
+                id: 49,
+                name: "Formal training",
+                vertical: 4,
+                group: 0,
+                links: [
+                    { skill: 50, kind: 0 }
+                ]
+            },
+            { 
+                id: 50,
+                name: "Code review",
+                vertical: 4,
+                group: 0,
+                links: [
+                    { skill: 51, kind: 0 }
+                ]
+            },
+            { 
+                id: 51,
+                name: "Code preview",
+                vertical: 4,
+                group: 0,
+                links: [
+                ]
+            },
+            { 
+                id: 52,
+                name: "Shared code responsibility",
+                vertical: 4,
+                group: 1,
+                links: [
+                    { skill: 53, kind: 0 }
+                ]
+            },
+            { 
+                id: 53,
+                name: "T-shaped people",
+                vertical: 4,
+                group: 1,
+                links: [
+                    { skill: 54, kind: 0 }
+                ]
+            },
+            { 
+                id: 54,
+                name: "Collective ownership",
+                vertical: 4,
+                group: 1,
+                links: [
+                    { skill: 8, kind: 0 },
+                    { skill: 57, kind: 0 }
+                ]
+            },
+            { 
+                id: 55,
+                name: "Sit together",
+                vertical: 4,
+                group: 3,
+                links: [
+                    { skill: 53, kind: 1 },
+                    { skill: 56, kind: 0 }
+                ]
+            },
+            { 
+                id: 56,
+                name: "Ad-hoc pairing",
+                vertical: 4,
+                group: 3,
+                links: [
+                    { skill: 54, kind: 1 },
+                    { skill: 57, kind: 0 }
+                ]
+            },
+            { 
+                id: 57,
+                name: "Regular pairing",
+                vertical: 4,
+                group: 3,
+                links: [
+                    { skill: 58, kind: 0 }
+                ]
+            },
+            { 
+                id: 58,
+                name: "Full-time pairing",
+                vertical: 4,
+                group: 3,
+                links: [
+                    { skill: 11, kind: 1 },
+                    { skill: 12, kind: 0 },
+                    { skill: 59, kind: 0 },
+                    { skill: 71, kind: 0 },
+                    { skill: 60, kind: 1 }
+                ]
+            },
+            { 
+                id: 59,
+                name: "M-shaped people",
+                vertical: 4,
+                group: 4,
+                links: [
+                    { skill: 46, kind: 0 },
+                    { skill: 61, kind: 0 }
+                ]
+            },
+            { 
+                id: 60,
+                name: "Mobbing",
+                vertical: 4,
+                group: 4,
+                links: [
+                    { skill: 12, kind: 1 },
+                    { skill: 61, kind: 1 }
+                ]
+            },
+            { 
+                id: 61,
+                name: "Full-product specialization",
+                vertical: 4,
+                group: 4,
+                links: []
+            },
+            { 
+                id: 62,
+                name: "Stasis",
+                vertical: 5,
+                group: 0,
+                links: [
+                    { skill: 63, kind: 0 }
+                ]
+            },
+            { 
+                id: 63,
+                name: "Centralized improvement",
+                vertical: 5,
+                group: 0,
+                links: [
+                    { skill: 64, kind: 0 }
+                ]
+            },
+            { 
+                id: 64,
+                name: "Post-mortems",
+                vertical: 5,
+                group: 0,
+                links: [
+                    { skill: 65, kind: 0 }
+                ]
+            },
+            { 
+                id: 65,
+                name: "Retrospectives",
+                vertical: 5,
+                group: 1,
+                links: [
+                    { skill: 66, kind: 0 }
+                ]
+            },
+            { 
+                id: 66,
+                name: "Action-based retrospectives",
+                vertical: 5,
+                group: 1,
+                links: [
+                    { skill: 67, kind: 0 },
+                    { skill: 68, kind: 0 }
+                ]
+            },
+            { 
+                id: 67,
+                name: "Learn from local cmm'ty",
+                vertical: 5,
+                group: 3,
+                links: [
+                    { skill: 68, kind: 1 },
+                    { skill: 69, kind: 0 }
+                ]
+            },
+            { 
+                id: 68,
+                name: "Process experiments",
+                vertical: 5,
+                group: 3,
+                links: [
+                    { skill: 70, kind: 0 }
+                ]
+            },
+            { 
+                id: 69,
+                name: "Learn from everyone",
+                vertical: 5,
+                group: 3,
+                links: [
+                    { skill: 70, kind: 0 }
+                ]
+            },
+            { 
+                id: 70,
+                name: "Useful innovation",
+                vertical: 5,
+                group: 4,
+                links: []
+            },
+            { 
+                id: 71,
+                name: "Radical collaboration",
+                vertical: 4,
+                group: 4,
+                links: []
+            },
+            { 
+                id: 72,
+                name: "Death marches",
+                vertical: 6,
+                group: -1,
+                links: [
+                    { skill: 74, kind: 0 }
+                ]
+            },
+            { 
+                id: 73,
+                name: "Track capacity",
+                vertical: 6,
+                links: [
+                    { skill: 76, kind: 0 },
+                    { skill: 77, kind: 0 }
+                ]
+            },
+            { 
+                id: 74,
+                name: "Waterfall milestones",
+                vertical: 6,
+                group: -1,
+                links: [
+                    { skill: 75, kind: 0 }
+                ]
+            },
+            { 
+                id: 75,
+                name: "Iterations with self",
+                vertical: 6,
+                group: -1,
+                links: [
+                    { skill: 77, kind: 0 }
+                ]
+            },
+            { 
+                id: 76,
+                name: "Relative based estimation",
+                vertical: 6,
+                group: -1,
+                links: [
+                    { skill: 78, kind: 0 }
+                ]
+            },
+            { 
+                id: 77,
+                name: "Limit work to estimated capacity",
+                vertical: 6,
+                group: -1,
+                links: [
+                    { skill: 78, kind: 0 }
+                ]
+            },
+            { 
+                id: 78,
+                name: "Use data to determine capacity",
+                vertical: 6,
+                group: -1,
+                links: [
+                    { skill: 79, kind: 0 }
+                ]
+            },
+            { 
+                id: 79,
+                name: "Pull systems",
+                vertical: 6,
+                group: -1,
+                links: [
+                    { skill: 80, kind: 0 }
+                ]
+            },
+            { 
+                id: 80,
+                name: "WIP limits",
+                vertical: 6,
+                group: -1,
+                links: [
+                    { skill: 81, kind: 0 }
+                ]
+            },
+            { 
+                id: 81,
+                name: "Single piece flow",
+                vertical: 6,
+                group: -1,
+                links: [
+                    { skill: 71, kind: 0 },
+                    { skill: 10, kind: 0 }
+                ]
+            },
+            {
+                id: 82,
+                name: "Testing in production",
+                vertical: 3,
+                group: 4,
+                links: [
+                    { skill: 14, kind: 0 },
+                    { skill: 44, kind: 0 }
+                ]
+            }
+        ];
+
+        var data = {
+            verticals: verticals,
+            groups: groups,
+            linkKinds: linkKind,
+            skills: skills
+        };
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var skillsUl = document.getElementById("skills");
+            for (var i = 0, n = skills.length; i < n; i++) {
+                var skill = skills[i];
+                var vertical = verticals[skill.vertical];
+                var group = groups[skill.group];
+
+                var e = document.createElement("li");
+                e.setAttribute("id", "skill" + skill.id);
+                e.setAttribute("skillId", skill.id);
+                e.classList.add("skill");
+                e.classList.add("vertical" + skill.vertical);
+                e.classList.add("group" + skill.group);
+                e.innerText = skill.name;
+                skillsUl.appendChild(e);
+            }
+        });
+
+    </script>
+
+    <style>
+        .skill {
+            margin: 20px;
+        }
+
+        .vertical0 {
+            color: cornflowerblue;
+        }
+
+        .vertical1 {
+            color: limegreen;
+        }
+
+        .vertical2 {
+            color: mediumpurple;
+        }
+
+        .vertical3 {
+            color: orange;
+        }
+
+        .vertical4 {
+            color: fuchsia;
+        }
+
+        .vertical5 {
+            color: darkred;
+        }
+
+        .vertical6 {
+            color: rosybrown;
+        }
+
+        .group0 {
+            background-color: lightblue;
+        }
+
+        .group1 {
+            background-color: lightyellow;
+        }
+
+        .group2 {
+            background-color: lightgreen;
+        }
+
+        .group3 {
+            background-color: lightpink;
+        }
+
+        .group4 {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul id="skills"></ul>
+    </div>
+</body>
+</html>
