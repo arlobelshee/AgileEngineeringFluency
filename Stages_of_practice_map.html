@@ -28,131 +28,153 @@
 
 			skills: [
 				 {
-				 	id: 0,
+				 	id: "SK_QA",
 				 	x: 0, y: 0,
 				 	name: "Quality Assurance",
 				 	level: "L_TRADITIONAL",
 				 	component: "V_CHECK_WORK",
-				 	enables: [
-						 { skill: 1, kind: "IS_REQUIRED" }
-				 	]
+				 	requires: [
+				 	],
 				 },
 				 {
-				 	id: 1,
+				 	id: "SK_DEV_CHECK",
 				 	x: 1, y: 0,
 				 	name: "Developer Checking",
 				 	level: "L_TRADITIONAL",
 				 	component: "V_CHECK_WORK",
-				 	enables: [
-						 { skill: 2, kind: "IS_REQUIRED" }
+				 	requires: [
+						 { skill: "SK_QA", kind: "IS_REQUIRED" }
 				 	]
 				 },
 				 {
-				 	id: 2,
+				 	id: "SK_AUTO_DEV_TEST",
 				 	x: 2, y: 0,
 				 	name: "Automated developer testing",
 				 	level: "L_CORE",
 				 	component: "V_CHECK_WORK",
-				 	enables: [
-						 { skill: 3, kind: "IS_REQUIRED" },
-						 { skill: 4, kind: "IS_REQUIRED" }
+				 	requires: [
+						 { skill: "SK_DEV_CHECK", kind: "IS_REQUIRED" }
 				 	]
 				 },
 				 {
-				 	id: 3,
+				 	id: "SK_TEST_FIRST",
 				 	x: 3, y: 0,
 				 	name: "Test first",
 				 	level: "L_CORE",
 				 	component: "V_CHECK_WORK",
-				 	enables: [
-						 { skill: 5, kind: "IS_REQUIRED" }
+				 	requires: [
+						 { skill: "SK_AUTO_DEV_TEST", kind: "IS_REQUIRED" }
 				 	]
 				 },
 				 {
-				 	id: 4,
+				 	id: "SK_TEST_UNITS",
 				 	x: 3, y: 1,
 				 	name: "Test units",
 				 	level: "L_CORE",
 				 	component: "V_CHECK_WORK",
-				 	enables: [
-						 { skill: 5, kind: "IS_REQUIRED" },
-						 { skill: 6, kind: "IS_REQUIRED" }
+				 	requires: [
+						{ skill: "SK_AUTO_DEV_TEST", kind: "IS_REQUIRED" },
+				 		{ skill: "SK_WRITE_UNITS", kind: "IS_REQUIRED" }
 				 	]
 				 },
 				 {
-				 	id: 5,
+				 	id: "SK_WRITE_UNITS",
+				 	x: 2, y: 2,
+				 	name: "Code in units",
+				 	level: "L_CORE",
+				 	component: "V_CHECK_WORK",
+				 	requires: [
+						 { skill: "SK_AUTO_DEV_TEST", kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: "SK_RGR",
 				 	x: 4, y: 0,
 				 	name: "Red, green, refactor",
 				 	level: "L_NO_DEBT",
 				 	component: "V_CHECK_WORK",
-				 	enables: [
-						 { skill: 7, kind: "IS_REQUIRED" }
+				 	requires: [
+						{ skill: "SK_TEST_FIRST", kind: "IS_REQUIRED" },
+						{ skill: "SK_TEST_UNITS", kind: "IS_REQUIRED" }
 				 	]
 				 },
-				 {
-				 	id: 6,
+				{
+					// 6
+				 	id: "SK_TEST_LEGACY",
 				 	x: 4, y: 2,
 				 	name: "Legacy code under test",
 				 	level: "L_NO_DEBT",
 				 	component: "V_CHECK_WORK",
-				 	enables: []
+				 	requires: [
+						 { skill: "SK_TEST_UNITS", kind: "IS_REQUIRED" }
+				 	]
 				 },
 				 {
-				 	id: 7,
+				 	id: "SK_TDDESIGN",
 				 	x: 5, y: 0,
 				 	name: "Test-driven design",
 				 	level: 4,
 				 	component: "V_CHECK_WORK",
-				 	enables: [
-						 { skill: 11, kind: "IS_REQUIRED" },
+				 	requires: [
+						 { skill: "SK_RGR", kind: "IS_REQUIRED" }
 				 	]
 				 },
 				 {
-				 	id: 8,
+				 	// 8
+				 	id: "SK_FIX_LEGACY",
 				 	x: 5, y: 2,
 				 	name: "Legacy code recovery",
 				 	level: "L_NO_DEBT",
 				 	component: "V_CODE",
-				 	enables: [
-						 { skill: 10, kind: "IS_REQUIRED" },
-						 { skill: 11, kind: "IS_REQUIRED" },
-						 { skill: 6, kind: "IS_REQUIRED" }
+				 	requires: [
+				 	{ skill: "SK_TEST_LEGACY", kind: "IS_REQUIRED" }
+			]
+				 },
+				 {
+					// 9
+				 	id: "SK_LISTEN_TO_CODE",
+				 	x: 18, y: 0,
+				 	name: "Code whispering",
+				 	level: "L_AWESOME",
+				 	component: "V_CODE",
+				 	requires: [
 				 	]
 				 },
 				 {
-				 	id: 9,
-				 	x: 18, y: 0,
-				 	name: "Code whispering",
-				 	level: 4,
-				 	component: "V_CODE",
-				 	enables: [],
-				 },
-				 {
-				 	id: 10,
+					// 10
+				 	id: "SK_SIMUL_PHASES",
 				 	x: 6, y: 3,
 				 	name: "Simultaneous Phases",
-				 	level: 4,
+				 	level: "L_NO_DEBT",
 				 	component: "V_CODE",
-				 	enables: []
+				 	requires: [
+					 	{ skill: "SK_FIX_LEGACY", kind: "IS_REQUIRED" }
+				 	]
 				 },
 				 {
-				 	id: 11,
+					// 11
+				 	id: "SK_EVO_DESIGN",
 				 	x: 6, y: 4,
 				 	name: "Evolutionary Design",
 				 	component: "V_CODE",
-				 	level: 4,
-				 	enables: [
-						 { skill: 12, kind: "IS_REQUIRED" }
-				 	]
+				 	level: "L_NO_DEBT",
+				 	requires: [
+						{ skill: "SK_TDDESIGN", kind: "IS_REQUIRED" },
+					 	{ skill: "SK_FIX_LEGACY", kind: "IS_REQUIRED" }
+					]
 				 },
 				 {
-				 	id: 12,
+					// 12
+				 	id: "SK_NO_BUGS",
 				 	x: 7, y: 4,
 				 	name: "No bugs",
 				 	component: "V_CODE",
-				 	level: 4,
+				 	level: "L_NO_DEBT",
 				 	enables: [
 					  { skill: 13, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
+					 	{ skill: "SK_EVO_DESIGN", kind: "IS_REQUIRED" }
 				 	]
 				 },
 				 {
@@ -160,7 +182,7 @@
 				 	x: 8, y: 2,
 				 	name: "YAGNI and simplest thing",
 				 	component: "V_CODE",
-				 	level: 4,
+				 	level: "L_NO_DEBT",
 				 	enables: [
 						 { skill: 9, kind: "IS_REQUIRED" }
 				 	]
@@ -170,7 +192,7 @@
 				 	x: 13, y: 2,
 				 	name: "Continuous delivery",
 				 	component: "V_SHIP",
-				 	level: 4,
+				 	level: "L_AWESOME",
 				 	enables: [
 						 { skill: 15, kind: "IS_REQUIRED" },
 						 { skill: 12, kind: "IS_REQUIRED" }
@@ -180,7 +202,7 @@
 				 	id: 15,
 				 	x: 19, y: 3,
 				 	name: "Continuous deployment",
-				 	level: 4,
+				 	level: "L_AWESOME",
 				 	component: "V_SHIP",
 				 	enables: []
 				 },
