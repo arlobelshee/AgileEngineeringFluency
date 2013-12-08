@@ -113,7 +113,7 @@
 				 	id: "SK_TDDESIGN",
 				 	x: 5, y: 0,
 				 	name: "Test-driven design",
-				 	level: 4,
+				 	level: "L_AWESOME",
 				 	component: "V_CHECK_WORK",
 				 	requires: [
 						 { skill: "SK_RGR", kind: "IS_REQUIRED" }
@@ -138,6 +138,7 @@
 				 	level: "L_AWESOME",
 				 	component: "V_CODE",
 				 	requires: [
+						 { skill: "SK_YAGNI", kind: "IS_REQUIRED" }
 				 	]
 				 },
 				 {
@@ -160,8 +161,9 @@
 				 	level: "L_NO_DEBT",
 				 	requires: [
 						{ skill: "SK_TDDESIGN", kind: "IS_REQUIRED" },
-					 	{ skill: "SK_FIX_LEGACY", kind: "IS_REQUIRED" }
-					]
+					 	{ skill: "SK_FIX_LEGACY", kind: "IS_REQUIRED" },
+						 { skill: "SK_GREENFIELD", kind: "IS_HELPFUL" }
+				 	]
 				 },
 				 {
 					// 12
@@ -170,50 +172,51 @@
 				 	name: "No bugs",
 				 	component: "V_CODE",
 				 	level: "L_NO_DEBT",
-				 	enables: [
-					  { skill: 13, kind: "IS_REQUIRED" }
-				 	],
 				 	requires: [
-					 	{ skill: "SK_EVO_DESIGN", kind: "IS_REQUIRED" }
+					 	{ skill: "SK_EVO_DESIGN", kind: "IS_REQUIRED" },
+					  { skill: "SK_CONT_SHIP", kind: "IS_REQUIRED" }
 				 	]
 				 },
 				 {
-				 	id: 13,
+					//13
+				 	id: "SK_YAGNI",
 				 	x: 8, y: 2,
 				 	name: "YAGNI and simplest thing",
 				 	component: "V_CODE",
 				 	level: "L_NO_DEBT",
-				 	enables: [
-						 { skill: 9, kind: "IS_REQUIRED" }
+				 	requires: [
+					  { skill: "SK_NO_BUGS", kind: "IS_REQUIRED" }
 				 	]
 				 },
 				 {
-				 	id: 14,
+					// 14
+				 	id: "SK_CONT_SHIP",
 				 	x: 13, y: 2,
 				 	name: "Continuous delivery",
 				 	component: "V_SHIP",
 				 	level: "L_AWESOME",
-				 	enables: [
-						 { skill: 15, kind: "IS_REQUIRED" },
-						 { skill: 12, kind: "IS_REQUIRED" }
+				 	requires: [
 				 	]
 				 },
 				 {
-				 	id: 15,
+					// 15
+				 	id: "SK_CONT_DEPLOY",
 				 	x: 19, y: 3,
 				 	name: "Continuous deployment",
 				 	level: "L_AWESOME",
 				 	component: "V_SHIP",
-				 	enables: []
+				 	requires: [
+					  { skill: "SK_CONT_SHIP", kind: "IS_REQUIRED" }
+				 	]
 				 },
 				 {
-				 	id: 16,
+					// 16
+				 	id: "SK_GREENFIELD",
 				 	x: 5, y: 3,
 				 	name: "Greenfield project",
 				 	level: "L_NO_DEBT",
 				 	component: "V_CODE",
-				 	enables: [
-						 { skill: 11, kind: "IS_HELPFUL" }
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -223,6 +226,8 @@
 				 	component: "V_CODE",
 				 	enables: [
 						 { skill: 18, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -232,6 +237,8 @@
 				 	component: "V_CODE",
 				 	enables: [
 						 { skill: 19, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -242,6 +249,8 @@
 				 	enables: [
 						 { skill: 20, kind: "IS_REQUIRED" },
 						 { skill: 21, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -252,6 +261,8 @@
 				 	component: "V_CODE",
 				 	enables: [
 						 { skill: 25, kind: "IS_REQUIRED" },
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -262,6 +273,8 @@
 				 	level: "L_TRADITIONAL",
 				 	enables: [
 						 { skill: 22, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -272,6 +285,8 @@
 				 	level: "L_TRADITIONAL",
 				 	enables: [
 						 { skill: 23, kind: "IS_REQUIRED" },
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -280,7 +295,8 @@
 				 	name: "Iterated predictive design",
 				 	component: "V_CODE",
 				 	level: "L_TRADITIONAL",
-				 	enables: []
+				 	requires: [
+				 	]
 				 },
 				 {
 				 	id: 24,
@@ -291,6 +307,8 @@
 				 	enables: [
 						 { skill: 4, kind: "IS_REQUIRED" },
 						 { skill: 20, kind: "IS_REQUIRED" },
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -303,6 +321,8 @@
 						 { skill: 5, kind: "IS_REQUIRED" },
 						 { skill: 8, kind: "IS_REQUIRED" },
 						 { skill: 11, kind: "IS_REQUIRED" },
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -313,6 +333,8 @@
 				 	level: "L_TRADITIONAL",
 				 	enables: [
 						 { skill: 27, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -323,6 +345,8 @@
 				 	level: "L_TRADITIONAL",
 				 	enables: [
 						 { skill: 28, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -334,6 +358,8 @@
 				 	enables: [
 						 { skill: 2, kind: "IS_REQUIRED" },
 						 { skill: 29, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -345,6 +371,8 @@
 				 	enables: [
 						 { skill: 30, kind: "IS_REQUIRED" },
 						 { skill: 31, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -352,9 +380,11 @@
 				 	x: 0, y: 0,
 				 	name: "Feature isolation",
 				 	component: "V_SHIP",
-				 	level: 4,
+				 	level: "L_AWESOME",
 				 	enables: [
 						 { skill: 14, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -365,6 +395,8 @@
 				 	level: "L_NO_DEBT",
 				 	enables: [
 						 { skill: 32, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -372,9 +404,11 @@
 				 	x: 0, y: 0,
 				 	name: "Automated rollback",
 				 	component: "V_SHIP",
-				 	level: 4,
+				 	level: "L_AWESOME",
 				 	enables: [
 						 { skill: 15, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -385,6 +419,8 @@
 				 	level: "L_TRADITIONAL",
 				 	enables: [
 						 { skill: 34, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -395,6 +431,8 @@
 				 	level: "L_TRADITIONAL",
 				 	enables: [
 						 { skill: 35, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -405,6 +443,8 @@
 				 	level: "L_TRADITIONAL",
 				 	enables: [
 						 { skill: 36, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -417,6 +457,8 @@
 						 { skill: 2, kind: "IS_REQUIRED" },
 						 { skill: 37, kind: "IS_REQUIRED" },
 						 { skill: 40, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -430,6 +472,8 @@
 						 { skill: 38, kind: "IS_REQUIRED" },
 						 { skill: 39, kind: "IS_REQUIRED" },
 						 { skill: 40, kind: "IS_HELPFUL" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -437,9 +481,11 @@
 				 	x: 0, y: 0,
 				 	name: "Verify examples",
 				 	component: "V_REQUIREMENTS",
-				 	level: 4,
+				 	level: "L_AWESOME",
 				 	enables: [
 						 { skill: 3, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -452,6 +498,8 @@
 						 { skill: 41, kind: "IS_REQUIRED" },
 						 { skill: 43, kind: "IS_REQUIRED" },
 						 { skill: 42, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -462,6 +510,8 @@
 				 	level: "L_LEVERAGE",
 				 	enables: [
 						 { skill: 42, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -469,9 +519,11 @@
 				 	x: 0, y: 0,
 				 	name: "Hypothesis stories",
 				 	component: "V_REQUIREMENTS",
-				 	level: 4,
+				 	level: "L_AWESOME",
 				 	enables: [
 						 { skill: 82, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -481,6 +533,8 @@
 				 	component: "V_REQUIREMENTS",
 				 	level: "L_LEVERAGE",
 				 	enables: [
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -488,10 +542,12 @@
 				 	x: 0, y: 0,
 				 	name: "Experience focus",
 				 	component: "V_REQUIREMENTS",
-				 	level: 4,
+				 	level: "L_AWESOME",
 				 	enables: [
 						 { skill: 44, kind: "IS_REQUIRED" },
 						 { skill: 46, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -499,9 +555,11 @@
 				 	x: 0, y: 0,
 				 	name: "Business metric focus",
 				 	component: "V_REQUIREMENTS",
-				 	level: 4,
+				 	level: "L_AWESOME",
 				 	enables: [
 						 { skill: 45, kind: "IS_REQUIRED" },
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -509,17 +567,20 @@
 				 	x: 0, y: 0,
 				 	name: "Lean startup",
 				 	component: "V_REQUIREMENTS",
-				 	level: 4,
-				 	enables: []
+				 	level: "L_AWESOME",
+				 	requires: [
+				 	]
 				 },
 				 {
 				 	id: 46,
 				 	x: 0, y: 0,
 				 	name: "Whole team business innovation",
 				 	component: "V_REQUIREMENTS",
-				 	level: 4,
+				 	level: "L_AWESOME",
 				 	enables: [
 						 { skill: 45, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -531,6 +592,8 @@
 				 	enables: [
 						 { skill: 48, kind: "IS_REQUIRED" },
 						 { skill: 52, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -541,6 +604,8 @@
 				 	level: "L_TRADITIONAL",
 				 	enables: [
 						 { skill: 49, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -551,6 +616,8 @@
 				 	level: "L_TRADITIONAL",
 				 	enables: [
 						 { skill: 50, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -561,6 +628,8 @@
 				 	level: "L_TRADITIONAL",
 				 	enables: [
 						 { skill: 51, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -570,6 +639,8 @@
 				 	component: "V_LEARN",
 				 	level: "L_TRADITIONAL",
 				 	enables: [
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -580,6 +651,8 @@
 				 	level: "L_CORE",
 				 	enables: [
 						 { skill: 53, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -590,6 +663,8 @@
 				 	level: "L_CORE",
 				 	enables: [
 						 { skill: 54, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -601,6 +676,8 @@
 				 	enables: [
 						 { skill: 8, kind: "IS_REQUIRED" },
 						 { skill: 57, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -612,6 +689,8 @@
 				 	enables: [
 						 { skill: 53, kind: "IS_HELPFUL" },
 						 { skill: 56, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -623,6 +702,8 @@
 				 	enables: [
 						 { skill: 54, kind: "IS_HELPFUL" },
 						 { skill: 57, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -633,6 +714,8 @@
 				 	level: "L_NO_DEBT",
 				 	enables: [
 						 { skill: 58, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -647,6 +730,8 @@
 						 { skill: 59, kind: "IS_REQUIRED" },
 						 { skill: 71, kind: "IS_REQUIRED" },
 						 { skill: 60, kind: "IS_HELPFUL" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -654,10 +739,12 @@
 				 	x: 0, y: 0,
 				 	name: "M-shaped people",
 				 	component: "V_LEARN",
-				 	level: 4,
+				 	level: "L_AWESOME",
 				 	enables: [
 						 { skill: 46, kind: "IS_REQUIRED" },
 						 { skill: 61, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -665,10 +752,12 @@
 				 	x: 0, y: 0,
 				 	name: "Mobbing",
 				 	component: "V_LEARN",
-				 	level: 4,
+				 	level: "L_AWESOME",
 				 	enables: [
 						 { skill: 12, kind: "IS_HELPFUL" },
 						 { skill: 61, kind: "IS_HELPFUL" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -676,8 +765,9 @@
 				 	x: 0, y: 0,
 				 	name: "Full-product specialization",
 				 	component: "V_LEARN",
-				 	level: 4,
-				 	enables: []
+				 	level: "L_AWESOME",
+				 	requires: [
+				 	]
 				 },
 				 {
 				 	id: 62,
@@ -687,6 +777,8 @@
 				 	level: "L_TRADITIONAL",
 				 	enables: [
 						 { skill: 63, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -697,6 +789,8 @@
 				 	level: "L_TRADITIONAL",
 				 	enables: [
 						 { skill: 64, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -707,6 +801,8 @@
 				 	level: "L_TRADITIONAL",
 				 	enables: [
 						 { skill: 65, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -717,6 +813,8 @@
 				 	level: "L_CORE",
 				 	enables: [
 						 { skill: 66, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -728,6 +826,8 @@
 				 	enables: [
 						 { skill: 67, kind: "IS_REQUIRED" },
 						 { skill: 68, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -739,6 +839,8 @@
 				 	enables: [
 						 { skill: 68, kind: "IS_HELPFUL" },
 						 { skill: 69, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -749,6 +851,8 @@
 				 	level: "L_NO_DEBT",
 				 	enables: [
 						 { skill: 70, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -759,6 +863,8 @@
 				 	level: "L_NO_DEBT",
 				 	enables: [
 						 { skill: 70, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -766,16 +872,18 @@
 				 	x: 0, y: 0,
 				 	name: "Useful innovation",
 				 	component: "V_IMPROVE",
-				 	level: 4,
-				 	enables: []
+				 	level: "L_AWESOME",
+				 	requires: [
+				 	]
 				 },
 				 {
 				 	id: 71,
 				 	x: 0, y: 0,
 				 	name: "Radical collaboration",
 				 	component: "V_LEARN",
-				 	level: 4,
-				 	enables: []
+				 	level: "L_AWESOME",
+				 	requires: [
+				 	]
 				 },
 				 {
 				 	id: 72,
@@ -785,6 +893,8 @@
 				 	level: "L_UNASSIGNED",
 				 	enables: [
 						 { skill: 74, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -796,6 +906,8 @@
 				 	enables: [
 						 { skill: 76, kind: "IS_REQUIRED" },
 						 { skill: 77, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -806,6 +918,8 @@
 				 	level: "L_UNASSIGNED",
 				 	enables: [
 						 { skill: 75, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -816,6 +930,8 @@
 				 	level: "L_UNASSIGNED",
 				 	enables: [
 						 { skill: 77, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -826,6 +942,8 @@
 				 	level: "L_UNASSIGNED",
 				 	enables: [
 						 { skill: 78, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -836,6 +954,8 @@
 				 	level: "L_UNASSIGNED",
 				 	enables: [
 						 { skill: 78, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -846,6 +966,8 @@
 				 	level: "L_UNASSIGNED",
 				 	enables: [
 						 { skill: 79, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -856,6 +978,8 @@
 				 	level: "L_UNASSIGNED",
 				 	enables: [
 						 { skill: 80, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -866,6 +990,8 @@
 				 	level: "L_UNASSIGNED",
 				 	enables: [
 						 { skill: 81, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -877,6 +1003,8 @@
 				 	enables: [
 						 { skill: 71, kind: "IS_REQUIRED" },
 						 { skill: 10, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 },
 				 {
@@ -888,6 +1016,8 @@
 				 	enables: [
 						 { skill: 14, kind: "IS_REQUIRED" },
 						 { skill: 44, kind: "IS_REQUIRED" }
+				 	],
+				 	requires: [
 				 	]
 				 }
 			]
