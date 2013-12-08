@@ -1,849 +1,903 @@
 <html>
 <head>
-	 <title>adaptive engineering proficiencies</title>
-	 <script type="text/javascript">
+	<title>adaptive engineering proficiencies</title>
+	<script type="text/javascript">
 		var data = {
-		  components: {
-			V_CHECK_WORK: { name: "Check your work" },
+			components: {
+				V_CHECK_WORK: { name: "Check your work" },
 				V_CODE: { name: "Write good code" },
 				V_SHIP: { name: "Ship" },
 				V_REQUIREMENTS: { name: "Know what to build" },
 				V_LEARN: { name: "Discipline and learning" },
 				V_IMPROVE: { name: "Improve as a Team" },
 				V_SUSTAINABLE: { name: "Not hurried" }
-		  },
+			},
 
-		  levels: {
+			levels: {
 				L_TRADITIONAL: { name: "Traditional done well", range: [0, 4] },
 				L_CORE: { name: "Core modern engineering", range: [5, 10] },
 				L_LEVERAGE: { name: "Leverage new capabilities", range: [11, 13] },
 				L_NO_DEBT: { name: "Eliminate debt and change the rules", range: [14, 18] },
 				L_AWESOME: { name: "Take advantage of being awesome", range: [19, 24] }
-		  },
+			},
 
-		  dependency_kind: {
+			dependency_kind: {
 				IS_REQUIRED: { name: "Doing A is nearly required to do B", style: "solid" },
 				IS_HELPFUL: { name: "Doing A helps a lot when doing B", style: "dotted" }
-		  },
+			},
 
-		  skills: [
-				{ 
-					id: 0,
-					x: 0, y: 0,
-					 name: "Quality Assurance", 
-					 level: "L_TRADITIONAL",
-					 component: "V_CHECK_WORK",
-					 enables: [
-						  { skill: 1, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 1,
-					 x: 1, y: 0,
-					 name: "Developer Checking",
-					 level: "L_TRADITIONAL",
-					 component: "V_CHECK_WORK",
-					 enables: [
-						  { skill: 2, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 2,
-					 x: 2, y: 0,
-					 name: "Automated developer testing",
-					 level: "L_CORE",
-					 component: "V_CHECK_WORK",
-					 enables: [
-						  { skill: 3, kind: "IS_REQUIRED" },
-						  { skill: 4, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 3,
-					 x: 3, y: 0,
-					 name: "Test first",
-					 level: "L_CORE",
-					 component: "V_CHECK_WORK",
-					 enables: [
-						  { skill: 5, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 4,
-					 x: 3, y: 1,
-					 name: "Test units",
-					 level: "L_CORE",
-					 component: "V_CHECK_WORK",
-					 enables: [
-						  { skill: 5, kind: "IS_REQUIRED" },
-						  { skill: 6, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 5,
-					 x: 4, y: 0,
-					 name: "Red, green, refactor",
-					 level: "L_NO_DEBT",
-					 component: "V_CHECK_WORK",
-					 enables: [
-						  { skill: 7, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 6,
-					 x: 4, y: 2,
-					 name: "Legacy code under test",
-					 level: "L_NO_DEBT",
-					 component: "V_CHECK_WORK",
-					 enables: []
-				},
-				{
-					 id: 7,
-					 x: 5, y: 0,
-					 name: "Test-driven design",
-					 level: 4,
-					 component: "V_CHECK_WORK",
-					 enables: [
-						  { skill: 11, kind: "IS_REQUIRED" },
-					 ]
-				},
-				{
-					 id: 8,
-					 x: 5, y: 2,
-					 name: "Legacy code recovery",
-					 level: "L_NO_DEBT",
-					 component: "V_CODE",
-					 enables: [
-						  { skill: 10, kind: "IS_REQUIRED" },
-						  { skill: 11, kind: "IS_REQUIRED" },
-						  { skill: 6, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 9,
-					 x: 18, y: 0,
-					 name: "Code whispering",
-					 level: 4,
-					 component: "V_CODE",
-					 enables: [],
-				},
-				{
-					 id: 10,
-					 x: 6, y: 3,
-					 name: "Simultaneous Phases",
-					 level: 4,
-					 component: "V_CODE",
-					 enables: []
-				},
-				{
-					 id: 11,
-					 x: 6, y: 4,
-					 name: "Evolutionary Design",
-					 component: "V_CODE",
-					 level: 4,
-					 enables: [
-						  { skill: 12, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 12,
-					 x: 7, y: 4,
-					 name: "No bugs",
-					 component: "V_CODE",
-					 level: 4,
-					 enables: [
-						{ skill: 13, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 13,
-					 x: 8, y: 2,
-					 name: "YAGNI and simplest thing",
-					 component: "V_CODE",
-					 level: 4,
-					 enables: [
-						  { skill: 9, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 14,
-					 x: 13, y: 2,
-					 name: "Continuous delivery",
-					 component: "V_SHIP",
-					 level: 4,
-					 enables: [
-						  { skill: 15, kind: "IS_REQUIRED" },
-						  { skill: 12, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 15,
-					 x: 19, y: 3,
-					 name: "Continuous deployment",
-					 level: 4,
-					 component: "V_SHIP",
-					 enables: []
-				},
-				{
-					 id: 16,
-					 x: 5, y: 3,
-					 name: "Greenfield project",
-					 level: "L_NO_DEBT",
-					 component: "V_CODE",
-					 enables: [
-						  { skill: 11, kind: "IS_HELPFUL" }
-					 ]
-				},
-				{
-					 id: 17,
-					 name: "Cowboy coding",
-					 level: "L_TRADITIONAL",
-					 component: "V_CODE",
-					 enables: [
-						  { skill: 18, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 18,
-					 name: "Big design up front",
-					 level: "L_TRADITIONAL",
-					 component: "V_CODE",
-					 enables: [
-						  { skill: 19, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 19,
-					 name: "Pattern-oriented design",
-					 level: "L_TRADITIONAL",
-					 component: "V_CODE",
-					 enables: [
-						  { skill: 20, kind: "IS_REQUIRED" },
-						  { skill: 21, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 20,
-					 x: 7, y: 5,
-					 name: "Don't repeat yourself",
-					 level: "L_CORE",
-					 component: "V_CODE",
-					 enables: [
-						  { skill: 25, kind: "IS_REQUIRED"},
-					 ]
-				},
-				{
-					 id: 21,
-					 x: 2, y: 4,
-					 name: "Just architecture up front",
-					 component: "V_CODE",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 22, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 22,
-					 x: 3, y: 4,
-					 name: "Smell-based predictive design",
-					 component: "V_CODE",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 23, kind: "IS_REQUIRED" },
-					 ]
-				},
-				{
-					 id: 23,
-					 x: 4, y: 4,
-					 name: "Iterated predictive design",
-					 component: "V_CODE",
-					 level: "L_TRADITIONAL",
-					 enables: []
-				},
-				{
-					 id: 24,
-					 x: 1, y: 3,
-					 name: "Local refactoring",
-					 component: "V_CODE",
-					 level: "L_CORE",
-					 enables: [
-						  { skill: 4, kind: "IS_REQUIRED" },
-						  { skill: 20, kind: "IS_REQUIRED" },
-					 ]
-				},
-				{
-					 id: 25,
-					 x: 6, y: 5,
-					 name: "Reflective design",
-					 component: "V_CODE",
-					 level: "L_CORE",
-					 enables: [
-						  { skill: 5, kind: "IS_REQUIRED" },
-						  { skill: 8, kind: "IS_REQUIRED" },
-						  { skill: 11, kind: "IS_REQUIRED" },
-					 ]
-				},
-				{
-					 id: 26,
-					 x: 0, y: 8,
-					 name: "Manual build and package",
-					 component: "V_SHIP",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 27, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 27,
-					 x: 1, y: 8,
-					 name: "Automated package",
-					 component: "V_SHIP",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 28, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 28,
-					 x: 5, y: 8,
-					 name: "Automated build verification",
-					 component: "V_SHIP",
-					 level: "L_CORE",
-					 enables: [
-						  { skill: 2, kind: "IS_REQUIRED" },
-						  { skill: 29, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 29,
-					 name: "Automated deploy",
-					 component: "V_SHIP",
-					 level: "L_LEVERAGE",
-					 enables: [
-						  { skill: 30, kind: "IS_REQUIRED" },
-						  { skill: 31, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 30,
-					 name: "Feature isolation",
-					 component: "V_SHIP",
-					 level: 4,
-					 enables: [
-						  { skill: 14, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 31,
-					 name: "Automated deploy verification",
-					 component: "V_SHIP",
-					 level: "L_NO_DEBT",
-					 enables: [
-						  { skill: 32, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 32,
-					 name: "Automated rollback",
-					 component: "V_SHIP",
-					 level: 4,
-					 enables: [
-						  { skill: 15, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 33,
-					 name: "Build for myself",
-					 component: "V_REQUIREMENTS",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 34, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 34,
-					 name: "Product requirements",
-					 component: "V_REQUIREMENTS",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 35, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 35,
-					 name: "Build slack in",
-					 component: "V_REQUIREMENTS",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 36, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 36,
-					 name: "Small specs",
-					 component: "V_REQUIREMENTS",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 2, kind: "IS_REQUIRED" },
-						  { skill: 37, kind: "IS_REQUIRED" },
-						  { skill: 40, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 37,
-					 name: "Stories",
-					 component: "V_REQUIREMENTS",
-					 level: "L_LEVERAGE",
-					 enables: [
-						  { skill: 3, kind: "IS_HELPFUL" },
-						  { skill: 38, kind: "IS_REQUIRED" },
-						  { skill: 39, kind: "IS_REQUIRED" },
-						  { skill: 40, kind: "IS_HELPFUL" }
-					 ]
-				},
-				{
-					 id: 38,
-					 name: "Verify examples",
-					 component: "V_REQUIREMENTS",
-					 level: 4,
-					 enables: [
-						  { skill: 3, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 39,
-					 name: "Story clustering",
-					 component: "V_REQUIREMENTS",
-					 level: "L_LEVERAGE",
-					 enables: [
-						  { skill: 41, kind: "IS_REQUIRED" },
-						  { skill: 43, kind: "IS_REQUIRED" },
-						  { skill: 42, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 40,
-					 name: "Adaptive planning",
-					 component: "V_REQUIREMENTS",
-					 level: "L_LEVERAGE",
-					 enables: [
-						  { skill: 42, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 41,
-					 name: "Hypothesis stories",
-					 component: "V_REQUIREMENTS",
-					 level: 4,
-					 enables: [
-						  { skill: 82, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 42,
-					 name: "Rolling-wave planning",
-					 component: "V_REQUIREMENTS",
-					 level: "L_LEVERAGE",
-					 enables: [
-					 ]
-				},
-				{
-					 id: 43,
-					 name: "Experience focus",
-					 component: "V_REQUIREMENTS",
-					 level: 4,
-					 enables: [
-						  { skill: 44, kind: "IS_REQUIRED" },
-						  { skill: 46, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 44,
-					 name: "Business metric focus",
-					 component: "V_REQUIREMENTS",
-					 level: 4,
-					 enables: [
-						  { skill: 45, kind: "IS_REQUIRED" },
-					 ]
-				},
-				{
-					 id: 45,
-					 name: "Lean startup",
-					 component: "V_REQUIREMENTS",
-					 level: 4,
-					 enables: []
-				},
-				{
-					 id: 46,
-					 name: "Whole team business innovation",
-					 component: "V_REQUIREMENTS",
-					 level: 4,
-					 enables: [
-						  { skill: 45, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 47,
-					 name: "Ad-hoc helping",
-					 component: "V_LEARN",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 48, kind: "IS_REQUIRED" },
-						  { skill: 52, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 48,
-					 name: "Team leads",
-					 component: "V_LEARN",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 49, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 49,
-					 name: "Formal training",
-					 component: "V_LEARN",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 50, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 50,
-					 name: "Code review",
-					 component: "V_LEARN",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 51, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 51,
-					 name: "Code preview",
-					 component: "V_LEARN",
-					 level: "L_TRADITIONAL",
-					 enables: [
-					 ]
-				},
-				{ 
-					 id: 52,
-					 name: "Shared code responsibility",
-					 component: "V_LEARN",
-					 level: "L_CORE",
-					 enables: [
-						  { skill: 53, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 53,
-					 name: "T-shaped people",
-					 component: "V_LEARN",
-					 level: "L_CORE",
-					 enables: [
-						  { skill: 54, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 54,
-					 name: "Collective ownership",
-					 component: "V_LEARN",
-					 level: "L_CORE",
-					 enables: [
-						  { skill: 8, kind: "IS_REQUIRED" },
-						  { skill: 57, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 55,
-					 name: "Sit together",
-					 component: "V_LEARN",
-					 level: "L_NO_DEBT",
-					 enables: [
-						  { skill: 53, kind: "IS_HELPFUL" },
-						  { skill: 56, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 56,
-					 name: "Ad-hoc pairing",
-					 component: "V_LEARN",
-					 level: "L_NO_DEBT",
-					 enables: [
-						  { skill: 54, kind: "IS_HELPFUL" },
-						  { skill: 57, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 57,
-					 name: "Regular pairing",
-					 component: "V_LEARN",
-					 level: "L_NO_DEBT",
-					 enables: [
-						  { skill: 58, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 58,
-					 name: "Full-time pairing",
-					 component: "V_LEARN",
-					 level: "L_NO_DEBT",
-					 enables: [
-						  { skill: 11, kind: "IS_HELPFUL" },
-						  { skill: 12, kind: "IS_REQUIRED" },
-						  { skill: 59, kind: "IS_REQUIRED" },
-						  { skill: 71, kind: "IS_REQUIRED" },
-						  { skill: 60, kind: "IS_HELPFUL" }
-					 ]
-				},
-				{ 
-					 id: 59,
-					 name: "M-shaped people",
-					 component: "V_LEARN",
-					 level: 4,
-					 enables: [
-						  { skill: 46, kind: "IS_REQUIRED" },
-						  { skill: 61, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 60,
-					 name: "Mobbing",
-					 component: "V_LEARN",
-					 level: 4,
-					 enables: [
-						  { skill: 12, kind: "IS_HELPFUL" },
-						  { skill: 61, kind: "IS_HELPFUL" }
-					 ]
-				},
-				{ 
-					 id: 61,
-					 name: "Full-product specialization",
-					 component: "V_LEARN",
-					 level: 4,
-					 enables: []
-				},
-				{ 
-					 id: 62,
-					 name: "Stasis",
-					 component: "V_IMPROVE",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 63, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 63,
-					 name: "Centralized improvement",
-					 component: "V_IMPROVE",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 64, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 64,
-					 name: "Post-mortems",
-					 component: "V_IMPROVE",
-					 level: "L_TRADITIONAL",
-					 enables: [
-						  { skill: 65, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 65,
-					 name: "Retrospectives",
-					 component: "V_IMPROVE",
-					 level: "L_CORE",
-					 enables: [
-						  { skill: 66, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 66,
-					 name: "Action-based retrospectives",
-					 component: "V_IMPROVE",
-					 level: "L_CORE",
-					 enables: [
-						  { skill: 67, kind: "IS_REQUIRED" },
-						  { skill: 68, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 67,
-					 name: "Learn from local cmm'ty",
-					 component: "V_IMPROVE",
-					 level: "L_NO_DEBT",
-					 enables: [
-						  { skill: 68, kind: "IS_HELPFUL" },
-						  { skill: 69, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 68,
-					 name: "Process experiments",
-					 component: "V_IMPROVE",
-					 level: "L_NO_DEBT",
-					 enables: [
-						  { skill: 70, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 69,
-					 name: "Learn from everyone",
-					 component: "V_IMPROVE",
-					 level: "L_NO_DEBT",
-					 enables: [
-						  { skill: 70, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 70,
-					 name: "Useful innovation",
-					 component: "V_IMPROVE",
-					 level: 4,
-					 enables: []
-				},
-				{ 
-					 id: 71,
-					 name: "Radical collaboration",
-					 component: "V_LEARN",
-					 level: 4,
-					 enables: []
-				},
-				{ 
-					 id: 72,
-					 name: "Death marches",
-					 component: "V_SUSTAINABLE",
-					 level: "L_UNASSIGNED",
-					 enables: [
-						  { skill: 74, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 73,
-					 name: "Track capacity",
-					 component: "V_SUSTAINABLE",
-					 level: "L_UNASSIGNED",
-					 enables: [
-						  { skill: 76, kind: "IS_REQUIRED" },
-						  { skill: 77, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 74,
-					 name: "Waterfall milestones",
-					 component: "V_SUSTAINABLE",
-					 level: "L_UNASSIGNED",
-					 enables: [
-						  { skill: 75, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 75,
-					 name: "Iterations with self",
-					 component: "V_SUSTAINABLE",
-					 level: "L_UNASSIGNED",
-					 enables: [
-						  { skill: 77, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 76,
-					 name: "Relative based estimation",
-					 component: "V_SUSTAINABLE",
-					 level: "L_UNASSIGNED",
-					 enables: [
-						  { skill: 78, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 77,
-					 name: "Limit work to estimated capacity",
-					 component: "V_SUSTAINABLE",
-					 level: "L_UNASSIGNED",
-					 enables: [
-						  { skill: 78, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 78,
-					 name: "Use data to determine capacity",
-					 component: "V_SUSTAINABLE",
-					 level: "L_UNASSIGNED",
-					 enables: [
-						  { skill: 79, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 79,
-					 name: "Pull systems",
-					 component: "V_SUSTAINABLE",
-					 level: "L_UNASSIGNED",
-					 enables: [
-						  { skill: 80, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 80,
-					 name: "WIP limits",
-					 component: "V_SUSTAINABLE",
-					 level: "L_UNASSIGNED",
-					 enables: [
-						  { skill: 81, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{ 
-					 id: 81,
-					 name: "Single piece flow",
-					 component: "V_SUSTAINABLE",
-					 level: "L_UNASSIGNED",
-					 enables: [
-						  { skill: 71, kind: "IS_REQUIRED" },
-						  { skill: 10, kind: "IS_REQUIRED" }
-					 ]
-				},
-				{
-					 id: 82,
-					 name: "Testing in production",
-					 component: "V_REQUIREMENTS",
-					 level: "L_AWESOME",
-					 enables: [
-						  { skill: 14, kind: "IS_REQUIRED" },
-						  { skill: 44, kind: "IS_REQUIRED" }
-					 ]
-				}
-		  ]
-		  };
+			skills: [
+				 {
+				 	id: 0,
+				 	x: 0, y: 0,
+				 	name: "Quality Assurance",
+				 	level: "L_TRADITIONAL",
+				 	component: "V_CHECK_WORK",
+				 	enables: [
+						 { skill: 1, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 1,
+				 	x: 1, y: 0,
+				 	name: "Developer Checking",
+				 	level: "L_TRADITIONAL",
+				 	component: "V_CHECK_WORK",
+				 	enables: [
+						 { skill: 2, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 2,
+				 	x: 2, y: 0,
+				 	name: "Automated developer testing",
+				 	level: "L_CORE",
+				 	component: "V_CHECK_WORK",
+				 	enables: [
+						 { skill: 3, kind: "IS_REQUIRED" },
+						 { skill: 4, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 3,
+				 	x: 3, y: 0,
+				 	name: "Test first",
+				 	level: "L_CORE",
+				 	component: "V_CHECK_WORK",
+				 	enables: [
+						 { skill: 5, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 4,
+				 	x: 3, y: 1,
+				 	name: "Test units",
+				 	level: "L_CORE",
+				 	component: "V_CHECK_WORK",
+				 	enables: [
+						 { skill: 5, kind: "IS_REQUIRED" },
+						 { skill: 6, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 5,
+				 	x: 4, y: 0,
+				 	name: "Red, green, refactor",
+				 	level: "L_NO_DEBT",
+				 	component: "V_CHECK_WORK",
+				 	enables: [
+						 { skill: 7, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 6,
+				 	x: 4, y: 2,
+				 	name: "Legacy code under test",
+				 	level: "L_NO_DEBT",
+				 	component: "V_CHECK_WORK",
+				 	enables: []
+				 },
+				 {
+				 	id: 7,
+				 	x: 5, y: 0,
+				 	name: "Test-driven design",
+				 	level: 4,
+				 	component: "V_CHECK_WORK",
+				 	enables: [
+						 { skill: 11, kind: "IS_REQUIRED" },
+				 	]
+				 },
+				 {
+				 	id: 8,
+				 	x: 5, y: 2,
+				 	name: "Legacy code recovery",
+				 	level: "L_NO_DEBT",
+				 	component: "V_CODE",
+				 	enables: [
+						 { skill: 10, kind: "IS_REQUIRED" },
+						 { skill: 11, kind: "IS_REQUIRED" },
+						 { skill: 6, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 9,
+				 	x: 18, y: 0,
+				 	name: "Code whispering",
+				 	level: 4,
+				 	component: "V_CODE",
+				 	enables: [],
+				 },
+				 {
+				 	id: 10,
+				 	x: 6, y: 3,
+				 	name: "Simultaneous Phases",
+				 	level: 4,
+				 	component: "V_CODE",
+				 	enables: []
+				 },
+				 {
+				 	id: 11,
+				 	x: 6, y: 4,
+				 	name: "Evolutionary Design",
+				 	component: "V_CODE",
+				 	level: 4,
+				 	enables: [
+						 { skill: 12, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 12,
+				 	x: 7, y: 4,
+				 	name: "No bugs",
+				 	component: "V_CODE",
+				 	level: 4,
+				 	enables: [
+					  { skill: 13, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 13,
+				 	x: 8, y: 2,
+				 	name: "YAGNI and simplest thing",
+				 	component: "V_CODE",
+				 	level: 4,
+				 	enables: [
+						 { skill: 9, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 14,
+				 	x: 13, y: 2,
+				 	name: "Continuous delivery",
+				 	component: "V_SHIP",
+				 	level: 4,
+				 	enables: [
+						 { skill: 15, kind: "IS_REQUIRED" },
+						 { skill: 12, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 15,
+				 	x: 19, y: 3,
+				 	name: "Continuous deployment",
+				 	level: 4,
+				 	component: "V_SHIP",
+				 	enables: []
+				 },
+				 {
+				 	id: 16,
+				 	x: 5, y: 3,
+				 	name: "Greenfield project",
+				 	level: "L_NO_DEBT",
+				 	component: "V_CODE",
+				 	enables: [
+						 { skill: 11, kind: "IS_HELPFUL" }
+				 	]
+				 },
+				 {
+				 	id: 17,
+				 	name: "Cowboy coding",
+				 	level: "L_TRADITIONAL",
+				 	component: "V_CODE",
+				 	enables: [
+						 { skill: 18, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 18,
+				 	name: "Big design up front",
+				 	level: "L_TRADITIONAL",
+				 	component: "V_CODE",
+				 	enables: [
+						 { skill: 19, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 19,
+				 	name: "Pattern-oriented design",
+				 	level: "L_TRADITIONAL",
+				 	component: "V_CODE",
+				 	enables: [
+						 { skill: 20, kind: "IS_REQUIRED" },
+						 { skill: 21, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 20,
+				 	x: 7, y: 5,
+				 	name: "Don't repeat yourself",
+				 	level: "L_CORE",
+				 	component: "V_CODE",
+				 	enables: [
+						 { skill: 25, kind: "IS_REQUIRED" },
+				 	]
+				 },
+				 {
+				 	id: 21,
+				 	x: 2, y: 4,
+				 	name: "Just architecture up front",
+				 	component: "V_CODE",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 22, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 22,
+				 	x: 3, y: 4,
+				 	name: "Smell-based predictive design",
+				 	component: "V_CODE",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 23, kind: "IS_REQUIRED" },
+				 	]
+				 },
+				 {
+				 	id: 23,
+				 	x: 4, y: 4,
+				 	name: "Iterated predictive design",
+				 	component: "V_CODE",
+				 	level: "L_TRADITIONAL",
+				 	enables: []
+				 },
+				 {
+				 	id: 24,
+				 	x: 1, y: 3,
+				 	name: "Local refactoring",
+				 	component: "V_CODE",
+				 	level: "L_CORE",
+				 	enables: [
+						 { skill: 4, kind: "IS_REQUIRED" },
+						 { skill: 20, kind: "IS_REQUIRED" },
+				 	]
+				 },
+				 {
+				 	id: 25,
+				 	x: 6, y: 5,
+				 	name: "Reflective design",
+				 	component: "V_CODE",
+				 	level: "L_CORE",
+				 	enables: [
+						 { skill: 5, kind: "IS_REQUIRED" },
+						 { skill: 8, kind: "IS_REQUIRED" },
+						 { skill: 11, kind: "IS_REQUIRED" },
+				 	]
+				 },
+				 {
+				 	id: 26,
+				 	x: 0, y: 8,
+				 	name: "Manual build and package",
+				 	component: "V_SHIP",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 27, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 27,
+				 	x: 1, y: 8,
+				 	name: "Automated package",
+				 	component: "V_SHIP",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 28, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 28,
+				 	x: 5, y: 8,
+				 	name: "Automated build verification",
+				 	component: "V_SHIP",
+				 	level: "L_CORE",
+				 	enables: [
+						 { skill: 2, kind: "IS_REQUIRED" },
+						 { skill: 29, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 29,
+				 	x: 0, y: 0,
+				 	name: "Automated deploy",
+				 	component: "V_SHIP",
+				 	level: "L_LEVERAGE",
+				 	enables: [
+						 { skill: 30, kind: "IS_REQUIRED" },
+						 { skill: 31, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 30,
+				 	x: 0, y: 0,
+				 	name: "Feature isolation",
+				 	component: "V_SHIP",
+				 	level: 4,
+				 	enables: [
+						 { skill: 14, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 31,
+				 	x: 0, y: 0,
+				 	name: "Automated deploy verification",
+				 	component: "V_SHIP",
+				 	level: "L_NO_DEBT",
+				 	enables: [
+						 { skill: 32, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 32,
+				 	x: 0, y: 0,
+				 	name: "Automated rollback",
+				 	component: "V_SHIP",
+				 	level: 4,
+				 	enables: [
+						 { skill: 15, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 33,
+				 	x: 0, y: 0,
+				 	name: "Build for myself",
+				 	component: "V_REQUIREMENTS",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 34, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 34,
+				 	x: 0, y: 0,
+				 	name: "Product requirements",
+				 	component: "V_REQUIREMENTS",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 35, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 35,
+				 	x: 0, y: 0,
+				 	name: "Build slack in",
+				 	component: "V_REQUIREMENTS",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 36, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 36,
+				 	x: 0, y: 0,
+				 	name: "Small specs",
+				 	component: "V_REQUIREMENTS",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 2, kind: "IS_REQUIRED" },
+						 { skill: 37, kind: "IS_REQUIRED" },
+						 { skill: 40, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 37,
+				 	x: 0, y: 0,
+				 	name: "Stories",
+				 	component: "V_REQUIREMENTS",
+				 	level: "L_LEVERAGE",
+				 	enables: [
+						 { skill: 3, kind: "IS_HELPFUL" },
+						 { skill: 38, kind: "IS_REQUIRED" },
+						 { skill: 39, kind: "IS_REQUIRED" },
+						 { skill: 40, kind: "IS_HELPFUL" }
+				 	]
+				 },
+				 {
+				 	id: 38,
+				 	x: 0, y: 0,
+				 	name: "Verify examples",
+				 	component: "V_REQUIREMENTS",
+				 	level: 4,
+				 	enables: [
+						 { skill: 3, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 39,
+				 	x: 0, y: 0,
+				 	name: "Story clustering",
+				 	component: "V_REQUIREMENTS",
+				 	level: "L_LEVERAGE",
+				 	enables: [
+						 { skill: 41, kind: "IS_REQUIRED" },
+						 { skill: 43, kind: "IS_REQUIRED" },
+						 { skill: 42, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 40,
+				 	x: 0, y: 0,
+				 	name: "Adaptive planning",
+				 	component: "V_REQUIREMENTS",
+				 	level: "L_LEVERAGE",
+				 	enables: [
+						 { skill: 42, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 41,
+				 	x: 0, y: 0,
+				 	name: "Hypothesis stories",
+				 	component: "V_REQUIREMENTS",
+				 	level: 4,
+				 	enables: [
+						 { skill: 82, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 42,
+				 	x: 0, y: 0,
+				 	name: "Rolling-wave planning",
+				 	component: "V_REQUIREMENTS",
+				 	level: "L_LEVERAGE",
+				 	enables: [
+				 	]
+				 },
+				 {
+				 	id: 43,
+				 	x: 0, y: 0,
+				 	name: "Experience focus",
+				 	component: "V_REQUIREMENTS",
+				 	level: 4,
+				 	enables: [
+						 { skill: 44, kind: "IS_REQUIRED" },
+						 { skill: 46, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 44,
+				 	x: 0, y: 0,
+				 	name: "Business metric focus",
+				 	component: "V_REQUIREMENTS",
+				 	level: 4,
+				 	enables: [
+						 { skill: 45, kind: "IS_REQUIRED" },
+				 	]
+				 },
+				 {
+				 	id: 45,
+				 	x: 0, y: 0,
+				 	name: "Lean startup",
+				 	component: "V_REQUIREMENTS",
+				 	level: 4,
+				 	enables: []
+				 },
+				 {
+				 	id: 46,
+				 	x: 0, y: 0,
+				 	name: "Whole team business innovation",
+				 	component: "V_REQUIREMENTS",
+				 	level: 4,
+				 	enables: [
+						 { skill: 45, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 47,
+				 	x: 0, y: 0,
+				 	name: "Ad-hoc helping",
+				 	component: "V_LEARN",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 48, kind: "IS_REQUIRED" },
+						 { skill: 52, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 48,
+				 	x: 0, y: 0,
+				 	name: "Team leads",
+				 	component: "V_LEARN",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 49, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 49,
+				 	x: 0, y: 0,
+				 	name: "Formal training",
+				 	component: "V_LEARN",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 50, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 50,
+				 	x: 0, y: 0,
+				 	name: "Code review",
+				 	component: "V_LEARN",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 51, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 51,
+				 	x: 0, y: 0,
+				 	name: "Code preview",
+				 	component: "V_LEARN",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+				 	]
+				 },
+				 {
+				 	id: 52,
+				 	x: 0, y: 0,
+				 	name: "Shared code responsibility",
+				 	component: "V_LEARN",
+				 	level: "L_CORE",
+				 	enables: [
+						 { skill: 53, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 53,
+				 	x: 0, y: 0,
+				 	name: "T-shaped people",
+				 	component: "V_LEARN",
+				 	level: "L_CORE",
+				 	enables: [
+						 { skill: 54, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 54,
+				 	x: 0, y: 0,
+				 	name: "Collective ownership",
+				 	component: "V_LEARN",
+				 	level: "L_CORE",
+				 	enables: [
+						 { skill: 8, kind: "IS_REQUIRED" },
+						 { skill: 57, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 55,
+				 	x: 0, y: 0,
+				 	name: "Sit together",
+				 	component: "V_LEARN",
+				 	level: "L_NO_DEBT",
+				 	enables: [
+						 { skill: 53, kind: "IS_HELPFUL" },
+						 { skill: 56, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 56,
+				 	x: 0, y: 0,
+				 	name: "Pairing to learn",
+				 	component: "V_LEARN",
+				 	level: "L_NO_DEBT",
+				 	enables: [
+						 { skill: 54, kind: "IS_HELPFUL" },
+						 { skill: 57, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 57,
+				 	x: 0, y: 0,
+				 	name: "Pairing for productivity",
+				 	component: "V_LEARN",
+				 	level: "L_NO_DEBT",
+				 	enables: [
+						 { skill: 58, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 58,
+				 	x: 0, y: 0,
+				 	name: "Pairing for discipline",
+				 	component: "V_LEARN",
+				 	level: "L_NO_DEBT",
+				 	enables: [
+						 { skill: 11, kind: "IS_HELPFUL" },
+						 { skill: 12, kind: "IS_REQUIRED" },
+						 { skill: 59, kind: "IS_REQUIRED" },
+						 { skill: 71, kind: "IS_REQUIRED" },
+						 { skill: 60, kind: "IS_HELPFUL" }
+				 	]
+				 },
+				 {
+				 	id: 59,
+				 	x: 0, y: 0,
+				 	name: "M-shaped people",
+				 	component: "V_LEARN",
+				 	level: 4,
+				 	enables: [
+						 { skill: 46, kind: "IS_REQUIRED" },
+						 { skill: 61, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 60,
+				 	x: 0, y: 0,
+				 	name: "Mobbing",
+				 	component: "V_LEARN",
+				 	level: 4,
+				 	enables: [
+						 { skill: 12, kind: "IS_HELPFUL" },
+						 { skill: 61, kind: "IS_HELPFUL" }
+				 	]
+				 },
+				 {
+				 	id: 61,
+				 	x: 0, y: 0,
+				 	name: "Full-product specialization",
+				 	component: "V_LEARN",
+				 	level: 4,
+				 	enables: []
+				 },
+				 {
+				 	id: 62,
+				 	x: 0, y: 0,
+				 	name: "Stasis",
+				 	component: "V_IMPROVE",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 63, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 63,
+				 	x: 0, y: 0,
+				 	name: "Centralized improvement",
+				 	component: "V_IMPROVE",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 64, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 64,
+				 	x: 0, y: 0,
+				 	name: "Post-mortems",
+				 	component: "V_IMPROVE",
+				 	level: "L_TRADITIONAL",
+				 	enables: [
+						 { skill: 65, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 65,
+				 	x: 0, y: 0,
+				 	name: "Retrospectives",
+				 	component: "V_IMPROVE",
+				 	level: "L_CORE",
+				 	enables: [
+						 { skill: 66, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 66,
+				 	x: 0, y: 0,
+				 	name: "Action-based retrospectives",
+				 	component: "V_IMPROVE",
+				 	level: "L_CORE",
+				 	enables: [
+						 { skill: 67, kind: "IS_REQUIRED" },
+						 { skill: 68, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 67,
+				 	x: 0, y: 0,
+				 	name: "Learn from local cmm'ty",
+				 	component: "V_IMPROVE",
+				 	level: "L_NO_DEBT",
+				 	enables: [
+						 { skill: 68, kind: "IS_HELPFUL" },
+						 { skill: 69, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 68,
+				 	x: 0, y: 0,
+				 	name: "Process experiments",
+				 	component: "V_IMPROVE",
+				 	level: "L_NO_DEBT",
+				 	enables: [
+						 { skill: 70, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 69,
+				 	x: 0, y: 0,
+				 	name: "Learn from everyone",
+				 	component: "V_IMPROVE",
+				 	level: "L_NO_DEBT",
+				 	enables: [
+						 { skill: 70, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 70,
+				 	x: 0, y: 0,
+				 	name: "Useful innovation",
+				 	component: "V_IMPROVE",
+				 	level: 4,
+				 	enables: []
+				 },
+				 {
+				 	id: 71,
+				 	x: 0, y: 0,
+				 	name: "Radical collaboration",
+				 	component: "V_LEARN",
+				 	level: 4,
+				 	enables: []
+				 },
+				 {
+				 	id: 72,
+				 	x: 0, y: 0,
+				 	name: "Death marches",
+				 	component: "V_SUSTAINABLE",
+				 	level: "L_UNASSIGNED",
+				 	enables: [
+						 { skill: 74, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 73,
+				 	x: 0, y: 0,
+				 	name: "Track capacity",
+				 	component: "V_SUSTAINABLE",
+				 	level: "L_UNASSIGNED",
+				 	enables: [
+						 { skill: 76, kind: "IS_REQUIRED" },
+						 { skill: 77, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 74,
+				 	x: 0, y: 0,
+				 	name: "Waterfall milestones",
+				 	component: "V_SUSTAINABLE",
+				 	level: "L_UNASSIGNED",
+				 	enables: [
+						 { skill: 75, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 75,
+				 	x: 0, y: 0,
+				 	name: "Iterations with self",
+				 	component: "V_SUSTAINABLE",
+				 	level: "L_UNASSIGNED",
+				 	enables: [
+						 { skill: 77, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 76,
+				 	x: 0, y: 0,
+				 	name: "Relative based estimation",
+				 	component: "V_SUSTAINABLE",
+				 	level: "L_UNASSIGNED",
+				 	enables: [
+						 { skill: 78, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 77,
+				 	x: 0, y: 0,
+				 	name: "Limit work to estimated capacity",
+				 	component: "V_SUSTAINABLE",
+				 	level: "L_UNASSIGNED",
+				 	enables: [
+						 { skill: 78, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 78,
+				 	x: 0, y: 0,
+				 	name: "Use data to determine capacity",
+				 	component: "V_SUSTAINABLE",
+				 	level: "L_UNASSIGNED",
+				 	enables: [
+						 { skill: 79, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 79,
+				 	x: 0, y: 0,
+				 	name: "Pull systems",
+				 	component: "V_SUSTAINABLE",
+				 	level: "L_UNASSIGNED",
+				 	enables: [
+						 { skill: 80, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 80,
+				 	x: 0, y: 0,
+				 	name: "WIP limits",
+				 	component: "V_SUSTAINABLE",
+				 	level: "L_UNASSIGNED",
+				 	enables: [
+						 { skill: 81, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 81,
+				 	x: 0, y: 0,
+				 	name: "Single piece flow",
+				 	component: "V_SUSTAINABLE",
+				 	level: "L_UNASSIGNED",
+				 	enables: [
+						 { skill: 71, kind: "IS_REQUIRED" },
+						 { skill: 10, kind: "IS_REQUIRED" }
+				 	]
+				 },
+				 {
+				 	id: 82,
+				 	x: 0, y: 0,
+				 	name: "Testing in production",
+				 	component: "V_REQUIREMENTS",
+				 	level: "L_AWESOME",
+				 	enables: [
+						 { skill: 14, kind: "IS_REQUIRED" },
+						 { skill: 44, kind: "IS_REQUIRED" }
+				 	]
+				 }
+			]
+		};
 
-		  document.addEventListener("DOMContentLoaded", function () {
-				var skillsUl = document.getElementById("skills");
-				for (var i = 0, n = data.skills.length; i < n; i++) {
-					 var skill = data.skills[i];
-					 var component = data.components[skill.component];
-					 var level = data.levels[skill.level];
+		document.addEventListener("DOMContentLoaded", function () {
+			var skillsUl = document.getElementById("skills");
+			for (var i = 0, n = data.skills.length; i < n; i++) {
+				var skill = data.skills[i];
+				var component = data.components[skill.component];
+				var level = data.levels[skill.level];
 
-					 var e = document.createElement("li");
-					 e.setAttribute("id", "skill" + skill.id);
-					 e.setAttribute("skillId", skill.id);
-					 e.classList.add("skill");
-					 e.innerText = skill.name;
-					 skillsUl.appendChild(e);
-				}
-		  });
+				var e = document.createElement("li");
+				e.setAttribute("id", "skill" + skill.id);
+				e.setAttribute("skillId", skill.id);
+				e.classList.add("skill");
+				e.innerText = skill.name;
+				skillsUl.appendChild(e);
+			}
+		});
 
-	 </script>
+	</script>
 
-	 <style>
-		  .skill {
-				margin: 20px;
-		  }
-	 </style>
+	<style>
+		.skill {
+			margin: 20px;
+		}
+	</style>
 </head>
 <body>
-	 <div>
-		  <ul id="skills"></ul>
-	 </div>
+	<div>
+		<ul id="skills"></ul>
+	</div>
 </body>
 </html>
