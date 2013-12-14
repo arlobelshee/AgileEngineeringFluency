@@ -4,7 +4,9 @@
 	<script type="text/javascript">
 		var data;
 		document.addEventListener("DOMContentLoaded", function () {
-			populateCanvas(data.skills, data.components);
+            var json = JSON.stringify(data, undefined, 2);
+            document.getElementById("jsonInput").value = json;
+			populateCanvas();
 		});
 
 		data = {
@@ -1024,11 +1026,23 @@
 			}
 		};
 
-		function populateCanvas(skills, components) {
+		function populateCanvas() {
+			var parsedData;
+			try {
+	            parsedData = JSON.parse(document.getElementById("jsonInput").value);
+			} catch (err) {
+				return;
+			}
+
+            var skills = parsedData.skills;
+            var components = parsedData.components;
+            
 			var linksCanvas = document.getElementById("skillsCanvas");
 			var ctx = linksCanvas.getContext("2d");
+            ctx.clearRect(0, 0, linksCanvas.width, linksCanvas.height);
 			var debugCanvas = document.getElementById("debugCanvas");
 			var debugCtx = debugCanvas.getContext("2d");
+            debugCtx.clearRect(0, 0, debugCanvas.width, debugCanvas.height);
 
 			var skillId;
 			var skill;
@@ -1245,5 +1259,12 @@
 			<canvas id="debugCanvas" width="1200" height="600" class="canvas-size layered-canvas" />
 		</div>
 	</div>
+    <div>
+        <p>Enter JSON data here to update the diagram:</p>
+        <textarea id="jsonInput" cols="160" rows="20">
+            
+        </textarea>
+        <button id="updateData" onclick="populateCanvas()">Update</button>
+    </div>
 </body>
 </html>
