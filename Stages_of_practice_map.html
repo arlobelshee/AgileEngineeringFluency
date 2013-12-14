@@ -1,11 +1,12 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>adaptive engineering proficiencies</title>
 	<script type="text/javascript">
 		var data;
 		document.addEventListener("DOMContentLoaded", function () {
-            var json = JSON.stringify(data, undefined, 2);
-            document.getElementById("jsonInput").value = json;
+			var json = JSON.stringify(data, undefined, 2);
+			document.getElementById("jsonInput").value = json;
 			populateCanvas();
 		});
 
@@ -83,9 +84,9 @@
 					x: 2, y: 2,
 					name: "Code in units",
 					level: "L_CORE",
-					component: "V_CHECK_WORK",
+					component: "V_CODE",
 					requires: [
-						 { skill: "SK_AUTO_DEV_TEST", kind: "IS_REQUIRED" }
+						 { skill: "SK_LOCAL_REFACTORING", kind: "IS_REQUIRED" }
 					]
 				},
 				SK_RGR: {
@@ -354,7 +355,7 @@
 				},
 				SK_AUTO_DEPLOY: {
 					id: 29,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Automated deploy",
 					component: "V_SHIP",
 					level: "L_LEVERAGE",
@@ -367,7 +368,7 @@
 				},
 				SK_FEATURE_ISOLATION: {
 					id: 30,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Feature isolation",
 					component: "V_SHIP",
 					level: "L_AWESOME",
@@ -379,7 +380,7 @@
 				},
 				SK_AUTO_DEPLOY_VERIFY: {
 					id: 31,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Automated deploy verification",
 					component: "V_SHIP",
 					level: "L_NO_DEBT",
@@ -391,7 +392,7 @@
 				},
 				SK_AUTO_ROLLBACK: {
 					id: 32,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Automated rollback",
 					component: "V_SHIP",
 					level: "L_AWESOME",
@@ -403,7 +404,7 @@
 				},
 				SK_BUILD_FOR_ME: {
 					id: 33,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Build for myself",
 					component: "V_REQUIREMENTS",
 					level: "L_TRADITIONAL",
@@ -415,7 +416,7 @@
 				},
 				SK_REQUIREMENTS: {
 					id: 34,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Product requirements",
 					component: "V_REQUIREMENTS",
 					level: "L_TRADITIONAL",
@@ -427,7 +428,7 @@
 				},
 				SK_SLACK: {
 					id: 35,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Build slack in",
 					component: "V_REQUIREMENTS",
 					level: "L_TRADITIONAL",
@@ -439,7 +440,7 @@
 				},
 				SK_SMALL_SPECS: {
 					id: 36,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Small specs",
 					component: "V_REQUIREMENTS",
 					level: "L_TRADITIONAL",
@@ -453,7 +454,7 @@
 				},
 				SK_STORIES: {
 					id: 37,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Stories",
 					component: "V_REQUIREMENTS",
 					level: "L_LEVERAGE",
@@ -468,7 +469,7 @@
 				},
 				SK_VERIFY_EXAMPLES: {
 					id: 38,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Verify examples",
 					component: "V_REQUIREMENTS",
 					level: "L_AWESOME",
@@ -480,7 +481,7 @@
 				},
 				SK_STORY_CLUSTERING: {
 					id: 39,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Story clustering",
 					component: "V_REQUIREMENTS",
 					level: "L_LEVERAGE",
@@ -494,7 +495,7 @@
 				},
 				SK_ADAPTIVE_PLANNING: {
 					id: 40,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Adaptive planning",
 					component: "V_REQUIREMENTS",
 					level: "L_LEVERAGE",
@@ -506,7 +507,7 @@
 				},
 				SK_HYPOTHESIS_STORIES: {
 					id: 41,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Hypothesis stories",
 					component: "V_REQUIREMENTS",
 					level: "L_AWESOME",
@@ -518,7 +519,7 @@
 				},
 				SK_ROLLING_WAVE_PLANNING: {
 					id: 42,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Rolling-wave planning",
 					component: "V_REQUIREMENTS",
 					level: "L_LEVERAGE",
@@ -529,7 +530,7 @@
 				},
 				SK_EXPERIENCE_FOCUS: {
 					id: 43,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Experience focus",
 					component: "V_REQUIREMENTS",
 					level: "L_AWESOME",
@@ -542,7 +543,7 @@
 				},
 				SK_METRICS_FOCUS: {
 					id: 44,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Business metric focus",
 					component: "V_REQUIREMENTS",
 					level: "L_AWESOME",
@@ -554,7 +555,7 @@
 				},
 				SK_LEAN_STARTUP: {
 					id: 45,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Lean startup",
 					component: "V_REQUIREMENTS",
 					level: "L_AWESOME",
@@ -563,7 +564,7 @@
 				},
 				SK_WHOLE_TEAM_BUSINESS: {
 					id: 46,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Whole team business innovation",
 					component: "V_REQUIREMENTS",
 					level: "L_AWESOME",
@@ -575,7 +576,7 @@
 				},
 				SK_HELP_AD_HOC: {
 					id: 47,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Ad-hoc helping",
 					component: "V_LEARN",
 					level: "L_TRADITIONAL",
@@ -588,7 +589,7 @@
 				},
 				SK_TEAM_LEADS: {
 					id: 48,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Team leads",
 					component: "V_LEARN",
 					level: "L_TRADITIONAL",
@@ -600,7 +601,7 @@
 				},
 				SK_FORMAL_TRAINING: {
 					id: 49,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Formal training",
 					component: "V_LEARN",
 					level: "L_TRADITIONAL",
@@ -612,7 +613,7 @@
 				},
 				SK_CODE_REVIEW: {
 					id: 50,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Code review",
 					component: "V_LEARN",
 					level: "L_TRADITIONAL",
@@ -624,7 +625,7 @@
 				},
 				SK_CODE_PREVIEW: {
 					id: 51,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Code preview",
 					component: "V_LEARN",
 					level: "L_TRADITIONAL",
@@ -635,7 +636,7 @@
 				},
 				SK_SHARED_CODE: {
 					id: 52,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Shared code responsibility",
 					component: "V_LEARN",
 					level: "L_CORE",
@@ -647,7 +648,7 @@
 				},
 				SK_T_SHAPED: {
 					id: 53,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "T-shaped people",
 					component: "V_LEARN",
 					level: "L_CORE",
@@ -659,7 +660,7 @@
 				},
 				SK_COLLECTIVE_OWNERSHIP: {
 					id: 54,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Collective ownership",
 					component: "V_LEARN",
 					level: "L_CORE",
@@ -672,7 +673,7 @@
 				},
 				SK_SIT_TOGETHER: {
 					id: 55,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Sit together",
 					component: "V_LEARN",
 					level: "L_NO_DEBT",
@@ -685,7 +686,7 @@
 				},
 				SK_PAIR_OCCASIONAL: {
 					id: 56,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Pairing to solve hard problems",
 					component: "V_LEARN",
 					level: "L_NO_DEBT",
@@ -698,7 +699,7 @@
 				},
 				SK_PAIR_REGULARLY: {
 					id: 56,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Pairing to learn",
 					component: "V_LEARN",
 					level: "L_NO_DEBT",
@@ -711,7 +712,7 @@
 				},
 				SK_PAIR_PRODUCTION: {
 					id: 57,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Pairing for productivity",
 					component: "V_LEARN",
 					level: "L_NO_DEBT",
@@ -723,7 +724,7 @@
 				},
 				SK_PAIR_ALWAYS: {
 					id: 58,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Pairing for discipline",
 					component: "V_LEARN",
 					level: "L_NO_DEBT",
@@ -739,7 +740,7 @@
 				},
 				SK_M_SHAPED: {
 					id: 59,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "M-shaped people",
 					component: "V_LEARN",
 					level: "L_AWESOME",
@@ -752,7 +753,7 @@
 				},
 				SK_MOBS: {
 					id: 60,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Mobbing",
 					component: "V_LEARN",
 					level: "L_AWESOME",
@@ -765,7 +766,7 @@
 				},
 				SK_UNIVERSAL_SPECIALIST: {
 					id: 61,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Full-product specialization",
 					component: "V_LEARN",
 					level: "L_AWESOME",
@@ -774,7 +775,7 @@
 				},
 				SK_STASIS: {
 					id: 62,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Stasis",
 					component: "V_IMPROVE",
 					level: "L_TRADITIONAL",
@@ -786,7 +787,7 @@
 				},
 				SK_CENTRAL_PROCESS: {
 					id: 63,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Centralized improvement",
 					component: "V_IMPROVE",
 					level: "L_TRADITIONAL",
@@ -798,7 +799,7 @@
 				},
 				SK_POST_MORTEM: {
 					id: 64,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Post-mortems",
 					component: "V_IMPROVE",
 					level: "L_TRADITIONAL",
@@ -810,7 +811,7 @@
 				},
 				SK_RETROS: {
 					id: 65,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Retrospectives",
 					component: "V_IMPROVE",
 					level: "L_CORE",
@@ -822,7 +823,7 @@
 				},
 				SK_ACTION_RETROS: {
 					id: 66,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Action-based retrospectives",
 					component: "V_IMPROVE",
 					level: "L_CORE",
@@ -835,7 +836,7 @@
 				},
 				SK_LEARN_LOCALLY: {
 					id: 67,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Learn from local cmm'ty",
 					component: "V_IMPROVE",
 					level: "L_NO_DEBT",
@@ -848,7 +849,7 @@
 				},
 				SK_PROCESS_EXPERIMENTS: {
 					id: 68,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Process experiments",
 					component: "V_IMPROVE",
 					level: "L_NO_DEBT",
@@ -860,7 +861,7 @@
 				},
 				SK_LEARN_ALL: {
 					id: 69,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Learn from everyone",
 					component: "V_IMPROVE",
 					level: "L_NO_DEBT",
@@ -872,7 +873,7 @@
 				},
 				SK_PROCESS_INNOVATION: {
 					id: 70,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Useful innovation",
 					component: "V_IMPROVE",
 					level: "L_AWESOME",
@@ -881,7 +882,7 @@
 				},
 				SK_RADICAL_COLLABORATE: {
 					id: 71,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Radical collaboration",
 					component: "V_LEARN",
 					level: "L_AWESOME",
@@ -890,7 +891,7 @@
 				},
 				SK_DEATH_MARCH: {
 					id: 72,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Death marches",
 					component: "V_SUSTAINABLE",
 					level: "L_UNASSIGNED",
@@ -902,7 +903,7 @@
 				},
 				SK_TRACK_CAPACITY: {
 					id: 73,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Track capacity",
 					component: "V_SUSTAINABLE",
 					level: "L_UNASSIGNED",
@@ -915,7 +916,7 @@
 				},
 				SK_WATERFALL_MILESTONES: {
 					id: 74,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Waterfall milestones",
 					component: "V_SUSTAINABLE",
 					level: "L_UNASSIGNED",
@@ -927,7 +928,7 @@
 				},
 				SK_ITERATION: {
 					id: 75,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Iterations with self",
 					component: "V_SUSTAINABLE",
 					level: "L_UNASSIGNED",
@@ -939,7 +940,7 @@
 				},
 				SK_RELATIVE_ESTIMATES: {
 					id: 76,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Relative based estimation",
 					component: "V_SUSTAINABLE",
 					level: "L_UNASSIGNED",
@@ -951,7 +952,7 @@
 				},
 				SK_LIMIT_WORK_TO_CAPACITY: {
 					id: 77,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Limit work to estimated capacity",
 					component: "V_SUSTAINABLE",
 					level: "L_UNASSIGNED",
@@ -963,7 +964,7 @@
 				},
 				SK_DATA_DRIVEN_CAPACITY: {
 					id: 78,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Use data to determine capacity",
 					component: "V_SUSTAINABLE",
 					level: "L_UNASSIGNED",
@@ -975,7 +976,7 @@
 				},
 				SK_PULL: {
 					id: 79,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Pull systems",
 					component: "V_SUSTAINABLE",
 					level: "L_UNASSIGNED",
@@ -987,7 +988,7 @@
 				},
 				SK_LIMIT_WORK_CONTINUOUS: {
 					id: 80,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "WIP limits",
 					component: "V_SUSTAINABLE",
 					level: "L_UNASSIGNED",
@@ -999,7 +1000,7 @@
 				},
 				SK_SINGLE_PIECE_FLOW: {
 					id: 81,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Single piece flow",
 					component: "V_SUSTAINABLE",
 					level: "L_UNASSIGNED",
@@ -1012,7 +1013,7 @@
 				},
 				SK_TIP: {
 					id: 82,
-					x: 0, y: 0,
+					x: 18, y: 10,
 					name: "Testing in production",
 					component: "V_REQUIREMENTS",
 					level: "L_AWESOME",
@@ -1029,20 +1030,21 @@
 		function populateCanvas() {
 			var parsedData;
 			try {
-	            parsedData = JSON.parse(document.getElementById("jsonInput").value);
+				parsedData = JSON.parse(document.getElementById("jsonInput").value);
 			} catch (err) {
 				return;
 			}
 
-            var skills = parsedData.skills;
-            var components = parsedData.components;
-            
+			var skills = parsedData.skills;
+			var components = parsedData.components;
+
 			var linksCanvas = document.getElementById("skillsCanvas");
 			var ctx = linksCanvas.getContext("2d");
-            ctx.clearRect(0, 0, linksCanvas.width, linksCanvas.height);
+			ctx.clearRect(0, 0, linksCanvas.width, linksCanvas.height);
+			ctx.translate(0.5, 0.5);
 			var debugCanvas = document.getElementById("debugCanvas");
 			var debugCtx = debugCanvas.getContext("2d");
-            debugCtx.clearRect(0, 0, debugCanvas.width, debugCanvas.height);
+			debugCtx.clearRect(0, 0, debugCanvas.width, debugCanvas.height);
 
 			var skillId;
 			var skill;
@@ -1074,8 +1076,7 @@
 				ctx.strokeStyle = "black";
 				ctx.fillStyle = components[skill.component].color;
 				ctx.lineWidth = "3";
-				ctx.arc(point.x, point.y, 10, 0, Math.PI, true);
-				ctx.arc(point.x, point.y, 10, Math.PI, Math.PI * 2, true);
+				ctx.arc(point.x, point.y, 10, 0, Math.PI * 2, true);
 				ctx.fill();
 				ctx.stroke();
 			}
@@ -1153,7 +1154,7 @@
 		}
 
 		function drawSkillName(ctx, name, point) {
-			ctx.font = "10px consolas";
+			ctx.font = "14px segui";
 			ctx.textAlign = "left";
 			ctx.textBaseline = "middle";
 			ctx.fillStyle = "black";
@@ -1164,7 +1165,7 @@
 		}
 
 		function drawPointCoordinatesText(ctx, text, point) {
-			ctx.font = "10px consolas";
+			ctx.font = "10px segui";
 			ctx.textAlign = "left";
 			ctx.textBaseline = "middle";
 
@@ -1179,17 +1180,6 @@
 			ctx.lineWidth = "1";
 			ctx.arc(center.x, center.y, radius, 0, Math.PI, true);
 			ctx.arc(center.x, center.y, radius, Math.PI, Math.PI * 2, true);
-			ctx.stroke();
-		}
-
-		function drawSkillNode(ctx, skill) {
-			ctx.beginPath();
-			ctx.strokeStyle = "black";
-			ctx.fillStyle = verticals[skill.vertical].color;
-			ctx.lineWidth = "3";
-			ctx.arc(skill.x, skill.y, 10, 0, Math.PI, true);
-			ctx.arc(skill.x, skill.y, 10, Math.PI, Math.PI * 2, true);
-			ctx.fill();
 			ctx.stroke();
 		}
 
@@ -1230,41 +1220,66 @@
 		}
 	</script>
 	<style>
-		.canvas-size {
-			width: 1200px;
-			height: 600px;
+		html, body, div {
+			margin: 0;
+			padding: 0;
+			border: 0 solid black;
 		}
 
-		.base-canvas {
-			border-style: none;
+		html, body {
+			height: 100%;
+			width: 100%;
 		}
 
-		.base-canvas {
-			border-style: none;
-			background-color: whitesmoke;
+		.display_port {
+			position: relative;
 		}
 
-		.layered-canvas {
-			border-style: none;
+		.canvas {
 			background-color: transparent;
+			position: absolute;
+		}
+
+		.drawing {
+			z-index: -1000;
+		}
+
+		.debug {
+			z-index: -1;
+			display: none;
+		}
+
+		#options_pane {
+			position: fixed;
+			z-index: 2000;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: white;
+			display: none;
+		}
+
+		.options_corner {
+			position: fixed;
+			z-index: 1500;
+			bottom: 0;
+			left: 0;
+			height: 30px;
+			width: 30px;
 		}
 	</style>
 </head>
 <body>
-	<div class="canvas-size">
-		<div id="baseLayer" style="position: absolute;">
-			<canvas id="skillsCanvas" width="1200" height="600" class="canvas-size base-canvas" />
-		</div>
-		<div id="debugLayer" style="position: absolute; visibility: hidden">
-			<canvas id="debugCanvas" width="1200" height="600" class="canvas-size layered-canvas" />
+	<div class="display_port">
+		<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
+		<canvas id="debugCanvas" width="2500" height="1200" class="debug canvas"></canvas>
+		<img class="options_corner" src="page-fold.png" />
+		<div id="options_pane">
+			<p>Enter JSON data here to update the diagram:</p>
+			<textarea id="jsonInput" cols="160" rows="20"></textarea>
+			<button id="updateData" onclick="populateCanvas()">Update</button>
 		</div>
 	</div>
-    <div>
-        <p>Enter JSON data here to update the diagram:</p>
-        <textarea id="jsonInput" cols="160" rows="20">
-            
-        </textarea>
-        <button id="updateData" onclick="populateCanvas()">Update</button>
-    </div>
 </body>
 </html>
