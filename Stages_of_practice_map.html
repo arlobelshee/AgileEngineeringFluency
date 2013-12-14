@@ -3,8 +3,8 @@
 <head>
 	<title>adaptive engineering proficiencies</title>
 	<script type="text/javascript">
-		function StagesDisplay() {
-			var data = {
+		function StagesDataModel() {
+			this.data = {
 				components: {
 					V_CHECK_WORK: { name: "Check your work", color: "cornflowerblue" },
 					V_CODE: { name: "Write good code", color: "limegreen" },
@@ -1177,7 +1177,7 @@
 				ctx.stroke();
 			}
 
-			var json = JSON.stringify(data, undefined, 2);
+			var json = JSON.stringify(this.data, undefined, 2);
 			document.getElementById("jsonInput").value = json;
 		};
 
@@ -1190,12 +1190,17 @@
 				pane.style["display"] = "none";
 			};
 		}
-
-		document.addEventListener("DOMContentLoaded", function () {
-			window.visualizer = new StagesDisplay();
+	</script>
+	<script type="text/javascript" src="knockout-3.0.0.js">
+	</script>
+	<script type="text/javascript">
+		function start() {
+			var stages_data = new StagesDataModel();
+			ko.applyBindings(stages_data);
+			window.visualizer = stages_data;
 			window.visualizer.populateCanvas();
 			window.ui = new OptionsPane();
-		});
+		}
 	</script>
 	<style>
 		html, body, div {
@@ -1240,8 +1245,8 @@
 		}
 
 		#main_pane {
-			position:relative;
-			z-index:0;
+			position: relative;
+			z-index: 0;
 		}
 
 		.options_corner {
@@ -1254,8 +1259,8 @@
 		}
 	</style>
 </head>
-<body>
-	<div class="display_port">
+<body onload="start();">
+	<div id="app_with_options" class="display_port">
 		<div id="main_pane">
 			<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" width="2500" height="1200" class="debug canvas"></canvas>
