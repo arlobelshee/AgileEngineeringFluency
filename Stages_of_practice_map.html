@@ -1180,29 +1180,30 @@
 			var json = JSON.stringify(this.data, undefined, 2);
 			document.getElementById("jsonInput").value = json;
 
+			function OptionsPaneControl() {
+				var pane = document.getElementById("options_pane");
+				this.showOptions = function () {
+					pane.style["display"] = "block";
+				};
+				this.hideOptions = function () {
+					pane.style["display"] = "none";
+				};
+			}
+
 			var model = this;
+			var pane_control = new OptionsPaneControl();
 			this.view_model = {
 				update: function () {
 					model.populateCanvas();
 				},
 				close_options: function () {
-					window.ui.hideOptions();
+					pane_control.hideOptions();
 				},
 				open_options: function () {
-					window.ui.showOptions();
+					pane_control.showOptions();
 				}
 			};
 		};
-
-		function OptionsPane() {
-			var pane = document.getElementById("options_pane");
-			this.showOptions = function () {
-				pane.style["display"] = "block";
-			};
-			this.hideOptions = function () {
-				pane.style["display"] = "none";
-			};
-		}
 	</script>
 	<script type="text/javascript" src="knockout-3.0.0.js">
 	</script>
@@ -1210,9 +1211,7 @@
 		function start() {
 			var stages_data = new StagesDataModel();
 			ko.applyBindings(stages_data.view_model);
-			window.visualizer = stages_data;
-			window.visualizer.populateCanvas();
-			window.ui = new OptionsPane();
+			stages_data.populateCanvas();
 		}
 	</script>
 	<style>
