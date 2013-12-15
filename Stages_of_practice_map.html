@@ -1021,6 +1021,38 @@
 				}
 			};
 
+			var model = this;
+			function ViewModel() {
+				var vm = this;
+				this.close_options = function () {
+					vm.expanded(false);
+				};
+				this.open_options = function () {
+					vm.expanded(true);
+				};
+				this.app = {
+					data: ko.observable(model.data)
+				};
+				this.expanded = ko.observable(false);
+				this.json_blob = ko.computed({
+					read: function () {
+						return JSON.stringify(vm.app.data(), undefined, 2);
+					},
+					write: function (value) {
+						try {
+							vm.app.data(JSON.parse(value));
+						} catch (err) {
+							return;
+						}
+					},
+					owner: vm
+				});
+			}
+
+			this.view_model = new ViewModel();
+		};
+
+		function extend_ko() {
 			var first_time = true;
 			this.populateCanvas = function (parsedData) {
 				var skills = parsedData.skills;
@@ -1177,48 +1209,22 @@
 				ctx.stroke();
 			}
 
-			var model = this;
-			function ViewModel() {
-				var vm = this;
-				this.update = function () {
-					model.populateCanvas(vm.app.data());
-				};
-				this.close_options = function () {
-					vm.expanded(false);
-				};
-				this.open_options = function () {
-					vm.expanded(true);
-				};
-				this.app = {
-					data: ko.observable(model.data)
-				};
-				this.expanded = ko.observable(false);
-				this.json_blob = ko.computed({
-					read: function () {
-						return JSON.stringify(vm.app.data(), undefined, 2);
-					},
-					write: function (value) {
-						try {
-							vm.app.data(JSON.parse(value));
-						} catch (err) {
-							return;
-						}
-						vm.update();
-					},
-					owner: vm
-				});
-			}
-
-			this.view_model = new ViewModel();
-		};
+			ko.bindingHandlers.stages = {
+				init: function (element, value_accessor) {
+				},
+				update: function (element, value_accessor) {
+					populateCanvas(ko.unwrap(value_accessor()));
+				},
+			};
+		}
 	</script>
 	<script type="text/javascript" src="knockout-3.0.0.js">
 	</script>
 	<script type="text/javascript">
 		function start() {
+			extend_ko();
 			var stages_data = new StagesDataModel().view_model;
 			ko.applyBindings(stages_data);
-			stages_data.update();
 		}
 	</script>
 	<style>
@@ -1289,7 +1295,7 @@
 </head>
 <body onload="start();">
 	<div id="app_with_options" class="display_port">
-		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, with: app">
+		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app.data">
 			<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" width="2500" height="1200" class="debug canvas"></canvas>
 		</div>
@@ -1297,7 +1303,6 @@
 		<div id="options_pane" data-bind="css: { hidden: !expanded() }">
 			<p>
 				Enter JSON data here to update the diagram
-				<button data-bind="click: update" style="margin-left:2em;">Apply</button>
 				<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
 			</p>
 			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="value: json_blob, valueUpdate: 'afterkeydown'"></textarea>
