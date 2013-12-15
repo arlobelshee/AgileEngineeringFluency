@@ -1180,31 +1180,21 @@
 			var json = JSON.stringify(this.data, undefined, 2);
 			document.getElementById("jsonInput").value = json;
 
-			function OptionsPaneControl() {
-				var pane = document.getElementById("options_pane");
-				this.show = function () {
-					pane.style["display"] = "block";
-				};
-				this.hide = function () {
-					pane.style["display"] = "none";
-				};
-			}
-
 			var model = this;
-			var options = new OptionsPaneControl();
 			this.view_model = {
 				update: function () {
 					model.populateCanvas();
 				},
 				close_options: function () {
-					options.hide();
+					model.view_model.expanded(false);
 				},
 				open_options: function () {
-					options.show();
+					model.view_model.expanded(true);
 				},
 				app: {
 
-				}
+				},
+				expanded: ko.observable(false)
 			};
 		};
 	</script>
@@ -1254,7 +1244,6 @@
 			bottom: 0;
 			width: 100%;
 			background-color: white;
-			display: none;
 			border-top: 1px solid black;
 			padding: 0.2em;
 		}
@@ -1262,6 +1251,16 @@
 		#main_pane {
 			position: relative;
 			z-index: 0;
+			width: 2500px;
+			height: 1200px;
+		}
+
+		.extra_scroll_space {
+			padding-bottom: 23.3em;
+		}
+
+		.hidden {
+			display: none;
 		}
 
 		.options_corner {
@@ -1276,15 +1275,16 @@
 </head>
 <body onload="start();">
 	<div id="app_with_options" class="display_port">
-		<div id="main_pane" data-bind="with: app">
+		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, with: app">
 			<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" width="2500" height="1200" class="debug canvas"></canvas>
 		</div>
 		<img class="options_corner" src="page-fold.png" data-bind="click: open_options" />
-		<div id="options_pane">
-			<p>Enter JSON data here to update the diagram
-			<button data-bind="click: update" style="margin-left:2em;">Apply</button>
-			<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
+		<div id="options_pane" data-bind="css: { hidden: !expanded() }">
+			<p>
+				Enter JSON data here to update the diagram
+				<button data-bind="click: update" style="margin-left:2em;">Apply</button>
+				<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
 			</p>
 			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;"></textarea>
 		</div>
