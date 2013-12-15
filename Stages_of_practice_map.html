@@ -1053,133 +1053,144 @@
 		};
 
 		function extend_ko() {
-			this.prepare_canvas = function () {
-				var linksCanvas = document.getElementById("skillsCanvas");
-				var ctx = linksCanvas.getContext("2d");
+			var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = 50;
+			var OFFSET_TO_GRID_ORIGIN = 40;
+			var MARKER_RADIUS = 8;
+			var MARKER_BORDER_THICKNESS = 3;
+			var CONNECTOR_THICKNESS = 4;
+			var X_BIAS = 0.6; // controls how much the curves should be "pulled" on the x-axis
+			var Y_BIAS = 0.0; // controls how much the curves should be "pulled" on the y-axis
+
+			var prepare_canvas = function () {
+				var mainCanvas = document.getElementById("skillsCanvas");
 				var debugCanvas = document.getElementById("debugCanvas");
+
+				debugCanvas.width = mainCanvas.width;
+				debugCanvas.height = mainCanvas.height;
+
+				var ctx = mainCanvas.getContext("2d");
 				var debugCtx = debugCanvas.getContext("2d");
 
-					ctx.translate(0.5, 0.5);
-					debugCtx.translate(0.5, 0.5);
+				ctx.translate(0.5, 0.5);
+				debugCtx.translate(0.5, 0.5);
 			}
 
-			this.populate_canvas = function (parsedData) {
-				var skills = parsedData.skills;
-				var components = parsedData.components;
-
-				var linksCanvas = document.getElementById("skillsCanvas");
-				var ctx = linksCanvas.getContext("2d");
+			var populate_canvas = function (parsedData) {
+				var mainCanvas = document.getElementById("skillsCanvas");
 				var debugCanvas = document.getElementById("debugCanvas");
-				var debugCtx = debugCanvas.getContext("2d");
 
-				ctx.clearRect(-0.5, -0.5, linksCanvas.width, linksCanvas.height);
-				debugCtx.clearRect(-0.5, -0.5, debugCanvas.width, debugCanvas.height);
+				var draw_context = {
+					skills: parsedData.skills,
+					components: parsedData.components,
+					ctx: mainCanvas.getContext("2d"),
+					debugCtx: debugCanvas.getContext("2d"),
+				};
 
-				var skillId;
-				var skill;
+				erase(draw_context.ctx, mainCanvas);
+				erase(draw_context.debugCtx, debugCanvas);
 
-				// draw links
-				for (skillId in skills) {
-					skill = skills[skillId];
-
-					if (skill.requires == null)
-						continue;
-
-					for (var j = 0, m = skill.requires.length; j < m; j++) {
-						var requirement = skill.requires[j];
-						var destinationSkill = skills[requirement.skill];
-
-						drawLink(ctx, debugCtx, skill, destinationSkill, components[skill.component].color);
-					}
+				for (var skillId in draw_context.skills) {
+					draw_prereq_links(draw_context.skills[skillId], draw_context);
 				}
 
-				// draw circles
-				for (skillId in skills) {
-					skill = skills[skillId];
+				for (var skillId in draw_context.skills) {
+					draw_skill_marker(draw_context.skills[skillId], draw_context);
+				}
+			}
 
-					var point = translatePoint(skill);
+			function erase(ctx, canvas) {
+				ctx.clearRect(-0.5, -0.5, canvas.width, canvas.height);
+			}
 
-					drawSkillName(ctx, skill.name, point);
+			function draw_skill_marker(skill, draw_context) {
+				var where = translatePoint(skill);
+				drawSkillName(draw_context.ctx, skill.name, where);
+				drawFilledCircle(draw_context.ctx, where, MARKER_RADIUS, MARKER_BORDER_THICKNESS, draw_context.components[skill.component].color);
+			}
 
-					ctx.beginPath();
-					ctx.strokeStyle = "black";
-					ctx.fillStyle = components[skill.component].color;
-					ctx.lineWidth = "3";
-					ctx.arc(point.x, point.y, 10, 0, Math.PI * 2, true);
-					ctx.fill();
-					ctx.stroke();
+			function drawFilledCircle(ctx, point, radius, border_thickness, color) {
+				ctx.beginPath();
+				ctx.strokeStyle = "black";
+				ctx.fillStyle = color;
+				ctx.lineWidth = border_thickness;
+				ctx.arc(point.x, point.y, radius, 0, Math.PI * 2, true);
+				ctx.fill();
+				ctx.stroke();
+			}
+
+			function draw_prereq_links(skill, draw_context) {
+				if (skill.requires == null)
+					return;
+
+				for (var j = 0, m = skill.requires.length; j < m; j++) {
+					var requirement = skill.requires[j];
+					var prereq = draw_context.skills[requirement.skill];
+					var color = draw_context.components[skill.component].color;
+					drawLink(draw_context, prereq, skill, color);
 				}
 			}
 
 			function translatePoint(point) {
-				// here 2500 is assumed to be the width of the canvas
-				return { x: ((point.x * 50) + 60), y: (point.y * 50) + 60 };
+				return {
+					x: (point.x * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS) + OFFSET_TO_GRID_ORIGIN,
+					y: (point.y * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS) + OFFSET_TO_GRID_ORIGIN
+				};
 			}
 
-			function drawLink(ctx, debugCtx, sourceSkill, destinationSkill, color) {
-				var start = translatePoint(sourceSkill);
-				var end = translatePoint(destinationSkill);
+			function drawLink(draw_context, sourceSkill, destinationSkill, color) {
+				var bezierPoints = calculateBezierControlPoints(sourceSkill, destinationSkill);
+				drawBezierCurve(draw_context.ctx, bezierPoints, color, CONNECTOR_THICKNESS);
+				drawLinkDebugInfo(draw_context, bezierPoints);
+			}
 
-				var bezierPoints = calculateBezierControlPoints(start, end);
+			function drawLinkDebugInfo(draw_context, bezierPoints) {
+				var ctx = draw_context.debugCtx;
+				drawBezierCurveIndicatorLines(ctx, bezierPoints);
+				drawControlPoint(ctx, bezierPoints.cp1, "cp1");
+				drawControlPoint(ctx, bezierPoints.cp2, "cp2");
+				drawPointCoordinatesText(ctx, bezierPoints.start, "start");
+				drawPointCoordinatesText(ctx, bezierPoints.end, "end");
+			}
 
-				// draw bezier curve
-				drawBezierCurve(ctx, start, bezierPoints.cp1, bezierPoints.cp2, end, color);
-
-				// draw bounding box hints
-				drawBezierCurveBoundingBoxLines(debugCtx, start, end);
-
-				// draw control point hints
-				drawCircle(debugCtx, bezierPoints.cp1, 4);
-				drawCircle(debugCtx, bezierPoints.cp2, 4);
-
-				// label point coordinates
-				drawPointCoordinatesText(debugCtx, "start", start);
-				drawPointCoordinatesText(debugCtx, "cp1", bezierPoints.cp1);
-				drawPointCoordinatesText(debugCtx, "cp2", bezierPoints.cp2);
-				drawPointCoordinatesText(debugCtx, "end", end);
+			function drawControlPoint(ctx, where, label) {
+				drawCircle(ctx, where, 4);
+				drawPointCoordinatesText(ctx, where, label);
 			}
 
 			function calculateBezierControlPoints(start, end) {
-				var xBias = 0.5; // change this to set how much the line should be "pulled" on the x-axis
-				var yBias = 0.5; // change this to set how much the line should be "pulled" on the y-axis
-
+				start = translatePoint(start);
+				end = translatePoint(end);
 				var dx = end.x - start.x;
 				var dy = end.y - start.y;
 
-				var center = { x: start.x + (dx / 2), y: start.y + (dy / 2) };
+				var cp1 = { x: start.x + dx * X_BIAS, y: start.y + dy * Y_BIAS };
+				var cp2 = { x: end.x - dx * X_BIAS, y: end.y - dy * Y_BIAS };
 
-				var xOffset = (dx / 2) * xBias;
-				var yOffset = (dy / 2) * yBias;
-
-				// these are the control points
-				var cp1 = { x: center.x + xOffset, y: center.y - yOffset };
-				var cp2 = { x: center.x - xOffset, y: center.y + yOffset };
-
-				return { cp1: cp1, cp2: cp2 };
+				return { start: start, cp1: cp1, cp2: cp2, end: end };
 			}
 
-			function drawBezierCurve(ctx, start, cp1, cp2, end, color) {
+			function drawBezierCurve(ctx, bezierPoints, color, thickness) {
 				ctx.beginPath();
 				ctx.strokeStyle = color;
-				ctx.lineWidth = "5";
-				ctx.moveTo(start.x, start.y);
-				ctx.bezierCurveTo(cp1.x, cp1.y, cp2.x, cp2.y, end.x, end.y);
+				ctx.lineWidth = thickness;
+				ctx.moveTo(bezierPoints.start.x, bezierPoints.start.y);
+				ctx.bezierCurveTo(bezierPoints.cp1.x, bezierPoints.cp1.y,
+					bezierPoints.cp2.x, bezierPoints.cp2.y,
+					bezierPoints.end.x, bezierPoints.end.y);
 				ctx.stroke();
 			}
 
-			function drawBezierCurveBoundingBoxLines(ctx, start, end) {
+			function drawBezierCurveIndicatorLines(ctx, bezier_points) {
 				ctx.beginPath();
 				ctx.strokeStyle = "gray";
+				ctx.setLineDash([3]);
 				ctx.lineWidth = "0.5";
-				ctx.moveTo(start.x, start.y);
-				ctx.lineTo(start.x, end.y);
-				ctx.lineTo(end.x, end.y);
-				ctx.lineTo(end.x, start.y);
-				ctx.lineTo(start.x, start.y);
-				ctx.lineTo(end.x, end.y);
-				ctx.moveTo(end.x, start.y);
-				ctx.lineTo(start.x, end.y);
+				ctx.moveTo(bezier_points.start.x, bezier_points.start.y);
+				ctx.lineTo(bezier_points.cp1.x, bezier_points.cp1.y);
+				ctx.moveTo(bezier_points.end.x, bezier_points.end.y);
+				ctx.lineTo(bezier_points.cp2.x, bezier_points.cp2.y);
 				ctx.stroke();
+				ctx.setLineDash([]);
 			}
 
 			function drawSkillName(ctx, name, point) {
@@ -1193,7 +1204,7 @@
 				ctx.fill();
 			}
 
-			function drawPointCoordinatesText(ctx, text, point) {
+			function drawPointCoordinatesText(ctx, point, text) {
 				ctx.font = "10px segui";
 				ctx.textAlign = "left";
 				ctx.textBaseline = "middle";
@@ -1258,7 +1269,7 @@
 
 		.debug {
 			z-index: 1000;
-			display: none;
+			/*display: none;*/
 		}
 
 		#options_pane {
@@ -1301,7 +1312,7 @@
 	<div id="app_with_options" class="display_port">
 		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app.data">
 			<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
-			<canvas id="debugCanvas" width="2500" height="1200" class="debug canvas"></canvas>
+			<canvas id="debugCanvas" class="debug canvas"></canvas>
 		</div>
 		<img class="options_corner" src="page-fold.png" data-bind="click: open_options" />
 		<div id="options_pane" data-bind="css: { hidden: !expanded() }">
