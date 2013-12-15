@@ -1203,6 +1203,7 @@
 						} catch (err) {
 							return;
 						}
+						vm.update();
 					},
 					owner: vm
 				});
@@ -1299,7 +1300,7 @@
 				<button data-bind="click: update" style="margin-left:2em;">Apply</button>
 				<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
 			</p>
-			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="value: json_blob"></textarea>
+			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="value: json_blob, valueUpdate: 'afterkeydown'"></textarea>
 		</div>
 	</div>
 </body>
