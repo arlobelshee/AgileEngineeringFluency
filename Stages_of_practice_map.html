@@ -1177,25 +1177,37 @@
 				ctx.stroke();
 			}
 
-			var json = JSON.stringify(this.data, undefined, 2);
-			document.getElementById("jsonInput").value = json;
-
 			var model = this;
-			this.view_model = {
-				update: function () {
+			function ViewModel() {
+				this.update = function () {
 					model.populateCanvas();
-				},
-				close_options: function () {
+				};
+				this.close_options = function () {
 					model.view_model.expanded(false);
-				},
-				open_options: function () {
+				};
+				this.open_options = function () {
 					model.view_model.expanded(true);
-				},
-				app: {
+				};
+				this.app = {
+					data: ko.observable(model.data)
+				};
+				this.expanded = ko.observable(false);
+				this.json_blob = ko.computed({
+					read: function () {
+						return JSON.stringify(this.app.data(), undefined, 2);
+					},
+					write: function (value) {
+						try {
+							this.app.data(JSON.parse(value));
+						} catch (err) {
+							return;
+						}
+					},
+					owner: this
+				});
+			}
 
-				},
-				expanded: ko.observable(false)
-			};
+			this.view_model = new ViewModel();
 		};
 	</script>
 	<script type="text/javascript" src="knockout-3.0.0.js">
@@ -1286,7 +1298,7 @@
 				<button data-bind="click: update" style="margin-left:2em;">Apply</button>
 				<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
 			</p>
-			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;"></textarea>
+			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="text: json_blob"></textarea>
 		</div>
 	</div>
 </body>
