@@ -1179,6 +1179,19 @@
 
 			var json = JSON.stringify(this.data, undefined, 2);
 			document.getElementById("jsonInput").value = json;
+
+			var model = this;
+			this.view_model = {
+				update: function () {
+					model.populateCanvas();
+				},
+				close_options: function () {
+					window.ui.hideOptions();
+				},
+				open_options: function () {
+					window.ui.showOptions();
+				}
+			};
 		};
 
 		function OptionsPane() {
@@ -1196,7 +1209,7 @@
 	<script type="text/javascript">
 		function start() {
 			var stages_data = new StagesDataModel();
-			ko.applyBindings(stages_data);
+			ko.applyBindings(stages_data.view_model);
 			window.visualizer = stages_data;
 			window.visualizer.populateCanvas();
 			window.ui = new OptionsPane();
@@ -1265,9 +1278,12 @@
 			<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" width="2500" height="1200" class="debug canvas"></canvas>
 		</div>
-		<img class="options_corner" src="page-fold.png" onclick="window.ui.showOptions();" />
+		<img class="options_corner" src="page-fold.png" data-bind="click: open_options" />
 		<div id="options_pane">
-			<p>Enter JSON data here to update the diagram<button id="updateData" onclick="window.visualizer.populateCanvas(); window.ui.hideOptions();" style="margin-left:2em;">Update</button></p>
+			<p>Enter JSON data here to update the diagram
+			<button data-bind="click: update" style="margin-left:2em;">Apply</button>
+			<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
+			</p>
 			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;"></textarea>
 		</div>
 	</div>
