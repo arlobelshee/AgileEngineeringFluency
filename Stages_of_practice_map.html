@@ -1182,25 +1182,28 @@
 
 			function OptionsPaneControl() {
 				var pane = document.getElementById("options_pane");
-				this.showOptions = function () {
+				this.show = function () {
 					pane.style["display"] = "block";
 				};
-				this.hideOptions = function () {
+				this.hide = function () {
 					pane.style["display"] = "none";
 				};
 			}
 
 			var model = this;
-			var pane_control = new OptionsPaneControl();
+			var options = new OptionsPaneControl();
 			this.view_model = {
 				update: function () {
 					model.populateCanvas();
 				},
 				close_options: function () {
-					pane_control.hideOptions();
+					options.hide();
 				},
 				open_options: function () {
-					pane_control.showOptions();
+					options.show();
+				},
+				app: {
+
 				}
 			};
 		};
@@ -1273,7 +1276,7 @@
 </head>
 <body onload="start();">
 	<div id="app_with_options" class="display_port">
-		<div id="main_pane">
+		<div id="main_pane" data-bind="with: app">
 			<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" width="2500" height="1200" class="debug canvas"></canvas>
 		</div>
