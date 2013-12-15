@@ -1021,24 +1021,24 @@
 				}
 			};
 
-			this.populateCanvas = function () {
-				var parsedData;
-				try {
-					parsedData = JSON.parse(document.getElementById("jsonInput").value);
-				} catch (err) {
-					return;
-				}
-
+			var first_time = true;
+			this.populateCanvas = function (parsedData) {
 				var skills = parsedData.skills;
 				var components = parsedData.components;
 
 				var linksCanvas = document.getElementById("skillsCanvas");
 				var ctx = linksCanvas.getContext("2d");
-				ctx.clearRect(0, 0, linksCanvas.width, linksCanvas.height);
-				ctx.translate(0.5, 0.5);
 				var debugCanvas = document.getElementById("debugCanvas");
 				var debugCtx = debugCanvas.getContext("2d");
-				debugCtx.clearRect(0, 0, debugCanvas.width, debugCanvas.height);
+
+				if (first_time) {
+					ctx.translate(0.5, 0.5);
+					debugCtx.translate(0.5, 0.5);
+					first_time = false;
+				}
+
+				ctx.clearRect(-0.5, -0.5, linksCanvas.width, linksCanvas.height);
+				debugCtx.clearRect(-0.5, -0.5, debugCanvas.width, debugCanvas.height);
 
 				var skillId;
 				var skill;
@@ -1179,14 +1179,15 @@
 
 			var model = this;
 			function ViewModel() {
+				var vm = this;
 				this.update = function () {
-					model.populateCanvas();
+					model.populateCanvas(vm.app.data());
 				};
 				this.close_options = function () {
-					model.view_model.expanded(false);
+					vm.expanded(false);
 				};
 				this.open_options = function () {
-					model.view_model.expanded(true);
+					vm.expanded(true);
 				};
 				this.app = {
 					data: ko.observable(model.data)
@@ -1194,16 +1195,16 @@
 				this.expanded = ko.observable(false);
 				this.json_blob = ko.computed({
 					read: function () {
-						return JSON.stringify(this.app.data(), undefined, 2);
+						return JSON.stringify(vm.app.data(), undefined, 2);
 					},
 					write: function (value) {
 						try {
-							this.app.data(JSON.parse(value));
+							vm.app.data(JSON.parse(value));
 						} catch (err) {
 							return;
 						}
 					},
-					owner: this
+					owner: vm
 				});
 			}
 
@@ -1214,9 +1215,9 @@
 	</script>
 	<script type="text/javascript">
 		function start() {
-			var stages_data = new StagesDataModel();
-			ko.applyBindings(stages_data.view_model);
-			stages_data.populateCanvas();
+			var stages_data = new StagesDataModel().view_model;
+			ko.applyBindings(stages_data);
+			stages_data.update();
 		}
 	</script>
 	<style>
@@ -1298,7 +1299,7 @@
 				<button data-bind="click: update" style="margin-left:2em;">Apply</button>
 				<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
 			</p>
-			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="text: json_blob"></textarea>
+			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="value: json_blob"></textarea>
 		</div>
 	</div>
 </body>
