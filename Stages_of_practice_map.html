@@ -1058,11 +1058,79 @@
 			var ctx = canvas.getContext("2d");
 
 			this.ctx = ctx; // temporary public while we refactor
+
 			this.prepare = function () {
 				ctx.translate(0.5, 0.5);
 			}
+
 			this.erase = function () {
 				ctx.clearRect(-0.5, -0.5, canvas.width, canvas.height);
+			}
+
+			this.drawFilledCircle = function (point, radius, border_thickness, color) {
+				ctx.beginPath();
+				ctx.strokeStyle = "black";
+				ctx.fillStyle = color;
+				ctx.lineWidth = border_thickness;
+				ctx.arc(point.x, point.y, radius, 0, Math.PI * 2, true);
+				ctx.fill();
+				ctx.stroke();
+			}
+
+			this.drawBezierCurve = function (bezierPoints, color, thickness) {
+				ctx.beginPath();
+				ctx.strokeStyle = color;
+				ctx.lineWidth = thickness;
+				ctx.moveTo(bezierPoints.start.x, bezierPoints.start.y);
+				ctx.bezierCurveTo(bezierPoints.cp1.x, bezierPoints.cp1.y,
+					bezierPoints.cp2.x, bezierPoints.cp2.y,
+					bezierPoints.end.x, bezierPoints.end.y);
+				ctx.stroke();
+			}
+
+			this.drawCircle = function (center, radius) {
+				ctx.beginPath();
+				ctx.strokeStyle = "black";
+				ctx.lineWidth = "1";
+				ctx.arc(center.x, center.y, radius, 0, Math.PI, true);
+				ctx.arc(center.x, center.y, radius, Math.PI, Math.PI * 2, true);
+				ctx.stroke();
+			}
+
+			this.drawBezierDebugInfo = function (bezierPoints) {
+				drawBezierCurveIndicatorLines(bezierPoints);
+				drawControlPoint(bezierPoints.cp1, "cp1");
+				drawControlPoint(bezierPoints.cp2, "cp2");
+				drawPointCoordinatesText(bezierPoints.start, "start");
+				drawPointCoordinatesText(bezierPoints.end, "end");
+			}
+
+			function drawBezierCurveIndicatorLines(bezier_points) {
+				ctx.beginPath();
+				ctx.strokeStyle = "gray";
+				ctx.setLineDash([3]);
+				ctx.lineWidth = "0.5";
+				ctx.moveTo(bezier_points.start.x, bezier_points.start.y);
+				ctx.lineTo(bezier_points.cp1.x, bezier_points.cp1.y);
+				ctx.moveTo(bezier_points.end.x, bezier_points.end.y);
+				ctx.lineTo(bezier_points.cp2.x, bezier_points.cp2.y);
+				ctx.stroke();
+				ctx.setLineDash([]);
+			}
+
+			function drawControlPoint(where, label) {
+				self.drawCircle(where, 4);
+				drawPointCoordinatesText(where, label);
+			}
+
+			function drawPointCoordinatesText(point, text) {
+				ctx.font = "10px segui";
+				ctx.textAlign = "left";
+				ctx.textBaseline = "middle";
+
+				ctx.beginPath();
+				ctx.fillText(text + ": (" + point.x + "," + point.y + ")", point.x + 10, point.y + 5);
+				ctx.stroke();
 			}
 		}
 
@@ -1112,17 +1180,7 @@
 			function draw_skill_marker(skill, draw_context) {
 				var where = translatePoint(skill);
 				drawSkillName(draw_context.ctx, skill.name, where);
-				drawFilledCircle(draw_context.ctx, where, MARKER_RADIUS, MARKER_BORDER_THICKNESS, draw_context.components[skill.component].color);
-			}
-
-			function drawFilledCircle(ctx, point, radius, border_thickness, color) {
-				ctx.beginPath();
-				ctx.strokeStyle = "black";
-				ctx.fillStyle = color;
-				ctx.lineWidth = border_thickness;
-				ctx.arc(point.x, point.y, radius, 0, Math.PI * 2, true);
-				ctx.fill();
-				ctx.stroke();
+				draw_context.mainPainter.drawFilledCircle(where, MARKER_RADIUS, MARKER_BORDER_THICKNESS, draw_context.components[skill.component].color);
 			}
 
 			function draw_prereq_links(skill, draw_context) {
@@ -1146,22 +1204,8 @@
 
 			function drawLink(draw_context, sourceSkill, destinationSkill, color) {
 				var bezierPoints = calculateBezierControlPoints(sourceSkill, destinationSkill);
-				drawBezierCurve(draw_context.ctx, bezierPoints, color, CONNECTOR_THICKNESS);
-				drawLinkDebugInfo(draw_context, bezierPoints);
-			}
-
-			function drawLinkDebugInfo(draw_context, bezierPoints) {
-				var ctx = draw_context.debugCtx;
-				drawBezierCurveIndicatorLines(ctx, bezierPoints);
-				drawControlPoint(ctx, bezierPoints.cp1, "cp1");
-				drawControlPoint(ctx, bezierPoints.cp2, "cp2");
-				drawPointCoordinatesText(ctx, bezierPoints.start, "start");
-				drawPointCoordinatesText(ctx, bezierPoints.end, "end");
-			}
-
-			function drawControlPoint(ctx, where, label) {
-				drawCircle(ctx, where, 4);
-				drawPointCoordinatesText(ctx, where, label);
+				draw_context.mainPainter.drawBezierCurve(bezierPoints, color, CONNECTOR_THICKNESS);
+				draw_context.debugPainter.drawBezierDebugInfo(bezierPoints);
 			}
 
 			function calculateBezierControlPoints(start, end) {
@@ -1176,30 +1220,6 @@
 				return { start: start, cp1: cp1, cp2: cp2, end: end };
 			}
 
-			function drawBezierCurve(ctx, bezierPoints, color, thickness) {
-				ctx.beginPath();
-				ctx.strokeStyle = color;
-				ctx.lineWidth = thickness;
-				ctx.moveTo(bezierPoints.start.x, bezierPoints.start.y);
-				ctx.bezierCurveTo(bezierPoints.cp1.x, bezierPoints.cp1.y,
-					bezierPoints.cp2.x, bezierPoints.cp2.y,
-					bezierPoints.end.x, bezierPoints.end.y);
-				ctx.stroke();
-			}
-
-			function drawBezierCurveIndicatorLines(ctx, bezier_points) {
-				ctx.beginPath();
-				ctx.strokeStyle = "gray";
-				ctx.setLineDash([3]);
-				ctx.lineWidth = "0.5";
-				ctx.moveTo(bezier_points.start.x, bezier_points.start.y);
-				ctx.lineTo(bezier_points.cp1.x, bezier_points.cp1.y);
-				ctx.moveTo(bezier_points.end.x, bezier_points.end.y);
-				ctx.lineTo(bezier_points.cp2.x, bezier_points.cp2.y);
-				ctx.stroke();
-				ctx.setLineDash([]);
-			}
-
 			function drawSkillName(ctx, name, point) {
 				ctx.font = "14px segui";
 				ctx.textAlign = "left";
@@ -1209,25 +1229,6 @@
 				ctx.beginPath();
 				ctx.fillText(name, point.x + 10, point.y - 15);
 				ctx.fill();
-			}
-
-			function drawPointCoordinatesText(ctx, point, text) {
-				ctx.font = "10px segui";
-				ctx.textAlign = "left";
-				ctx.textBaseline = "middle";
-
-				ctx.beginPath();
-				ctx.fillText(text + ": (" + point.x + "," + point.y + ")", point.x + 10, point.y + 5);
-				ctx.stroke();
-			}
-
-			function drawCircle(ctx, center, radius) {
-				ctx.beginPath();
-				ctx.strokeStyle = "black";
-				ctx.lineWidth = "1";
-				ctx.arc(center.x, center.y, radius, 0, Math.PI, true);
-				ctx.arc(center.x, center.y, radius, Math.PI, Math.PI * 2, true);
-				ctx.stroke();
 			}
 
 			ko.bindingHandlers.stages = {
@@ -1245,8 +1246,7 @@
 	<script type="text/javascript">
 		function start() {
 			extend_ko();
-			var stages_data = new StagesDataModel().view_model;
-			ko.applyBindings(stages_data);
+			ko.applyBindings(new StagesDataModel().view_model);
 		}
 	</script>
 	<style>
