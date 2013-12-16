@@ -1057,8 +1057,6 @@
 			var canvas = canvas;
 			var ctx = canvas.getContext("2d");
 
-			this.ctx = ctx; // temporary public while we refactor
-
 			this.prepare = function () {
 				ctx.translate(0.5, 0.5);
 			}
@@ -1159,19 +1157,15 @@
 			}
 
 			var populate_canvas = function (parsedData) {
-				var mainPainter = new Painter(mainCanvas);
-				var debugPainter = new Painter(debugCanvas);
 				var draw_context = {
 					skills: parsedData.skills,
 					components: parsedData.components,
-					ctx: mainPainter.ctx,
-					debugCtx: debugPainter.ctx,
-					mainPainter: mainPainter,
-					debugPainter: debugPainter,
+					mainPainter: new Painter(mainCanvas),
+					debugPainter: new Painter(debugCanvas),
 				};
 
-				mainPainter.erase();
-				debugPainter.erase();
+				draw_context.mainPainter.erase();
+				draw_context.debugPainter.erase();
 
 				for (var skillId in draw_context.skills) {
 					draw_prereq_links(draw_context.skills[skillId], draw_context);
@@ -1274,7 +1268,7 @@
 
 		.debug {
 			z-index: 1000;
-			/*display: none;*/
+			display: none;
 		}
 
 		#options_pane {
