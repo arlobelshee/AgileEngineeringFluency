@@ -1052,6 +1052,20 @@
 			this.view_model = new ViewModel();
 		};
 
+		function Painter(canvas) {
+			var self = this;
+			var canvas = canvas;
+			var ctx = canvas.getContext("2d");
+
+			this.ctx = ctx; // temporary public while we refactor
+			this.prepare = function () {
+				ctx.translate(0.5, 0.5);
+			}
+			this.erase = function () {
+				ctx.clearRect(-0.5, -0.5, canvas.width, canvas.height);
+			}
+		}
+
 		function extend_ko() {
 			var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = 50;
 			var OFFSET_TO_GRID_ORIGIN = 40;
@@ -1061,33 +1075,30 @@
 			var X_BIAS = 0.6; // controls how much the curves should be "pulled" on the x-axis
 			var Y_BIAS = 0.0; // controls how much the curves should be "pulled" on the y-axis
 
-			var prepare_canvas = function () {
-				var mainCanvas = document.getElementById("skillsCanvas");
-				var debugCanvas = document.getElementById("debugCanvas");
+			var mainCanvas = document.getElementById("skillsCanvas");
+			var debugCanvas = document.getElementById("debugCanvas");
 
+			var prepare_canvas = function () {
 				debugCanvas.width = mainCanvas.width;
 				debugCanvas.height = mainCanvas.height;
-
-				var ctx = mainCanvas.getContext("2d");
-				var debugCtx = debugCanvas.getContext("2d");
-
-				ctx.translate(0.5, 0.5);
-				debugCtx.translate(0.5, 0.5);
+				new Painter(mainCanvas).prepare();
+				new Painter(debugCanvas).prepare();
 			}
 
 			var populate_canvas = function (parsedData) {
-				var mainCanvas = document.getElementById("skillsCanvas");
-				var debugCanvas = document.getElementById("debugCanvas");
-
+				var mainPainter = new Painter(mainCanvas);
+				var debugPainter = new Painter(debugCanvas);
 				var draw_context = {
 					skills: parsedData.skills,
 					components: parsedData.components,
-					ctx: mainCanvas.getContext("2d"),
-					debugCtx: debugCanvas.getContext("2d"),
+					ctx: mainPainter.ctx,
+					debugCtx: debugPainter.ctx,
+					mainPainter: mainPainter,
+					debugPainter: debugPainter,
 				};
 
-				erase(draw_context.ctx, mainCanvas);
-				erase(draw_context.debugCtx, debugCanvas);
+				mainPainter.erase();
+				debugPainter.erase();
 
 				for (var skillId in draw_context.skills) {
 					draw_prereq_links(draw_context.skills[skillId], draw_context);
@@ -1096,10 +1107,6 @@
 				for (var skillId in draw_context.skills) {
 					draw_skill_marker(draw_context.skills[skillId], draw_context);
 				}
-			}
-
-			function erase(ctx, canvas) {
-				ctx.clearRect(-0.5, -0.5, canvas.width, canvas.height);
 			}
 
 			function draw_skill_marker(skill, draw_context) {
