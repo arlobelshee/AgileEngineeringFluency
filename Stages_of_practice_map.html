@@ -1105,6 +1105,17 @@
 				drawPointCoordinatesText(bezierPoints.end, "end");
 			}
 
+			this.drawText = function (text, font, where) {
+				ctx.font = font;
+				ctx.textAlign = "left";
+				ctx.textBaseline = "middle";
+				ctx.fillStyle = "black";
+
+				ctx.beginPath();
+				ctx.fillText(text, where.x, where.y);
+				ctx.fill();
+			}
+
 			function drawBezierCurveIndicatorLines(bezier_points) {
 				ctx.beginPath();
 				ctx.strokeStyle = "gray";
@@ -1124,13 +1135,7 @@
 			}
 
 			function drawPointCoordinatesText(point, text) {
-				ctx.font = "10px segui";
-				ctx.textAlign = "left";
-				ctx.textBaseline = "middle";
-
-				ctx.beginPath();
-				ctx.fillText(text + ": (" + point.x + "," + point.y + ")", point.x + 10, point.y + 5);
-				ctx.stroke();
+				self.drawText(text + ": (" + point.x + "," + point.y + ")", "10px segui", { x: point.x + 10, y: point.y });
 			}
 		}
 
@@ -1179,7 +1184,7 @@
 
 			function draw_skill_marker(skill, draw_context) {
 				var where = translatePoint(skill);
-				drawSkillName(draw_context.ctx, skill.name, where);
+				drawSkillName(draw_context, skill.name, where);
 				draw_context.mainPainter.drawFilledCircle(where, MARKER_RADIUS, MARKER_BORDER_THICKNESS, draw_context.components[skill.component].color);
 			}
 
@@ -1220,15 +1225,8 @@
 				return { start: start, cp1: cp1, cp2: cp2, end: end };
 			}
 
-			function drawSkillName(ctx, name, point) {
-				ctx.font = "14px segui";
-				ctx.textAlign = "left";
-				ctx.textBaseline = "middle";
-				ctx.fillStyle = "black";
-
-				ctx.beginPath();
-				ctx.fillText(name, point.x + 10, point.y - 15);
-				ctx.fill();
+			function drawSkillName(draw_context, name, where) {
+				draw_context.mainPainter.drawText(name, "14px segui", { x: where.x + 10, y: where.y - 15 })
 			}
 
 			ko.bindingHandlers.stages = {
