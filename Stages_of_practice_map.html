@@ -1141,7 +1141,7 @@
 			this.draw_vertical_bar = function (x1, x2, color) {
 				ctx.fillStyle = color;
 				ctx.strokeStyle = color;
-				ctx.fillRect(x1, -1, x2 - x1, canvas.height + 1);
+				ctx.fillRect(x1, -1, x2 - x1 + 1, canvas.height + 1);
 			}
 
 			function drawBezierCurveIndicatorLines(bezier_points) {
