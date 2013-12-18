@@ -16,11 +16,11 @@
 				},
 
 				levels: {
-					L_TRADITIONAL: { name: "Traditional done well", range: [-1, 4], color: "#e0e0ff" },
-					L_CORE: { name: "Core modern engineering", range: [5, 10], color: "#ffe0d0" },
-					L_LEVERAGE: { name: "Leverage new capabilities", range: [11, 13], color: "#ffe0ff" },
-					L_NO_DEBT: { name: "Eliminate debt and change the rules", range: [14, 18], color: "#e0ffe0" },
-					L_AWESOME: { name: "Take advantage of being awesome", range: [19, 33], color: "#ffffc0" }
+					L_TRADITIONAL: { name: "Traditional done well", min: -1, max: 4, color: "#e0e0ff" },
+					L_CORE: { name: "Core modern engineering", min: 5, max: 10, color: "#ffe0d0" },
+					L_LEVERAGE: { name: "Leverage new capabilities", min: 11, max: 13, color: "#ffe0ff" },
+					L_NO_DEBT: { name: "Eliminate debt and change the rules", min: 14, max: 18, color: "#e0ffe0" },
+					L_AWESOME: { name: "Take advantage of being awesome", min: 19, max: 33, color: "#ffffc0" }
 				},
 
 				dependency_kind: {
@@ -1189,8 +1189,8 @@
 
 			function draw_level_background(draw_context, level) {
 				draw_context.mainPainter.draw_vertical_bar(
-					translate_position(level.range[0] - 0.5),
-					translate_position(level.range[1] + 0.5),
+					translate_position(level.min - 0.5),
+					translate_position(level.max + 0.5),
 					level.color);
 			}
 
