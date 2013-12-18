@@ -16,11 +16,11 @@
 				},
 
 				levels: {
-					L_TRADITIONAL: { name: "Traditional done well", range: [0, 4] },
-					L_CORE: { name: "Core modern engineering", range: [5, 10] },
-					L_LEVERAGE: { name: "Leverage new capabilities", range: [11, 13] },
-					L_NO_DEBT: { name: "Eliminate debt and change the rules", range: [14, 18] },
-					L_AWESOME: { name: "Take advantage of being awesome", range: [19, 24] }
+					L_TRADITIONAL: { name: "Traditional done well", range: [-1, 4], color: "#e0e0ff" },
+					L_CORE: { name: "Core modern engineering", range: [5, 10], color: "#ffe0d0" },
+					L_LEVERAGE: { name: "Leverage new capabilities", range: [11, 13], color: "#ffe0ff" },
+					L_NO_DEBT: { name: "Eliminate debt and change the rules", range: [14, 18], color: "#e0ffe0" },
+					L_AWESOME: { name: "Take advantage of being awesome", range: [19, 33], color: "#ffffc0" }
 				},
 
 				dependency_kind: {
@@ -1114,6 +1114,12 @@
 				ctx.fill();
 			}
 
+			this.draw_vertical_bar = function (x1, x2, color) {
+				ctx.fillStyle = color;
+				ctx.strokeStyle = color;
+				ctx.fillRect(x1, -1, x2 - x1, canvas.height + 1);
+			}
+
 			function drawBezierCurveIndicatorLines(bezier_points) {
 				ctx.beginPath();
 				ctx.strokeStyle = "gray";
@@ -1138,11 +1144,11 @@
 		}
 
 		function extend_ko() {
-			var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = 50;
+			var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = 75;
 			var OFFSET_TO_GRID_ORIGIN = 40;
-			var MARKER_RADIUS = 8;
-			var MARKER_BORDER_THICKNESS = 3;
-			var CONNECTOR_THICKNESS = 4;
+			var MARKER_RADIUS = 6;
+			var MARKER_BORDER_THICKNESS = 2;
+			var CONNECTOR_THICKNESS = 3;
 			var X_BIAS = 0.6; // controls how much the curves should be "pulled" on the x-axis
 			var Y_BIAS = 0.0; // controls how much the curves should be "pulled" on the y-axis
 
@@ -1160,6 +1166,7 @@
 				var draw_context = {
 					skills: parsedData.skills,
 					components: parsedData.components,
+					levels: parsedData.levels,
 					mainPainter: new Painter(mainCanvas),
 					debugPainter: new Painter(debugCanvas),
 				};
@@ -1167,13 +1174,24 @@
 				draw_context.mainPainter.erase();
 				draw_context.debugPainter.erase();
 
-				for (var skillId in draw_context.skills) {
-					draw_prereq_links(draw_context.skills[skillId], draw_context);
+				for (var level_id in draw_context.levels) {
+					draw_level_background(draw_context, draw_context.levels[level_id]);
+				}
+
+				for (var skill_id in draw_context.skills) {
+					draw_prereq_links(draw_context.skills[skill_id], draw_context);
 				}
 
 				for (var skillId in draw_context.skills) {
 					draw_skill_marker(draw_context.skills[skillId], draw_context);
 				}
+			}
+
+			function draw_level_background(draw_context, level) {
+				draw_context.mainPainter.draw_vertical_bar(
+					translate_position(level.range[0] - 0.5),
+					translate_position(level.range[1] + 0.5),
+					level.color);
 			}
 
 			function draw_skill_marker(skill, draw_context) {
@@ -1196,9 +1214,13 @@
 
 			function translatePoint(point) {
 				return {
-					x: (point.x * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS) + OFFSET_TO_GRID_ORIGIN,
-					y: (point.y * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS) + OFFSET_TO_GRID_ORIGIN
+					x: translate_position(point.x),
+					y: translate_position(point.y)
 				};
+			}
+
+			function translate_position(pos) {
+				return (pos * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS) + OFFSET_TO_GRID_ORIGIN;
 			}
 
 			function drawLink(draw_context, sourceSkill, destinationSkill, color) {
