@@ -206,17 +206,18 @@
 					},
 					SK_COWBOY: {
 						// 17,
+						x: 18, y: 10,
 						name: "Cowboy coding",
 						level: "L_TRADITIONAL",
 						component: "V_CODE",
 						enables: [
-							 { skill: 18, kind: "IS_REQUIRED" }
 						],
 						requires: [
 						]
 					},
 					SK_BDUF: {
 						id: 18,
+						x: 18, y: 10,
 						name: "Big design up front",
 						level: "L_TRADITIONAL",
 						component: "V_CODE",
@@ -224,10 +225,12 @@
 							 { skill: 19, kind: "IS_REQUIRED" }
 						],
 						requires: [
+							 { skill: "SK_COWBOY", kind: "IS_REQUIRED" }
 						]
 					},
 					SK_DESIGN_PATTERNS: {
 						id: 19,
+						x: 18, y: 10,
 						name: "Pattern-oriented design",
 						level: "L_TRADITIONAL",
 						component: "V_CODE",
@@ -1021,6 +1024,15 @@
 				}
 			};
 
+			var self = this;
+			this.get_skills_array = function () {
+				var result = [];
+				for (var skill_id in self.data.skills) {
+					result.push(self.data.skills[skill_id]);
+				}
+				return result;
+			}
+
 			var model = this;
 			function ViewModel() {
 				var vm = this;
@@ -1031,7 +1043,8 @@
 					vm.expanded(true);
 				};
 				this.app = {
-					data: ko.observable(model.data)
+					data: ko.observable(model.data),
+					skills: ko.observableArray(wrap_skills(model.get_skills_array()))
 				};
 				this.expanded = ko.observable(false);
 				this.json_blob = ko.computed({
@@ -1047,6 +1060,17 @@
 					},
 					owner: vm
 				});
+
+				function wrap_skills(skills) {
+					for (var i = 0; i < skills.length; ++i) {
+						skills[i] = {
+							name: skills[i].name,
+							left: translate_position_x(skills[i].x) + 9 + "px",
+							top: translate_position_y(skills[i].y) - 26 + "px",
+						};
+					}
+					return skills;
+				}
 			}
 
 			this.view_model = new ViewModel();
@@ -1143,9 +1167,24 @@
 			}
 		}
 
+		var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = { x: 120, y: 80 };
+		var OFFSET_TO_GRID_ORIGIN = 40;
+		function translatePoint(point) {
+			return {
+				x: translate_position_x(point.x),
+				y: translate_position_y(point.y)
+			};
+		}
+
+		function translate_position_x(pos) {
+			return (pos * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS.x) + OFFSET_TO_GRID_ORIGIN;
+		}
+
+		function translate_position_y(pos) {
+			return (pos * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS.y) + OFFSET_TO_GRID_ORIGIN;
+		}
+
 		function extend_ko() {
-			var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = 75;
-			var OFFSET_TO_GRID_ORIGIN = 40;
 			var MARKER_RADIUS = 6;
 			var MARKER_BORDER_THICKNESS = 2;
 			var CONNECTOR_THICKNESS = 3;
@@ -1189,14 +1228,13 @@
 
 			function draw_level_background(draw_context, level) {
 				draw_context.mainPainter.draw_vertical_bar(
-					translate_position(level.min - 0.5),
-					translate_position(level.max + 0.5),
+					translate_position_x(level.min - 0.5),
+					translate_position_x(level.max + 0.5),
 					level.color);
 			}
 
 			function draw_skill_marker(skill, draw_context) {
 				var where = translatePoint(skill);
-				drawSkillName(draw_context, skill.name, where);
 				draw_context.mainPainter.drawFilledCircle(where, MARKER_RADIUS, MARKER_BORDER_THICKNESS, draw_context.components[skill.component].color);
 			}
 
@@ -1210,17 +1248,6 @@
 					var color = draw_context.components[skill.component].color;
 					drawLink(draw_context, prereq, skill, color);
 				}
-			}
-
-			function translatePoint(point) {
-				return {
-					x: translate_position(point.x),
-					y: translate_position(point.y)
-				};
-			}
-
-			function translate_position(pos) {
-				return (pos * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS) + OFFSET_TO_GRID_ORIGIN;
 			}
 
 			function drawLink(draw_context, sourceSkill, destinationSkill, color) {
@@ -1239,10 +1266,6 @@
 				var cp2 = { x: end.x - dx * X_BIAS, y: end.y - dy * Y_BIAS };
 
 				return { start: start, cp1: cp1, cp2: cp2, end: end };
-			}
-
-			function drawSkillName(draw_context, name, where) {
-				draw_context.mainPainter.drawText(name, "14px segui", { x: where.x + 10, y: where.y - 15 })
 			}
 
 			ko.bindingHandlers.stages = {
@@ -1327,13 +1350,33 @@
 			height: 30px;
 			width: 30px;
 		}
+
+		.skill_text.collapsed {
+			width: 92px;
+			overflow: hidden;
+		}
+
+		.skill_text {
+			position: absolute;
+			z-index: 2000;
+			font-size: 14px;
+			font-family: "Segoe UI","Times New Roman",serif;
+			padding: 5px;
+			background-color: rgba(255,255,255,0.3);
+			border-radius: 15px;
+		}
 	</style>
 </head>
 <body onload="start();">
 	<div id="app_with_options" class="display_port">
-		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app.data">
+		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app.data, with: app">
 			<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
+			<!-- ko foreach: skills -->
+			<div class="skill_text collapsed" data-bind="style: { top: top, left: left }">
+				<span class="name" data-bind="text: name"></span>
+			</div>
+			<!-- /ko -->
 		</div>
 		<img class="options_corner" src="page-fold.png" data-bind="click: open_options" />
 		<div id="options_pane" data-bind="css: { hidden: !expanded() }">
