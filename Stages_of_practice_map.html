@@ -1060,8 +1060,8 @@
 					var skill = skills[skill_id];
 					result.push({
 						name: skill.name,
-						left: translate_position_x(skill.x) + 9 + "px",
-						top: translate_position_y(skill.y) - 26 + "px",
+						left: layout.translate_position_x(skill.x) + 9 + "px",
+						top: layout.translate_position_y(skill.y) - 26 + "px",
 						details: skill,
 						id: skill_id,
 					});
@@ -1161,29 +1161,47 @@
 			}
 		}
 
-		var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = { x: 120, y: 80 };
-		var OFFSET_TO_GRID_ORIGIN = 40;
-		function translatePoint(point) {
-			return {
-				x: translate_position_x(point.x),
-				y: translate_position_y(point.y)
-			};
-		}
+		function LayoutSpecialist() {
+			var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = { x: 120, y: 80 };
+			var OFFSET_TO_GRID_ORIGIN = 40;
+			var self = this;
 
-		function translate_position_x(pos) {
-			return (pos * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS.x) + OFFSET_TO_GRID_ORIGIN;
-		}
+			this.translatePoint = function (point) {
+				return {
+					x: self.translate_position_x(point.x),
+					y: self.translate_position_y(point.y)
+				};
+			}
 
-		function translate_position_y(pos) {
-			return (pos * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS.y) + OFFSET_TO_GRID_ORIGIN;
+			this.translate_position_x = function (pos) {
+				return (pos * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS.x) + OFFSET_TO_GRID_ORIGIN;
+			}
+
+			this.translate_position_y = function (pos) {
+				return (pos * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS.y) + OFFSET_TO_GRID_ORIGIN;
+			}
 		}
+		var layout = new LayoutSpecialist();
+
+		var Bezier = function () {
+			var X_BIAS = 0.6; // controls how much the curves should be "pulled" on the x-axis
+			var Y_BIAS = 0.0; // controls how much the curves should be "pulled" on the y-axis
+			function Bezier(start, end) {
+				var dx = end.x - start.x;
+				var dy = end.y - start.y;
+
+				this.start = start;
+				this.end = end;
+				this.cp1 = { x: start.x + dx * X_BIAS, y: start.y + dy * Y_BIAS };
+				this.cp2 = { x: end.x - dx * X_BIAS, y: end.y - dy * Y_BIAS };
+			}
+			return Bezier;
+		}();
 
 		function extend_ko() {
 			var MARKER_RADIUS = 6;
 			var MARKER_BORDER_THICKNESS = 2;
 			var CONNECTOR_THICKNESS = 3;
-			var X_BIAS = 0.6; // controls how much the curves should be "pulled" on the x-axis
-			var Y_BIAS = 0.0; // controls how much the curves should be "pulled" on the y-axis
 
 			var mainCanvas = document.getElementById("skillsCanvas");
 			var debugCanvas = document.getElementById("debugCanvas");
@@ -1222,13 +1240,13 @@
 
 			function draw_level_background(draw_context, level) {
 				draw_context.mainPainter.draw_vertical_bar(
-					translate_position_x(level.min - 0.5),
-					translate_position_x(level.max + 0.5),
+					layout.translate_position_x(level.min - 0.5),
+					layout.translate_position_x(level.max + 0.5),
 					level.color);
 			}
 
 			function draw_skill_marker(skill, draw_context) {
-				var where = translatePoint(skill);
+				var where = layout.translatePoint(skill);
 				draw_context.mainPainter.drawFilledCircle(where, MARKER_RADIUS, MARKER_BORDER_THICKNESS, draw_context.components[skill.component].color);
 			}
 
@@ -1245,21 +1263,9 @@
 			}
 
 			function drawLink(draw_context, sourceSkill, destinationSkill, color) {
-				var bezierPoints = calculateBezierControlPoints(sourceSkill, destinationSkill);
-				draw_context.mainPainter.drawBezierCurve(bezierPoints, color, CONNECTOR_THICKNESS);
-				draw_context.debugPainter.drawBezierDebugInfo(bezierPoints);
-			}
-
-			function calculateBezierControlPoints(start, end) {
-				start = translatePoint(start);
-				end = translatePoint(end);
-				var dx = end.x - start.x;
-				var dy = end.y - start.y;
-
-				var cp1 = { x: start.x + dx * X_BIAS, y: start.y + dy * Y_BIAS };
-				var cp2 = { x: end.x - dx * X_BIAS, y: end.y - dy * Y_BIAS };
-
-				return { start: start, cp1: cp1, cp2: cp2, end: end };
+				var link = new Bezier(layout.translatePoint(sourceSkill), layout.translatePoint(destinationSkill));
+				draw_context.mainPainter.drawBezierCurve(link, color, CONNECTOR_THICKNESS);
+				draw_context.debugPainter.drawBezierDebugInfo(link);
 			}
 
 			ko.bindingHandlers.stages = {
