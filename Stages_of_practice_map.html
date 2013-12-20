@@ -1025,7 +1025,7 @@
 			};
 		};
 
-		function ViewModel(data) {
+		function ViewModel() {
 			var vm = this;
 			this.close_options = function () {
 				vm.expanded(false);
@@ -1034,7 +1034,7 @@
 				vm.expanded(true);
 			};
 			this.app = {
-				data: ko.observable(data),
+				data: ko.observable({}),
 			};
 			this.app.skills = ko.computed({
 				read: function () { return wrap_skills(vm.app.data().skills); }
@@ -1283,7 +1283,8 @@
 	<script type="text/javascript">
 		function start() {
 			extend_ko();
-			vm = new ViewModel(stages_data());
+			vm = new ViewModel();
+			vm.json_blob(JSON.stringify(stages_data(), undefined, 2));
 			ko.applyBindings(vm);
 		}
 	</script>
