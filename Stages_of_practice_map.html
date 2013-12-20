@@ -891,7 +891,7 @@
 						x: 18, y: 10,
 						name: "Death marches",
 						component: "V_SUSTAINABLE",
-						level: "L_UNASSIGNED",
+						level: "L_TRADITIONAL",
 						enables: [
 							 { skill: 74, kind: "IS_REQUIRED" }
 						],
@@ -903,7 +903,7 @@
 						x: 18, y: 10,
 						name: "Track capacity",
 						component: "V_SUSTAINABLE",
-						level: "L_UNASSIGNED",
+						level: "L_TRADITIONAL",
 						enables: [
 							 { skill: 76, kind: "IS_REQUIRED" },
 							 { skill: 77, kind: "IS_REQUIRED" }
@@ -916,7 +916,7 @@
 						x: 18, y: 10,
 						name: "Waterfall milestones",
 						component: "V_SUSTAINABLE",
-						level: "L_UNASSIGNED",
+						level: "L_TRADITIONAL",
 						enables: [
 							 { skill: 75, kind: "IS_REQUIRED" }
 						],
@@ -928,7 +928,7 @@
 						x: 18, y: 10,
 						name: "Iterations with self",
 						component: "V_SUSTAINABLE",
-						level: "L_UNASSIGNED",
+						level: "L_TRADITIONAL",
 						enables: [
 							 { skill: 77, kind: "IS_REQUIRED" }
 						],
@@ -940,7 +940,7 @@
 						x: 18, y: 10,
 						name: "Relative based estimation",
 						component: "V_SUSTAINABLE",
-						level: "L_UNASSIGNED",
+						level: "L_TRADITIONAL",
 						enables: [
 							 { skill: 78, kind: "IS_REQUIRED" }
 						],
@@ -952,7 +952,7 @@
 						x: 18, y: 10,
 						name: "Limit work to estimated capacity",
 						component: "V_SUSTAINABLE",
-						level: "L_UNASSIGNED",
+						level: "L_TRADITIONAL",
 						enables: [
 							 { skill: 78, kind: "IS_REQUIRED" }
 						],
@@ -964,7 +964,7 @@
 						x: 18, y: 10,
 						name: "Use data to determine capacity",
 						component: "V_SUSTAINABLE",
-						level: "L_UNASSIGNED",
+						level: "L_TRADITIONAL",
 						enables: [
 							 { skill: 79, kind: "IS_REQUIRED" }
 						],
@@ -976,7 +976,7 @@
 						x: 18, y: 10,
 						name: "Pull systems",
 						component: "V_SUSTAINABLE",
-						level: "L_UNASSIGNED",
+						level: "L_TRADITIONAL",
 						enables: [
 							 { skill: 80, kind: "IS_REQUIRED" }
 						],
@@ -988,7 +988,7 @@
 						x: 18, y: 10,
 						name: "WIP limits",
 						component: "V_SUSTAINABLE",
-						level: "L_UNASSIGNED",
+						level: "L_TRADITIONAL",
 						enables: [
 							 { skill: 81, kind: "IS_REQUIRED" }
 						],
@@ -1000,7 +1000,7 @@
 						x: 18, y: 10,
 						name: "Single piece flow",
 						component: "V_SUSTAINABLE",
-						level: "L_UNASSIGNED",
+						level: "L_TRADITIONAL",
 						enables: [
 							 { skill: 71, kind: "IS_REQUIRED" },
 							 { skill: 10, kind: "IS_REQUIRED" }
@@ -1061,10 +1061,15 @@
 		}
 		function decorate(obj, decorator) {
 			var result = clone(obj);
-			each_item(decorator, function (item, key) {
-				result[key] = item;
-			});
+			for (var key in decorator) {
+				result[key] = decorator[key];
+			}
 			return result;
+		}
+		function base_class(constructor, methods) {
+			for (var key in methods) {
+				constructor.prototype[key] = methods[key];
+			}
 		}
 		function extend(superclass, subclass, methods) {
 			subclass.prototype = clone(superclass.prototype);
@@ -1098,17 +1103,14 @@
 			return result;
 		}
 
-		function unwrap_to_hash(arr) {
-			var result = {};
-			for (var i = 0, m = arr.length; i < m; ++i) {
-				var wrapped = arr.length[i];
-				var values = {};
-				for (var key in wrapped.prototype) {
-					values[key] = ko.utils.unwrap(wrapped[key]);
-				}
-				result[wrapped._id] = values;
+		function if_no_err(fn, cont) {
+			var result;
+			try {
+				result = fn();
+			} catch (err) {
+				return;
 			}
-			return result;
+			cont(result);
 		}
 
 		function ViewModel() {
@@ -1120,52 +1122,123 @@
 				vm.expanded(true);
 			};
 			this.app = {
-				data: ko.observable({}),
-				display: ko.observable({}),
+				display: ko.observable(new StagesVm(layout)),
 			};
 			this.expanded = ko.observable(false);
 			this.json_blob = ko.computed({
 				read: function () {
-					return JSON.stringify(vm.app.data(), undefined, '\t');
+					var info = vm.app.display().to_JS();
+					return JSON.stringify(info, undefined, '\t');
 				},
 				write: function (value) {
-					var data;
-					try {
-						data = JSON.parse(value);
-					} catch (err) {
-						return;
-					}
-					vm.app.display(new StagesVm(data, layout));
-					vm.app.data(data);
+					if_no_error(function () { return JSON.parse(value); }, function (data) {
+						var stages = new StagesVm(layout, data)
+						if (!stages.valid) { return; }
+						vm.app.display(stages);
+					});
 				},
 				owner: vm
 			});
 		}
 
-		function StagesVm(data, layout) {
-			var all_levels = clone_items(data.levels);
-			var all_components = clone_items(data.components);
-			var all_kinds = clone_items(data.dependency_kinds);
-			var all_skills = decorate_items(data.skills, function (skill) {
-				return {
-					component: all_components[skill.component],
-					level: all_levels[skill.level],
-					label_position: layout.place_label(skill),
-				};
-			});
-			each_item(all_skills, function (skill) {
-				skill.requires = map_elt(skill.requires, function (link) {
+		var StagesVm = function () {
+			function StagesVm(layout, data) {
+				this.valid = true;
+				if (!data) {
+					this.skills = [];
+					this.levels = [];
+					this.kinds = [];
+					this.components = [];
+					return;
+				}
+				var self = this;
+				function mark_invalid() {
+					self.valid = false;
+					return null;
+				}
+				var all_levels = clone_items(data.levels);
+				var all_components = clone_items(data.components);
+				var all_kinds = clone_items(data.dependency_kinds);
+				var all_skills = decorate_items(data.skills, function (skill) {
 					return {
-						skill: all_skills[link.skill],
-						kind: all_kinds[link.kind],
+						component: all_components[skill.component] || mark_invalid(),
+						level: all_levels[skill.level] || mark_invalid(),
+						label_position: layout.place_label(skill),
 					};
 				});
+				each_item(all_skills, function (skill) {
+					skill.requires = map_elt(skill.requires, function (link) {
+						return {
+							skill: all_skills[link.skill] || mark_invalid(),
+							kind: all_kinds[link.kind] || mark_invalid(),
+						};
+					});
+				});
+				this.skills = hash_to_array(all_skills);
+				this.levels = hash_to_array(all_levels);
+				this.kinds = hash_to_array(all_kinds);
+				this.components = hash_to_array(all_components);
+			}
+			base_class(StagesVm, {
+				to_JS: function () {
+					return {
+						levels: unwrap_to_hash(this.levels, unwrap_level),
+						components: unwrap_to_hash(this.components, unwrap_component),
+						dependency_kinds: unwrap_to_hash(this.kinds, unwrap_kind),
+						skills: unwrap_to_hash(this.skills, unwrap_skill),
+					};
+				},
 			});
-			this.skills = hash_to_array(all_skills);
-			this.levels = hash_to_array(all_levels);
-			this.kinds = hash_to_array(all_kinds);
-			this.components = hash_to_array(all_components);
-		}
+
+			function unwrap_to_hash(arr, unwrapper) {
+				var result = {};
+				each_elt(arr, function (decorator) {
+					result[decorator._id] = unwrapper(decorator, ko.utils.unwrapObservable);
+				});
+				return result;
+			}
+
+			function unwrap_level(level, unwrap) {
+				return {
+					name: unwrap(level.name),
+					min: unwrap(level.min),
+					max: unwrap(level.max),
+					color: unwrap(level.color),
+				};
+			}
+
+			function unwrap_kind(kind, unwrap) {
+				return {
+					name: unwrap(kind.name),
+					dash_style: unwrap(kind.dash_style),
+				};
+			}
+
+			function unwrap_component(component, unwrap) {
+				return {
+					name: unwrap(component.name),
+					color: unwrap(component.color),
+				};
+			}
+
+			function unwrap_skill(skill, unwrap) {
+				return {
+					name: unwrap(skill.name),
+					x: unwrap(skill.x),
+					y: unwrap(skill.y),
+					level: unwrap(skill.level)._id,
+					component: unwrap(skill.component)._id,
+					requires: map_elt(unwrap(skill.requires), function (link) {
+						return {
+							skill: link.skill._id,
+							kind: link.kind._id,
+						}
+					}),
+				};
+			}
+
+			return StagesVm;
+		}();
 
 		function Painter(canvas) {
 			var self = this;
