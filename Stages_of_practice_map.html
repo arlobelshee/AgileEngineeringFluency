@@ -1107,14 +1107,15 @@
 			return result;
 		}
 
-		function if_no_err(fn, cont) {
+		function if_err(fn, with_err, no_err) {
 			var result;
 			try {
 				result = fn();
 			} catch (err) {
+				with_err(err);
 				return;
 			}
-			cont(result);
+			no_err(result);
 		}
 
 		function ViewModel() {
@@ -1135,9 +1136,11 @@
 					return JSON.stringify(info, undefined, '\t');
 				},
 				write: function (value) {
-					if_no_err(function () { return JSON.parse(value); }, function (data) {
-						vm.app.display().update_data(data);
-					});
+					if_err(function () { return JSON.parse(value); },
+						function () { vm.app.display().valid(false); },
+						function (data) {
+							vm.app.display().update_data(data);
+						});
 				},
 				owner: vm
 			});
@@ -1583,6 +1586,10 @@
 			width: 30px;
 		}
 
+		.invalid {
+			border: 2px solid red;
+		}
+
 		.skill_text.collapsed {
 			width: 86px;
 			overflow: hidden;
@@ -1621,7 +1628,7 @@
 				Enter JSON data here to update the diagram
 				<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
 			</p>
-			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="value: json_blob, valueUpdate: 'afterkeydown'"></textarea>
+			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="value: json_blob, valueUpdate: 'afterkeydown', css: { invalid: !app.display().valid() }"></textarea>
 		</div>
 	</div>
 </body>
