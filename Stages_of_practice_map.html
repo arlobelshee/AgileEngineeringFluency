@@ -1087,8 +1087,8 @@
 			return _wrap_items(inputs, clone);
 		}
 
-		function create_items(inputs, constructor) {
-			return _wrap_items(inputs, function (input) { return new constructor(input); });
+		function create_items(inputs, constructor, options) {
+			return _wrap_items(inputs, function (input) { return new constructor(input, options); });
 		}
 
 		function _wrap_items(inputs, wrap_item) {
@@ -1158,9 +1158,9 @@
 				to_JS: function () {
 					return {
 						levels: unwrap_to_hash(this.levels),
-						components: unwrap_to_hash2(this.components, unwrap_component),
-						dependency_kinds: unwrap_to_hash2(this.kinds, unwrap_kind),
-						skills: unwrap_to_hash2(this.skills, unwrap_skill),
+						components: unwrap_to_hash(this.components),
+						dependency_kinds: unwrap_to_hash(this.kinds),
+						skills: unwrap_to_hash(this.skills),
 					};
 				},
 				update_data: function (data) {
@@ -1170,28 +1170,20 @@
 						self.valid = false;
 						return null;
 					}
-					var all_levels = create_items(data.levels, LevelVm);
-					var all_components = clone_items(data.components);
-					var all_kinds = clone_items(data.dependency_kinds);
-					var all_skills = decorate_items(data.skills, function (skill) {
-						return {
-							component: all_components[skill.component] || mark_invalid(),
-							level: all_levels[skill.level] || mark_invalid(),
-							label_position: layout.place_label(skill),
-						};
+					var lookup = {
+						levels: create_items(data.levels, LevelVm),
+						components: create_items(data.components, ComponentVm),
+						kinds: create_items(data.dependency_kinds, KindVm),
+						skills: create_items(data.skills, SkillVm, layout),
+					};
+					each_item(lookup.skills, function (skill) {
+						skill.resolve_obj_references(lookup, mark_invalid);
 					});
-					each_item(all_skills, function (skill) {
-						skill.requires = map_elt(skill.requires, function (link) {
-							return {
-								skill: all_skills[link.skill] || mark_invalid(),
-								kind: all_kinds[link.kind] || mark_invalid(),
-							};
-						});
-					});
-					this.skills = hash_to_array(all_skills);
-					this.levels = hash_to_array(all_levels);
-					this.kinds = hash_to_array(all_kinds);
-					this.components = hash_to_array(all_components);
+					if (!this.valid) { return; }
+					this.skills = hash_to_array(lookup.skills);
+					this.levels = hash_to_array(lookup.levels);
+					this.kinds = hash_to_array(lookup.kinds);
+					this.components = hash_to_array(lookup.components);
 				},
 			});
 
@@ -1203,62 +1195,15 @@
 				return result;
 			}
 
-			function unwrap_to_hash2(arr, unwrapper) {
-				var result = {};
-				each_elt(arr, function (decorator) {
-					result[decorator._id] = unwrapper(decorator, ko.utils.unwrapObservable);
-				});
-				return result;
-			}
-
-			function unwrap_level(level, unwrap) {
-				return {
-					name: unwrap(level.name),
-					min: unwrap(level.min),
-					max: unwrap(level.max),
-					color: unwrap(level.color),
-				};
-			}
-
-			function unwrap_kind(kind, unwrap) {
-				return {
-					name: unwrap(kind.name),
-					dash_style: unwrap(kind.dash_style),
-				};
-			}
-
-			function unwrap_component(component, unwrap) {
-				return {
-					name: unwrap(component.name),
-					color: unwrap(component.color),
-				};
-			}
-
-			function unwrap_skill(skill, unwrap) {
-				return {
-					name: unwrap(skill.name),
-					x: unwrap(skill.x),
-					y: unwrap(skill.y),
-					level: unwrap(skill.level)._id,
-					component: unwrap(skill.component)._id,
-					requires: map_elt(unwrap(skill.requires), function (link) {
-						return {
-							skill: link.skill._id,
-							kind: link.kind._id,
-						}
-					}),
-				};
-			}
-
 			return StagesVm;
 		}();
 
 		var LevelVm = function () {
-			function LevelVm(level) {
-				this.name = ko.observable(level.name);
-				this.min = ko.observable(level.min);
-				this.max = ko.observable(level.max);
-				this.color = ko.observable(level.color);
+			function LevelVm(data) {
+				this.name = ko.observable(data.name);
+				this.min = data.min;
+				this.max = data.max;
+				this.color = data.color;
 			}
 			base_class(LevelVm, {
 				to_JS: function (unwrap) {
@@ -1271,6 +1216,78 @@
 				}
 			});
 			return LevelVm;
+		}();
+
+		var ComponentVm = function () {
+			function ComponentVm(data) {
+				this.name = ko.observable(data.name);
+				this.color = data.color;
+			}
+			base_class(ComponentVm, {
+				to_JS: function (unwrap) {
+					return {
+						name: unwrap(this.name),
+						color: unwrap(this.color),
+					};
+				}
+			});
+			return ComponentVm;
+		}();
+
+		var KindVm = function () {
+			function KindVm(data) {
+				this.name = ko.observable(data.name);
+				this.dash_style = data.dash_style;
+			}
+			base_class(KindVm, {
+				to_JS: function (unwrap) {
+					return {
+						name: unwrap(this.name),
+						dash_style: unwrap(this.dash_style),
+					};
+				}
+			});
+			return KindVm;
+		}();
+
+		var SkillVm = function () {
+			function SkillVm(data, layout) {
+				this.name = ko.observable(data.name);
+				this.x = data.x;
+				this.y = data.y;
+				this.level = data.level;
+				this.component = data.component;
+				this.requires = data.requires;
+				this.label_position = layout.place_label(this);
+			}
+			base_class(SkillVm, {
+				to_JS: function (unwrap) {
+					return {
+						name: unwrap(this.name),
+						x: unwrap(this.x),
+						y: unwrap(this.y),
+						level: unwrap(this.level)._id,
+						component: unwrap(this.component)._id,
+						requires: map_elt(unwrap(this.requires), function (link) {
+							return {
+								skill: link.skill._id,
+								kind: link.kind._id,
+							}
+						}),
+					};
+				},
+				resolve_obj_references: function (lookup, mark_invalid) {
+					this.component = lookup.components[this.component] || mark_invalid();
+					this.level = lookup.levels[this.level] || mark_invalid();
+					this.requires = map_elt(this.requires, function (link) {
+						return {
+							skill: lookup.skills[link.skill] || mark_invalid(),
+							kind: lookup.kinds[link.kind] || mark_invalid(),
+						};
+					});
+				},
+			});
+			return SkillVm;
 		}();
 
 		function Painter(canvas) {
@@ -1462,9 +1479,9 @@
 
 			function draw_level_background(draw_context, level) {
 				draw_context.mainPainter.draw_vertical_bar(
-					layout.translate_position_x(level.min() - 0.5),
-					layout.translate_position_x(level.max() + 0.5),
-					level.color());
+					layout.translate_position_x(level.min - 0.5),
+					layout.translate_position_x(level.max + 0.5),
+					level.color);
 			}
 
 			function draw_skill_marker(painter, skill) {
