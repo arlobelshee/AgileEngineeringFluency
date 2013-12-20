@@ -1121,7 +1121,7 @@
 			};
 			this.app = {
 				data: ko.observable({}),
-				display: ko.observable([]),
+				display: ko.observable({}),
 			};
 			this.expanded = ko.observable(false);
 			this.json_blob = ko.computed({
@@ -1142,8 +1142,7 @@
 						return {
 							component: all_components[skill.component],
 							level: all_levels[skill.level],
-							left: layout.translate_position_x(skill.x) + 9 + "px",
-							top: layout.translate_position_y(skill.y) - 26 + "px",
+							label_position: layout.place_label(skill),
 						};
 					});
 					each_item(all_skills, function (skill) {
@@ -1260,6 +1259,13 @@
 
 			this.curve_connecting = function (start, end) {
 				return new Bezier(layout.translatePoint(start), layout.translatePoint(end));
+			};
+
+			this.place_label = function (skill) {
+				return {
+					left: this.translate_position_x(skill.x) + 9 + "px",
+					top: this.translate_position_y(skill.y) - 26 + "px",
+				};
 			};
 		}
 		var layout = new LayoutSpecialist();
@@ -1383,9 +1389,8 @@
 	<script type="text/javascript">
 		function start() {
 			extend_ko();
-			var data = stages_data();
-			vm = new ViewModel(data);
-			vm.json_blob(JSON.stringify(data, undefined, '\t'));
+			vm = new ViewModel();
+			vm.json_blob(JSON.stringify(stages_data(), undefined, '\t'));
 			ko.applyBindings(vm);
 		}
 	</script>
@@ -1481,7 +1486,7 @@
 			<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: display().skills -->
-			<div class="skill_text collapsed" data-bind="style: { top: top, left: left }">
+			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }">
 				<span class="name" data-bind="text: name"></span>
 			</div>
 			<!-- /ko -->
