@@ -1172,8 +1172,10 @@
 					this.valid(true);
 					this.error_message("");
 					var self = this;
-					function mark_invalid() {
+					function mark_invalid(msg_fn) {
 						self.valid(false);
+						var args = Array.prototype.slice.call(arguments, 1);
+						self.error_message(msg_fn.apply(null, args));
 						return null;
 					}
 					var lookup = {
@@ -1283,16 +1285,20 @@
 					};
 				},
 				resolve_obj_references: function (lookup, mark_invalid) {
-					this.component = lookup.components[this.component] || mark_invalid();
-					this.level = lookup.levels[this.level] || mark_invalid();
+					var skill_id = this._id;
+					this.component = lookup.components[this.component] || mark_invalid(error_failed_to_find_key, "component", this.component, skill_id);
+					this.level = lookup.levels[this.level] || mark_invalid(error_failed_to_find_key, "level", this.level, skill_id);
 					this.requires = map_elt(this.requires, function (link) {
 						return {
-							skill: lookup.skills[link.skill] || mark_invalid(),
-							kind: lookup.kinds[link.kind] || mark_invalid(),
+							skill: lookup.skills[link.skill] || mark_invalid(error_failed_to_find_key, "skill", link.skill, skill_id),
+							kind: lookup.kinds[link.kind] || mark_invalid(error_failed_to_find_key, "dependency kind", link.kind, skill_id),
 						};
 					});
 				},
 			});
+			function error_failed_to_find_key(type, key, skill_key) {
+				return "I could not find the " + type + " " + key + ", as referenced in the skill " + skill_key + ".";
+			}
 			return SkillVm;
 		}();
 
