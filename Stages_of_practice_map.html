@@ -3,8 +3,8 @@
 <head>
 	<title>adaptive engineering proficiencies</title>
 	<script type="text/javascript">
-		function StagesDataModel() {
-			this.data = {
+		function stages_data() {
+			return {
 				components: {
 					V_CHECK_WORK: { name: "Check your work", color: "cornflowerblue" },
 					V_CODE: { name: "Write good code", color: "limegreen" },
@@ -1034,7 +1034,7 @@
 			return result;
 		}
 
-		function ViewModel(model) {
+		function ViewModel(data) {
 			var vm = this;
 			this.close_options = function () {
 				vm.expanded(false);
@@ -1043,9 +1043,11 @@
 				vm.expanded(true);
 			};
 			this.app = {
-				data: ko.observable(model.data),
-				skills: ko.observableArray(wrap_skills(get_skills_array(model.data.skills)))
+				data: ko.observable(data),
 			};
+			this.app.skills = ko.computed({
+				read: function () { return wrap_skills(get_skills_array(vm.app.data().skills)); }
+			})
 			this.expanded = ko.observable(false);
 			this.json_blob = ko.computed({
 				read: function () {
@@ -1282,7 +1284,7 @@
 	<script type="text/javascript">
 		function start() {
 			extend_ko();
-			vm = new ViewModel(new StagesDataModel());
+			vm = new ViewModel(stages_data());
 			ko.applyBindings(vm);
 		}
 	</script>
