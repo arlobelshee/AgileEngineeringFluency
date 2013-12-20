@@ -1025,6 +1025,46 @@
 			};
 		};
 
+		function Clone() { }
+		function clone(obj) {
+			Clone.prototype = obj.prototype;
+			return new Clone();
+		}
+		function decorate(obj, decorator) {
+			decorator.prototype = obj;
+		}
+		function extend(subclass, superclass, methods) {
+			subclass.prototype = clone(superclass.prototype);
+			subclass.prototype.constructor = subclass;
+			for (var key in methods) {
+				subclass.prototype[key] = methods[key];
+			}
+		}
+
+		function hash_to_array(hash, transform) {
+			var result = [];
+			for (var key in hash) {
+				var elt = transform(hash[key]);
+				elt._id = key;
+				result.push(elt);
+			}
+			return result;
+		}
+
+		function array_to_hash(arr, transform) {
+			var result = {};
+			for (var i = 0, m = arr.length; i < m; ++i) {
+				var elt = transform(arr[i]);
+				delete elt._id;
+				result[elt._id] = elt;
+			}
+			return result;
+		}
+
+		function json_js_to_graph(raw) {
+			return raw;
+		}
+
 		function ViewModel(initial_data) {
 			var vm = this;
 			this.close_options = function () {
