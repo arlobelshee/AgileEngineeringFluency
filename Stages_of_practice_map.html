@@ -1136,10 +1136,7 @@
 				},
 				write: function (value) {
 					if_no_err(function () { return JSON.parse(value); }, function (data) {
-						var stages = new StagesVm(layout);
-						stages.update_data(data);
-						if (!stages.valid) { return; }
-						vm.app.display(stages);
+						vm.app.display().update_data(data);
 					});
 				},
 				owner: vm
@@ -1148,11 +1145,11 @@
 
 		var StagesVm = function () {
 			function StagesVm(layout) {
-				this.valid = true;
-				this.skills = [];
-				this.levels = [];
-				this.kinds = [];
-				this.components = [];
+				this.valid = ko.observable(true);
+				this.skills = ko.observable([]);
+				this.levels = ko.observable([]);
+				this.kinds = ko.observable([]);
+				this.components = ko.observable([]);
 			}
 			base_class(StagesVm, {
 				to_JS: function () {
@@ -1164,10 +1161,10 @@
 					};
 				},
 				update_data: function (data) {
-					this.valid = true;
+					this.valid(true);
 					var self = this;
 					function mark_invalid() {
-						self.valid = false;
+						self.valid(false);
 						return null;
 					}
 					var lookup = {
@@ -1179,17 +1176,17 @@
 					each_item(lookup.skills, function (skill) {
 						skill.resolve_obj_references(lookup, mark_invalid);
 					});
-					if (!this.valid) { return; }
-					this.skills = hash_to_array(lookup.skills);
-					this.levels = hash_to_array(lookup.levels);
-					this.kinds = hash_to_array(lookup.kinds);
-					this.components = hash_to_array(lookup.components);
+					if (!this.valid()) { return; }
+					this.skills(hash_to_array(lookup.skills));
+					this.levels(hash_to_array(lookup.levels));
+					this.kinds(hash_to_array(lookup.kinds));
+					this.components(hash_to_array(lookup.components));
 				},
 			});
 
 			function unwrap_to_hash(arr) {
 				var result = {};
-				each_elt(arr, function (vm) {
+				each_elt(ko.utils.unwrapObservable(arr), function (vm) {
 					result[vm._id] = vm.to_JS(ko.utils.unwrapObservable);
 				});
 				return result;
@@ -1455,8 +1452,8 @@
 
 			var populate_canvas = function (parsedData) {
 				var draw_context = {
-					skills: parsedData.skills,
-					levels: parsedData.levels,
+					skills: parsedData.skills(),
+					levels: parsedData.levels(),
 					mainPainter: new Painter(mainCanvas),
 					debugPainter: new Painter(debugCanvas),
 				};
