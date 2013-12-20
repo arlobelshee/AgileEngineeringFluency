@@ -23,9 +23,9 @@
 					L_AWESOME: { name: "Take advantage of being awesome", min: 19, max: 33, color: "#ffffc0" }
 				},
 
-				dependency_kind: {
-					IS_REQUIRED: { name: "Doing A is nearly required to do B", style: "solid" },
-					IS_HELPFUL: { name: "Doing A helps a lot when doing B", style: "dotted" }
+				dependency_kinds: {
+					IS_REQUIRED: { name: "Doing A is nearly required to do B", dash_style: [] },
+					IS_HELPFUL: { name: "Doing A helps a lot when doing B", dash_style: [8] }
 				},
 
 				skills: {
@@ -1058,6 +1058,7 @@
 							for (var i = 0; i < skill.requires.length; ++i) {
 								var link = skill.requires[i];
 								link.skill_obj = data.skills[link.skill];
+								link.kind_obj = data.dependency_kinds[link.kind];
 							}
 							data.skills_arr.push(skill);
 						}
@@ -1114,15 +1115,17 @@
 				ctx.stroke();
 			}
 
-			this.draw_bezier_curve = function (bezierPoints, color, thickness) {
+			this.draw_bezier_curve = function (bezierPoints, color, thickness, dash_style) {
 				ctx.beginPath();
 				ctx.strokeStyle = color;
 				ctx.lineWidth = thickness;
+				ctx.setLineDash(dash_style);
 				ctx.moveTo(bezierPoints.start.x, bezierPoints.start.y);
 				ctx.bezierCurveTo(bezierPoints.cp1.x, bezierPoints.cp1.y,
 					bezierPoints.cp2.x, bezierPoints.cp2.y,
 					bezierPoints.end.x, bezierPoints.end.y);
 				ctx.stroke();
+				ctx.setLineDash([]);
 			}
 
 			this.draw_open_circle = function (center, radius) {
@@ -1160,29 +1163,6 @@
 				ctx.lineTo(end.x, end.y);
 				ctx.stroke();
 				ctx.setLineDash([]);
-			}
-
-			this.draw_bezier_debug_info = function (bezierPoints) {
-				var painter = self;
-				draw_bezier_curve_indicator_lines(bezierPoints, painter);
-				draw_control_point(bezierPoints.cp1, "cp1", painter);
-				draw_control_point(bezierPoints.cp2, "cp2", painter);
-				draw_point_coords_label(bezierPoints.start, "start", painter);
-				draw_point_coords_label(bezierPoints.end, "end", painter);
-			}
-
-			function draw_bezier_curve_indicator_lines(bezier_points, painter) {
-				painter.draw_dashed_line(bezier_points.start, bezier_points.cp1);
-				painter.draw_dashed_line(bezier_points.end, bezier_points.cp2);
-			}
-
-			function draw_control_point(where, label, painter) {
-				painter.draw_open_circle(where, 4);
-				draw_point_coords_label(where, label, painter);
-			}
-
-			function draw_point_coords_label(point, text, painter) {
-				painter.draw_text(text + ": (" + point.x + "," + point.y + ")", "10px segui", { x: point.x + 10, y: point.y });
 			}
 		}
 
@@ -1223,6 +1203,32 @@
 				this.end = end;
 				this.cp1 = { x: start.x + dx * X_BIAS, y: start.y + dy * Y_BIAS };
 				this.cp2 = { x: end.x - dx * X_BIAS, y: end.y - dy * Y_BIAS };
+			}
+
+			Bezier.prototype.draw = function (painter, color, thickness, dash_style) {
+				painter.draw_bezier_curve(this, color, thickness, dash_style);
+			};
+
+			Bezier.prototype.draw_debug_info = function (painter) {
+				draw_indicator_lines(this, painter);
+				draw_control_point(this.cp1, "cp1", painter);
+				draw_control_point(this.cp2, "cp2", painter);
+				draw_point_coords_label(this.start, "start", painter);
+				draw_point_coords_label(this.end, "end", painter);
+			};
+
+			function draw_indicator_lines(self, painter) {
+				painter.draw_dashed_line(self.start, self.cp1);
+				painter.draw_dashed_line(self.end, self.cp2);
+			}
+
+			function draw_control_point(where, label, painter) {
+				painter.draw_open_circle(where, 4);
+				draw_point_coords_label(where, label, painter);
+			}
+
+			function draw_point_coords_label(point, text, painter) {
+				painter.draw_text(text + ": (" + point.x + "," + point.y + ")", "10px segui", { x: point.x + 10, y: point.y });
 			}
 			return Bezier;
 		}();
@@ -1283,10 +1289,9 @@
 				for (var i = 0, m = skill.requires.length; i < m; i++) {
 					var requirement = skill.requires[i];
 					var prereq = requirement.skill_obj;
-					var color = skill.component_obj.color;
 					var link = layout.curve_connecting(prereq, skill);
-					draw_context.mainPainter.draw_bezier_curve(link, color, CONNECTOR_THICKNESS);
-					draw_context.debugPainter.draw_bezier_debug_info(link);
+					link.draw(draw_context.mainPainter, skill.component_obj.color, CONNECTOR_THICKNESS, requirement.kind_obj.dash_style);
+					link.draw_debug_info(draw_context.debugPainter);
 				}
 			}
 
