@@ -1135,32 +1135,36 @@
 					} catch (err) {
 						return;
 					}
-					var all_levels = clone_items(data.levels);
-					var all_components = clone_items(data.components);
-					var all_kinds = clone_items(data.dependency_kinds);
-					var all_skills = decorate_items(data.skills, function (skill) {
-						return {
-							component: all_components[skill.component],
-							level: all_levels[skill.level],
-							label_position: layout.place_label(skill),
-						};
-					});
-					each_item(all_skills, function (skill) {
-						skill.requires = map_elt(skill.requires, function (link) {
-							return {
-								skill: all_skills[link.skill],
-								kind: all_kinds[link.kind],
-							};
-						});
-					});
-					vm.app.display({
-						skills: hash_to_array(all_skills),
-						levels: hash_to_array(all_levels),
-					});
+					vm.app.display(new StagesVm(data, layout));
 					vm.app.data(data);
 				},
 				owner: vm
 			});
+		}
+
+		function StagesVm(data, layout) {
+			var all_levels = clone_items(data.levels);
+			var all_components = clone_items(data.components);
+			var all_kinds = clone_items(data.dependency_kinds);
+			var all_skills = decorate_items(data.skills, function (skill) {
+				return {
+					component: all_components[skill.component],
+					level: all_levels[skill.level],
+					label_position: layout.place_label(skill),
+				};
+			});
+			each_item(all_skills, function (skill) {
+				skill.requires = map_elt(skill.requires, function (link) {
+					return {
+						skill: all_skills[link.skill],
+						kind: all_kinds[link.kind],
+					};
+				});
+			});
+			this.skills = hash_to_array(all_skills);
+			this.levels = hash_to_array(all_levels);
+			this.kinds = hash_to_array(all_kinds);
+			this.components = hash_to_array(all_components);
 		}
 
 		function Painter(canvas) {
