@@ -1137,7 +1137,7 @@
 				},
 				write: function (value) {
 					if_err(function () { return JSON.parse(value); },
-						function () { vm.app.display().valid(false); },
+						function () { vm.app.display().set_data_error("Unable to parse the JSON."); },
 						function (data) {
 							vm.app.display().update_data(data);
 						});
@@ -1149,6 +1149,7 @@
 		var StagesVm = function () {
 			function StagesVm(layout) {
 				this.valid = ko.observable(true);
+				this.error_message = ko.observable("");
 				this.skills = ko.observable([]);
 				this.levels = ko.observable([]);
 				this.kinds = ko.observable([]);
@@ -1163,8 +1164,13 @@
 						skills: unwrap_to_hash(this.skills),
 					};
 				},
+				set_data_error: function (reason) {
+					this.valid(false);
+					this.error_message(reason);
+				},
 				update_data: function (data) {
 					this.valid(true);
+					this.error_message("");
 					var self = this;
 					function mark_invalid() {
 						self.valid(false);
@@ -1590,6 +1596,11 @@
 			border: 2px solid red;
 		}
 
+		.error_display {
+			color: red;
+			margin: 0 2em;
+		}
+
 		.skill_text.collapsed {
 			width: 86px;
 			overflow: hidden;
@@ -1627,6 +1638,7 @@
 			<p>
 				Enter JSON data here to update the diagram
 				<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
+				<span class="error_display" data-bind="text: app.display().error_message()"></span>
 			</p>
 			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="value: json_blob, valueUpdate: 'afterkeydown', css: { invalid: !app.display().valid() }"></textarea>
 		</div>
