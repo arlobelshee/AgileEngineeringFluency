@@ -1049,8 +1049,8 @@
 						for (var skill_id in data.skills) {
 							var skill = data.skills[skill_id];
 							var display_skill = {
-								component_obj: data.components[skill.component],
-								level_obj: data.levels[skill.level],
+								component: data.components[skill.component],
+								level: data.levels[skill.level],
 								id: skill_id,
 								left: layout.translate_position_x(skill.x) + 9 + "px",
 								top: layout.translate_position_y(skill.y) - 26 + "px",
@@ -1059,8 +1059,8 @@
 							for (var i = 0; i < skill.requires.length; ++i) {
 								var link = skill.requires[i];
 								display_skill.requires.push({
-									skill_obj: data.skills[link.skill],
-									kind_obj: data.dependency_kinds[link.kind],
+									skill: data.skills[link.skill],
+									kind: data.dependency_kinds[link.kind],
 								});
 							}
 							for (var key in skill) {
@@ -1276,15 +1276,15 @@
 
 			function draw_skill_marker(painter, skill) {
 				var where = layout.translatePoint(skill);
-				painter.draw_filled_circle(where, MARKER_RADIUS, MARKER_BORDER_THICKNESS, skill.component_obj.color);
+				painter.draw_filled_circle(where, MARKER_RADIUS, MARKER_BORDER_THICKNESS, skill.component.color);
 			}
 
 			function draw_prereq_links(skill, draw_context) {
 				for (var i = 0, m = skill.requires.length; i < m; i++) {
 					var requirement = skill.requires[i];
-					var prereq = requirement.skill_obj;
+					var prereq = requirement.skill;
 					var link = layout.curve_connecting(prereq, skill);
-					link.draw(draw_context.mainPainter, skill.component_obj.color, CONNECTOR_THICKNESS, requirement.kind_obj.dash_style);
+					link.draw(draw_context.mainPainter, skill.component.color, CONNECTOR_THICKNESS, requirement.kind.dash_style);
 					link.draw_debug_info(draw_context.debugPainter);
 				}
 			}
