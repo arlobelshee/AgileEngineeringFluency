@@ -1025,15 +1025,48 @@
 			};
 		};
 
+		function each_item(obj, op) {
+			for (var key in obj) {
+				op(obj[key], key);
+			}
+		}
+		function each_elt(arr, op) {
+			for (var i = 0, m = arr.length; i < m; ++i) {
+				op(arr[i], i);
+			}
+		}
+		function map_item(obj, op, create_fn) {
+			create_fn = create_fn || empty_instance_of_same_class;
+			var result = create_fn(obj);
+			for (var key in obj) {
+				result[key] = op(obj[key], key);
+			}
+			return result;
+		}
+		function map_elt(arr, op) {
+			var result = [];
+			for (var i = 0, m = arr.length; i < m; ++i) {
+				result.push(op(arr[i], i));
+			}
+			return result;
+		}
+
 		function Clone() { }
 		function clone(obj) {
-			Clone.prototype = obj.prototype;
+			Clone.prototype = obj;
 			return new Clone();
 		}
-		function decorate(obj, decorator) {
-			decorator.prototype = obj;
+		function empty_instance_of_same_class(obj) {
+			return clone(obj.prototype);
 		}
-		function extend(subclass, superclass, methods) {
+		function decorate(obj, decorator) {
+			var result = clone(obj);
+			each_item(decorator, function (item, key) {
+				result[key] = item;
+			});
+			return result;
+		}
+		function extend(superclass, subclass, methods) {
 			subclass.prototype = clone(superclass.prototype);
 			subclass.prototype.constructor = subclass;
 			for (var key in methods) {
@@ -1041,31 +1074,44 @@
 			}
 		}
 
-		function hash_to_array(hash, transform) {
-			var result = [];
-			for (var key in hash) {
-				var elt = transform(hash[key]);
+		function decorate_items(inputs, decorator_for) {
+			return _wrap_items(inputs, function (input) { return decorate(input, decorator_for(input)) });
+		}
+
+		function clone_items(inputs) {
+			return _wrap_items(inputs, clone);
+		}
+
+		function _wrap_items(inputs, wrap_item) {
+			return map_item(inputs, function (input, key) {
+				var elt = wrap_item(input);
 				elt._id = key;
-				result.push(elt);
-			}
+				return elt;
+			});
+		}
+
+		function hash_to_array(hash) {
+			var result = [];
+			each_item(hash, function (item) {
+				result.push(item);
+			});
 			return result;
 		}
 
-		function array_to_hash(arr, transform) {
+		function unwrap_to_hash(arr) {
 			var result = {};
 			for (var i = 0, m = arr.length; i < m; ++i) {
-				var elt = transform(arr[i]);
-				delete elt._id;
-				result[elt._id] = elt;
+				var wrapped = arr.length[i];
+				var values = {};
+				for (var key in wrapped.prototype) {
+					values[key] = ko.utils.unwrap(wrapped[key]);
+				}
+				result[wrapped._id] = values;
 			}
 			return result;
 		}
 
-		function json_js_to_graph(raw) {
-			return raw;
-		}
-
-		function ViewModel(initial_data) {
+		function ViewModel() {
 			var vm = this;
 			this.close_options = function () {
 				vm.expanded(false);
@@ -1076,7 +1122,6 @@
 			this.app = {
 				data: ko.observable({}),
 				display: ko.observable([]),
-				everything: ko.mapping.fromJS(initial_data, {}),
 			};
 			this.expanded = ko.observable(false);
 			this.json_blob = ko.computed({
@@ -1084,45 +1129,36 @@
 					return JSON.stringify(vm.app.data(), undefined, '\t');
 				},
 				write: function (value) {
+					var data;
 					try {
-						var data = JSON.parse(value);
-						var all_skills = [];
-						for (var skill_id in data.skills) {
-							var skill = data.skills[skill_id];
-							var display_skill = {
-								component: data.components[skill.component],
-								level: data.levels[skill.level],
-								id: skill_id,
-								left: layout.translate_position_x(skill.x) + 9 + "px",
-								top: layout.translate_position_y(skill.y) - 26 + "px",
-								requires: [],
-							};
-							for (var i = 0; i < skill.requires.length; ++i) {
-								var link = skill.requires[i];
-								display_skill.requires.push({
-									skill: data.skills[link.skill],
-									kind: data.dependency_kinds[link.kind],
-								});
-							}
-							for (var key in skill) {
-								if (!display_skill[key]) {
-									display_skill[key] = skill[key];
-								}
-							}
-							all_skills.push(display_skill);
-						}
-						var all_levels = [];
-						for (var level_id in data.levels) {
-							all_levels.push(data.levels[level_id]);
-						}
-						vm.app.display({
-							skills: all_skills,
-							levels: all_levels,
-						});
-						vm.app.data(data);
+						data = JSON.parse(value);
 					} catch (err) {
 						return;
 					}
+					var all_levels = clone_items(data.levels);
+					var all_components = clone_items(data.components);
+					var all_kinds = clone_items(data.dependency_kinds);
+					var all_skills = decorate_items(data.skills, function (skill) {
+						return {
+							component: all_components[skill.component],
+							level: all_levels[skill.level],
+							left: layout.translate_position_x(skill.x) + 9 + "px",
+							top: layout.translate_position_y(skill.y) - 26 + "px",
+						};
+					});
+					each_item(all_skills, function (skill) {
+						skill.requires = map_elt(skill.requires, function (link) {
+							return {
+								skill: all_skills[link.skill],
+								kind: all_kinds[link.kind],
+							};
+						});
+					});
+					vm.app.display({
+						skills: hash_to_array(all_skills),
+						levels: hash_to_array(all_levels),
+					});
+					vm.app.data(data);
 				},
 				owner: vm
 			});
