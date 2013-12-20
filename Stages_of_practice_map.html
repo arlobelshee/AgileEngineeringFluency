@@ -1087,6 +1087,10 @@
 			return _wrap_items(inputs, clone);
 		}
 
+		function create_items(inputs, constructor) {
+			return _wrap_items(inputs, function (input) { return new constructor(input); });
+		}
+
 		function _wrap_items(inputs, wrap_item) {
 			return map_item(inputs, function (input, key) {
 				var elt = wrap_item(input);
@@ -1153,10 +1157,10 @@
 			base_class(StagesVm, {
 				to_JS: function () {
 					return {
-						levels: unwrap_to_hash(this.levels, unwrap_level),
-						components: unwrap_to_hash(this.components, unwrap_component),
-						dependency_kinds: unwrap_to_hash(this.kinds, unwrap_kind),
-						skills: unwrap_to_hash(this.skills, unwrap_skill),
+						levels: unwrap_to_hash(this.levels),
+						components: unwrap_to_hash2(this.components, unwrap_component),
+						dependency_kinds: unwrap_to_hash2(this.kinds, unwrap_kind),
+						skills: unwrap_to_hash2(this.skills, unwrap_skill),
 					};
 				},
 				update_data: function (data) {
@@ -1166,7 +1170,7 @@
 						self.valid = false;
 						return null;
 					}
-					var all_levels = clone_items(data.levels);
+					var all_levels = create_items(data.levels, LevelVm);
 					var all_components = clone_items(data.components);
 					var all_kinds = clone_items(data.dependency_kinds);
 					var all_skills = decorate_items(data.skills, function (skill) {
@@ -1191,7 +1195,15 @@
 				},
 			});
 
-			function unwrap_to_hash(arr, unwrapper) {
+			function unwrap_to_hash(arr) {
+				var result = {};
+				each_elt(arr, function (vm) {
+					result[vm._id] = vm.to_JS(ko.utils.unwrapObservable);
+				});
+				return result;
+			}
+
+			function unwrap_to_hash2(arr, unwrapper) {
 				var result = {};
 				each_elt(arr, function (decorator) {
 					result[decorator._id] = unwrapper(decorator, ko.utils.unwrapObservable);
@@ -1239,6 +1251,26 @@
 			}
 
 			return StagesVm;
+		}();
+
+		var LevelVm = function () {
+			function LevelVm(level) {
+				this.name = ko.observable(level.name);
+				this.min = ko.observable(level.min);
+				this.max = ko.observable(level.max);
+				this.color = ko.observable(level.color);
+			}
+			base_class(LevelVm, {
+				to_JS: function (unwrap) {
+					return {
+						name: unwrap(this.name),
+						min: unwrap(this.min),
+						max: unwrap(this.max),
+						color: unwrap(this.color),
+					};
+				}
+			});
+			return LevelVm;
 		}();
 
 		function Painter(canvas) {
@@ -1430,9 +1462,9 @@
 
 			function draw_level_background(draw_context, level) {
 				draw_context.mainPainter.draw_vertical_bar(
-					layout.translate_position_x(level.min - 0.5),
-					layout.translate_position_x(level.max + 0.5),
-					level.color);
+					layout.translate_position_x(level.min() - 0.5),
+					layout.translate_position_x(level.max() + 0.5),
+					level.color());
 			}
 
 			function draw_skill_marker(painter, skill) {
