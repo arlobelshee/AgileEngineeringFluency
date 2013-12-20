@@ -1046,7 +1046,28 @@
 				},
 				write: function (value) {
 					try {
-						vm.app.data(JSON.parse(value));
+						var data = JSON.parse(value);
+						data.skills_arr = [];
+						for (var skill_id in data.skills) {
+							var skill = data.skills[skill_id];
+							skill.component_obj = data.components[skill.component];
+							skill.level_obj = data.levels[skill.level];
+							skill.id = skill_id;
+							skill.left = layout.translate_position_x(skill.x) + 9 + "px";
+							skill.top = layout.translate_position_y(skill.y) - 26 + "px";
+							for (var i = 0; i < skill.requires.length; ++i) {
+								var link = skill.requires[i];
+								link.skill_obj = data.skills[link.skill];
+							}
+							data.skills_arr.push(skill);
+						}
+						for (var level_id in data.levels) {
+							data.levels[level_id].id = level_id;
+						}
+						for (var component_id in data.components) {
+							data.components[component_id].id = component_id;
+						}
+						vm.app.data(data);
 					} catch (err) {
 						return;
 					}
@@ -1060,10 +1081,10 @@
 					var skill = skills[skill_id];
 					result.push({
 						name: skill.name,
-						left: layout.translate_position_x(skill.x) + 9 + "px",
-						top: layout.translate_position_y(skill.y) - 26 + "px",
 						details: skill,
-						id: skill_id,
+						id: skill.id,
+						left: skill.left,
+						top: skill.top,
 					});
 				}
 				return result;
@@ -1083,7 +1104,7 @@
 				ctx.clearRect(-0.5, -0.5, canvas.width, canvas.height);
 			}
 
-			this.drawFilledCircle = function (point, radius, border_thickness, color) {
+			this.draw_filled_circle = function (point, radius, border_thickness, color) {
 				ctx.beginPath();
 				ctx.strokeStyle = "black";
 				ctx.fillStyle = color;
@@ -1093,7 +1114,7 @@
 				ctx.stroke();
 			}
 
-			this.drawBezierCurve = function (bezierPoints, color, thickness) {
+			this.draw_bezier_curve = function (bezierPoints, color, thickness) {
 				ctx.beginPath();
 				ctx.strokeStyle = color;
 				ctx.lineWidth = thickness;
@@ -1104,7 +1125,7 @@
 				ctx.stroke();
 			}
 
-			this.drawCircle = function (center, radius) {
+			this.draw_open_circle = function (center, radius) {
 				ctx.beginPath();
 				ctx.strokeStyle = "black";
 				ctx.lineWidth = "1";
@@ -1113,15 +1134,7 @@
 				ctx.stroke();
 			}
 
-			this.drawBezierDebugInfo = function (bezierPoints) {
-				drawBezierCurveIndicatorLines(bezierPoints);
-				drawControlPoint(bezierPoints.cp1, "cp1");
-				drawControlPoint(bezierPoints.cp2, "cp2");
-				drawPointCoordinatesText(bezierPoints.start, "start");
-				drawPointCoordinatesText(bezierPoints.end, "end");
-			}
-
-			this.drawText = function (text, font, where) {
+			this.draw_text = function (text, font, where) {
 				ctx.font = font;
 				ctx.textAlign = "left";
 				ctx.textBaseline = "middle";
@@ -1138,26 +1151,38 @@
 				ctx.fillRect(x1, -1, x2 - x1 + 1, canvas.height + 1);
 			}
 
-			function drawBezierCurveIndicatorLines(bezier_points) {
+			this.draw_dashed_line = function (start, end) {
 				ctx.beginPath();
 				ctx.strokeStyle = "gray";
 				ctx.setLineDash([3]);
 				ctx.lineWidth = "0.5";
-				ctx.moveTo(bezier_points.start.x, bezier_points.start.y);
-				ctx.lineTo(bezier_points.cp1.x, bezier_points.cp1.y);
-				ctx.moveTo(bezier_points.end.x, bezier_points.end.y);
-				ctx.lineTo(bezier_points.cp2.x, bezier_points.cp2.y);
+				ctx.moveTo(start.x, start.y);
+				ctx.lineTo(end.x, end.y);
 				ctx.stroke();
 				ctx.setLineDash([]);
 			}
 
-			function drawControlPoint(where, label) {
-				self.drawCircle(where, 4);
-				drawPointCoordinatesText(where, label);
+			this.draw_bezier_debug_info = function (bezierPoints) {
+				var painter = self;
+				draw_bezier_curve_indicator_lines(bezierPoints, painter);
+				draw_control_point(bezierPoints.cp1, "cp1", painter);
+				draw_control_point(bezierPoints.cp2, "cp2", painter);
+				draw_point_coords_label(bezierPoints.start, "start", painter);
+				draw_point_coords_label(bezierPoints.end, "end", painter);
 			}
 
-			function drawPointCoordinatesText(point, text) {
-				self.drawText(text + ": (" + point.x + "," + point.y + ")", "10px segui", { x: point.x + 10, y: point.y });
+			function draw_bezier_curve_indicator_lines(bezier_points, painter) {
+				painter.draw_dashed_line(bezier_points.start, bezier_points.cp1);
+				painter.draw_dashed_line(bezier_points.end, bezier_points.cp2);
+			}
+
+			function draw_control_point(where, label, painter) {
+				painter.draw_open_circle(where, 4);
+				draw_point_coords_label(where, label, painter);
+			}
+
+			function draw_point_coords_label(point, text, painter) {
+				painter.draw_text(text + ": (" + point.x + "," + point.y + ")", "10px segui", { x: point.x + 10, y: point.y });
 			}
 		}
 
@@ -1171,15 +1196,19 @@
 					x: self.translate_position_x(point.x),
 					y: self.translate_position_y(point.y)
 				};
-			}
+			};
 
 			this.translate_position_x = function (pos) {
 				return (pos * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS.x) + OFFSET_TO_GRID_ORIGIN;
-			}
+			};
 
 			this.translate_position_y = function (pos) {
 				return (pos * PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS.y) + OFFSET_TO_GRID_ORIGIN;
-			}
+			};
+
+			this.curve_connecting = function (start, end) {
+				return new Bezier(layout.translatePoint(start), layout.translatePoint(end));
+			};
 		}
 		var layout = new LayoutSpecialist();
 
@@ -1233,8 +1262,8 @@
 					draw_prereq_links(draw_context.skills[skill_id], draw_context);
 				}
 
-				for (var skillId in draw_context.skills) {
-					draw_skill_marker(draw_context.skills[skillId], draw_context);
+				for (var skill_id in draw_context.skills) {
+					draw_skill_marker(draw_context.mainPainter, draw_context.skills[skill_id]);
 				}
 			}
 
@@ -1245,27 +1274,20 @@
 					level.color);
 			}
 
-			function draw_skill_marker(skill, draw_context) {
+			function draw_skill_marker(painter, skill) {
 				var where = layout.translatePoint(skill);
-				draw_context.mainPainter.drawFilledCircle(where, MARKER_RADIUS, MARKER_BORDER_THICKNESS, draw_context.components[skill.component].color);
+				painter.draw_filled_circle(where, MARKER_RADIUS, MARKER_BORDER_THICKNESS, skill.component_obj.color);
 			}
 
 			function draw_prereq_links(skill, draw_context) {
-				if (skill.requires == null)
-					return;
-
-				for (var j = 0, m = skill.requires.length; j < m; j++) {
-					var requirement = skill.requires[j];
-					var prereq = draw_context.skills[requirement.skill];
-					var color = draw_context.components[skill.component].color;
-					drawLink(draw_context, prereq, skill, color);
+				for (var i = 0, m = skill.requires.length; i < m; i++) {
+					var requirement = skill.requires[i];
+					var prereq = requirement.skill_obj;
+					var color = skill.component_obj.color;
+					var link = layout.curve_connecting(prereq, skill);
+					draw_context.mainPainter.draw_bezier_curve(link, color, CONNECTOR_THICKNESS);
+					draw_context.debugPainter.draw_bezier_debug_info(link);
 				}
-			}
-
-			function drawLink(draw_context, sourceSkill, destinationSkill, color) {
-				var link = new Bezier(layout.translatePoint(sourceSkill), layout.translatePoint(destinationSkill));
-				draw_context.mainPainter.drawBezierCurve(link, color, CONNECTOR_THICKNESS);
-				draw_context.debugPainter.drawBezierDebugInfo(link);
 			}
 
 			ko.bindingHandlers.stages = {
@@ -1379,7 +1401,7 @@
 		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app.data, with: app">
 			<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
-			<!-- ko foreach: skills -->
+			<!-- ko foreach: data().skills_arr -->
 			<div class="skill_text collapsed" data-bind="style: { top: top, left: left }">
 				<span class="name" data-bind="text: name"></span>
 			</div>
