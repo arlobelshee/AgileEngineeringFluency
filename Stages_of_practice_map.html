@@ -1025,7 +1025,7 @@
 			};
 		};
 
-		function ViewModel() {
+		function ViewModel(initial_data) {
 			var vm = this;
 			this.close_options = function () {
 				vm.expanded(false);
@@ -1036,11 +1036,12 @@
 			this.app = {
 				data: ko.observable({}),
 				display: ko.observable([]),
+				everything: ko.mapping.fromJS(initial_data, {}),
 			};
 			this.expanded = ko.observable(false);
 			this.json_blob = ko.computed({
 				read: function () {
-					return JSON.stringify(vm.app.data(), undefined, 2);
+					return JSON.stringify(vm.app.data(), undefined, '\t');
 				},
 				write: function (value) {
 					try {
@@ -1301,11 +1302,14 @@
 	</script>
 	<script type="text/javascript" src="knockout-3.0.0.js">
 	</script>
+	<script type="text/javascript" src="knockout.mapping-2.4.1.js">
+	</script>
 	<script type="text/javascript">
 		function start() {
 			extend_ko();
-			vm = new ViewModel();
-			vm.json_blob(JSON.stringify(stages_data(), undefined, 2));
+			var data = stages_data();
+			vm = new ViewModel(data);
+			vm.json_blob(JSON.stringify(data, undefined, '\t'));
 			ko.applyBindings(vm);
 		}
 	</script>
