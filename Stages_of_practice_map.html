@@ -1035,10 +1035,8 @@
 			};
 			this.app = {
 				data: ko.observable({}),
+				display: ko.observable([]),
 			};
-			this.app.skills = ko.computed({
-				read: function () { return wrap_skills(vm.app.data().skills); }
-			})
 			this.expanded = ko.observable(false);
 			this.json_blob = ko.computed({
 				read: function () {
@@ -1047,27 +1045,39 @@
 				write: function (value) {
 					try {
 						var data = JSON.parse(value);
-						data.skills_arr = [];
+						var all_skills = [];
 						for (var skill_id in data.skills) {
 							var skill = data.skills[skill_id];
-							skill.component_obj = data.components[skill.component];
-							skill.level_obj = data.levels[skill.level];
-							skill.id = skill_id;
-							skill.left = layout.translate_position_x(skill.x) + 9 + "px";
-							skill.top = layout.translate_position_y(skill.y) - 26 + "px";
+							var display_skill = {
+								component_obj: data.components[skill.component],
+								level_obj: data.levels[skill.level],
+								id: skill_id,
+								left: layout.translate_position_x(skill.x) + 9 + "px",
+								top: layout.translate_position_y(skill.y) - 26 + "px",
+								requires: [],
+							};
 							for (var i = 0; i < skill.requires.length; ++i) {
 								var link = skill.requires[i];
-								link.skill_obj = data.skills[link.skill];
-								link.kind_obj = data.dependency_kinds[link.kind];
+								display_skill.requires.push({
+									skill_obj: data.skills[link.skill],
+									kind_obj: data.dependency_kinds[link.kind],
+								});
 							}
-							data.skills_arr.push(skill);
+							for (var key in skill) {
+								if (!display_skill[key]) {
+									display_skill[key] = skill[key];
+								}
+							}
+							all_skills.push(display_skill);
 						}
+						var all_levels = [];
 						for (var level_id in data.levels) {
-							data.levels[level_id].id = level_id;
+							all_levels.push(data.levels[level_id]);
 						}
-						for (var component_id in data.components) {
-							data.components[component_id].id = component_id;
-						}
+						vm.app.display({
+							skills: all_skills,
+							levels: all_levels,
+						});
 						vm.app.data(data);
 					} catch (err) {
 						return;
@@ -1075,21 +1085,6 @@
 				},
 				owner: vm
 			});
-
-			function wrap_skills(skills) {
-				var result = [];
-				for (var skill_id in skills) {
-					var skill = skills[skill_id];
-					result.push({
-						name: skill.name,
-						details: skill,
-						id: skill.id,
-						left: skill.left,
-						top: skill.top,
-					});
-				}
-				return result;
-			}
 		}
 
 		function Painter(canvas) {
@@ -1251,7 +1246,6 @@
 			var populate_canvas = function (parsedData) {
 				var draw_context = {
 					skills: parsedData.skills,
-					components: parsedData.components,
 					levels: parsedData.levels,
 					mainPainter: new Painter(mainCanvas),
 					debugPainter: new Painter(debugCanvas),
@@ -1403,10 +1397,10 @@
 </head>
 <body onload="start();">
 	<div id="app_with_options" class="display_port">
-		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app.data, with: app">
+		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app.display, with: app">
 			<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
-			<!-- ko foreach: data().skills_arr -->
+			<!-- ko foreach: display().skills -->
 			<div class="skill_text collapsed" data-bind="style: { top: top, left: left }">
 				<span class="name" data-bind="text: name"></span>
 			</div>
