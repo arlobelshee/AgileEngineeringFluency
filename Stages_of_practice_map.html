@@ -1023,61 +1023,57 @@
 					}
 				}
 			};
-
-			var self = this;
-			this.get_skills_array = function () {
-				var result = [];
-				var skills = self.data.skills;
-				for (var skill_id in skills) {
-					skills[skill_id].id = skill_id;
-					result.push(skills[skill_id]);
-				}
-				return result;
-			}
-
-			var model = this;
-			function ViewModel() {
-				var vm = this;
-				this.close_options = function () {
-					vm.expanded(false);
-				};
-				this.open_options = function () {
-					vm.expanded(true);
-				};
-				this.app = {
-					data: ko.observable(model.data),
-					skills: ko.observableArray(wrap_skills(model.get_skills_array()))
-				};
-				this.expanded = ko.observable(false);
-				this.json_blob = ko.computed({
-					read: function () {
-						return JSON.stringify(vm.app.data(), undefined, 2);
-					},
-					write: function (value) {
-						try {
-							vm.app.data(JSON.parse(value));
-						} catch (err) {
-							return;
-						}
-					},
-					owner: vm
-				});
-
-				function wrap_skills(skills) {
-					for (var i = 0; i < skills.length; ++i) {
-						skills[i] = {
-							name: skills[i].name,
-							left: translate_position_x(skills[i].x) + 9 + "px",
-							top: translate_position_y(skills[i].y) - 26 + "px",
-							details: skills[i],
-						};
-					}
-					return skills;
-				}
-			}
-
-			this.view_model = new ViewModel();
 		};
+
+		function get_skills_array(skills) {
+			var result = [];
+			for (var skill_id in skills) {
+				skills[skill_id].id = skill_id;
+				result.push(skills[skill_id]);
+			}
+			return result;
+		}
+
+		function ViewModel(model) {
+			var vm = this;
+			this.close_options = function () {
+				vm.expanded(false);
+			};
+			this.open_options = function () {
+				vm.expanded(true);
+			};
+			this.app = {
+				data: ko.observable(model.data),
+				skills: ko.observableArray(wrap_skills(get_skills_array(model.data.skills)))
+			};
+			this.expanded = ko.observable(false);
+			this.json_blob = ko.computed({
+				read: function () {
+					return JSON.stringify(vm.app.data(), undefined, 2);
+				},
+				write: function (value) {
+					try {
+						vm.app.data(JSON.parse(value));
+					} catch (err) {
+						return;
+					}
+				},
+				owner: vm
+			});
+
+			function wrap_skills(skills) {
+				for (var i = 0; i < skills.length; ++i) {
+					skills[i] = {
+						name: skills[i].name,
+						left: translate_position_x(skills[i].x) + 9 + "px",
+						top: translate_position_y(skills[i].y) - 26 + "px",
+						details: skills[i],
+						id: skills[i].id,
+					};
+				}
+				return skills;
+			}
+		}
 
 		function Painter(canvas) {
 			var self = this;
@@ -1286,7 +1282,8 @@
 	<script type="text/javascript">
 		function start() {
 			extend_ko();
-			ko.applyBindings(new StagesDataModel().view_model);
+			vm = new ViewModel(new StagesDataModel());
+			ko.applyBindings(vm);
 		}
 	</script>
 	<style>
@@ -1359,10 +1356,10 @@
 			overflow: hidden;
 		}
 
-		.skill_text.collapsed:hover {
-			border: 2px solid #000080;
-			padding: 6px;
-		}
+			.skill_text.collapsed:hover {
+				border: 2px solid #000080;
+				padding: 6px;
+			}
 
 		.skill_text {
 			position: absolute;
