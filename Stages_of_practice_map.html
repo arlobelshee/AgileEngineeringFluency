@@ -1025,15 +1025,6 @@
 			};
 		};
 
-		function get_skills_array(skills) {
-			var result = [];
-			for (var skill_id in skills) {
-				skills[skill_id].id = skill_id;
-				result.push(skills[skill_id]);
-			}
-			return result;
-		}
-
 		function ViewModel(data) {
 			var vm = this;
 			this.close_options = function () {
@@ -1046,7 +1037,7 @@
 				data: ko.observable(data),
 			};
 			this.app.skills = ko.computed({
-				read: function () { return wrap_skills(get_skills_array(vm.app.data().skills)); }
+				read: function () { return wrap_skills(vm.app.data().skills); }
 			})
 			this.expanded = ko.observable(false);
 			this.json_blob = ko.computed({
@@ -1064,16 +1055,18 @@
 			});
 
 			function wrap_skills(skills) {
-				for (var i = 0; i < skills.length; ++i) {
-					skills[i] = {
-						name: skills[i].name,
-						left: translate_position_x(skills[i].x) + 9 + "px",
-						top: translate_position_y(skills[i].y) - 26 + "px",
-						details: skills[i],
-						id: skills[i].id,
-					};
+				var result = [];
+				for (var skill_id in skills) {
+					var skill = skills[skill_id];
+					result.push({
+						name: skill.name,
+						left: translate_position_x(skill.x) + 9 + "px",
+						top: translate_position_y(skill.y) - 26 + "px",
+						details: skill,
+						id: skill_id,
+					});
 				}
-				return skills;
+				return result;
 			}
 		}
 
