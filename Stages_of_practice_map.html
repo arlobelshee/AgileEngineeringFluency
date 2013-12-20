@@ -1131,8 +1131,9 @@
 					return JSON.stringify(info, undefined, '\t');
 				},
 				write: function (value) {
-					if_no_error(function () { return JSON.parse(value); }, function (data) {
-						var stages = new StagesVm(layout, data)
+					if_no_err(function () { return JSON.parse(value); }, function (data) {
+						var stages = new StagesVm(layout);
+						stages.update_data(data);
 						if (!stages.valid) { return; }
 						vm.app.display(stages);
 					});
@@ -1142,42 +1143,12 @@
 		}
 
 		var StagesVm = function () {
-			function StagesVm(layout, data) {
+			function StagesVm(layout) {
 				this.valid = true;
-				if (!data) {
-					this.skills = [];
-					this.levels = [];
-					this.kinds = [];
-					this.components = [];
-					return;
-				}
-				var self = this;
-				function mark_invalid() {
-					self.valid = false;
-					return null;
-				}
-				var all_levels = clone_items(data.levels);
-				var all_components = clone_items(data.components);
-				var all_kinds = clone_items(data.dependency_kinds);
-				var all_skills = decorate_items(data.skills, function (skill) {
-					return {
-						component: all_components[skill.component] || mark_invalid(),
-						level: all_levels[skill.level] || mark_invalid(),
-						label_position: layout.place_label(skill),
-					};
-				});
-				each_item(all_skills, function (skill) {
-					skill.requires = map_elt(skill.requires, function (link) {
-						return {
-							skill: all_skills[link.skill] || mark_invalid(),
-							kind: all_kinds[link.kind] || mark_invalid(),
-						};
-					});
-				});
-				this.skills = hash_to_array(all_skills);
-				this.levels = hash_to_array(all_levels);
-				this.kinds = hash_to_array(all_kinds);
-				this.components = hash_to_array(all_components);
+				this.skills = [];
+				this.levels = [];
+				this.kinds = [];
+				this.components = [];
 			}
 			base_class(StagesVm, {
 				to_JS: function () {
@@ -1187,6 +1158,36 @@
 						dependency_kinds: unwrap_to_hash(this.kinds, unwrap_kind),
 						skills: unwrap_to_hash(this.skills, unwrap_skill),
 					};
+				},
+				update_data: function (data) {
+					this.valid = true;
+					var self = this;
+					function mark_invalid() {
+						self.valid = false;
+						return null;
+					}
+					var all_levels = clone_items(data.levels);
+					var all_components = clone_items(data.components);
+					var all_kinds = clone_items(data.dependency_kinds);
+					var all_skills = decorate_items(data.skills, function (skill) {
+						return {
+							component: all_components[skill.component] || mark_invalid(),
+							level: all_levels[skill.level] || mark_invalid(),
+							label_position: layout.place_label(skill),
+						};
+					});
+					each_item(all_skills, function (skill) {
+						skill.requires = map_elt(skill.requires, function (link) {
+							return {
+								skill: all_skills[link.skill] || mark_invalid(),
+								kind: all_kinds[link.kind] || mark_invalid(),
+							};
+						});
+					});
+					this.skills = hash_to_array(all_skills);
+					this.levels = hash_to_array(all_levels);
+					this.kinds = hash_to_array(all_kinds);
+					this.components = hash_to_array(all_components);
 				},
 			});
 
