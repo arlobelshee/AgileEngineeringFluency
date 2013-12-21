@@ -108,7 +108,7 @@
 					if_err.call(this, function () { return JSON.parse(value); },
 						function (err) { this.app.set_data_error("Unable to parse the JSON."); },
 						function (data) {
-							this.app.update_data(data);
+							this.app.update_data(data, this.is_initial_data);
 						});
 				},
 				owner: vm
@@ -146,7 +146,7 @@
 					this.valid(false);
 					this.error_message(reason);
 				},
-				update_data: function (data) {
+				update_data: function (data, is_initial_data) {
 					this.valid(true);
 					this.error_message("");
 					var self = this;
@@ -165,6 +165,20 @@
 					each_item(lookup.skills, function (skill) {
 						skill.resolve_obj_references(lookup, mark_invalid);
 					});
+					if (is_initial_data) {
+						each_item(lookup.skills, function (skill) {
+							skill.do_one_time_data_updates();
+						});
+						each_item(lookup.components, function (component) {
+							component.do_one_time_data_updates();
+						});
+						each_item(lookup.levels, function (level) {
+							level.do_one_time_data_updates();
+						});
+						each_item(lookup.kinds, function (kind) {
+							kind.do_one_time_data_updates();
+						});
+					}
 					if (!this.valid()) { return; }
 					this.skills(hash_to_array(lookup.skills));
 					this.levels(hash_to_array(lookup.levels));
@@ -199,7 +213,10 @@
 						max: unwrap(this.max),
 						color: unwrap(this.color),
 					};
-				}
+				},
+				do_one_time_data_updates: function () {
+
+				},
 			});
 			return LevelVm;
 		}();
@@ -215,7 +232,10 @@
 						name: unwrap(this.name),
 						color: unwrap(this.color),
 					};
-				}
+				},
+				do_one_time_data_updates: function () {
+
+				},
 			});
 			return ComponentVm;
 		}();
@@ -231,7 +251,10 @@
 						name: unwrap(this.name),
 						dash_style: unwrap(this.dash_style),
 					};
-				}
+				},
+				do_one_time_data_updates: function () {
+
+				},
 			});
 			return KindVm;
 		}();
@@ -244,6 +267,7 @@
 				this.level = data.level;
 				this.component = data.component;
 				this.requires = data.requires;
+				this.layout = layout;
 				this.label_position = layout.place_label(this);
 			}
 			base_class(SkillVm, {
@@ -275,6 +299,9 @@
 					if (this.x < this.level.min || this.x > this.level.max) {
 						mark_invalid(error_skill_not_in_range, this.x, this.level, this._id);
 					}
+				},
+				do_one_time_data_updates: function () {
+					this.label_position = layout.place_label(this);
 				},
 			});
 			function error_failed_to_find_key(type, key, skill_key) {
@@ -518,7 +545,9 @@
 		function start() {
 			extend_ko();
 			vm = new ViewModel();
+			vm.is_initial_data = true;
 			vm.json_blob(JSON.stringify(stages_data(), undefined, '\t'));
+			delete vm.is_initial_data;
 			ko.applyBindings(vm);
 		}
 	</script>
