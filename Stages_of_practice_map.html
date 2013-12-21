@@ -1441,9 +1441,6 @@
 					each_item(lookup.skills, function (skill) {
 						skill.resolve_obj_references(lookup, mark_invalid);
 					});
-					each_item(lookup.skills, function (skill) {
-						skill.resolve_obj_references_more(lookup, mark_invalid);
-					});
 					if (!this.valid()) { return; }
 					this.skills(hash_to_array(lookup.skills));
 					this.levels(hash_to_array(lookup.levels));
@@ -1524,8 +1521,6 @@
 				this.component = data.component;
 				this.requires = data.requires;
 				this.label_position = layout.place_label(this);
-				this.enables = data.enables || [];
-				this.num_id = data.id || -1;
 			}
 			base_class(SkillVm, {
 				to_JS: function (unwrap) {
@@ -1552,24 +1547,6 @@
 							skill: lookup.skills[link.skill] || mark_invalid(error_failed_to_find_key, "skill", link.skill, skill_id),
 							kind: lookup.kinds[link.kind] || mark_invalid(error_failed_to_find_key, "dependency kind", link.kind, skill_id),
 						};
-					});
-				},
-				resolve_obj_references_more: function (lookup, mark_invalid) {
-					function find_by_id(num_id, mark_invalid) {
-						for (var skill_id in lookup.skills) {
-							var skill = lookup.skills[skill_id];
-							if (skill.num_id === num_id) return skill;
-						}
-						return mark_invalid(failed_find_by_num_id, num_id);
-					}
-					var self = this;
-					each_elt(this.enables, function (link) {
-						var enabled_skill = find_by_id(link.skill, mark_invalid);
-						if (!enabled_skill) return;
-						enabled_skill.requires.push({
-							skill: self,
-							kind: lookup.kinds[link.kind] || mark_invalid(error_failed_to_find_key, "dependency kind", link.kind, skill_id),
-						});
 					});
 				},
 			});
