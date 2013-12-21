@@ -47,6 +47,7 @@
 						]
 					},
 					SK_AUTO_DEV_TEST: {
+						id: 2,
 						x: 2, y: 0,
 						name: "Automated developer testing",
 						level: "L_CORE",
@@ -56,6 +57,7 @@
 						]
 					},
 					SK_TEST_FIRST: {
+						id: 3,
 						x: 3, y: 0,
 						name: "Test first",
 						level: "L_CORE",
@@ -65,6 +67,7 @@
 						]
 					},
 					SK_TEST_UNITS: {
+						id: 4,
 						x: 3, y: 1,
 						name: "Test units",
 						level: "L_CORE",
@@ -84,6 +87,7 @@
 						]
 					},
 					SK_RGR: {
+						id: 5,
 						x: 4, y: 0,
 						name: "Red, green, refactor",
 						level: "L_NO_DEBT",
@@ -94,7 +98,6 @@
 						]
 					},
 					SK_TEST_LEGACY: {
-						// 6
 						x: 4, y: 2,
 						name: "Legacy code under test",
 						level: "L_NO_DEBT",
@@ -104,7 +107,6 @@
 						]
 					},
 					SK_TDDESIGN: {
-						// 7
 						x: 5, y: 0,
 						name: "Test-driven design",
 						level: "L_AWESOME",
@@ -114,7 +116,7 @@
 						]
 					},
 					SK_FIX_LEGACY: {
-						// 8
+						id: 8,
 						x: 5, y: 2,
 						name: "Legacy code recovery",
 						level: "L_NO_DEBT",
@@ -124,7 +126,6 @@
 						]
 					},
 					SK_LISTEN_TO_CODE: {
-						// 9
 						x: 18, y: 0,
 						name: "Code whispering",
 						level: "L_AWESOME",
@@ -134,7 +135,7 @@
 						]
 					},
 					SK_SIMUL_PHASES: {
-						// 10
+						id: 10,
 						x: 6, y: 3,
 						name: "Simultaneous Phases",
 						level: "L_NO_DEBT",
@@ -144,7 +145,7 @@
 						]
 					},
 					SK_EVO_DESIGN: {
-						// 11
+						id: 11,
 						x: 6, y: 4,
 						name: "Evolutionary Design",
 						component: "V_CODE",
@@ -152,11 +153,11 @@
 						requires: [
 							{ skill: "SK_TDDESIGN", kind: "IS_REQUIRED" },
 							{ skill: "SK_FIX_LEGACY", kind: "IS_REQUIRED" },
-							 { skill: "SK_GREENFIELD", kind: "IS_HELPFUL" }
+							{ skill: "SK_GREENFIELD", kind: "IS_HELPFUL" }
 						]
 					},
 					SK_NO_BUGS: {
-						// 12
+						id: 12,
 						x: 7, y: 4,
 						name: "No bugs",
 						component: "V_CODE",
@@ -167,7 +168,6 @@
 						]
 					},
 					SK_YAGNI: {
-						//13
 						x: 8, y: 2,
 						name: "YAGNI and simplest thing",
 						component: "V_CODE",
@@ -177,7 +177,7 @@
 						]
 					},
 					SK_CONT_SHIP: {
-						// 14
+						id: 14,
 						x: 13, y: 2,
 						name: "Continuous delivery",
 						component: "V_SHIP",
@@ -186,7 +186,7 @@
 						]
 					},
 					SK_CONT_DEPLOY: {
-						// 15
+						id: 15,
 						x: 19, y: 3,
 						name: "Continuous deployment",
 						level: "L_AWESOME",
@@ -196,7 +196,6 @@
 						]
 					},
 					SK_GREENFIELD: {
-						// 16
 						x: 5, y: 3,
 						name: "Greenfield project",
 						level: "L_NO_DEBT",
@@ -205,7 +204,6 @@
 						]
 					},
 					SK_COWBOY: {
-						// 17,
 						x: 18, y: 10,
 						name: "Cowboy coding",
 						level: "L_TRADITIONAL",
@@ -1079,14 +1077,6 @@
 			}
 		}
 
-		function decorate_items(inputs, decorator_for) {
-			return _wrap_items(inputs, function (input) { return decorate(input, decorator_for(input)) });
-		}
-
-		function clone_items(inputs) {
-			return _wrap_items(inputs, clone);
-		}
-
 		function create_items(inputs, constructor, options) {
 			return _wrap_items(inputs, function (input) { return new constructor(input, options); });
 		}
@@ -1138,7 +1128,7 @@
 				},
 				write: function (value) {
 					if_err(function () { return JSON.parse(value); },
-						function () { vm.app.display().set_data_error("Unable to parse the JSON."); },
+						function (err) { vm.app.display().set_data_error("Unable to parse the JSON."); },
 						function (data) {
 							vm.app.display().update_data(data);
 						});
@@ -1196,6 +1186,9 @@
 					};
 					each_item(lookup.skills, function (skill) {
 						skill.resolve_obj_references(lookup, mark_invalid);
+					});
+					each_item(lookup.skills, function (skill) {
+						skill.resolve_obj_references_more(lookup, mark_invalid);
 					});
 					if (!this.valid()) { return; }
 					this.skills(hash_to_array(lookup.skills));
@@ -1277,6 +1270,8 @@
 				this.component = data.component;
 				this.requires = data.requires;
 				this.label_position = layout.place_label(this);
+				this.enables = data.enables || [];
+				this.num_id = data.id || -1;
 			}
 			base_class(SkillVm, {
 				to_JS: function (unwrap) {
@@ -1305,9 +1300,30 @@
 						};
 					});
 				},
+				resolve_obj_references_more: function (lookup, mark_invalid) {
+					function find_by_id(num_id, mark_invalid) {
+						for (var skill_id in lookup.skills) {
+							var skill = lookup.skills[skill_id];
+							if (skill.num_id === num_id) return skill;
+						}
+						return mark_invalid(failed_find_by_num_id, num_id);
+					}
+					var self = this;
+					each_elt(this.enables, function (link) {
+						var enabled_skill = find_by_id(link.skill, mark_invalid);
+						if (!enabled_skill) return;
+						enabled_skill.requires.push({
+							skill: self,
+							kind: lookup.kinds[link.kind] || mark_invalid(error_failed_to_find_key, "dependency kind", link.kind, skill_id),
+						});
+					});
+				},
 			});
 			function error_failed_to_find_key(type, key, skill_key) {
 				return "I could not find the " + type + " " + key + ", as referenced in the skill " + skill_key + ".";
+			}
+			function failed_find_by_num_id(num_id) {
+				return "I could not find skill with numeric ID " + num_id + ".";
 			}
 			return SkillVm;
 		}();
