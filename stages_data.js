@@ -16,19 +16,19 @@ function stages_data() {
 			"L_LEVERAGE": {
 				"name": "Leverage new capabilities",
 				"min": 21,
-				"max": 30,
+				"max": 23,
 				"color": "#ffe0ff"
 			},
 			"L_NO_DEBT": {
 				"name": "Eliminate debt and change the rules",
-				"min": 31,
-				"max": 40,
+				"min": 24,
+				"max": 29,
 				"color": "#e0ffe0"
 			},
 			"L_AWESOME": {
 				"name": "Take advantage of being awesome",
-				"min": 41,
-				"max": 50,
+				"min": 30,
+				"max": 39,
 				"color": "#ffffc0"
 			}
 		},
@@ -158,7 +158,7 @@ function stages_data() {
 			},
 			"SK_RGR": {
 				"name": "Red, green, refactor",
-				"x": 35,
+				"x": 24,
 				"y": 0,
 				"level": "L_NO_DEBT",
 				"component": "V_CHECK_WORK",
@@ -179,7 +179,7 @@ function stages_data() {
 			},
 			"SK_TEST_LEGACY": {
 				"name": "Legacy code under test",
-				"x": 35,
+				"x": 24,
 				"y": 2,
 				"level": "L_NO_DEBT",
 				"component": "V_CHECK_WORK",
@@ -192,7 +192,7 @@ function stages_data() {
 			},
 			"SK_TDDESIGN": {
 				"name": "Test-driven design",
-				"x": 46,
+				"x": 35,
 				"y": 0,
 				"level": "L_AWESOME",
 				"component": "V_CHECK_WORK",
@@ -209,7 +209,7 @@ function stages_data() {
 			},
 			"SK_FIX_LEGACY": {
 				"name": "Legacy code recovery",
-				"x": 36,
+				"x": 25,
 				"y": 2,
 				"level": "L_NO_DEBT",
 				"component": "V_CODE",
@@ -230,7 +230,7 @@ function stages_data() {
 			},
 			"SK_LISTEN_TO_CODE": {
 				"name": "Code whispering",
-				"x": 48,
+				"x": 37,
 				"y": 0,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
@@ -243,7 +243,7 @@ function stages_data() {
 			},
 			"SK_SIMUL_PHASES": {
 				"name": "Simultaneous Phases",
-				"x": 37,
+				"x": 26,
 				"y": 3,
 				"level": "L_NO_DEBT",
 				"component": "V_CODE",
@@ -260,7 +260,7 @@ function stages_data() {
 			},
 			"SK_EVO_DESIGN": {
 				"name": "Evolutionary Design",
-				"x": 41,
+				"x": 30,
 				"y": 4,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
@@ -285,7 +285,7 @@ function stages_data() {
 			},
 			"SK_NO_BUGS": {
 				"name": "No bugs",
-				"x": 42,
+				"x": 31,
 				"y": 4,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
@@ -306,7 +306,7 @@ function stages_data() {
 			},
 			"SK_YAGNI": {
 				"name": "YAGNI and simplest thing",
-				"x": 44,
+				"x": 33,
 				"y": 1,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
@@ -319,7 +319,7 @@ function stages_data() {
 			},
 			"SK_CONT_SHIP": {
 				"name": "Continuous delivery",
-				"x": 44,
+				"x": 33,
 				"y": 2,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
@@ -340,7 +340,7 @@ function stages_data() {
 			},
 			"SK_CONT_DEPLOY": {
 				"name": "Continuous deployment",
-				"x": 46,
+				"x": 35,
 				"y": 3,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
@@ -357,7 +357,7 @@ function stages_data() {
 			},
 			"SK_GREENFIELD": {
 				"name": "Greenfield project",
-				"x": 36,
+				"x": 25,
 				"y": 3,
 				"level": "L_NO_DEBT",
 				"component": "V_CODE",
@@ -514,8 +514,8 @@ function stages_data() {
 			},
 			"SK_AUTO_DEPLOY": {
 				"name": "Automated deploy",
-				"x": 29,
-				"y": 10,
+				"x": 21,
+				"y": 6,
 				"level": "L_LEVERAGE",
 				"component": "V_SHIP",
 				"requires": [
@@ -527,7 +527,7 @@ function stages_data() {
 			},
 			"SK_FEATURE_ISOLATION": {
 				"name": "Feature isolation",
-				"x": 41,
+				"x": 30,
 				"y": 3,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
@@ -540,7 +540,7 @@ function stages_data() {
 			},
 			"SK_AUTO_DEPLOY_VERIFY": {
 				"name": "Automated deploy verification",
-				"x": 36,
+				"x": 25,
 				"y": 10,
 				"level": "L_NO_DEBT",
 				"component": "V_SHIP",
@@ -553,7 +553,7 @@ function stages_data() {
 			},
 			"SK_AUTO_ROLLBACK": {
 				"name": "Automated rollback",
-				"x": 41,
+				"x": 30,
 				"y": 2,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
@@ -630,7 +630,7 @@ function stages_data() {
 			},
 			"SK_VERIFY_EXAMPLES": {
 				"name": "Verify examples",
-				"x": 41,
+				"x": 30,
 				"y": 9,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
@@ -647,8 +647,8 @@ function stages_data() {
 			},
 			"SK_STORY_CLUSTERING": {
 				"name": "Story clustering",
-				"x": 29,
-				"y": 10,
+				"x": 22,
+				"y": 2,
 				"level": "L_LEVERAGE",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -660,8 +660,8 @@ function stages_data() {
 			},
 			"SK_ADAPTIVE_PLANNING": {
 				"name": "Adaptive planning",
-				"x": 29,
-				"y": 10,
+				"x": 22,
+				"y": 5,
 				"level": "L_LEVERAGE",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -677,7 +677,7 @@ function stages_data() {
 			},
 			"SK_HYPOTHESIS_STORIES": {
 				"name": "Hypothesis stories",
-				"x": 41,
+				"x": 30,
 				"y": 8,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
@@ -690,8 +690,8 @@ function stages_data() {
 			},
 			"SK_ROLLING_WAVE_PLANNING": {
 				"name": "Rolling-wave planning",
-				"x": 29,
-				"y": 10,
+				"x": 23,
+				"y": 4,
 				"level": "L_LEVERAGE",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -707,7 +707,7 @@ function stages_data() {
 			},
 			"SK_EXPERIENCE_FOCUS": {
 				"name": "Experience focus",
-				"x": 48,
+				"x": 37,
 				"y": 10,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
@@ -720,7 +720,7 @@ function stages_data() {
 			},
 			"SK_METRICS_FOCUS": {
 				"name": "Business metric focus",
-				"x": 48,
+				"x": 37,
 				"y": 10,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
@@ -737,7 +737,7 @@ function stages_data() {
 			},
 			"SK_LEAN_STARTUP": {
 				"name": "Lean startup",
-				"x": 48,
+				"x": 37,
 				"y": 10,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
@@ -754,7 +754,7 @@ function stages_data() {
 			},
 			"SK_WHOLE_TEAM_BUSINESS": {
 				"name": "Whole team business innovation",
-				"x": 48,
+				"x": 37,
 				"y": 10,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
@@ -839,8 +839,7 @@ function stages_data() {
 				"y": 6,
 				"level": "L_CORE",
 				"component": "V_LEARN",
-				"requires": [
-				]
+				"requires": []
 			},
 			"SK_T_SHAPED": {
 				"name": "T-shaped people",
@@ -945,7 +944,7 @@ function stages_data() {
 			},
 			"SK_M_SHAPED": {
 				"name": "M-shaped people",
-				"x": 41,
+				"x": 30,
 				"y": 7,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
@@ -958,7 +957,7 @@ function stages_data() {
 			},
 			"SK_MOBS": {
 				"name": "Mobbing",
-				"x": 41,
+				"x": 30,
 				"y": 6,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
@@ -971,7 +970,7 @@ function stages_data() {
 			},
 			"SK_UNIVERSAL_SPECIALIST": {
 				"name": "Full-product specialization",
-				"x": 42,
+				"x": 31,
 				"y": 6,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
@@ -1048,7 +1047,7 @@ function stages_data() {
 			},
 			"SK_LEARN_LOCALLY": {
 				"name": "Learn from local cmm'ty",
-				"x": 39,
+				"x": 28,
 				"y": 10,
 				"level": "L_NO_DEBT",
 				"component": "V_IMPROVE",
@@ -1061,7 +1060,7 @@ function stages_data() {
 			},
 			"SK_PROCESS_EXPERIMENTS": {
 				"name": "Process experiments",
-				"x": 39,
+				"x": 28,
 				"y": 10,
 				"level": "L_NO_DEBT",
 				"component": "V_IMPROVE",
@@ -1078,7 +1077,7 @@ function stages_data() {
 			},
 			"SK_LEARN_ALL": {
 				"name": "Learn from everyone",
-				"x": 39,
+				"x": 28,
 				"y": 10,
 				"level": "L_NO_DEBT",
 				"component": "V_IMPROVE",
@@ -1091,7 +1090,7 @@ function stages_data() {
 			},
 			"SK_PROCESS_INNOVATION": {
 				"name": "Useful innovation",
-				"x": 48,
+				"x": 37,
 				"y": 10,
 				"level": "L_AWESOME",
 				"component": "V_IMPROVE",
@@ -1108,7 +1107,7 @@ function stages_data() {
 			},
 			"SK_RADICAL_COLLABORATE": {
 				"name": "Radical collaboration",
-				"x": 48,
+				"x": 37,
 				"y": 10,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
@@ -1253,7 +1252,7 @@ function stages_data() {
 			},
 			"SK_TIP": {
 				"name": "Testing in production",
-				"x": 42,
+				"x": 31,
 				"y": 11,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
