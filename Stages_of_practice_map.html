@@ -80,12 +80,12 @@
 		function if_err(fn, with_err, no_err) {
 			var result;
 			try {
-				result = fn();
+				result = fn.call(this);
 			} catch (err) {
-				with_err(err);
+				with_err.call(this, err);
 				return;
 			}
-			no_err(result);
+			no_err.call(this, result);
 		}
 
 		function ViewModel() {
@@ -97,20 +97,18 @@
 			this.open_options = function () {
 				vm.expanded(true);
 			};
-			this.app = {
-				display: ko.observable(new StagesVm(layout)),
-			};
+			this.app = new StagesVm(layout);
 			this.expanded = ko.observable(false);
 			this.json_blob = ko.computed({
 				read: function () {
-					var info = vm.app.display().to_JS();
+					var info = this.app.to_JS();
 					return JSON.stringify(info, undefined, '\t');
 				},
 				write: function (value) {
-					if_err(function () { return JSON.parse(value); },
-						function (err) { vm.app.display().set_data_error("Unable to parse the JSON."); },
+					if_err.call(this, function () { return JSON.parse(value); },
+						function (err) { this.app.set_data_error("Unable to parse the JSON."); },
 						function (data) {
-							vm.app.display().update_data(data);
+							this.app.update_data(data);
 						});
 				},
 				owner: vm
@@ -650,7 +648,7 @@
 </head>
 <body onload="start();">
 	<div id="app_with_options" class="display_port">
-		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app.display, with: app.display()">
+		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app, with: app">
 			<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: skills -->
@@ -664,13 +662,13 @@
 			<p style="padding-left:2em;">
 				Enter JSON data here to update the diagram
 				<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
-				<span class="error_display" data-bind="text: app.display().error_message()"></span>
+				<span class="error_display" data-bind="text: app.error_message()"></span>
 			</p>
-			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="value: json_blob, valueUpdate: 'afterkeydown', css: { invalid: !app.display().valid() }"></textarea>
+			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="value: json_blob, valueUpdate: 'afterkeydown', css: { invalid: !app.valid() }"></textarea>
 		</div>
 	</div>
-	<div class="skill_focus_dialog" data-bind="css: { hidden: !app.display().focal_skill() }, click: app.display().hide_skill_details">
-		<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.display().focal_skill()">
+	<div class="skill_focus_dialog" data-bind="css: { hidden: !app.focal_skill() }, click: app.hide_skill_details">
+		<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.focal_skill()">
 			<h1 data-bind="text: name"></h1>
 		</div>
 	</div>
