@@ -78,7 +78,7 @@ function stages_data() {
 			"SK_QA": {
 				"name": "Quality Assurance",
 				"x": 0,
-				"y": 5,
+				"y": 6,
 				"level": "L_TRADITIONAL",
 				"component": "V_CHECK_WORK",
 				"requires": []
@@ -86,7 +86,7 @@ function stages_data() {
 			"SK_DEV_CHECK": {
 				"name": "Developer Checking",
 				"x": 1,
-				"y": 5,
+				"y": 6,
 				"level": "L_TRADITIONAL",
 				"component": "V_CHECK_WORK",
 				"requires": [
@@ -247,7 +247,7 @@ function stages_data() {
 			"SK_LISTEN_TO_CODE": {
 				"name": "Code whispering",
 				"x": 33,
-				"y": 3,
+				"y": 4,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
 				"requires": [
@@ -336,7 +336,7 @@ function stages_data() {
 			"SK_CONT_SHIP": {
 				"name": "Continuous delivery",
 				"x": 29,
-				"y": 2,
+				"y": 3,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
 				"requires": [
@@ -357,7 +357,7 @@ function stages_data() {
 			"SK_CONT_DEPLOY": {
 				"name": "Continuous deployment",
 				"x": 31,
-				"y": 3,
+				"y": 4,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
 				"requires": [
@@ -382,7 +382,7 @@ function stages_data() {
 			"SK_COWBOY": {
 				"name": "Cowboy coding",
 				"x": 0,
-				"y": 4,
+				"y": 5,
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
 				"requires": []
@@ -390,7 +390,7 @@ function stages_data() {
 			"SK_BDUF": {
 				"name": "Big design up front",
 				"x": 1,
-				"y": 4,
+				"y": 5,
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
 				"requires": [
@@ -437,7 +437,7 @@ function stages_data() {
 			"SK_B_ARCHI_UF": {
 				"name": "Just architecture up front",
 				"x": 3,
-				"y": 4,
+				"y": 5,
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
 				"requires": [
@@ -450,7 +450,7 @@ function stages_data() {
 			"SK_PREDICTIVE_WITH_SMELLS": {
 				"name": "Smell-based predictive design",
 				"x": 4,
-				"y": 4,
+				"y": 5,
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
 				"requires": [
@@ -463,7 +463,7 @@ function stages_data() {
 			"SK_ITERATED_PREDICTIVE": {
 				"name": "Iterated predictive design",
 				"x": 5,
-				"y": 4,
+				"y": 5,
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
 				"requires": [
@@ -552,7 +552,7 @@ function stages_data() {
 			"SK_FEATURE_ISOLATION": {
 				"name": "Feature isolation",
 				"x": 26,
-				"y": 3,
+				"y": 4,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
 				"requires": [
@@ -578,7 +578,7 @@ function stages_data() {
 			"SK_AUTO_ROLLBACK": {
 				"name": "Automated rollback",
 				"x": 26,
-				"y": 2,
+				"y": 3,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
 				"requires": [
@@ -672,7 +672,7 @@ function stages_data() {
 			"SK_STORY_CLUSTERING": {
 				"name": "Story clustering",
 				"x": 17,
-				"y": 2,
+				"y": 8,
 				"level": "L_LEVERAGE",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -685,7 +685,7 @@ function stages_data() {
 			"SK_ADAPTIVE_PLANNING": {
 				"name": "Adaptive planning",
 				"x": 17,
-				"y": 5,
+				"y": 7,
 				"level": "L_LEVERAGE",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -715,7 +715,7 @@ function stages_data() {
 			"SK_ROLLING_WAVE_PLANNING": {
 				"name": "Rolling-wave planning",
 				"x": 18,
-				"y": 4,
+				"y": 7,
 				"level": "L_LEVERAGE",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -992,7 +992,7 @@ function stages_data() {
 			"SK_M_SHAPED": {
 				"name": "M-shaped people",
 				"x": 26,
-				"y": 1,
+				"y": 2,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
 				"requires": [
@@ -1005,7 +1005,7 @@ function stages_data() {
 			"SK_MOBS": {
 				"name": "Mobbing",
 				"x": 26,
-				"y": 0,
+				"y": 1,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
 				"requires": [
@@ -1018,7 +1018,7 @@ function stages_data() {
 			"SK_UNIVERSAL_SPECIALIST": {
 				"name": "Full-product specialization",
 				"x": 27,
-				"y": 0,
+				"y": 1,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
 				"requires": [
@@ -1035,7 +1035,7 @@ function stages_data() {
 			"SK_STASIS": {
 				"name": "Stasis",
 				"x": 0,
-				"y": 11,
+				"y": 7,
 				"level": "L_TRADITIONAL",
 				"component": "V_IMPROVE",
 				"requires": []
@@ -1043,7 +1043,7 @@ function stages_data() {
 			"SK_CENTRAL_PROCESS": {
 				"name": "Centralized improvement",
 				"x": 1,
-				"y": 11,
+				"y": 7,
 				"level": "L_TRADITIONAL",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1056,7 +1056,7 @@ function stages_data() {
 			"SK_POST_MORTEM": {
 				"name": "Post-mortems",
 				"x": 2,
-				"y": 11,
+				"y": 7,
 				"level": "L_TRADITIONAL",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1136,7 +1136,7 @@ function stages_data() {
 				]
 			},
 			"SK_PROCESS_INNOVATION": {
-				"name": "Useful innovation",
+				"name": "Useful process innovation",
 				"x": 30,
 				"y": 0,
 				"level": "L_AWESOME",
