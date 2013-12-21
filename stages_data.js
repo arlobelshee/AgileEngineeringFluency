@@ -28,7 +28,7 @@ function stages_data() {
 			"L_AWESOME": {
 				"name": "Take advantage of being awesome",
 				"min": 21,
-				"max": 30,
+				"max": 27,
 				"color": "#ffffc0"
 			}
 		},
@@ -175,7 +175,7 @@ function stages_data() {
 			"SK_RGR": {
 				"name": "Red, green, refactor",
 				"x": 15,
-				"y": 5,
+				"y": 3,
 				"level": "L_NO_DEBT",
 				"component": "V_CHECK_WORK",
 				"requires": [
@@ -200,7 +200,7 @@ function stages_data() {
 			"SK_TEST_LEGACY": {
 				"name": "Legacy code under test",
 				"x": 15,
-				"y": 7,
+				"y": 5,
 				"level": "L_NO_DEBT",
 				"component": "V_CHECK_WORK",
 				"requires": [
@@ -212,8 +212,8 @@ function stages_data() {
 			},
 			"SK_TDDESIGN": {
 				"name": "Test-driven design",
-				"x": 26,
-				"y": 5,
+				"x": 25,
+				"y": 2,
 				"level": "L_AWESOME",
 				"component": "V_CHECK_WORK",
 				"requires": [
@@ -230,7 +230,7 @@ function stages_data() {
 			"SK_FIX_LEGACY": {
 				"name": "Legacy code recovery",
 				"x": 16,
-				"y": 5,
+				"y": 3,
 				"level": "L_NO_DEBT",
 				"component": "V_CODE",
 				"requires": [
@@ -250,38 +250,46 @@ function stages_data() {
 			},
 			"SK_LISTEN_TO_CODE": {
 				"name": "Code whispering",
-				"x": 28,
-				"y": 4,
+				"x": 26,
+				"y": 2,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
 				"requires": [
 					{
 						"skill": "SK_YAGNI",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_TDDESIGN",
+						"kind": "IS_REQUIRED"
 					}
 				]
 			},
 			"SK_SIMUL_PHASES": {
 				"name": "Simultaneous Phases",
-				"x": 17,
-				"y": 6,
+				"x": 16,
+				"y": 4,
 				"level": "L_NO_DEBT",
 				"component": "V_CODE",
 				"requires": [
 					{
-						"skill": "SK_FIX_LEGACY",
+						"skill": "SK_RGR",
 						"kind": "IS_REQUIRED"
 					},
 					{
-						"skill": "SK_DATA_DRIVEN_CAPACITY",
+						"skill": "SK_AUTO_DEPLOY",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_ADAPTIVE_PLANNING",
+						"kind": "IS_HELPFUL"
 					}
 				]
 			},
 			"SK_EVO_DESIGN": {
 				"name": "Evolutionary Design",
 				"x": 21,
-				"y": 7,
+				"y": 3,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
 				"requires": [
@@ -306,7 +314,7 @@ function stages_data() {
 			"SK_NO_BUGS": {
 				"name": "No bugs",
 				"x": 22,
-				"y": 7,
+				"y": 3,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
 				"requires": [
@@ -327,7 +335,7 @@ function stages_data() {
 			"SK_YAGNI": {
 				"name": "YAGNI and simplest thing",
 				"x": 24,
-				"y": 4,
+				"y": 3,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
 				"requires": [
@@ -340,7 +348,7 @@ function stages_data() {
 			"SK_CONT_SHIP": {
 				"name": "Continuous delivery",
 				"x": 24,
-				"y": 3,
+				"y": 4,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
 				"requires": [
@@ -377,8 +385,8 @@ function stages_data() {
 			},
 			"SK_GREENFIELD": {
 				"name": "Greenfield project",
-				"x": 16,
-				"y": 6,
+				"x": 17,
+				"y": 5,
 				"level": "L_NO_DEBT",
 				"component": "V_CODE",
 				"requires": []
@@ -568,8 +576,8 @@ function stages_data() {
 			},
 			"SK_AUTO_DEPLOY_VERIFY": {
 				"name": "Automated deploy verification",
-				"x": 16,
-				"y": 10,
+				"x": 15,
+				"y": 6,
 				"level": "L_NO_DEBT",
 				"component": "V_SHIP",
 				"requires": [
@@ -582,7 +590,7 @@ function stages_data() {
 			"SK_AUTO_ROLLBACK": {
 				"name": "Automated rollback",
 				"x": 21,
-				"y": 3,
+				"y": 5,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
 				"requires": [
@@ -616,7 +624,7 @@ function stages_data() {
 			"SK_SLACK": {
 				"name": "Build slack in",
 				"x": 2,
-				"y": 11,
+				"y": 10,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
 				"requires": []
@@ -658,7 +666,7 @@ function stages_data() {
 			"SK_VERIFY_EXAMPLES": {
 				"name": "Verify examples",
 				"x": 21,
-				"y": 9,
+				"y": 7,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -697,6 +705,10 @@ function stages_data() {
 						"kind": "IS_REQUIRED"
 					},
 					{
+						"skill": "SK_ITERATION",
+						"kind": "IS_REQUIRED"
+					},
+					{
 						"skill": "SK_STORIES",
 						"kind": "IS_HELPFUL"
 					}
@@ -705,7 +717,7 @@ function stages_data() {
 			"SK_HYPOTHESIS_STORIES": {
 				"name": "Hypothesis stories",
 				"x": 21,
-				"y": 8,
+				"y": 6,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -734,8 +746,8 @@ function stages_data() {
 			},
 			"SK_EXPERIENCE_FOCUS": {
 				"name": "Experience focus",
-				"x": 24,
-				"y": 5,
+				"x": 21,
+				"y": 8,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -747,8 +759,8 @@ function stages_data() {
 			},
 			"SK_METRICS_FOCUS": {
 				"name": "Business metric focus",
-				"x": 25,
-				"y": 5,
+				"x": 24,
+				"y": 7,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -764,8 +776,8 @@ function stages_data() {
 			},
 			"SK_LEAN_STARTUP": {
 				"name": "Lean startup",
-				"x": 27,
-				"y": 5,
+				"x": 26,
+				"y": 8,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -781,8 +793,8 @@ function stages_data() {
 			},
 			"SK_WHOLE_TEAM_BUSINESS": {
 				"name": "Whole team business innovation",
-				"x": 25,
-				"y": 7,
+				"x": 22,
+				"y": 8,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -1162,12 +1174,12 @@ function stages_data() {
 			"SK_RADICAL_COLLABORATE": {
 				"name": "Radical collaboration",
 				"x": 25,
-				"y": 7,
+				"y": 1,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
 				"requires": [
 					{
-						"skill": "SK_PAIR_ALWAYS",
+						"skill": "SK_M_SHAPED",
 						"kind": "IS_REQUIRED"
 					},
 					{
@@ -1179,7 +1191,7 @@ function stages_data() {
 			"SK_DEATH_MARCH": {
 				"name": "Death marches",
 				"x": 0,
-				"y": 13,
+				"y": 11,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
 				"requires": []
@@ -1187,7 +1199,7 @@ function stages_data() {
 			"SK_TRACK_CAPACITY": {
 				"name": "Track capacity",
 				"x": 6,
-				"y": 14,
+				"y": 11,
 				"level": "L_CORE",
 				"component": "V_SUSTAINABLE",
 				"requires": []
@@ -1195,7 +1207,7 @@ function stages_data() {
 			"SK_WATERFALL_MILESTONES": {
 				"name": "Waterfall milestones",
 				"x": 1,
-				"y": 13,
+				"y": 11,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1208,7 +1220,7 @@ function stages_data() {
 			"SK_ITERATION": {
 				"name": "Iterations with self",
 				"x": 6,
-				"y": 12,
+				"y": 10,
 				"level": "L_CORE",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1225,7 +1237,7 @@ function stages_data() {
 			"SK_RELATIVE_ESTIMATES": {
 				"name": "Relative based estimation",
 				"x": 12,
-				"y": 13,
+				"y": 11,
 				"level": "L_LEVERAGE",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1238,7 +1250,7 @@ function stages_data() {
 			"SK_LIMIT_WORK_TO_CAPACITY": {
 				"name": "Limit work to estimated capacity",
 				"x": 12,
-				"y": 12,
+				"y": 10,
 				"level": "L_LEVERAGE",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1258,13 +1270,17 @@ function stages_data() {
 			},
 			"SK_DATA_DRIVEN_CAPACITY": {
 				"name": "Use data to determine capacity",
-				"x": 13,
-				"y": 12,
-				"level": "L_LEVERAGE",
+				"x": 18,
+				"y": 10,
+				"level": "L_NO_DEBT",
 				"component": "V_SUSTAINABLE",
 				"requires": [
 					{
 						"skill": "SK_RELATIVE_ESTIMATES",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_SIMUL_PHASES",
 						"kind": "IS_REQUIRED"
 					},
 					{
@@ -1276,7 +1292,7 @@ function stages_data() {
 			"SK_PULL": {
 				"name": "Pull systems",
 				"x": 21,
-				"y": 12,
+				"y": 10,
 				"level": "L_AWESOME",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1289,7 +1305,7 @@ function stages_data() {
 			"SK_LIMIT_WORK_CONTINUOUS": {
 				"name": "WIP limits",
 				"x": 22,
-				"y": 12,
+				"y": 10,
 				"level": "L_AWESOME",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1302,7 +1318,7 @@ function stages_data() {
 			"SK_SINGLE_PIECE_FLOW": {
 				"name": "Single piece flow",
 				"x": 23,
-				"y": 12,
+				"y": 10,
 				"level": "L_AWESOME",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1314,13 +1330,17 @@ function stages_data() {
 			},
 			"SK_TIP": {
 				"name": "Testing in production",
-				"x": 22,
-				"y": 11,
+				"x": 23,
+				"y": 6,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
 					{
 						"skill": "SK_HYPOTHESIS_STORIES",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_NO_BUGS",
 						"kind": "IS_REQUIRED"
 					}
 				]
