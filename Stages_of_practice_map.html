@@ -399,18 +399,21 @@
 				this.cp1 = { x: start.x + dx * X_BIAS, y: start.y + dy * Y_BIAS };
 				this.cp2 = { x: end.x - dx * X_BIAS, y: end.y - dy * Y_BIAS };
 			}
-
-			Bezier.prototype.draw = function (painter, color, thickness, dash_style) {
-				painter.draw_bezier_curve(this, color, thickness, dash_style);
-			};
-
-			Bezier.prototype.draw_debug_info = function (painter) {
-				draw_indicator_lines(this, painter);
-				draw_control_point(this.cp1, "cp1", painter);
-				draw_control_point(this.cp2, "cp2", painter);
-				draw_point_coords_label(this.start, "start", painter);
-				draw_point_coords_label(this.end, "end", painter);
-			};
+			base_class(Bezier, {
+				draw: function (painter, color, thickness, dash_style) {
+					if (this.start.x >= this.end.x) {
+						painter.draw_bezier_curve(this, "red", thickness + 4, []);
+					}
+					painter.draw_bezier_curve(this, color, thickness, dash_style);
+				},
+				draw_debug_info: function (painter) {
+					draw_indicator_lines(this, painter);
+					draw_control_point(this.cp1, "cp1", painter);
+					draw_control_point(this.cp2, "cp2", painter);
+					draw_point_coords_label(this.start, "start", painter);
+					draw_point_coords_label(this.end, "end", painter);
+				},
+			});
 
 			function draw_indicator_lines(self, painter) {
 				painter.draw_dashed_line(self.start, self.cp1);
@@ -649,7 +652,7 @@
 <body onload="start();">
 	<div id="app_with_options" class="display_port">
 		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app, with: app">
-			<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
+			<canvas id="skillsCanvas" width="6080" height="1200" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: skills -->
 			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }, click: $parent.show_skill_details">
