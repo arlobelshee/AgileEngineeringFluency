@@ -215,7 +215,6 @@
 					};
 				},
 				do_one_time_data_updates: function () {
-
 				},
 			});
 			return LevelVm;
@@ -296,7 +295,7 @@
 							kind: lookup.kinds[link.kind] || mark_invalid(error_failed_to_find_key, "dependency kind", link.kind, skill_id),
 						};
 					});
-					if (this.x < this.level.min || this.x > this.level.max) {
+					if (this.level && (this.x < this.level.min || this.x > this.level.max)) {
 						mark_invalid(error_skill_not_in_range, this.x, this.level, this._id);
 					}
 				},

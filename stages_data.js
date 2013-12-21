@@ -804,7 +804,7 @@ function stages_data() {
 			"SK_TEAM_LEADS": {
 				"name": "Team leads",
 				"x": 1,
-				"y": 1,
+				"y": 2,
 				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
 				"requires": [
@@ -817,7 +817,7 @@ function stages_data() {
 			"SK_FORMAL_TRAINING": {
 				"name": "Formal training",
 				"x": 2,
-				"y": 2,
+				"y": 3,
 				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
 				"requires": [
@@ -830,7 +830,7 @@ function stages_data() {
 			"SK_CODE_REVIEW": {
 				"name": "Code review",
 				"x": 2,
-				"y": 1,
+				"y": 2,
 				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
 				"requires": [
@@ -847,7 +847,7 @@ function stages_data() {
 			"SK_CODE_PREVIEW": {
 				"name": "Code preview",
 				"x": 3,
-				"y": 2,
+				"y": 3,
 				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
 				"requires": [
@@ -860,15 +860,20 @@ function stages_data() {
 			"SK_SHARED_CODE": {
 				"name": "Shared code responsibility",
 				"x": 11,
-				"y": 0,
+				"y": 1,
 				"level": "L_CORE",
 				"component": "V_LEARN",
-				"requires": []
+				"requires": [
+					{
+						"skill": "SK_TEAMS",
+						"kind": "IS_REQUIRED"
+					}
+				]
 			},
 			"SK_T_SHAPED": {
 				"name": "T-shaped people",
 				"x": 12,
-				"y": 0,
+				"y": 1,
 				"level": "L_CORE",
 				"component": "V_LEARN",
 				"requires": [
@@ -889,17 +894,13 @@ function stages_data() {
 			"SK_COLLECTIVE_OWNERSHIP": {
 				"name": "Collective ownership",
 				"x": 13,
-				"y": 0,
+				"y": 1,
 				"level": "L_CORE",
 				"component": "V_LEARN",
 				"requires": [
 					{
 						"skill": "SK_T_SHAPED",
 						"kind": "IS_REQUIRED"
-					},
-					{
-						"skill": "SK_PAIR_OCCASIONAL",
-						"kind": "IS_HELPFUL"
 					},
 					{
 						"skill": "SK_PAIR_REGULARLY",
@@ -909,16 +910,21 @@ function stages_data() {
 			},
 			"SK_SIT_TOGETHER": {
 				"name": "Sit together",
-				"x": 1,
-				"y": 0,
+				"x": 2,
+				"y": 1,
 				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
-				"requires": []
+				"requires": [
+					{
+						"skill": "SK_TEAMS",
+						"kind": "IS_REQUIRED"
+					}
+				]
 			},
 			"SK_PAIR_OCCASIONAL": {
 				"name": "Pairing to solve hard problems",
 				"x": 3,
-				"y": 1,
+				"y": 2,
 				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
 				"requires": [
@@ -938,12 +944,17 @@ function stages_data() {
 				"y": 2,
 				"level": "L_CORE",
 				"component": "V_LEARN",
-				"requires": []
+				"requires": [
+					{
+						"skill": "SK_PAIR_OCCASIONAL",
+						"kind": "IS_HELPFUL"
+					}
+				]
 			},
 			"SK_PAIR_PRODUCTION": {
 				"name": "Pairing for productivity",
 				"x": 14,
-				"y": 1,
+				"y": 2,
 				"level": "L_CORE",
 				"component": "V_LEARN",
 				"requires": [
@@ -952,19 +963,23 @@ function stages_data() {
 						"kind": "IS_REQUIRED"
 					},
 					{
-						"skill": "SK_PAIR_OCCASIONAL",
-						"kind": "IS_REQUIRED"
-					},
-					{
 						"skill": "SK_PAIR_REGULARLY",
 						"kind": "IS_REQUIRED"
 					}
 				]
 			},
+			"SK_TEAMS": {
+				"name": "Single-assignment teams",
+				"x": 1,
+				"y": 0,
+				"level": "L_TRADITIONAL",
+				"component": "V_IMPROVE",
+				"requires": []
+			},
 			"SK_PAIR_ALWAYS": {
 				"name": "Pairing for discipline",
 				"x": 15,
-				"y": 0,
+				"y": 2,
 				"level": "L_CORE",
 				"component": "V_LEARN",
 				"requires": [
@@ -1054,15 +1069,20 @@ function stages_data() {
 			"SK_RETROS": {
 				"name": "Retrospectives",
 				"x": 11,
-				"y": 12,
+				"y": 0,
 				"level": "L_CORE",
 				"component": "V_IMPROVE",
-				"requires": []
+				"requires": [
+					{
+						"skill": "SK_TEAMS",
+						"kind": "IS_REQUIRED"
+					}
+				]
 			},
 			"SK_ACTION_RETROS": {
 				"name": "Action-based retrospectives",
 				"x": 12,
-				"y": 12,
+				"y": 0,
 				"level": "L_CORE",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1075,7 +1095,7 @@ function stages_data() {
 			"SK_LEARN_LOCALLY": {
 				"name": "Learn from local cmm'ty",
 				"x": 22,
-				"y": 12,
+				"y": 0,
 				"level": "L_NO_DEBT",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1088,7 +1108,7 @@ function stages_data() {
 			"SK_PROCESS_EXPERIMENTS": {
 				"name": "Process experiments",
 				"x": 23,
-				"y": 11,
+				"y": 1,
 				"level": "L_NO_DEBT",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1105,7 +1125,7 @@ function stages_data() {
 			"SK_LEARN_ALL": {
 				"name": "Learn from everyone",
 				"x": 23,
-				"y": 12,
+				"y": 0,
 				"level": "L_NO_DEBT",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1118,7 +1138,7 @@ function stages_data() {
 			"SK_PROCESS_INNOVATION": {
 				"name": "Useful innovation",
 				"x": 30,
-				"y": 12,
+				"y": 0,
 				"level": "L_AWESOME",
 				"component": "V_IMPROVE",
 				"requires": [
