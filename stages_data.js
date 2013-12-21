@@ -98,7 +98,7 @@ function stages_data() {
 			},
 			"SK_AUTO_DEV_TEST": {
 				"name": "Automated developer testing",
-				"x": 13,
+				"x": 11,
 				"y": 0,
 				"level": "L_CORE",
 				"component": "V_CHECK_WORK",
@@ -115,7 +115,7 @@ function stages_data() {
 			},
 			"SK_TEST_FIRST": {
 				"name": "Test first",
-				"x": 14,
+				"x": 13,
 				"y": 0,
 				"level": "L_CORE",
 				"component": "V_CHECK_WORK",
@@ -136,7 +136,7 @@ function stages_data() {
 			},
 			"SK_TEST_UNITS": {
 				"name": "Test units",
-				"x": 14,
+				"x": 13,
 				"y": 1,
 				"level": "L_CORE",
 				"component": "V_CHECK_WORK",
@@ -153,8 +153,8 @@ function stages_data() {
 			},
 			"SK_WRITE_UNITS": {
 				"name": "Code in units",
-				"x": 13,
-				"y": 2,
+				"x": 12,
+				"y": 1,
 				"level": "L_CORE",
 				"component": "V_CODE",
 				"requires": [
@@ -373,16 +373,16 @@ function stages_data() {
 			},
 			"SK_COWBOY": {
 				"name": "Cowboy coding",
-				"x": 10,
-				"y": 10,
+				"x": 0,
+				"y": 1,
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
 				"requires": []
 			},
 			"SK_BDUF": {
 				"name": "Big design up front",
-				"x": 10,
-				"y": 10,
+				"x": 1,
+				"y": 1,
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
 				"requires": [
@@ -394,8 +394,8 @@ function stages_data() {
 			},
 			"SK_DESIGN_PATTERNS": {
 				"name": "Pattern-oriented design",
-				"x": 10,
-				"y": 10,
+				"x": 2,
+				"y": 1,
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
 				"requires": [
@@ -407,8 +407,8 @@ function stages_data() {
 			},
 			"SK_DRY": {
 				"name": "Don't repeat yourself",
-				"x": 18,
-				"y": 5,
+				"x": 12,
+				"y": 2,
 				"level": "L_CORE",
 				"component": "V_CODE",
 				"requires": [
@@ -424,8 +424,8 @@ function stages_data() {
 			},
 			"SK_B_ARCHI_UF": {
 				"name": "Just architecture up front",
-				"x": 2,
-				"y": 4,
+				"x": 3,
+				"y": 1,
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
 				"requires": [
@@ -437,8 +437,8 @@ function stages_data() {
 			},
 			"SK_PREDICTIVE_WITH_SMELLS": {
 				"name": "Smell-based predictive design",
-				"x": 3,
-				"y": 4,
+				"x": 4,
+				"y": 1,
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
 				"requires": [
@@ -450,8 +450,8 @@ function stages_data() {
 			},
 			"SK_ITERATED_PREDICTIVE": {
 				"name": "Iterated predictive design",
-				"x": 4,
-				"y": 4,
+				"x": 5,
+				"y": 1,
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
 				"requires": [
@@ -463,8 +463,8 @@ function stages_data() {
 			},
 			"SK_LOCAL_REFACTORING": {
 				"name": "Local refactoring",
-				"x": 12,
-				"y": 3,
+				"x": 11,
+				"y": 1,
 				"level": "L_CORE",
 				"component": "V_CODE",
 				"requires": []
