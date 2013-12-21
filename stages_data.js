@@ -116,20 +116,24 @@ function stages_data() {
 			"SK_TEST_FIRST": {
 				"name": "Test first",
 				"x": 13,
-				"y": 5,
+				"y": 6,
 				"level": "L_CORE",
 				"component": "V_CHECK_WORK",
 				"requires": [
 					{
 						"skill": "SK_AUTO_DEV_TEST",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_HELPFUL"
 					}
 				]
 			},
 			"SK_TEST_UNITS": {
 				"name": "Test units",
-				"x": 13,
-				"y": 6,
+				"x": 16,
+				"y": 5,
 				"level": "L_CORE",
 				"component": "V_CHECK_WORK",
 				"requires": [
@@ -140,12 +144,16 @@ function stages_data() {
 					{
 						"skill": "SK_WRITE_UNITS",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_PAIR_ALWAYS",
+						"kind": "IS_HELPFUL"
 					}
 				]
 			},
 			"SK_WRITE_UNITS": {
 				"name": "Code in units",
-				"x": 12,
+				"x": 14,
 				"y": 4,
 				"level": "L_CORE",
 				"component": "V_CODE",
@@ -153,6 +161,10 @@ function stages_data() {
 					{
 						"skill": "SK_LOCAL_REFACTORING",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_HELPFUL"
 					}
 				]
 			},
@@ -174,6 +186,10 @@ function stages_data() {
 					{
 						"skill": "SK_REFLECTIVE_DESIGN",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_PAIR_ALWAYS",
+						"kind": "IS_HELPFUL"
 					}
 				]
 			},
@@ -400,7 +416,7 @@ function stages_data() {
 			"SK_DRY": {
 				"name": "Don't repeat yourself",
 				"x": 12,
-				"y": 5,
+				"y": 3,
 				"level": "L_CORE",
 				"component": "V_CODE",
 				"requires": [
@@ -411,6 +427,10 @@ function stages_data() {
 					{
 						"skill": "SK_LOCAL_REFACTORING",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_HELPFUL"
 					}
 				]
 			},
@@ -464,13 +484,17 @@ function stages_data() {
 			"SK_REFLECTIVE_DESIGN": {
 				"name": "Reflective design",
 				"x": 13,
-				"y": 5,
+				"y": 3,
 				"level": "L_CORE",
 				"component": "V_CODE",
 				"requires": [
 					{
 						"skill": "SK_DRY",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_HELPFUL"
 					}
 				]
 			},
@@ -855,6 +879,10 @@ function stages_data() {
 					{
 						"skill": "SK_SIT_TOGETHER",
 						"kind": "IS_HELPFUL"
+					},
+					{
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_HELPFUL"
 					}
 				]
 			},
@@ -906,7 +934,7 @@ function stages_data() {
 			},
 			"SK_PAIR_REGULARLY": {
 				"name": "Pairing to learn",
-				"x": 12,
+				"x": 11,
 				"y": 2,
 				"level": "L_CORE",
 				"component": "V_LEARN",
