@@ -272,10 +272,16 @@
 							kind: lookup.kinds[link.kind] || mark_invalid(error_failed_to_find_key, "dependency kind", link.kind, skill_id),
 						};
 					});
+					if (this.x < this.level.min || this.x > this.level.max) {
+						mark_invalid(error_skill_not_in_range, this.x, this.level, this._id);
+					}
 				},
 			});
 			function error_failed_to_find_key(type, key, skill_key) {
 				return "I could not find the " + type + " " + key + ", as referenced in the skill " + skill_key + ".";
+			}
+			function error_skill_not_in_range(x, level, skill_key) {
+				return "The skill " + skill_key + " is positioned incorrectly. It should be in level " + level._id + ", with x in the range [" + level.min + ", " + level.max + "], but x = " + x + ".";
 			}
 			return SkillVm;
 		}();
