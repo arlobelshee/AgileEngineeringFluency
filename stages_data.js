@@ -123,14 +123,6 @@ function stages_data() {
 					{
 						"skill": "SK_AUTO_DEV_TEST",
 						"kind": "IS_REQUIRED"
-					},
-					{
-						"skill": "SK_STORIES",
-						"kind": "IS_HELPFUL"
-					},
-					{
-						"skill": "SK_VERIFY_EXAMPLES",
-						"kind": "IS_REQUIRED"
 					}
 				]
 			},
@@ -206,6 +198,10 @@ function stages_data() {
 				"component": "V_CHECK_WORK",
 				"requires": [
 					{
+						"skill": "SK_EVO_DESIGN",
+						"kind": "IS_REQUIRED"
+					},
+					{
 						"skill": "SK_RGR",
 						"kind": "IS_REQUIRED"
 					}
@@ -264,15 +260,11 @@ function stages_data() {
 			},
 			"SK_EVO_DESIGN": {
 				"name": "Evolutionary Design",
-				"x": 37,
+				"x": 41,
 				"y": 4,
-				"level": "L_NO_DEBT",
+				"level": "L_AWESOME",
 				"component": "V_CODE",
 				"requires": [
-					{
-						"skill": "SK_TDDESIGN",
-						"kind": "IS_REQUIRED"
-					},
 					{
 						"skill": "SK_FIX_LEGACY",
 						"kind": "IS_REQUIRED"
@@ -293,17 +285,13 @@ function stages_data() {
 			},
 			"SK_NO_BUGS": {
 				"name": "No bugs",
-				"x": 38,
+				"x": 42,
 				"y": 4,
-				"level": "L_NO_DEBT",
+				"level": "L_AWESOME",
 				"component": "V_CODE",
 				"requires": [
 					{
 						"skill": "SK_EVO_DESIGN",
-						"kind": "IS_REQUIRED"
-					},
-					{
-						"skill": "SK_CONT_SHIP",
 						"kind": "IS_REQUIRED"
 					},
 					{
@@ -318,9 +306,9 @@ function stages_data() {
 			},
 			"SK_YAGNI": {
 				"name": "YAGNI and simplest thing",
-				"x": 39,
-				"y": 2,
-				"level": "L_NO_DEBT",
+				"x": 44,
+				"y": 1,
+				"level": "L_AWESOME",
 				"component": "V_CODE",
 				"requires": [
 					{
@@ -337,6 +325,10 @@ function stages_data() {
 				"component": "V_SHIP",
 				"requires": [
 					{
+						"skill": "SK_NO_BUGS",
+						"kind": "IS_REQUIRED"
+					},
+					{
 						"skill": "SK_FEATURE_ISOLATION",
 						"kind": "IS_REQUIRED"
 					},
@@ -348,7 +340,7 @@ function stages_data() {
 			},
 			"SK_CONT_DEPLOY": {
 				"name": "Continuous deployment",
-				"x": 48,
+				"x": 46,
 				"y": 3,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
@@ -535,8 +527,8 @@ function stages_data() {
 			},
 			"SK_FEATURE_ISOLATION": {
 				"name": "Feature isolation",
-				"x": 48,
-				"y": 10,
+				"x": 41,
+				"y": 3,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
 				"requires": [
@@ -548,7 +540,7 @@ function stages_data() {
 			},
 			"SK_AUTO_DEPLOY_VERIFY": {
 				"name": "Automated deploy verification",
-				"x": 39,
+				"x": 36,
 				"y": 10,
 				"level": "L_NO_DEBT",
 				"component": "V_SHIP",
@@ -561,8 +553,8 @@ function stages_data() {
 			},
 			"SK_AUTO_ROLLBACK": {
 				"name": "Automated rollback",
-				"x": 48,
-				"y": 10,
+				"x": 41,
+				"y": 2,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
 				"requires": [
@@ -574,16 +566,16 @@ function stages_data() {
 			},
 			"SK_BUILD_FOR_ME": {
 				"name": "Build for myself",
-				"x": 10,
-				"y": 10,
+				"x": 0,
+				"y": 9,
 				"level": "L_TRADITIONAL",
 				"component": "V_REQUIREMENTS",
 				"requires": []
 			},
 			"SK_REQUIREMENTS": {
 				"name": "Product requirements",
-				"x": 10,
-				"y": 10,
+				"x": 1,
+				"y": 9,
 				"level": "L_TRADITIONAL",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -595,8 +587,8 @@ function stages_data() {
 			},
 			"SK_SLACK": {
 				"name": "Build slack in",
-				"x": 10,
-				"y": 10,
+				"x": 2,
+				"y": 9,
 				"level": "L_TRADITIONAL",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -608,8 +600,8 @@ function stages_data() {
 			},
 			"SK_SMALL_SPECS": {
 				"name": "Small specs",
-				"x": 10,
-				"y": 10,
+				"x": 3,
+				"y": 9,
 				"level": "L_TRADITIONAL",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -621,11 +613,15 @@ function stages_data() {
 			},
 			"SK_STORIES": {
 				"name": "Stories",
-				"x": 29,
-				"y": 10,
+				"x": 21,
+				"y": 9,
 				"level": "L_LEVERAGE",
 				"component": "V_REQUIREMENTS",
 				"requires": [
+					{
+						"skill": "SK_TEST_FIRST",
+						"kind": "IS_HELPFUL"
+					},
 					{
 						"skill": "SK_SMALL_SPECS",
 						"kind": "IS_REQUIRED"
@@ -634,13 +630,17 @@ function stages_data() {
 			},
 			"SK_VERIFY_EXAMPLES": {
 				"name": "Verify examples",
-				"x": 48,
-				"y": 10,
+				"x": 41,
+				"y": 9,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
 					{
 						"skill": "SK_STORIES",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_TEST_FIRST",
 						"kind": "IS_REQUIRED"
 					}
 				]
@@ -677,8 +677,8 @@ function stages_data() {
 			},
 			"SK_HYPOTHESIS_STORIES": {
 				"name": "Hypothesis stories",
-				"x": 48,
-				"y": 10,
+				"x": 41,
+				"y": 8,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -771,16 +771,16 @@ function stages_data() {
 			},
 			"SK_HELP_AD_HOC": {
 				"name": "Ad-hoc helping",
-				"x": 10,
-				"y": 10,
+				"x": 0,
+				"y": 6,
 				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
 				"requires": []
 			},
 			"SK_TEAM_LEADS": {
 				"name": "Team leads",
-				"x": 10,
-				"y": 10,
+				"x": 1,
+				"y": 6,
 				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
 				"requires": [
@@ -792,8 +792,8 @@ function stages_data() {
 			},
 			"SK_FORMAL_TRAINING": {
 				"name": "Formal training",
-				"x": 10,
-				"y": 10,
+				"x": 2,
+				"y": 6,
 				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
 				"requires": [
@@ -805,21 +805,25 @@ function stages_data() {
 			},
 			"SK_CODE_REVIEW": {
 				"name": "Code review",
-				"x": 10,
-				"y": 10,
+				"x": 2,
+				"y": 7,
 				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
 				"requires": [
 					{
-						"skill": "SK_FORMAL_TRAINING",
+						"skill": "SK_HELP_AD_HOC",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_TEAM_LEADS",
+						"kind": "IS_HELPFUL"
 					}
 				]
 			},
 			"SK_CODE_PREVIEW": {
 				"name": "Code preview",
-				"x": 10,
-				"y": 10,
+				"x": 3,
+				"y": 7,
 				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
 				"requires": [
@@ -831,21 +835,17 @@ function stages_data() {
 			},
 			"SK_SHARED_CODE": {
 				"name": "Shared code responsibility",
-				"x": 18,
-				"y": 10,
+				"x": 11,
+				"y": 6,
 				"level": "L_CORE",
 				"component": "V_LEARN",
 				"requires": [
-					{
-						"skill": "SK_HELP_AD_HOC",
-						"kind": "IS_REQUIRED"
-					}
 				]
 			},
 			"SK_T_SHAPED": {
 				"name": "T-shaped people",
-				"x": 18,
-				"y": 10,
+				"x": 12,
+				"y": 6,
 				"level": "L_CORE",
 				"component": "V_LEARN",
 				"requires": [
@@ -861,8 +861,8 @@ function stages_data() {
 			},
 			"SK_COLLECTIVE_OWNERSHIP": {
 				"name": "Collective ownership",
-				"x": 18,
-				"y": 10,
+				"x": 13,
+				"y": 3,
 				"level": "L_CORE",
 				"component": "V_LEARN",
 				"requires": [
@@ -882,38 +882,38 @@ function stages_data() {
 			},
 			"SK_SIT_TOGETHER": {
 				"name": "Sit together",
-				"x": 39,
-				"y": 10,
-				"level": "L_NO_DEBT",
+				"x": 1,
+				"y": 5,
+				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
 				"requires": []
 			},
 			"SK_PAIR_OCCASIONAL": {
 				"name": "Pairing to solve hard problems",
-				"x": 39,
-				"y": 10,
-				"level": "L_NO_DEBT",
+				"x": 2,
+				"y": 4,
+				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
 				"requires": [
 					{
 						"skill": "SK_SIT_TOGETHER",
-						"kind": "IS_REQUIRED"
+						"kind": "IS_HELPFUL"
 					}
 				]
 			},
 			"SK_PAIR_REGULARLY": {
 				"name": "Pairing to learn",
-				"x": 39,
-				"y": 10,
-				"level": "L_NO_DEBT",
+				"x": 12,
+				"y": 5,
+				"level": "L_CORE",
 				"component": "V_LEARN",
 				"requires": []
 			},
 			"SK_PAIR_PRODUCTION": {
 				"name": "Pairing for productivity",
-				"x": 39,
-				"y": 10,
-				"level": "L_NO_DEBT",
+				"x": 14,
+				"y": 4,
+				"level": "L_CORE",
 				"component": "V_LEARN",
 				"requires": [
 					{
@@ -932,9 +932,9 @@ function stages_data() {
 			},
 			"SK_PAIR_ALWAYS": {
 				"name": "Pairing for discipline",
-				"x": 39,
-				"y": 10,
-				"level": "L_NO_DEBT",
+				"x": 15,
+				"y": 3,
+				"level": "L_CORE",
 				"component": "V_LEARN",
 				"requires": [
 					{
@@ -945,8 +945,8 @@ function stages_data() {
 			},
 			"SK_M_SHAPED": {
 				"name": "M-shaped people",
-				"x": 48,
-				"y": 10,
+				"x": 41,
+				"y": 7,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
 				"requires": [
@@ -958,8 +958,8 @@ function stages_data() {
 			},
 			"SK_MOBS": {
 				"name": "Mobbing",
-				"x": 48,
-				"y": 10,
+				"x": 41,
+				"y": 6,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
 				"requires": [
@@ -971,8 +971,8 @@ function stages_data() {
 			},
 			"SK_UNIVERSAL_SPECIALIST": {
 				"name": "Full-product specialization",
-				"x": 48,
-				"y": 10,
+				"x": 42,
+				"y": 6,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
 				"requires": [
@@ -1253,8 +1253,8 @@ function stages_data() {
 			},
 			"SK_TIP": {
 				"name": "Testing in production",
-				"x": 48,
-				"y": 10,
+				"x": 42,
+				"y": 11,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
