@@ -302,7 +302,6 @@
 					}
 				},
 				do_one_time_data_updates: function () {
-					//if (this.component._id === "V_REQUIREMENTS" && this.level._id === "L_AWESOME") this.y = this.y +1;
 					this.label_position = layout.place_label(this);
 				},
 			});
@@ -610,8 +609,6 @@
 		#main_pane {
 			position: relative;
 			z-index: 0;
-			width: 2500px;
-			height: 1200px;
 		}
 
 		.extra_scroll_space {
@@ -689,7 +686,7 @@
 <body onload="start();">
 	<div id="app_with_options" class="display_port">
 		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app, with: app">
-			<canvas id="skillsCanvas" width="3340" height="1200" class="drawing canvas"></canvas>
+			<canvas id="skillsCanvas" width="2860" height="1040" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: skills -->
 			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }, click: $parent.show_skill_details">
