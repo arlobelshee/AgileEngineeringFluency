@@ -1554,13 +1554,16 @@
 			font-size: 100%;
 			margin: 0;
 			padding: 0;
-			font-weight:normal;
-			font-style:normal;
+			font-weight: normal;
+			font-style: normal;
 		}
 
 		html, body {
 			height: 100%;
 			width: 100%;
+			font-size: 10px;
+			font-family: "Segoe UI","Times New Roman",serif;
+			line-height: 1.0;
 		}
 
 		.display_port {
@@ -1590,6 +1593,8 @@
 			background-color: white;
 			border-top: 1px solid black;
 			padding: 0.2em;
+			font-size: 1.4em;
+			line-height: 1.3;
 		}
 
 		#main_pane {
@@ -1612,8 +1617,9 @@
 			z-index: 1;
 			bottom: 0;
 			left: 0;
-			height: 20px;
-			width: 20px;
+			height: 25px;
+			width: 25px;
+			cursor: pointer;
 		}
 
 		.invalid {
@@ -1662,8 +1668,8 @@
 		.skill_text {
 			position: absolute;
 			z-index: 2000;
-			font-size: 14px;
-			font-family: "Segoe UI","Times New Roman",serif;
+			font-size: 1.4em;
+			line-height: 1.3;
 			padding: 8px;
 			background-color: rgba(255,255,255,0.3);
 			border-radius: 15px;
@@ -1683,7 +1689,7 @@
 		</div>
 		<img class="options_corner" src="page-fold.png" data-bind="click: open_options" />
 		<div id="options_pane" data-bind="css: { hidden: !expanded() }">
-			<p>
+			<p style="padding-left:2em;">
 				Enter JSON data here to update the diagram
 				<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
 				<span class="error_display" data-bind="text: app.display().error_message()"></span>
