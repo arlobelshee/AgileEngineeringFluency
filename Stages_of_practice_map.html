@@ -371,7 +371,7 @@
 			this.draw_vertical_bar = function (x1, x2, color) {
 				ctx.fillStyle = color;
 				ctx.strokeStyle = color;
-				ctx.fillRect(x1, -1, x2 - x1 + 1, canvas.height + 1);
+				ctx.fillRect(x1 - 1, -1, x2 - x1 + 3, canvas.height + 2);
 			}
 
 			this.draw_dashed_line = function (start, end) {
