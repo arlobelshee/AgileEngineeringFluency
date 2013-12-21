@@ -463,8 +463,8 @@ function stages_data() {
 			},
 			"SK_REFLECTIVE_DESIGN": {
 				"name": "Reflective design",
-				"x": 17,
-				"y": 5,
+				"x": 13,
+				"y": 2,
 				"level": "L_CORE",
 				"component": "V_CODE",
 				"requires": [
@@ -497,8 +497,8 @@ function stages_data() {
 			},
 			"SK_AUTO_BUILD_VERIFY": {
 				"name": "Automated build verification",
-				"x": 16,
-				"y": 8,
+				"x": 12,
+				"y": 7,
 				"level": "L_CORE",
 				"component": "V_SHIP",
 				"requires": [
@@ -613,9 +613,9 @@ function stages_data() {
 			},
 			"SK_STORIES": {
 				"name": "Stories",
-				"x": 21,
+				"x": 14,
 				"y": 9,
-				"level": "L_LEVERAGE",
+				"level": "L_CORE",
 				"component": "V_REQUIREMENTS",
 				"requires": [
 					{
@@ -647,7 +647,7 @@ function stages_data() {
 			},
 			"SK_STORY_CLUSTERING": {
 				"name": "Story clustering",
-				"x": 22,
+				"x": 21,
 				"y": 2,
 				"level": "L_LEVERAGE",
 				"component": "V_REQUIREMENTS",
@@ -660,7 +660,7 @@ function stages_data() {
 			},
 			"SK_ADAPTIVE_PLANNING": {
 				"name": "Adaptive planning",
-				"x": 22,
+				"x": 21,
 				"y": 5,
 				"level": "L_LEVERAGE",
 				"component": "V_REQUIREMENTS",
@@ -690,7 +690,7 @@ function stages_data() {
 			},
 			"SK_ROLLING_WAVE_PLANNING": {
 				"name": "Rolling-wave planning",
-				"x": 23,
+				"x": 22,
 				"y": 4,
 				"level": "L_LEVERAGE",
 				"component": "V_REQUIREMENTS",
@@ -707,8 +707,8 @@ function stages_data() {
 			},
 			"SK_EXPERIENCE_FOCUS": {
 				"name": "Experience focus",
-				"x": 37,
-				"y": 10,
+				"x": 33,
+				"y": 5,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -720,8 +720,8 @@ function stages_data() {
 			},
 			"SK_METRICS_FOCUS": {
 				"name": "Business metric focus",
-				"x": 37,
-				"y": 10,
+				"x": 34,
+				"y": 5,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -737,8 +737,8 @@ function stages_data() {
 			},
 			"SK_LEAN_STARTUP": {
 				"name": "Lean startup",
-				"x": 37,
-				"y": 10,
+				"x": 36,
+				"y": 5,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -754,8 +754,8 @@ function stages_data() {
 			},
 			"SK_WHOLE_TEAM_BUSINESS": {
 				"name": "Whole team business innovation",
-				"x": 37,
-				"y": 10,
+				"x": 34,
+				"y": 7,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
 				"requires": [
@@ -987,16 +987,16 @@ function stages_data() {
 			},
 			"SK_STASIS": {
 				"name": "Stasis",
-				"x": 10,
-				"y": 10,
+				"x": 0,
+				"y": 11,
 				"level": "L_TRADITIONAL",
 				"component": "V_IMPROVE",
 				"requires": []
 			},
 			"SK_CENTRAL_PROCESS": {
 				"name": "Centralized improvement",
-				"x": 10,
-				"y": 10,
+				"x": 1,
+				"y": 11,
 				"level": "L_TRADITIONAL",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1008,8 +1008,8 @@ function stages_data() {
 			},
 			"SK_POST_MORTEM": {
 				"name": "Post-mortems",
-				"x": 10,
-				"y": 10,
+				"x": 2,
+				"y": 11,
 				"level": "L_TRADITIONAL",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1021,21 +1021,17 @@ function stages_data() {
 			},
 			"SK_RETROS": {
 				"name": "Retrospectives",
-				"x": 18,
-				"y": 10,
+				"x": 11,
+				"y": 12,
 				"level": "L_CORE",
 				"component": "V_IMPROVE",
 				"requires": [
-					{
-						"skill": "SK_POST_MORTEM",
-						"kind": "IS_REQUIRED"
-					}
 				]
 			},
 			"SK_ACTION_RETROS": {
 				"name": "Action-based retrospectives",
-				"x": 18,
-				"y": 10,
+				"x": 12,
+				"y": 12,
 				"level": "L_CORE",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1047,8 +1043,8 @@ function stages_data() {
 			},
 			"SK_LEARN_LOCALLY": {
 				"name": "Learn from local cmm'ty",
-				"x": 28,
-				"y": 10,
+				"x": 26,
+				"y": 12,
 				"level": "L_NO_DEBT",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1060,8 +1056,8 @@ function stages_data() {
 			},
 			"SK_PROCESS_EXPERIMENTS": {
 				"name": "Process experiments",
-				"x": 28,
-				"y": 10,
+				"x": 27,
+				"y": 11,
 				"level": "L_NO_DEBT",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1077,8 +1073,8 @@ function stages_data() {
 			},
 			"SK_LEARN_ALL": {
 				"name": "Learn from everyone",
-				"x": 28,
-				"y": 10,
+				"x": 27,
+				"y": 12,
 				"level": "L_NO_DEBT",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1090,8 +1086,8 @@ function stages_data() {
 			},
 			"SK_PROCESS_INNOVATION": {
 				"name": "Useful innovation",
-				"x": 37,
-				"y": 10,
+				"x": 34,
+				"y": 12,
 				"level": "L_AWESOME",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1107,7 +1103,7 @@ function stages_data() {
 			},
 			"SK_RADICAL_COLLABORATE": {
 				"name": "Radical collaboration",
-				"x": 37,
+				"x": 34,
 				"y": 10,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
@@ -1124,24 +1120,24 @@ function stages_data() {
 			},
 			"SK_DEATH_MARCH": {
 				"name": "Death marches",
-				"x": 10,
-				"y": 10,
+				"x": 0,
+				"y": 13,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
 				"requires": []
 			},
 			"SK_TRACK_CAPACITY": {
 				"name": "Track capacity",
-				"x": 10,
-				"y": 10,
+				"x": 1,
+				"y": 14,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
 				"requires": []
 			},
 			"SK_WATERFALL_MILESTONES": {
 				"name": "Waterfall milestones",
-				"x": 10,
-				"y": 10,
+				"x": 1,
+				"y": 13,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1153,8 +1149,8 @@ function stages_data() {
 			},
 			"SK_ITERATION": {
 				"name": "Iterations with self",
-				"x": 10,
-				"y": 10,
+				"x": 2,
+				"y": 12,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1166,8 +1162,8 @@ function stages_data() {
 			},
 			"SK_RELATIVE_ESTIMATES": {
 				"name": "Relative based estimation",
-				"x": 10,
-				"y": 10,
+				"x": 3,
+				"y": 13,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1179,8 +1175,8 @@ function stages_data() {
 			},
 			"SK_LIMIT_WORK_TO_CAPACITY": {
 				"name": "Limit work to estimated capacity",
-				"x": 10,
-				"y": 10,
+				"x": 4,
+				"y": 12,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1196,8 +1192,8 @@ function stages_data() {
 			},
 			"SK_DATA_DRIVEN_CAPACITY": {
 				"name": "Use data to determine capacity",
-				"x": 10,
-				"y": 10,
+				"x": 5,
+				"y": 12,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1213,8 +1209,8 @@ function stages_data() {
 			},
 			"SK_PULL": {
 				"name": "Pull systems",
-				"x": 10,
-				"y": 10,
+				"x": 6,
+				"y": 12,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1226,8 +1222,8 @@ function stages_data() {
 			},
 			"SK_LIMIT_WORK_CONTINUOUS": {
 				"name": "WIP limits",
-				"x": 10,
-				"y": 10,
+				"x": 7,
+				"y": 12,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
 				"requires": [
@@ -1239,8 +1235,8 @@ function stages_data() {
 			},
 			"SK_SINGLE_PIECE_FLOW": {
 				"name": "Single piece flow",
-				"x": 10,
-				"y": 10,
+				"x": 8,
+				"y": 12,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
 				"requires": [
