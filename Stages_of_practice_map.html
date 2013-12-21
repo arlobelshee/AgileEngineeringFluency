@@ -1120,6 +1120,7 @@
 
 		function ViewModel() {
 			var vm = this;
+			this._id = "whole_app";
 			this.close_options = function () {
 				vm.expanded(false);
 			};
@@ -1154,6 +1155,15 @@
 				this.levels = ko.observable([]);
 				this.kinds = ko.observable([]);
 				this.components = ko.observable([]);
+				this._id = "stages";
+				this.focal_skill = ko.observable(null);
+				var self = this;
+				this.show_skill_details = function (skill) {
+					self.focal_skill(skill);
+				};
+				this.hide_skill_details = function () {
+					self.focal_skill(null);
+				};
 			}
 			base_class(StagesVm, {
 				to_JS: function () {
@@ -1594,8 +1604,8 @@
 			z-index: 1;
 			bottom: 0;
 			left: 0;
-			height: 30px;
-			width: 30px;
+			height: 20px;
+			width: 20px;
 		}
 
 		.invalid {
@@ -1607,14 +1617,38 @@
 			margin: 0 2em;
 		}
 
+		.skill_focus_dialog {
+			background-color: rgba(0,0,0,0.5);
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 5;
+			cursor: pointer;
+		}
+
+			.skill_focus_dialog .contents {
+				background-color: #FFF;
+				position: absolute;
+				top: 80px;
+				left: 100px;
+				right: 100px;
+				bottom: 80px;
+				cursor: default;
+				overflow-y:scroll;
+			}
+
 		.skill_text.collapsed {
 			width: 86px;
 			overflow: hidden;
+			overflow-wrap:break-word;
 		}
 
 			.skill_text.collapsed:hover {
 				border: 2px solid #000080;
 				padding: 6px;
+				cursor: pointer;
 			}
 
 		.skill_text {
@@ -1630,11 +1664,11 @@
 </head>
 <body onload="start();">
 	<div id="app_with_options" class="display_port">
-		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app.display, with: app">
+		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app.display, with: app.display()">
 			<canvas id="skillsCanvas" width="2500" height="1200" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
-			<!-- ko foreach: display().skills -->
-			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }">
+			<!-- ko foreach: skills -->
+			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }, click: $parent.show_skill_details">
 				<span class="name" data-bind="text: name"></span>
 			</div>
 			<!-- /ko -->
@@ -1647,6 +1681,11 @@
 				<span class="error_display" data-bind="text: app.display().error_message()"></span>
 			</p>
 			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="value: json_blob, valueUpdate: 'afterkeydown', css: { invalid: !app.display().valid() }"></textarea>
+		</div>
+	</div>
+	<div class="skill_focus_dialog" data-bind="css: { hidden: !app.display().focal_skill() }, click: app.display().hide_skill_details">
+		<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.display().focal_skill()">
+			<h1 data-bind="text: name"></h1>
 		</div>
 	</div>
 </body>
