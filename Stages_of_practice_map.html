@@ -274,6 +274,7 @@
 				this.requires = data.requires;
 				this.layout = layout;
 				this.label_position = layout.place_label(this);
+				this.enables = [];
 			}
 			base_class(SkillVm, {
 				to_JS: function (unwrap) {
@@ -295,11 +296,14 @@
 					var skill_id = this._id;
 					this.component = lookup.components[this.component] || mark_invalid(error_failed_to_find_key, "component", this.component, skill_id);
 					this.level = lookup.levels[this.level] || mark_invalid(error_failed_to_find_key, "level", this.level, skill_id);
+					var self = this;
 					this.requires = map_elt(this.requires, function (link) {
-						return {
+						var requirement = {
 							skill: lookup.skills[link.skill] || mark_invalid(error_failed_to_find_key, "skill", link.skill, skill_id),
 							kind: lookup.kinds[link.kind] || mark_invalid(error_failed_to_find_key, "dependency kind", link.kind, skill_id),
 						};
+						requirement.skill.enables.push({ skill: self, kind: requirement.kind });
+						return requirement;
 					});
 					if (this.level && (this.x < this.level.min || this.x > this.level.max)) {
 						mark_invalid(error_skill_not_in_range, this.x, this.level, this._id);
@@ -697,9 +701,9 @@
 				color: #0091FF;
 			}
 
-			.relationships a.optional {
-				color: #666;
-			}
+				.relationships a.optional {
+					color: #666;
+				}
 
 		.skill_text.collapsed {
 			width: 86px;
@@ -751,6 +755,10 @@
 			<div class="relationships">
 				<p>depends on </p>
 				<ul data-bind="foreach: { data: requires, as: 'req' }">
+					<li><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }"></a></li>
+				</ul>
+				<p>enables </p>
+				<ul data-bind="foreach: { data: enables, as: 'req' }">
 					<li><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }"></a></li>
 				</ul>
 			</div>
