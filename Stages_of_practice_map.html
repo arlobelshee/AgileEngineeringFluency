@@ -137,9 +137,9 @@
 				to_JS: function () {
 					return {
 						levels: unwrap_to_hash(this.levels),
-						components: unwrap_to_hash(this.components),
+						components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
 						dependency_kinds: unwrap_to_hash(this.kinds),
-						skills: unwrap_to_hash(this.skills),
+						skills: unwrap_to_hash(this.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
 					};
 				},
 				set_data_error: function (reason) {
@@ -189,10 +189,16 @@
 				},
 			});
 
-			function unwrap_to_hash(arr) {
+			function unwrap_to_hash(arr, sort_fn) {
 				var result = {};
-				each_elt(ko.utils.unwrapObservable(arr), function (vm) {
-					result[vm._id] = vm.to_JS(ko.utils.unwrapObservable);
+				var clean = map_elt(ko.utils.unwrapObservable(arr), function (vm) {
+					return [vm._id, vm.to_JS(ko.utils.unwrapObservable)];
+				});
+				if (sort_fn) {
+					clean.sort(function (l, r) { return sort_fn(l[1], r[1]); });
+				}
+				each_elt(clean, function (obj) {
+					result[obj[0]] = obj[1];
 				});
 				return result;
 			}
@@ -235,7 +241,6 @@
 					};
 				},
 				do_one_time_data_updates: function () {
-
 				},
 			});
 			return ComponentVm;
@@ -254,7 +259,6 @@
 					};
 				},
 				do_one_time_data_updates: function () {
-
 				},
 			});
 			return KindVm;
@@ -283,7 +287,7 @@
 							return {
 								skill: link.skill._id,
 								kind: link.kind._id,
-							}
+							};
 						}),
 					};
 				},
@@ -317,15 +321,15 @@
 		function Painter(canvas) {
 			var ctx = canvas.getContext("2d");
 
-			this.prepare = function() {
+			this.prepare = function () {
 				ctx.translate(0.5, 0.5);
 			};
 
-			this.erase = function() {
+			this.erase = function () {
 				ctx.clearRect(-0.5, -0.5, canvas.width, canvas.height);
 			};
 
-			this.draw_filled_circle = function(point, radius, border_thickness, color) {
+			this.draw_filled_circle = function (point, radius, border_thickness, color) {
 				ctx.beginPath();
 				ctx.strokeStyle = "black";
 				ctx.fillStyle = color;
@@ -348,7 +352,7 @@
 				ctx.setLineDash([]);
 			};
 
-			this.draw_open_circle = function(center, radius) {
+			this.draw_open_circle = function (center, radius) {
 				ctx.beginPath();
 				ctx.strokeStyle = "black";
 				ctx.lineWidth = "1";
@@ -357,7 +361,7 @@
 				ctx.stroke();
 			};
 
-			this.draw_text = function(text, font, where) {
+			this.draw_text = function (text, font, where) {
 				ctx.font = font;
 				ctx.textAlign = "left";
 				ctx.textBaseline = "middle";
@@ -368,13 +372,13 @@
 				ctx.fill();
 			};
 
-			this.draw_vertical_bar = function(x1, x2, color) {
+			this.draw_vertical_bar = function (x1, x2, color) {
 				ctx.fillStyle = color;
 				ctx.strokeStyle = color;
 				ctx.fillRect(x1 - 1, -1, x2 - x1 + 3, canvas.height + 2);
 			};
 
-			this.draw_dashed_line = function(start, end) {
+			this.draw_dashed_line = function (start, end) {
 				ctx.beginPath();
 				ctx.strokeStyle = "gray";
 				ctx.setLineDash([3]);
@@ -478,7 +482,7 @@
 				new Painter(debugCanvas).prepare();
 			};
 
-			var populate_canvas = function(parsedData) {
+			var populate_canvas = function (parsedData) {
 				var draw_context = {
 					skills: parsedData.skills(),
 					levels: parsedData.levels(),
@@ -551,11 +555,19 @@
 		}
 	</script>
 	<style>
-		html, body, div {
+		html, body, div, canvas, ul, li {
 			margin: 0;
 			padding: 0;
 			border: 0 solid black;
 		}
+
+		a {
+			text-decoration: none;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
 
 		h1, h2, h3, h4, h5, h6 {
 			font-size: 100%;
@@ -566,7 +578,6 @@
 		}
 
 		html, body {
-			height: 100%;
 			width: 100%;
 			font-size: 10px;
 			font-family: "Segoe UI","Times New Roman",serif;
@@ -579,15 +590,16 @@
 
 		.canvas {
 			background-color: transparent;
-			position: absolute;
 		}
 
 		.drawing {
-			z-index: 0;
 		}
 
 		.debug {
 			z-index: 1000;
+			position: absolute;
+			top: 0;
+			left: 0;
 			display: none;
 		}
 
@@ -619,6 +631,7 @@
 
 		.options_corner {
 			position: fixed;
+			display: block;
 			z-index: 1;
 			bottom: 0;
 			left: 0;
@@ -658,6 +671,36 @@
 				overflow-y: scroll;
 			}
 
+				.skill_focus_dialog .contents .name {
+					font-size: 2.5em;
+					font-style: italic;
+					padding: 0.4em 2em;
+				}
+
+		.relationships {
+			padding: 0.5em 0.3em;
+			border: solid #00008b;
+			border-width: 1px 0;
+			font-size: 1.4em;
+		}
+
+			.relationships > p, .relationships > ul, .relationships > ul > li {
+				display: inline-block;
+			}
+
+				.relationships > ul > li {
+					padding: 0.4em;
+					background-color: #efefef;
+				}
+
+			.relationships a {
+				color: #0091FF;
+			}
+
+			.relationships a.optional {
+				color: #666;
+			}
+
 		.skill_text.collapsed {
 			width: 86px;
 			overflow: hidden;
@@ -684,7 +727,7 @@
 <body onload="start();">
 	<div id="app_with_options" class="display_port">
 		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app, with: app">
-			<canvas id="skillsCanvas" width="2860" height="1040" class="drawing canvas"></canvas>
+			<canvas id="skillsCanvas" width="2740" height="1040" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: skills -->
 			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }, click: $parent.show_skill_details">
@@ -704,7 +747,13 @@
 	</div>
 	<div class="skill_focus_dialog hidden" data-bind="css: { hidden: !app.focal_skill() }, click: app.hide_skill_details">
 		<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.focal_skill()">
-			<h1 data-bind="text: name"></h1>
+			<h1 class="name" data-bind="text: name"></h1>
+			<div class="relationships">
+				<p>depends on </p>
+				<ul data-bind="foreach: { data: requires, as: 'req' }">
+					<li><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }"></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </body>
