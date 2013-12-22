@@ -315,19 +315,17 @@
 		}();
 
 		function Painter(canvas) {
-			var self = this;
-			var canvas = canvas;
 			var ctx = canvas.getContext("2d");
 
-			this.prepare = function () {
+			this.prepare = function() {
 				ctx.translate(0.5, 0.5);
-			}
+			};
 
-			this.erase = function () {
+			this.erase = function() {
 				ctx.clearRect(-0.5, -0.5, canvas.width, canvas.height);
-			}
+			};
 
-			this.draw_filled_circle = function (point, radius, border_thickness, color) {
+			this.draw_filled_circle = function(point, radius, border_thickness, color) {
 				ctx.beginPath();
 				ctx.strokeStyle = "black";
 				ctx.fillStyle = color;
@@ -335,7 +333,7 @@
 				ctx.arc(point.x, point.y, radius, 0, Math.PI * 2, true);
 				ctx.fill();
 				ctx.stroke();
-			}
+			};
 
 			this.draw_bezier_curve = function (bezierPoints, color, thickness, dash_style) {
 				ctx.beginPath();
@@ -348,18 +346,18 @@
 					bezierPoints.end.x, bezierPoints.end.y);
 				ctx.stroke();
 				ctx.setLineDash([]);
-			}
+			};
 
-			this.draw_open_circle = function (center, radius) {
+			this.draw_open_circle = function(center, radius) {
 				ctx.beginPath();
 				ctx.strokeStyle = "black";
 				ctx.lineWidth = "1";
 				ctx.arc(center.x, center.y, radius, 0, Math.PI, true);
 				ctx.arc(center.x, center.y, radius, Math.PI, Math.PI * 2, true);
 				ctx.stroke();
-			}
+			};
 
-			this.draw_text = function (text, font, where) {
+			this.draw_text = function(text, font, where) {
 				ctx.font = font;
 				ctx.textAlign = "left";
 				ctx.textBaseline = "middle";
@@ -368,15 +366,15 @@
 				ctx.beginPath();
 				ctx.fillText(text, where.x, where.y);
 				ctx.fill();
-			}
+			};
 
-			this.draw_vertical_bar = function (x1, x2, color) {
+			this.draw_vertical_bar = function(x1, x2, color) {
 				ctx.fillStyle = color;
 				ctx.strokeStyle = color;
 				ctx.fillRect(x1 - 1, -1, x2 - x1 + 3, canvas.height + 2);
-			}
+			};
 
-			this.draw_dashed_line = function (start, end) {
+			this.draw_dashed_line = function(start, end) {
 				ctx.beginPath();
 				ctx.strokeStyle = "gray";
 				ctx.setLineDash([3]);
@@ -385,7 +383,7 @@
 				ctx.lineTo(end.x, end.y);
 				ctx.stroke();
 				ctx.setLineDash([]);
-			}
+			};
 		}
 
 		function LayoutSpecialist() {
@@ -478,9 +476,9 @@
 				debugCanvas.height = mainCanvas.height;
 				new Painter(mainCanvas).prepare();
 				new Painter(debugCanvas).prepare();
-			}
+			};
 
-			var populate_canvas = function (parsedData) {
+			var populate_canvas = function(parsedData) {
 				var draw_context = {
 					skills: parsedData.skills(),
 					levels: parsedData.levels(),
@@ -502,7 +500,7 @@
 				for (var skill_id in draw_context.skills) {
 					draw_skill_marker(draw_context.mainPainter, draw_context.skills[skill_id]);
 				}
-			}
+			};
 
 			function draw_level_background(draw_context, level) {
 				draw_context.mainPainter.draw_vertical_bar(
