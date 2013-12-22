@@ -704,7 +704,7 @@
 			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="value: json_blob, valueUpdate: 'afterkeydown', css: { invalid: !app.valid() }"></textarea>
 		</div>
 	</div>
-	<div class="skill_focus_dialog" data-bind="css: { hidden: !app.focal_skill() }, click: app.hide_skill_details">
+	<div class="skill_focus_dialog hidden" data-bind="css: { hidden: !app.focal_skill() }, click: app.hide_skill_details">
 		<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.focal_skill()">
 			<h1 data-bind="text: name"></h1>
 		</div>
