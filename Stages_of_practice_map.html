@@ -559,7 +559,7 @@
 		}
 	</script>
 	<style>
-		html, body, div, canvas, ul, li {
+		html, body, div, canvas, ul, li, p {
 			margin: 0;
 			padding: 0;
 			border: 0 solid black;
@@ -682,19 +682,23 @@
 				}
 
 		.relationships {
-			padding: 0.5em 0.3em;
+			padding: 0 0.6em;
 			border: solid #00008b;
 			border-width: 1px 0;
 			font-size: 1.4em;
 		}
 
-			.relationships > p, .relationships > ul, .relationships > ul > li {
+			.relationships p, .relationships ul, .relationships ul > li {
 				display: inline-block;
 			}
 
-				.relationships > ul > li {
+				.relationships ul > li {
 					padding: 0.4em;
 					background-color: #efefef;
+				}
+
+				.relationships div {
+					margin: 0.4em 0;
 				}
 
 			.relationships a {
@@ -753,14 +757,18 @@
 		<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.focal_skill()">
 			<h1 class="name" data-bind="text: name"></h1>
 			<div class="relationships">
-				<p>depends on </p>
-				<ul data-bind="foreach: { data: requires, as: 'req' }">
-					<li><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }"></a></li>
-				</ul>
-				<p>enables </p>
-				<ul data-bind="foreach: { data: enables, as: 'req' }">
-					<li><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }"></a></li>
-				</ul>
+				<div>
+					<p>depends on </p>
+					<ul data-bind="foreach: { data: requires, as: 'req' }">
+						<li><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }"></a></li>
+					</ul>
+				</div>
+				<div>
+					<p>enables </p>
+					<ul data-bind="foreach: { data: enables, as: 'req' }">
+						<li><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }"></a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
