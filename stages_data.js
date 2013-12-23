@@ -64,11 +64,13 @@ function stages_data() {
 		},
 		"dependency_kinds": {
 			"IS_REQUIRED": {
-				"name": "Doing A is nearly required to do B",
+				"name": "required",
+				"description": "Doing A is nearly required to do B",
 				"dash_style": []
 			},
 			"IS_HELPFUL": {
-				"name": "Doing A helps a lot when doing B",
+				"name": "helpful",
+				"description": "Doing A helps a lot when doing B",
 				"dash_style": [
 					8
 				]
