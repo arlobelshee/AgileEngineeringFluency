@@ -113,6 +113,11 @@
 				},
 				owner: vm
 			});
+			this.reset_data_to = function(data) {
+				vm.is_initial_data = true;
+				vm.json_blob(JSON.stringify(data, undefined, '\t'));
+				delete vm.is_initial_data;
+			};
 		}
 
 		var StagesVm = function () {
@@ -535,10 +540,10 @@
 			}
 
 			ko.bindingHandlers.stages = {
-				init: function (element, value_accessor) {
+				init: function (element, value_accessor, all_bindings, view_model, binding_context) {
 					prepare_canvas();
 				},
-				update: function (element, value_accessor) {
+				update: function (element, value_accessor, all_bindings, view_model, binding_context) {
 					populate_canvas(ko.unwrap(value_accessor()));
 				},
 			};
@@ -554,9 +559,7 @@
 		function start() {
 			extend_ko();
 			vm = new ViewModel();
-			vm.is_initial_data = true;
-			vm.json_blob(JSON.stringify(stages_data(), undefined, '\t'));
-			delete vm.is_initial_data;
+			vm.reset_data_to(stages_data());
 			ko.applyBindings(vm);
 		}
 	</script>
@@ -763,18 +766,14 @@
 		<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.focal_skill()">
 			<h1 class="name" data-bind="text: name"></h1>
 			<div class="relationships">
-				<div>
-					<p>depends on </p>
-					<ul data-bind="foreach: { data: requires, as: 'req' }">
-						<li><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }"></a></li>
+				<script type="text/html" id="relationships-template">
+					<p data-bind="text: relationship"></p>
+					<ul data-bind="foreach: { data: data, as: 'req' }">
+						<li><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }, attr: { title: req.kind.name }, click: function(link) { $root.app.show_skill_details(link.skill); }"></a></li>
 					</ul>
-				</div>
-				<div>
-					<p>enables </p>
-					<ul data-bind="foreach: { data: enables, as: 'req' }">
-						<li><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }, attr: { title: req.kind.name }"></a></li>
-					</ul>
-				</div>
+				</script>
+				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'depends on', data: requires } }"></div>
+				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'enables', data: enables } }"></div>
 			</div>
 		</div>
 	</div>
