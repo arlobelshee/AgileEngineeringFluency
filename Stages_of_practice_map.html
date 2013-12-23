@@ -609,7 +609,7 @@
 			display: none;
 		}
 
-		#options_pane {
+		.options_pane {
 			position: fixed;
 			z-index: 2;
 			left: 0;
@@ -622,17 +622,17 @@
 			line-height: 1.3;
 		}
 
-		#options_pane p {
+		.options_pane p {
 			margin: 0.4em;
 		}
 
-		#main_pane {
+		.main_pane {
 			position: relative;
 			z-index: 0;
 		}
 
 		.extra_scroll_space {
-			padding-bottom: 36.8em;
+			padding-bottom: 35.2em;
 		}
 
 		.hidden {
@@ -739,8 +739,8 @@
 	</style>
 </head>
 <body onload="start();">
-	<div id="app_with_options" class="display_port">
-		<div id="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app, with: app">
+	<div class="display_port">
+		<div class="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app, with: app">
 			<canvas id="skillsCanvas" width="2740" height="1040" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: skills -->
@@ -750,7 +750,7 @@
 			<!-- /ko -->
 		</div>
 		<img class="options_corner" src="page-fold.png" data-bind="click: open_options" />
-		<div id="options_pane" data-bind="css: { hidden: !expanded() }">
+		<div class="options_pane hidden" data-bind="css: { hidden: !expanded() }">
 			<p style="padding-left:2em;">
 				Enter JSON data here to update the diagram
 				<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
