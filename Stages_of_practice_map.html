@@ -276,8 +276,11 @@
 
 		var SkillVm = function () {
 			function SkillVm(data, layout) {
+				var self = this;
 				this.name = ko.observable(data.name);
 				this.description = ko.observable(data.description);
+				this.description_display = ko.observable("");
+				this.markdown_error = ko.observable(null);
 				this.x = data.x;
 				this.y = data.y;
 				this.level = data.level;
@@ -286,6 +289,15 @@
 				this.layout = layout;
 				this.label_position = layout.place_label(this);
 				this.enables = [];
+				this.description.subscribe(function (new_value) {
+					marked(new_value, function(err, content) {
+						if (err) {
+							self.markdown_error(err);
+						} else {
+							self.description_display(content);
+						}
+					});
+				});
 			}
 			base_class(SkillVm, {
 				to_JS: function (unwrap) {
@@ -484,6 +496,16 @@
 		}();
 
 		function extend_ko() {
+			marked.setOptions({
+				gfm: true,
+				tables: true,
+				breaks: false,
+				pedantic: false,
+				sanitize: true,
+				smartLists: true,
+				smartypants: true,
+			});
+
 			var MARKER_RADIUS = 6;
 			var MARKER_BORDER_THICKNESS = 2;
 			var CONNECTOR_THICKNESS = 3;
@@ -796,6 +818,8 @@
 				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'depends on', data: requires } }"></div>
 				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'enables', data: enables } }"></div>
 			</div>
+			<div class="description" data-bind="html: description_display"></div>
+			<textarea rows="20" cols="80" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
 		</div>
 	</div>
 </body>
