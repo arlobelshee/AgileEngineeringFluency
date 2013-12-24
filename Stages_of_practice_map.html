@@ -116,7 +116,7 @@
 				},
 				owner: vm
 			});
-			this.reset_data_to = function(data) {
+			this.reset_data_to = function (data) {
 				vm.is_initial_data = true;
 				vm.json_blob(JSON.stringify(data, undefined, '\t'));
 				delete vm.is_initial_data;
@@ -125,6 +125,7 @@
 
 		var StagesVm = function () {
 			function StagesVm(layout) {
+				var self = this;
 				this.valid = ko.observable(true);
 				this.error_message = ko.observable("");
 				this.skills = ko.observable([]);
@@ -133,13 +134,13 @@
 				this.components = ko.observable([]);
 				this._id = "stages";
 				this.focal_skill = ko.observable(null);
-				var self = this;
 				this.show_skill_details = function (skill) {
 					self.focal_skill(skill);
 				};
 				this.hide_skill_details = function () {
 					self.focal_skill(null);
 				};
+				this.editing = ko.observable(false);
 			}
 			base_class(StagesVm, {
 				to_JS: function () {
@@ -290,7 +291,7 @@
 				this.label_position = layout.place_label(this);
 				this.enables = [];
 				this.description.subscribe(function (new_value) {
-					marked(new_value, function(err, content) {
+					marked(new_value, function (err, content) {
 						if (err) {
 							self.markdown_error(err);
 						} else {
@@ -652,9 +653,9 @@
 			line-height: 1.3;
 		}
 
-		.options_pane p {
-			margin: 0.4em;
-		}
+			.options_pane p {
+				margin: 0.4em;
+			}
 
 		.main_pane {
 			position: relative;
@@ -700,6 +701,25 @@
 			cursor: pointer;
 		}
 
+			.skill_focus_dialog .description_block {
+				position: relative;
+			}
+
+			.skill_focus_dialog .description_block .edit_button {
+				position: absolute;
+				display: block;
+				right: 0.4em;
+				top: 0.4em;
+				height: 25px;
+				width: 25px;
+				z-index: 1;
+				background: url('edit.png') no-repeat right top;
+			}
+
+				.skill_focus_dialog .description_block .edit_button:hover {
+					background-image: url('edit_hover.png');
+				}
+
 			.skill_focus_dialog .contents {
 				background-color: #FFF;
 				position: absolute;
@@ -726,10 +746,10 @@
 					text-align: right;
 				}
 
-				.skill_focus_dialog .contents .stage span {
-					display: block;
-					margin: 0.3em 0;
-				}
+					.skill_focus_dialog .contents .stage span {
+						display: block;
+						margin: 0.3em 0;
+					}
 
 		.relationships {
 			padding: 0 0.6em;
@@ -748,9 +768,9 @@
 					background-color: #efefef;
 				}
 
-				.relationships div {
-					margin: 0.4em 0;
-				}
+			.relationships div {
+				margin: 0.4em 0;
+			}
 
 			.relationships a {
 				color: #0091FF;
@@ -804,7 +824,7 @@
 			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;" data-bind="value: json_blob, valueUpdate: 'afterkeydown', css: { invalid: !app.valid() }"></textarea>
 		</div>
 	</div>
-	<div class="skill_focus_dialog hidden" data-bind="css: { hidden: !app.focal_skill() }, click: app.hide_skill_details">
+	<div class="skill_focus_dialog hidden" data-bind="css: { hidden: !app.focal_skill(), editing: app.editing() }, click: app.hide_skill_details">
 		<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.focal_skill()">
 			<h1 class="name" data-bind="text: name"></h1>
 			<p class="stage"><span class="era" data-bind="text: level.name()"></span><span class="purpose" data-bind="text: component.name()"></span></p>
@@ -812,14 +832,20 @@
 				<script type="text/html" id="relationships-template">
 					<p data-bind="text: relationship"></p>
 					<ul data-bind="foreach: { data: data, as: 'req' }">
-						<li><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }, attr: { title: req.kind.name }, click: function(link) { $root.app.show_skill_details(link.skill); }"></a></li>
+						<li><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }, attr: { title: req.kind.name }, click: function(link) { $root.app.show_skill_details(link.skill); }, clickBubble: false"></a></li>
 					</ul>
 				</script>
 				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'depends on', data: requires } }"></div>
 				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'enables', data: enables } }"></div>
 			</div>
-			<div class="description" data-bind="html: description_display"></div>
-			<textarea rows="20" cols="80" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
+			<div class="description_block">
+				<div class="edit_button" data-bind="click: function() { $root.app.editing(true); }, clickBubble: false"></div>
+				<div class="description" data-bind="html: description_display"></div>
+				<div class="description_editor">
+					<p class="error_display" data-bind="text: markdown_error"></p>
+					<textarea rows="20" cols="80" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
