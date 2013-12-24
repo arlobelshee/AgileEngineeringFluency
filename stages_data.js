@@ -83,7 +83,8 @@ function stages_data() {
 				"y": 2,
 				"level": "L_TRADITIONAL",
 				"component": "V_LEARN",
-				"requires": []
+				"requires": [],
+				"description": ""
 			},
 			"SK_COWBOY": {
 				"name": "Cowboy coding",
@@ -91,7 +92,8 @@ function stages_data() {
 				"y": 5,
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
-				"requires": []
+				"requires": [],
+				"description": ""
 			},
 			"SK_QA": {
 				"name": "Quality Assurance",
@@ -99,7 +101,8 @@ function stages_data() {
 				"y": 6,
 				"level": "L_TRADITIONAL",
 				"component": "V_CHECK_WORK",
-				"requires": []
+				"requires": [],
+				"description": ""
 			},
 			"SK_STASIS": {
 				"name": "Stasis",
@@ -107,7 +110,8 @@ function stages_data() {
 				"y": 7,
 				"level": "L_TRADITIONAL",
 				"component": "V_IMPROVE",
-				"requires": []
+				"requires": [],
+				"description": ""
 			},
 			"SK_MANUAL_PACKAGE": {
 				"name": "Manual build and package",
@@ -115,7 +119,8 @@ function stages_data() {
 				"y": 8,
 				"level": "L_TRADITIONAL",
 				"component": "V_SHIP",
-				"requires": []
+				"requires": [],
+				"description": ""
 			},
 			"SK_BUILD_FOR_ME": {
 				"name": "Build for myself",
@@ -123,7 +128,8 @@ function stages_data() {
 				"y": 9,
 				"level": "L_TRADITIONAL",
 				"component": "V_REQUIREMENTS",
-				"requires": []
+				"requires": [],
+				"description": ""
 			},
 			"SK_DEATH_MARCH": {
 				"name": "Death marches",
@@ -131,7 +137,8 @@ function stages_data() {
 				"y": 11,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
-				"requires": []
+				"requires": [],
+				"description": ""
 			},
 			"SK_TEAMS": {
 				"name": "Single-assignment teams",
@@ -139,7 +146,8 @@ function stages_data() {
 				"y": 0,
 				"level": "L_TRADITIONAL",
 				"component": "V_IMPROVE",
-				"requires": []
+				"requires": [],
+				"description": ""
 			},
 			"SK_TEAM_LEADS": {
 				"name": "Team leads",
@@ -152,7 +160,8 @@ function stages_data() {
 						"skill": "SK_HELP_AD_HOC",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_BDUF": {
 				"name": "Big design up front",
@@ -165,7 +174,8 @@ function stages_data() {
 						"skill": "SK_COWBOY",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_DEV_CHECK": {
 				"name": "Developer Checking",
@@ -178,7 +188,8 @@ function stages_data() {
 						"skill": "SK_QA",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_CENTRAL_PROCESS": {
 				"name": "Centralized improvement",
@@ -191,7 +202,8 @@ function stages_data() {
 						"skill": "SK_STASIS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_AUTO_PACKAGE": {
 				"name": "Automated package",
@@ -204,7 +216,8 @@ function stages_data() {
 						"skill": "SK_MANUAL_PACKAGE",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_REQUIREMENTS": {
 				"name": "Product requirements",
@@ -217,7 +230,8 @@ function stages_data() {
 						"skill": "SK_BUILD_FOR_ME",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_WATERFALL_MILESTONES": {
 				"name": "Waterfall milestones",
@@ -230,7 +244,8 @@ function stages_data() {
 						"skill": "SK_DEATH_MARCH",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_SIT_TOGETHER": {
 				"name": "Sit together",
@@ -243,7 +258,8 @@ function stages_data() {
 						"skill": "SK_TEAMS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_CODE_REVIEW": {
 				"name": "Code review",
@@ -260,7 +276,8 @@ function stages_data() {
 						"skill": "SK_TEAM_LEADS",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_FORMAL_TRAINING": {
 				"name": "Formal training",
@@ -273,7 +290,8 @@ function stages_data() {
 						"skill": "SK_TEAM_LEADS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_DESIGN_PATTERNS": {
 				"name": "Pattern-oriented design",
@@ -286,7 +304,8 @@ function stages_data() {
 						"skill": "SK_BDUF",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_POST_MORTEM": {
 				"name": "Post-mortems",
@@ -299,7 +318,8 @@ function stages_data() {
 						"skill": "SK_CENTRAL_PROCESS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_SLACK": {
 				"name": "Build slack in",
@@ -307,7 +327,8 @@ function stages_data() {
 				"y": 10,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
-				"requires": []
+				"requires": [],
+				"description": ""
 			},
 			"SK_PAIR_OCCASIONAL": {
 				"name": "Pairing to solve hard problems",
@@ -324,7 +345,8 @@ function stages_data() {
 						"skill": "SK_CODE_REVIEW",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_CODE_PREVIEW": {
 				"name": "Code preview",
@@ -337,7 +359,8 @@ function stages_data() {
 						"skill": "SK_CODE_REVIEW",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_B_ARCHI_UF": {
 				"name": "Just architecture up front",
@@ -350,7 +373,8 @@ function stages_data() {
 						"skill": "SK_DESIGN_PATTERNS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_SMALL_SPECS": {
 				"name": "Small specs",
@@ -367,7 +391,8 @@ function stages_data() {
 						"skill": "SK_REQUIREMENTS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_PREDICTIVE_WITH_SMELLS": {
 				"name": "Smell-based predictive design",
@@ -380,7 +405,8 @@ function stages_data() {
 						"skill": "SK_B_ARCHI_UF",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_ITERATED_PREDICTIVE": {
 				"name": "Iterated predictive design",
@@ -393,7 +419,8 @@ function stages_data() {
 						"skill": "SK_PREDICTIVE_WITH_SMELLS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_RETROS": {
 				"name": "Retrospectives",
@@ -410,7 +437,8 @@ function stages_data() {
 						"skill": "SK_TEAMS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_SHARED_CODE": {
 				"name": "Shared code responsibility",
@@ -423,7 +451,8 @@ function stages_data() {
 						"skill": "SK_TEAMS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_PAIR_REGULARLY": {
 				"name": "Pairing to learn",
@@ -436,7 +465,8 @@ function stages_data() {
 						"skill": "SK_PAIR_OCCASIONAL",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_LOCAL_REFACTORING": {
 				"name": "Local refactoring",
@@ -444,7 +474,8 @@ function stages_data() {
 				"y": 4,
 				"level": "L_CORE",
 				"component": "V_CODE",
-				"requires": []
+				"requires": [],
+				"description": ""
 			},
 			"SK_AUTO_DEV_TEST": {
 				"name": "Automated developer testing",
@@ -465,7 +496,8 @@ function stages_data() {
 						"skill": "SK_SMALL_SPECS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_TRACK_CAPACITY": {
 				"name": "Track capacity",
@@ -473,7 +505,8 @@ function stages_data() {
 				"y": 10,
 				"level": "L_CORE",
 				"component": "V_SUSTAINABLE",
-				"requires": []
+				"requires": [],
+				"description": ""
 			},
 			"SK_ITERATION": {
 				"name": "Iterations with self",
@@ -490,7 +523,8 @@ function stages_data() {
 						"skill": "SK_WATERFALL_MILESTONES",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_ACTION_RETROS": {
 				"name": "Action-based retrospectives",
@@ -503,7 +537,8 @@ function stages_data() {
 						"skill": "SK_RETROS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_T_SHAPED": {
 				"name": "T-shaped people",
@@ -524,7 +559,8 @@ function stages_data() {
 						"skill": "SK_PAIR_REGULARLY",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_DRY": {
 				"name": "Don't repeat yourself",
@@ -545,7 +581,8 @@ function stages_data() {
 						"skill": "SK_PAIR_REGULARLY",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_AUTO_BUILD_VERIFY": {
 				"name": "Automated build verification",
@@ -562,7 +599,8 @@ function stages_data() {
 						"skill": "SK_AUTO_PACKAGE",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_COLLECTIVE_OWNERSHIP": {
 				"name": "Collective ownership",
@@ -579,7 +617,8 @@ function stages_data() {
 						"skill": "SK_PAIR_REGULARLY",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_PAIR_PRODUCTION": {
 				"name": "Pairing for productivity",
@@ -600,7 +639,8 @@ function stages_data() {
 						"skill": "SK_PAIR_REGULARLY",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_WRITE_UNITS": {
 				"name": "Code in units",
@@ -617,7 +657,8 @@ function stages_data() {
 						"skill": "SK_PAIR_REGULARLY",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_TEST_FIRST": {
 				"name": "Test first",
@@ -634,7 +675,8 @@ function stages_data() {
 						"skill": "SK_PAIR_REGULARLY",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_PAIR_ALWAYS": {
 				"name": "Pairing for discipline",
@@ -647,7 +689,8 @@ function stages_data() {
 						"skill": "SK_PAIR_PRODUCTION",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_STORIES": {
 				"name": "Stories",
@@ -664,7 +707,8 @@ function stages_data() {
 						"skill": "SK_SMALL_SPECS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_REFLECTIVE_DESIGN": {
 				"name": "Reflective design",
@@ -685,7 +729,8 @@ function stages_data() {
 						"skill": "SK_PAIR_ALWAYS",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_TEST_UNITS": {
 				"name": "Test units",
@@ -706,7 +751,8 @@ function stages_data() {
 						"skill": "SK_PAIR_ALWAYS",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_AUTO_DEPLOY": {
 				"name": "Automated deploy",
@@ -719,7 +765,8 @@ function stages_data() {
 						"skill": "SK_AUTO_BUILD_VERIFY",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_STORY_CLUSTERING": {
 				"name": "Story clustering",
@@ -732,7 +779,8 @@ function stages_data() {
 						"skill": "SK_STORIES",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_ADAPTIVE_PLANNING": {
 				"name": "Adaptive planning",
@@ -753,7 +801,8 @@ function stages_data() {
 						"skill": "SK_STORIES",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_RELATIVE_ESTIMATES": {
 				"name": "Relative based estimation",
@@ -766,7 +815,8 @@ function stages_data() {
 						"skill": "SK_TRACK_CAPACITY",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_LIMIT_WORK_TO_CAPACITY": {
 				"name": "Limit work to estimated capacity",
@@ -787,7 +837,8 @@ function stages_data() {
 						"skill": "SK_ITERATION",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_PULL": {
 				"name": "Pull systems",
@@ -795,7 +846,8 @@ function stages_data() {
 				"y": 12,
 				"level": "L_LEVERAGE",
 				"component": "V_SUSTAINABLE",
-				"requires": []
+				"requires": [],
+				"description": ""
 			},
 			"SK_ROLLING_WAVE_PLANNING": {
 				"name": "Rolling-wave planning",
@@ -812,7 +864,8 @@ function stages_data() {
 						"skill": "SK_ADAPTIVE_PLANNING",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_LIMIT_WORK_CONTINUOUS": {
 				"name": "WIP limits",
@@ -829,7 +882,8 @@ function stages_data() {
 						"skill": "SK_LIMIT_WORK_TO_CAPACITY",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_LEARN_LOCALLY": {
 				"name": "Learn from local cmm'ty",
@@ -842,7 +896,8 @@ function stages_data() {
 						"skill": "SK_ACTION_RETROS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_TEST_LEGACY": {
 				"name": "Legacy code under test",
@@ -855,7 +910,8 @@ function stages_data() {
 						"skill": "SK_TEST_UNITS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_RGR": {
 				"name": "Red, green, refactor",
@@ -880,7 +936,8 @@ function stages_data() {
 						"skill": "SK_PAIR_ALWAYS",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_AUTO_DEPLOY_VERIFY": {
 				"name": "Automated deploy verification",
@@ -893,7 +950,8 @@ function stages_data() {
 						"skill": "SK_AUTO_DEPLOY",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_VERIFY_EXAMPLES": {
 				"name": "Verify examples",
@@ -910,7 +968,8 @@ function stages_data() {
 						"skill": "SK_TEST_FIRST",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_LEARN_ALL": {
 				"name": "Learn from everyone",
@@ -923,7 +982,8 @@ function stages_data() {
 						"skill": "SK_LEARN_LOCALLY",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_PROCESS_EXPERIMENTS": {
 				"name": "Process experiments",
@@ -940,7 +1000,8 @@ function stages_data() {
 						"skill": "SK_LEARN_LOCALLY",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_FIX_LEGACY": {
 				"name": "Legacy code recovery",
@@ -965,7 +1026,8 @@ function stages_data() {
 						"skill": "SK_COLLECTIVE_OWNERSHIP",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_SIMUL_PHASES": {
 				"name": "Simultaneous Phases",
@@ -986,7 +1048,8 @@ function stages_data() {
 						"skill": "SK_ADAPTIVE_PLANNING",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_GREENFIELD": {
 				"name": "Greenfield project",
@@ -994,7 +1057,8 @@ function stages_data() {
 				"y": 3,
 				"level": "L_NO_DEBT",
 				"component": "V_CODE",
-				"requires": []
+				"requires": [],
+				"description": ""
 			},
 			"SK_DATA_DRIVEN_CAPACITY": {
 				"name": "Use data to determine capacity",
@@ -1015,7 +1079,8 @@ function stages_data() {
 						"skill": "SK_LIMIT_WORK_TO_CAPACITY",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_MOBS": {
 				"name": "Mobbing",
@@ -1028,7 +1093,8 @@ function stages_data() {
 						"skill": "SK_PAIR_ALWAYS",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_M_SHAPED": {
 				"name": "M-shaped people",
@@ -1041,7 +1107,8 @@ function stages_data() {
 						"skill": "SK_PAIR_ALWAYS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_EVO_DESIGN": {
 				"name": "Evolutionary Design",
@@ -1066,7 +1133,8 @@ function stages_data() {
 						"skill": "SK_PAIR_ALWAYS",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_FEATURE_ISOLATION": {
 				"name": "Feature isolation",
@@ -1079,7 +1147,8 @@ function stages_data() {
 						"skill": "SK_AUTO_DEPLOY",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_AUTO_ROLLBACK": {
 				"name": "Automated rollback",
@@ -1092,7 +1161,8 @@ function stages_data() {
 						"skill": "SK_AUTO_DEPLOY_VERIFY",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_HYPOTHESIS_STORIES": {
 				"name": "Hypothesis stories",
@@ -1105,7 +1175,8 @@ function stages_data() {
 						"skill": "SK_STORY_CLUSTERING",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_EXPERIENCE_FOCUS": {
 				"name": "Experience focus",
@@ -1118,7 +1189,8 @@ function stages_data() {
 						"skill": "SK_STORY_CLUSTERING",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_CONT_PLAN": {
 				"name": "Effective pull system",
@@ -1135,7 +1207,8 @@ function stages_data() {
 						"skill": "SK_SIMUL_PHASES",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_UNIVERSAL_SPECIALIST": {
 				"name": "Full-product specialization",
@@ -1152,7 +1225,8 @@ function stages_data() {
 						"skill": "SK_MOBS",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_NO_BUGS": {
 				"name": "No bugs",
@@ -1173,7 +1247,8 @@ function stages_data() {
 						"skill": "SK_MOBS",
 						"kind": "IS_HELPFUL"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_WHOLE_TEAM_BUSINESS": {
 				"name": "Whole team business innovation",
@@ -1190,7 +1265,8 @@ function stages_data() {
 						"skill": "SK_M_SHAPED",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_YAGNI": {
 				"name": "YAGNI and simplest thing",
@@ -1203,7 +1279,8 @@ function stages_data() {
 						"skill": "SK_NO_BUGS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_TIP": {
 				"name": "Testing in production",
@@ -1220,7 +1297,8 @@ function stages_data() {
 						"skill": "SK_NO_BUGS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_SINGLE_PIECE_FLOW": {
 				"name": "Single piece flow",
@@ -1233,7 +1311,8 @@ function stages_data() {
 						"skill": "SK_CONT_PLAN",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_PROCESS_INNOVATION": {
 				"name": "Useful process innovation",
@@ -1250,7 +1329,8 @@ function stages_data() {
 						"skill": "SK_LEARN_ALL",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_RADICAL_COLLABORATE": {
 				"name": "Radical collaboration",
@@ -1267,7 +1347,8 @@ function stages_data() {
 						"skill": "SK_SINGLE_PIECE_FLOW",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_TDDESIGN": {
 				"name": "Test-driven design",
@@ -1284,7 +1365,8 @@ function stages_data() {
 						"skill": "SK_RGR",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_CONT_SHIP": {
 				"name": "Continuous delivery",
@@ -1305,7 +1387,8 @@ function stages_data() {
 						"skill": "SK_TIP",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_METRICS_FOCUS": {
 				"name": "Business metric focus",
@@ -1322,7 +1405,8 @@ function stages_data() {
 						"skill": "SK_TIP",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_LISTEN_TO_CODE": {
 				"name": "Code whispering",
@@ -1339,7 +1423,8 @@ function stages_data() {
 						"skill": "SK_TDDESIGN",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_CONT_DEPLOY": {
 				"name": "Continuous deployment",
@@ -1356,7 +1441,8 @@ function stages_data() {
 						"skill": "SK_AUTO_ROLLBACK",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			},
 			"SK_LEAN_STARTUP": {
 				"name": "Lean startup",
@@ -1373,7 +1459,8 @@ function stages_data() {
 						"skill": "SK_WHOLE_TEAM_BUSINESS",
 						"kind": "IS_REQUIRED"
 					}
-				]
+				],
+				"description": ""
 			}
 		}
 	};

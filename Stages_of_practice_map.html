@@ -277,6 +277,7 @@
 		var SkillVm = function () {
 			function SkillVm(data, layout) {
 				this.name = ko.observable(data.name);
+				this.description = ko.observable(data.description);
 				this.x = data.x;
 				this.y = data.y;
 				this.level = data.level;
@@ -300,6 +301,7 @@
 								kind: link.kind._id,
 							};
 						}),
+						description: unwrap(this.description),
 					};
 				},
 				resolve_obj_references: function (lookup, mark_invalid) {
@@ -554,12 +556,14 @@
 	</script>
 	<script type="text/javascript" src="stages_data.js">
 	</script>
+	<script type="text/javascript" src="marked.js">
+	</script>
 	<script type="text/javascript" src="knockout-3.0.0.js">
 	</script>
 	<script type="text/javascript">
 		function start() {
 			extend_ko();
-			vm = new ViewModel();
+			var vm = new ViewModel();
 			vm.reset_data_to(stages_data());
 			ko.applyBindings(vm);
 		}
