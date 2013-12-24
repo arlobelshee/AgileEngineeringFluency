@@ -705,6 +705,27 @@
 				position: relative;
 			}
 
+			.skill_focus_dialog .description_block .editor {
+				display: none;
+				position: fixed;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 33%;
+				padding: 0.4em;
+				border-width: 0 0 0 1px;
+				background-color: #efefef;
+			}
+
+				.skill_focus_dialog .description_block .editor button {
+					display: block;
+					margin: 0.5em 3em;
+				}
+
+				.skill_focus_dialog.editing .description_block .editor {
+					display: block;
+				}
+
 			.skill_focus_dialog .description_block .edit_button {
 				position: absolute;
 				display: block;
@@ -720,6 +741,10 @@
 					background-image: url('edit_hover.png');
 				}
 
+			.skill_focus_dialog.editing .description_block .edit_button {
+				display: none;
+			}
+
 			.skill_focus_dialog .contents {
 				background-color: #FFF;
 				position: absolute;
@@ -729,6 +754,15 @@
 				bottom: 80px;
 				cursor: default;
 				overflow-y: scroll;
+			}
+
+			.skill_focus_dialog.editing .contents {
+				position: fixed;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: auto;
+				width: 66%;
 			}
 
 				.skill_focus_dialog .contents .name {
@@ -840,10 +874,11 @@
 			</div>
 			<div class="description_block">
 				<div class="edit_button" data-bind="click: function() { $root.app.editing(true); }, clickBubble: false"></div>
-				<div class="description" data-bind="html: description_display"></div>
-				<div class="description_editor">
+				<div class="display" data-bind="html: description_display"></div>
+				<div class="editor">
+					<button data-bind="click: function() { $root.app.editing(false); }, clickBubble: false">Close</button>
 					<p class="error_display" data-bind="text: markdown_error"></p>
-					<textarea rows="20" cols="80" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
+					<textarea rows="35" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
 				</div>
 			</div>
 		</div>
