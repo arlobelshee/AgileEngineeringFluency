@@ -687,7 +687,21 @@
 				.skill_focus_dialog .contents .name {
 					font-size: 2.5em;
 					font-style: italic;
-					padding: 0.4em 2em;
+					padding: 0.4em 0 0.4em 2em;
+					float: left;
+				}
+
+				.skill_focus_dialog .contents .stage {
+					font-size: 1.4em;
+					color: #aaaaaa;
+					padding: 0.1em 2em 0.1em 0;
+					float: right;
+					text-align: right;
+				}
+
+				.skill_focus_dialog .contents .stage span {
+					display: block;
+					margin: 0.3em 0;
 				}
 
 		.relationships {
@@ -695,6 +709,7 @@
 			border: solid #00008b;
 			border-width: 1px 0;
 			font-size: 1.4em;
+			clear: both;
 		}
 
 			.relationships p, .relationships ul, .relationships ul > li {
@@ -765,6 +780,7 @@
 	<div class="skill_focus_dialog hidden" data-bind="css: { hidden: !app.focal_skill() }, click: app.hide_skill_details">
 		<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.focal_skill()">
 			<h1 class="name" data-bind="text: name"></h1>
+			<p class="stage"><span class="era" data-bind="text: level.name()"></span><span class="purpose" data-bind="text: component.name()"></span></p>
 			<div class="relationships">
 				<script type="text/html" id="relationships-template">
 					<p data-bind="text: relationship"></p>
