@@ -705,26 +705,26 @@
 				position: relative;
 			}
 
-			.skill_focus_dialog .description_block .editor {
-				display: none;
-				position: fixed;
-				right: 0;
-				top: 0;
-				bottom: 0;
-				width: 33%;
-				padding: 0.4em;
-				border-width: 0 0 0 1px;
-				background-color: #efefef;
+				.skill_focus_dialog .description_block .editor {
+					display: none;
+					position: fixed;
+					right: 0;
+					top: 0;
+					bottom: 0;
+					width: 33%;
+					padding: 0.4em;
+					border-width: 0 0 0 1px;
+					background-color: #efefef;
+				}
+
+					.skill_focus_dialog .description_block .editor button {
+						display: block;
+						margin: 0.5em 3em;
+					}
+
+			.skill_focus_dialog.editing .description_block .editor {
+				display: block;
 			}
-
-				.skill_focus_dialog .description_block .editor button {
-					display: block;
-					margin: 0.5em 3em;
-				}
-
-				.skill_focus_dialog.editing .description_block .editor {
-					display: block;
-				}
 
 			.skill_focus_dialog .description_block .edit_button {
 				position: absolute;
@@ -765,24 +765,77 @@
 				width: 66%;
 			}
 
-				.skill_focus_dialog .contents .name {
-					font-size: 2.5em;
-					font-style: italic;
-					padding: 0.4em 0 0.4em 2em;
-					float: left;
+			.skill_focus_dialog .contents .name {
+				font-size: 2.5em;
+				font-style: italic;
+				padding: 0.4em 0 0.4em 2em;
+				float: left;
+			}
+
+			.skill_focus_dialog .contents .stage {
+				font-size: 1.4em;
+				color: #aaaaaa;
+				padding: 0.1em 2em 0.1em 0;
+				float: right;
+				text-align: right;
+			}
+
+				.skill_focus_dialog .contents .stage span {
+					display: block;
+					margin: 0.3em 0;
 				}
 
-				.skill_focus_dialog .contents .stage {
+			.skill_focus_dialog .description_block .display {
+				font-size: 1.4em;
+				line-height: 1.3;
+				padding: 0.5em;
+			}
+
+				.skill_focus_dialog .description_block .display h1 {
+					font-size: 1.8em;
+					margin: 0.3em 0;
+					padding: 0 1em 0 0.2em;
+					color: #0091ff;
+					border-bottom: 1px solid #0091ff;
+					display: inline-block;
+				}
+
+				.skill_focus_dialog .description_block .display h2 {
+					font-size: 1.6em;
+					margin: 0.3em 0;
+					padding: 0 1em 0 0.2em;
+					border-bottom: 1px solid black;
+					display: inline-block;
+				}
+
+				.skill_focus_dialog .description_block .display h3 {
 					font-size: 1.4em;
-					color: #aaaaaa;
-					padding: 0.1em 2em 0.1em 0;
-					float: right;
-					text-align: right;
+					margin: 0.3em 0;
+					padding: 0 1em 0 0.2em;
+					border-bottom: 1px solid black;
+					display: inline-block;
 				}
 
-					.skill_focus_dialog .contents .stage span {
-						display: block;
-						margin: 0.3em 0;
+				.skill_focus_dialog .description_block .display h4 {
+					font-size: 1.4em;
+					margin: 0.3em 0;
+					padding: 0 1em 0 0.2em;
+					border-bottom: 1px solid black;
+					display: inline-block;
+					font-style: italic;
+				}
+
+				.skill_focus_dialog .description_block .display p {
+					margin: 0.4em 0;
+				}
+
+				.skill_focus_dialog .description_block .display ul {
+					margin: 0.4em 0;
+					list-style: disc outside;
+				}
+
+					.skill_focus_dialog .description_block .display ul li {
+						margin: 0 2.8em;
 					}
 
 		.relationships {
