@@ -5,7 +5,7 @@
 	<script type="text/javascript">
 		"use strict";
 		/*jslint browser: true */
-		/*global ko: false */
+		/*global ko: false, textile: false */
 		function each_item(obj, op) {
 			for (var key in obj) {
 				op(obj[key], key);
@@ -291,13 +291,7 @@
 				this.label_position = layout.place_label(this);
 				this.enables = [];
 				this.description.subscribe(function (new_value) {
-					marked(new_value, function (err, content) {
-						if (err) {
-							self.markdown_error(err);
-						} else {
-							self.description_display(content);
-						}
-					});
+					self.description_display(textile(new_value));
 				});
 			}
 			base_class(SkillVm, {
@@ -497,16 +491,6 @@
 		}();
 
 		function extend_ko() {
-			marked.setOptions({
-				gfm: true,
-				tables: true,
-				breaks: false,
-				pedantic: false,
-				sanitize: true,
-				smartLists: true,
-				smartypants: true,
-			});
-
 			var MARKER_RADIUS = 6;
 			var MARKER_BORDER_THICKNESS = 2;
 			var CONNECTOR_THICKNESS = 3;
@@ -579,7 +563,7 @@
 	</script>
 	<script type="text/javascript" src="stages_data.js">
 	</script>
-	<script type="text/javascript" src="marked.js">
+	<script type="text/javascript" src="textile.js">
 	</script>
 	<script type="text/javascript" src="knockout-3.0.0.js">
 	</script>
