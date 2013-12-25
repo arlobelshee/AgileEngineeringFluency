@@ -93,7 +93,7 @@ function stages_data() {
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
 				"requires": [],
-				"description": "Programmer acting alone, without consulting or informing anyone else of their actions."
+				"description": "Programmer acting alone, without consulting or informing anyone else of their actions.\n"
 			},
 			"SK_QA": {
 				"name": "Quality Assurance",
@@ -111,7 +111,7 @@ function stages_data() {
 				"level": "L_TRADITIONAL",
 				"component": "V_IMPROVE",
 				"requires": [],
-				"description": "No improvement. May actually be regression, as capability decays over time (http://web.mit.edu/nelsonr/www/Repenning%3DSterman_CMR_su01_.pdf)"
+				"description": "No improvement. May actually be regression, as \"capability decays over time\":http://web.mit.edu/nelsonr/www/Repenning%3DSterman_CMR_su01_.pdf.\n"
 			},
 			"SK_MANUAL_PACKAGE": {
 				"name": "Manual build and package",
@@ -147,7 +147,7 @@ function stages_data() {
 				"level": "L_TRADITIONAL",
 				"component": "V_IMPROVE",
 				"requires": [],
-				"description": ""
+				"description": "bq>. Cross-functional teams are the heart of modern software development.\n\n\n"
 			},
 			"SK_TEAM_LEADS": {
 				"name": "Team leads",
@@ -497,7 +497,7 @@ function stages_data() {
 						"kind": "IS_REQUIRED"
 					}
 				],
-				"description": "When developers becomes responsible for the quality of their own work, it makes sense that they would want to use their programming skills to eliminate tedious repetitive manual testing."
+				"description": "When developers becomes responsible for the quality of their own work, it makes sense that they would want to use their programming skills to eliminate tedious repetitive manual testing.\n"
 			},
 			"SK_TRACK_CAPACITY": {
 				"name": "Track capacity",
@@ -582,7 +582,7 @@ function stages_data() {
 						"kind": "IS_HELPFUL"
 					}
 				],
-				"description": "Each piece of knowledge should be expressed in exactly one place. \n\nhttp://pragmatictips.com/11"
+				"description": "Each piece of knowledge should be expressed in exactly one place. \n\n\"DRY\":http://pragmatictips.com/11\n"
 			},
 			"SK_AUTO_BUILD_VERIFY": {
 				"name": "Automated build verification",

@@ -278,9 +278,15 @@
 		var SkillVm = function () {
 			function SkillVm(data, layout) {
 				var self = this;
-				this.name = ko.observable(data.name);
-				this.description = ko.observable(data.description);
+				function format_desc(new_value) {
+					self.description_display(textile(new_value));
+				}
 				this.description_display = ko.observable("");
+				format_desc(data.description);
+				this.description = ko.observable(data.description);
+				this.description.subscribe(format_desc);
+				
+				this.name = ko.observable(data.name);
 				this.markdown_error = ko.observable(null);
 				this.x = data.x;
 				this.y = data.y;
@@ -290,9 +296,6 @@
 				this.layout = layout;
 				this.label_position = layout.place_label(this);
 				this.enables = [];
-				this.description.subscribe(function (new_value) {
-					self.description_display(textile(new_value));
-				});
 			}
 			base_class(SkillVm, {
 				to_JS: function (unwrap) {
@@ -822,11 +825,11 @@
 						margin: 0 2.8em;
 					}
 
-					.skill_focus_dialog .description_block .display blockquote {
-						margin: 1em 4em;
-						color: #aaaaaa;
-						font-style: italic;
-					}
+				.skill_focus_dialog .description_block .display blockquote {
+					margin: 1em 4em;
+					color: #aaaaaa;
+					font-style: italic;
+				}
 
 		.relationships {
 			padding: 0 0.6em;
