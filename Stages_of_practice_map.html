@@ -285,6 +285,7 @@
 				format_desc(data.description);
 				this.description = ko.observable(data.description);
 				this.description.subscribe(format_desc);
+				this.description_complete = data.description_complete || false;
 				
 				this.name = ko.observable(data.name);
 				this.markdown_error = ko.observable(null);
@@ -864,13 +865,27 @@
 			width: 86px;
 			overflow: hidden;
 			overflow-wrap: break-word;
+			border-color: #000080;
 		}
 
 			.skill_text.collapsed:hover {
-				border: 2px solid #000080;
+				border-width: 2px;
 				padding: 6px;
 				cursor: pointer;
 			}
+
+		.skill_text.help_needed {
+			border-color: #bb0000;
+		}
+
+		.help_action {
+			position: absolute;
+			border: 2px solid #bb0000;
+			margin: -0.8em 0 0 18px;
+			padding: 2px;
+			background-color: #fff;
+			width: 8em;
+		}
 
 		.skill_text {
 			position: absolute;
@@ -889,9 +904,10 @@
 			<canvas id="skillsCanvas" width="2740" height="1040" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: skills -->
-			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }, click: $parent.show_skill_details">
+			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }, click: $parent.show_skill_details, css: { help_needed: !description_complete }">
 				<span class="name" data-bind="text: name"></span>
 			</div>
+			<div class="help_action" data-bind="if: !description_complete, style: { top: label_position.top, left: label_position.left }">Needs description</div>
 			<!-- /ko -->
 		</div>
 		<img class="options_corner" src="page-fold.png" data-bind="click: open_options" />
