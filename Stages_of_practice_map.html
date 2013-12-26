@@ -285,8 +285,8 @@
 				format_desc(data.description);
 				this.description = ko.observable(data.description);
 				this.description.subscribe(format_desc);
-				this.description_complete = data.description_complete || false;
-				
+				this.help_needed = data.help_needed || "Needs description";
+
 				this.name = ko.observable(data.name);
 				this.markdown_error = ko.observable(null);
 				this.x = data.x;
@@ -313,7 +313,7 @@
 							};
 						}),
 						description: unwrap(this.description),
-						description_complete: unwrap(this.description_complete),
+						help_needed: unwrap(this.help_needed),
 					};
 				},
 				resolve_obj_references: function (lookup, mark_invalid) {
@@ -905,10 +905,12 @@
 			<canvas id="skillsCanvas" width="2740" height="1040" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: skills -->
-			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }, click: $parent.show_skill_details, css: { help_needed: !description_complete }">
+			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }, click: $parent.show_skill_details, css: { help_needed: help_needed }">
 				<span class="name" data-bind="text: name"></span>
 			</div>
-			<div class="help_action" data-bind="if: !description_complete, style: { top: label_position.top, left: label_position.left }">Needs description</div>
+			<!-- ko if: help_needed -->
+			<div class="help_action" data-bind="text: help_needed, style: { top: label_position.top, left: label_position.left }"></div>
+			<!-- /ko -->
 			<!-- /ko -->
 		</div>
 		<img class="options_corner" src="page-fold.png" data-bind="click: open_options" />
