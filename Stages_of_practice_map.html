@@ -285,7 +285,7 @@
 				format_desc(data.description);
 				this.description = ko.observable(data.description);
 				this.description.subscribe(format_desc);
-				this.help_needed = data.help_needed || "Needs description";
+				this.help_needed = data.help_needed || "";
 
 				this.name = ko.observable(data.name);
 				this.markdown_error = ko.observable(null);
