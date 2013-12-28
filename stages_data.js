@@ -43,7 +43,7 @@ function stages_data() {
 			},
 			"V_SHIP": {
 				"name": "Ship (Continuous Integration, Continuous Deployment, Dev Ops)",
-				"color": "mediumpurple"
+				"color": "#A825D3"
 			},
 			"V_REQUIREMENTS": {
 				"name": "Know what to build (Stories, Vertical Decomposition, Planning)",
@@ -55,11 +55,11 @@ function stages_data() {
 			},
 			"V_IMPROVE": {
 				"name": "Improve as a Team (Teams, Retrospectives)",
-				"color": "darkred"
+				"color": "#cf4040"
 			},
 			"V_SUSTAINABLE": {
 				"name": "Not hurried (Velocity, Planning to Capacity)",
-				"color": "rosybrown"
+				"color": "#bc8f8f"
 			}
 		},
 		"dependency_kinds": {
@@ -77,46 +77,6 @@ function stages_data() {
 			}
 		},
 		"skills": {
-			"SK_DONE_DEFINITION": {
-				"name": "Done Definition",
-				"x": 0,
-				"y": 0,
-				"level": "L_TRADITIONAL",
-				"component": "V_LEARN",
-				"requires": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
-				"help_needed": "Needs positioning; needs description"
-			},
-			"SK_SESSION_MANUAL_TESTING": {
-				"name": "Session-based manual testing",
-				"x": 0,
-				"y": 0,
-				"level": "L_TRADITIONAL",
-				"component": "V_LEARN",
-				"requires": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
-				"help_needed": "Needs positioning; needs description"
-			},
-			"SK_LEARN_VS_PROVE": {
-				"name": "Learning / Proving Distinction",
-				"x": 0,
-				"y": 0,
-				"level": "L_TRADITIONAL",
-				"component": "V_LEARN",
-				"requires": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
-				"help_needed": "Needs positioning; needs description"
-			},
-			"SK_IMPROVING_PROOF": {
-				"name": "Improving levels of proof",
-				"x": 0,
-				"y": 0,
-				"level": "L_TRADITIONAL",
-				"component": "V_LEARN",
-				"requires": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
-				"help_needed": "Needs positioning; needs description"
-			},
 			"SK_HELP_AD_HOC": {
 				"name": "Ad-hoc helping",
 				"x": 0,
@@ -661,6 +621,25 @@ function stages_data() {
 				"description": "bq>. Each piece of knowledge should be expressed in exactly one place. \n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\n* \"DRY in Pragmatic Programmer (book)\":http://pragmatictips.com/11\n\n",
 				"help_needed": "Needs description"
 			},
+			"SK_DONE_DEFINITION": {
+				"name": "Done Definition",
+				"x": 7,
+				"y": 5,
+				"level": "L_CORE",
+				"component": "V_CHECK_WORK",
+				"requires": [
+					{
+						"skill": "SK_SHARED_CODE",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_SMALL_SPECS",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
+				"help_needed": "Needs positioning; needs description"
+			},
 			"SK_AUTO_BUILD_VERIFY": {
 				"name": "Automated build verification",
 				"x": 7,
@@ -840,10 +819,29 @@ function stages_data() {
 				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": "Needs description"
 			},
+			"SK_LEARN_VS_PROVE": {
+				"name": "Learning / Proving Distinction",
+				"x": 12,
+				"y": 5,
+				"level": "L_LEVERAGE",
+				"component": "V_IMPROVE",
+				"requires": [
+					{
+						"skill": "SK_DONE_DEFINITION",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_AUTO_DEV_TEST",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
+				"help_needed": "Needs positioning; needs description"
+			},
 			"SK_AUTO_DEPLOY": {
 				"name": "Automated deploy",
 				"x": 12,
-				"y": 6,
+				"y": 7,
 				"level": "L_LEVERAGE",
 				"component": "V_SHIP",
 				"requires": [
@@ -941,6 +939,25 @@ function stages_data() {
 				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": "Needs description"
 			},
+			"SK_SESSION_MANUAL_TESTING": {
+				"name": "Session-based manual testing",
+				"x": 13,
+				"y": 3,
+				"level": "L_LEVERAGE",
+				"component": "V_IMPROVE",
+				"requires": [
+					{
+						"skill": "SK_LEARN_VS_PROVE",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_AUTO_BUILD_VERIFY",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
+				"help_needed": "Needs positioning; needs description"
+			},
 			"SK_ROLLING_WAVE_PLANNING": {
 				"name": "Rolling-wave planning",
 				"x": 13,
@@ -994,10 +1011,25 @@ function stages_data() {
 				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": "Needs description"
 			},
+			"SK_IMPROVING_PROOF": {
+				"name": "Improving levels of proof",
+				"x": 14,
+				"y": 3,
+				"level": "L_NO_DEBT",
+				"component": "V_CHECK_WORK",
+				"requires": [
+					{
+						"skill": "SK_SESSION_MANUAL_TESTING",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
+				"help_needed": "Needs positioning; needs description"
+			},
 			"SK_TEST_LEGACY": {
 				"name": "Legacy code under test",
 				"x": 14,
-				"y": 3,
+				"y": 4,
 				"level": "L_NO_DEBT",
 				"component": "V_CHECK_WORK",
 				"requires": [
@@ -1125,6 +1157,10 @@ function stages_data() {
 					},
 					{
 						"skill": "SK_COLLECTIVE_OWNERSHIP",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_IMPROVING_PROOF",
 						"kind": "IS_REQUIRED"
 					}
 				],
@@ -1365,6 +1401,21 @@ function stages_data() {
 				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": "Needs description"
 			},
+			"SK_TELL_VS_ASK": {
+				"name": "Tell / ask distinction",
+				"x": 18,
+				"y": 5,
+				"level": "L_AWESOME",
+				"component": "V_CODE",
+				"requires": [
+					{
+						"skill": "SK_EVO_DESIGN",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
+				"help_needed": "Needs positioning; needs description"
+			},
 			"SK_WHOLE_TEAM_BUSINESS": {
 				"name": "Whole team business innovation",
 				"x": 18,
@@ -1485,6 +1536,10 @@ function stages_data() {
 					{
 						"skill": "SK_RGR",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_TELL_VS_ASK",
+						"kind": "IS_REQUIRED"
 					}
 				],
 				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\nh2. Measuring impact\n\nIf you are doing this well, you should see improvements in:\n\n* TBD\n\nYou may also see:\n\n* TBD\n\nh2. Side effects\n\nTBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nTBD\n\nh2. Role during transition\n\nTBD\n\nh2. Why these prereqs help\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh1. Attaining fluency\n\nTBD\n\nh2. Measuring proficiency\n\nTBD\n\nh2. Recipes to follow\n\nTBD\n\nh2. Further resources\n\nTBD\n\n",
@@ -1493,7 +1548,7 @@ function stages_data() {
 			"SK_CONT_SHIP": {
 				"name": "Continuous delivery",
 				"x": 20,
-				"y": 5,
+				"y": 6,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
 				"requires": [
@@ -1554,7 +1609,7 @@ function stages_data() {
 			"SK_CONT_DEPLOY": {
 				"name": "Continuous deployment",
 				"x": 21,
-				"y": 5,
+				"y": 6,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
 				"requires": [
