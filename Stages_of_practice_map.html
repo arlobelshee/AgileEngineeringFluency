@@ -292,8 +292,7 @@
 				format_desc(data.description);
 				this.description = ko.observable(data.description);
 				this.description.subscribe(format_desc);
-				this.help_needed = data.help_needed || "";
-
+				this.help_needed = data.help_needed;
 				this.name = ko.observable(data.name);
 				this.markdown_error = ko.observable(null);
 				this.x = data.x;
@@ -304,6 +303,7 @@
 				this.layout = layout;
 				this.label_position = layout.place_label(this);
 				this.enables = [];
+				this.obsoletes = data.obsoletes;
 			}
 			base_class(SkillVm, {
 				to_JS: function (unwrap) {
@@ -319,22 +319,31 @@
 								kind: link.kind._id,
 							};
 						}),
+						obsoletes: map_elt(unwrap(this.obsoletes), function (link) {
+							return link.skill._id;
+						}),
 						description: unwrap(this.description),
 						help_needed: unwrap(this.help_needed),
 					};
 				},
 				resolve_obj_references: function (lookup, mark_invalid) {
 					var skill_id = this._id;
+					var build_relation = function (skill, kind) {
+						return {
+							skill: lookup.skills[skill] || mark_invalid(error_failed_to_find_key, "skill", skill, skill_id),
+							kind: lookup.kinds[kind] || mark_invalid(error_failed_to_find_key, "dependency kind", kind, skill_id),
+						};
+					};
 					this.component = lookup.components[this.component] || mark_invalid(error_failed_to_find_key, "component", this.component, skill_id);
 					this.level = lookup.levels[this.level] || mark_invalid(error_failed_to_find_key, "level", this.level, skill_id);
 					var self = this;
 					this.requires = map_elt(this.requires, function (link) {
-						var requirement = {
-							skill: lookup.skills[link.skill] || mark_invalid(error_failed_to_find_key, "skill", link.skill, skill_id),
-							kind: lookup.kinds[link.kind] || mark_invalid(error_failed_to_find_key, "dependency kind", link.kind, skill_id),
-						};
+						var requirement = build_relation(link.skill, link.kind);
 						requirement.skill.enables.push({ skill: self, kind: requirement.kind });
 						return requirement;
+					});
+					this.obsoletes = map_elt(this.obsoletes, function (skill_id) {
+						return build_relation(skill_id, "IS_REQUIRED");
 					});
 					if (this.level && (this.x < this.level.min || this.x > this.level.max)) {
 						mark_invalid(error_skill_not_in_range, this.x, this.level, this._id);
@@ -841,17 +850,21 @@
 			clear: both;
 		}
 
-			.relationships p, .relationships ul, .relationships ul > li {
+			.relationships ul, .relationships ul > li {
 				display: inline-block;
 			}
 
 				.relationships ul > li {
+					margin: 0.2em 0;
 					padding: 0.4em;
+				}
+
+				.relationships ul > li.relation {
 					background-color: #efefef;
 				}
 
 			.relationships div {
-				margin: 0.4em 0;
+				margin: 0.2em 0;
 			}
 
 			.relationships a {
@@ -991,13 +1004,16 @@
 			<p class="stage"><span class="era" data-bind="text: level.name()"></span><span class="purpose" data-bind="text: component.name()"></span></p>
 			<div class="relationships">
 				<script type="text/html" id="relationships-template">
-					<p data-bind="text: relationship"></p>
-					<ul data-bind="foreach: { data: data, as: 'req' }">
-						<li><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }, attr: { title: req.kind.name }, click: function(link) { $root.app.show_skill_details(link.skill); }, clickBubble: false"></a></li>
+					<ul>
+						<li data-bind="text: relationship"></li>
+						<!-- ko foreach: { data: data, as: 'req' } -->
+						<li class="relation"><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }, attr: { title: req.kind.name }, click: function(link) { $root.app.show_skill_details(link.skill); }, clickBubble: false"></a></li>
+						<!-- /ko -->
 					</ul>
 				</script>
-				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'depends on', data: requires } }"></div>
-				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'enables', data: enables } }"></div>
+				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'Depends on', data: requires } }"></div>
+				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'Enables', data: enables } }"></div>
+				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'Obsoletes', data: obsoletes } }"></div>
 			</div>
 			<div class="description_block">
 				<div class="edit_button" data-bind="click: function() { $root.app.editing(true); }, clickBubble: false"></div>
@@ -1010,6 +1026,6 @@
 			</div>
 		</div>
 	</div>
-	<p class="copyright">Version 0.4.0. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
+	<p class="copyright">Version 0.4.1. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
 </body>
 </html>
