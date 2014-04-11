@@ -40,31 +40,38 @@ function stages_data() {
 		},
 		"components": {
 			"V_CHECK_WORK": {
-				"name": "Check your work (TDD, Exploratory Testing)",
+				"name": "Check your work",
+				"techniques": "TDD, Exploratory Testing",
 				"color": "cornflowerblue"
 			},
 			"V_CODE": {
-				"name": "Write good code (Refactoring)",
+				"name": "Write good code",
+				"techniques": "Refactoring, Design, Recovering legacy code",
 				"color": "limegreen"
 			},
 			"V_SHIP": {
-				"name": "Ship (Continuous Integration, Continuous Deployment, Dev Ops)",
+				"name": "Ship at will",
+				"techniques": "Continuous Integration, Continuous Deployment, Dev Ops",
 				"color": "#A825D3"
 			},
 			"V_REQUIREMENTS": {
-				"name": "Know what to build (Stories, Vertical Decomposition, Planning)",
+				"name": "Know what to build",
+				"techniques": "Stories, Vertical Decomposition, Planning",
 				"color": "orange"
 			},
 			"V_LEARN": {
-				"name": "Discipline and learning (Pairing, Mobbing)",
+				"name": "Discipline and learning",
+				"techniques": "Pairing, Mobbing",
 				"color": "fuchsia"
 			},
 			"V_IMPROVE": {
-				"name": "Improve as a Team (Teams, Retrospectives)",
+				"name": "Improve as a Team",
+				"techniques": "Teams, Retrospectives",
 				"color": "#cf4040"
 			},
 			"V_SUSTAINABLE": {
-				"name": "Not hurried (Velocity, Planning to Capacity)",
+				"name": "Not hurried",
+				"techniques": "Velocity, Planning to Capacity",
 				"color": "#bc8f8f"
 			}
 		},
@@ -72,14 +79,16 @@ function stages_data() {
 			"IS_REQUIRED": {
 				"name": "required",
 				"description": "Doing A is nearly required to do B",
-				"dash_style": []
+				"dash_style": [],
+				"border_style": "solid"
 			},
 			"IS_HELPFUL": {
 				"name": "helpful",
 				"description": "Doing A helps a lot when doing B",
 				"dash_style": [
 					8
-				]
+				],
+				"border_style": "dashed"
 			}
 		},
 		"skills": {

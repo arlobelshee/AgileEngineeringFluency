@@ -243,12 +243,14 @@
 		var ComponentVm = function () {
 			function ComponentVm(data) {
 				this.name = ko.observable(data.name);
+				this.techniques = ko.observable(data.techniques);
 				this.color = data.color;
 			}
 			base_class(ComponentVm, {
 				to_JS: function (unwrap) {
 					return {
 						name: unwrap(this.name),
+						techniques: unwrap(this.techniques),
 						color: unwrap(this.color),
 					};
 				},
@@ -261,8 +263,9 @@
 		var KindVm = function () {
 			function KindVm(data) {
 				this.name = data.name;
-				this.description = data.description;
+				this.description = ko.observable(data.description);
 				this.dash_style = data.dash_style;
+				this.border_style = data.border_style;
 			}
 			base_class(KindVm, {
 				to_JS: function (unwrap) {
@@ -270,6 +273,7 @@
 						name: unwrap(this.name),
 						description: unwrap(this.description),
 						dash_style: unwrap(this.dash_style),
+						border_style: unwrap(this.border_style),
 					};
 				},
 				do_one_time_data_updates: function () {
@@ -880,6 +884,7 @@
 			width: 8em;
 			z-index: 3;
 		}
+
 		.level_title {
 			position: absolute;
 			z-index: 2;
@@ -887,6 +892,7 @@
 			line-height: 1.3;
 			text-align: center;
 		}
+
 		.skill_text {
 			position: absolute;
 			z-index: 2;
@@ -896,9 +902,49 @@
 			background-color: rgba(255,255,255,0.7);
 			border-radius: 15px;
 		}
+
 		.copyright {
 			margin: 1em 0 0 8em;
 		}
+
+		.legend {
+			position: fixed;
+			z-index: 50;
+			bottom: 2px;
+			right: 2px;
+			padding: 0.4em 0.8em;
+			border: 2px solid #000090;
+			background-color: #fff;
+		}
+
+			.legend h2 {
+				font-size: 1.8em;
+				text-decoration: underline;
+				margin: 0 auto 0.3em;
+				text-align: center;
+			}
+
+			.legend .entry {
+				padding: 0.2em 0;
+			}
+
+				.legend .entry .solid_line {
+					display: inline-block;
+					border: 2px solid black;
+					height: 0px;
+					width: 20px;
+					margin-right: 0.8em;
+					vertical-align: middle;
+				}
+
+				.legend .entry span {
+					font-size: 1.2em;
+				}
+
+					.legend .entry span.techniques {
+						margin-left: 2.0em;
+						font-size: 1.0em;
+					}
 	</style>
 </head>
 <body onload="start();">
@@ -917,6 +963,16 @@
 			<div class="help_action" data-bind="text: help_needed, style: { top: label_position.top, left: label_position.left }"></div>
 			<!-- /ko -->
 			<!-- /ko -->
+			<div class="legend">
+				<h2>Legend</h2>
+				<!-- ko foreach: components -->
+				<div class="entry"><div class="solid_line" data-bind="style: { 'border-color': color }">&nbsp;</div><span class="category" data-bind="text: name"></span><span class="techniques" data-bind="text: '(' + techniques() + ')'"></span></div>
+				<!-- /ko -->
+				<div class="entry">&nbsp;</div>
+				<!-- ko foreach: kinds -->
+				<div class="entry"><div class="solid_line" data-bind="style: { 'border-style': border_style }">&nbsp;</div><span data-bind="text: description"></span></div>
+				<!-- /ko -->
+			</div>
 		</div>
 		<img class="options_corner" src="page-fold.png" data-bind="click: open_options" />
 		<div class="options_pane hidden" data-bind="css: { hidden: !expanded() }">
