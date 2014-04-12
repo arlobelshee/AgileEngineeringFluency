@@ -60,6 +60,10 @@
 			}
 		}
 
+		function is_blank(str) {
+			return (!str || /^\s*$/.test(str));
+		}
+
 		function create_items(inputs, constructor, options) {
 			return _wrap_items(inputs, function (input) { return new constructor(input, options); });
 		}
@@ -298,7 +302,7 @@
 				format_desc(data.description);
 				this.description = ko.observable(data.description);
 				this.description.subscribe(format_desc);
-				this.help_needed = data.help_needed;
+				this.help_needed = ko.observable(data.help_needed);
 				this.name = ko.observable(data.name);
 				this.markdown_error = ko.observable(null);
 				this.x = data.x;
@@ -995,7 +999,7 @@
 			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }, click: $parent.show_skill_details">
 				<span class="name" data-bind="text: name"></span>
 			</div>
-			<!-- ko if: help_needed && $parent.ask_for_help -->
+			<!-- ko if: !is_blank(help_needed()) && $parent.ask_for_help -->
 			<div class="help_action" data-bind="text: help_needed, style: { top: label_position.top, left: label_position.left }"></div>
 			<!-- /ko -->
 			<!-- /ko -->
