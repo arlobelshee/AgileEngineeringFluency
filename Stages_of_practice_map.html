@@ -245,6 +245,7 @@
 				this.name = ko.observable(data.name);
 				this.techniques = ko.observable(data.techniques);
 				this.color = data.color;
+				this.visible = ko.observable(true);
 			}
 			base_class(ComponentVm, {
 				to_JS: function (unwrap) {
@@ -606,7 +607,7 @@
 		}
 	</script>
 	<style>
-		html, body, div, canvas, ul, li, p {
+		table, tr, td, th, html, body, div, canvas, ul, li, p {
 			margin: 0;
 			padding: 0;
 			border: 0 solid black;
@@ -937,25 +938,20 @@
 				text-align: center;
 			}
 
-			.legend .entry {
-				padding: 0.2em 0;
-			}
-
 				.legend .entry .solid_line {
 					display: inline-block;
 					border: 2px solid black;
 					height: 0px;
 					width: 20px;
-					margin-right: 0.8em;
 					vertical-align: middle;
 				}
 
-				.legend .entry span {
+				.legend .entry td {
 					font-size: 1.2em;
+					padding: 1px 4px;
 				}
 
-					.legend .entry span.techniques {
-						margin-left: 2.0em;
+					.legend .entry td.techniques {
 						font-size: 1.0em;
 					}
 	</style>
@@ -978,13 +974,26 @@
 			<!-- /ko -->
 			<div class="legend">
 				<h2>Legend</h2>
-				<!-- ko foreach: components -->
-				<div class="entry"><div class="solid_line" data-bind="style: { 'border-color': color }">&nbsp;</div><span class="category" data-bind="text: name"></span><span class="techniques" data-bind="text: '(' + techniques() + ')'"></span></div>
-				<!-- /ko -->
-				<div class="entry">&nbsp;</div>
-				<!-- ko foreach: kinds -->
-				<div class="entry"><div class="solid_line" data-bind="style: { 'border-style': border_style }">&nbsp;</div><span data-bind="text: description"></span></div>
-				<!-- /ko -->
+				<table>
+					<tbody>
+						<!-- ko foreach: components -->
+						<tr class="entry">
+							<td>
+								<div class="solid_line" data-bind="style: { 'border-color': color }">&nbsp;</div>
+							</td>
+							<td class="category" data-bind="text: name"></td>
+							<td class="techniques" data-bind="text: '(' + techniques() + ')'"></td>
+						</tr>
+						<!-- /ko -->
+						<tr class="entry"></tr>
+						<!-- ko foreach: kinds -->
+						<tr class="entry">
+							<td><div class="solid_line" data-bind="style: { 'border-style': border_style }">&nbsp;</div></td>
+							<td data-bind="text: description" colspan="2"></td>
+						</tr>
+						<!-- /ko -->
+					</tbody>
+				</table>
 			</div>
 		</div>
 		<img class="options_corner" src="page-fold.png" data-bind="click: open_options" />
