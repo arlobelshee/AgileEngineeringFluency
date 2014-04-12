@@ -133,6 +133,7 @@
 				this.kinds = ko.observable([]);
 				this.components = ko.observable([]);
 				this._id = "stages";
+				this.show_all_dependencies = ko.observable(true);
 				this.focal_skill = ko.observable(null);
 				this.show_skill_details = function (skill) {
 					self.focal_skill(skill);
@@ -169,7 +170,7 @@
 					}
 					var lookup = {
 						levels: create_items(data.levels, LevelVm),
-						components: create_items(data.components, ComponentVm),
+						components: create_items(data.components, ComponentVm, self),
 						kinds: create_items(data.dependency_kinds, KindVm),
 						skills: create_items(data.skills, SkillVm, layout),
 					};
@@ -241,11 +242,12 @@
 		}();
 
 		var ComponentVm = function () {
-			function ComponentVm(data) {
+			function ComponentVm(data, app) {
 				this.name = ko.observable(data.name);
 				this.techniques = ko.observable(data.techniques);
 				this.color = data.color;
-				this.visible = ko.observable(true);
+				this.show_dependencies = ko.observable(false);
+				this.app = app;
 			}
 			base_class(ComponentVm, {
 				to_JS: function (unwrap) {
@@ -256,6 +258,9 @@
 					};
 				},
 				do_one_time_data_updates: function () {
+				},
+				should_draw: function () {
+					return this.show_dependencies() || this.app.show_all_dependencies();
 				},
 			});
 			return ComponentVm;
@@ -573,6 +578,7 @@
 			}
 
 			function draw_prereq_links(skill, draw_context) {
+				if (!skill.component.should_draw()) return;
 				for (var i = 0, m = skill.requires.length; i < m; i++) {
 					var requirement = skill.requires[i];
 					var prereq = requirement.skill;
@@ -607,7 +613,7 @@
 		}
 	</script>
 	<style>
-		table, tr, td, th, html, body, div, canvas, ul, li, p {
+		table, tr, td, th, html, body, div, canvas, ul, li, p, input {
 			margin: 0;
 			padding: 0;
 			border: 0 solid black;
@@ -938,6 +944,12 @@
 				text-align: center;
 			}
 
+			.legend #show_label {
+				position: absolute;
+				top: 1.8em;
+				left: 0.6em;
+			}
+
 				.legend .entry .solid_line {
 					display: inline-block;
 					border: 2px solid black;
@@ -954,6 +966,16 @@
 					.legend .entry td.techniques {
 						font-size: 1.0em;
 					}
+
+					.legend .entry td.show {
+						font-size: 1.0em;
+						padding:0;
+					}
+
+						.legend .entry td.show input {
+							height: 0.9em;
+							vertical-align: middle;
+						}
 	</style>
 </head>
 <body onload="start();">
@@ -974,10 +996,12 @@
 			<!-- /ko -->
 			<div class="legend">
 				<h2>Legend</h2>
+				<div id="show_label">Show</div>
 				<table>
 					<tbody>
 						<!-- ko foreach: components -->
 						<tr class="entry">
+							<td class="show"><input type="checkbox" data-bind="checked: show_dependencies" /></td>
 							<td>
 								<div class="solid_line" data-bind="style: { 'border-color': color }">&nbsp;</div>
 							</td>
@@ -985,9 +1009,13 @@
 							<td class="techniques" data-bind="text: '(' + techniques() + ')'"></td>
 						</tr>
 						<!-- /ko -->
-						<tr class="entry"></tr>
+						<tr class="entry">
+							<td class="show"><input type="checkbox" data-bind="checked: show_all_dependencies" /></td>
+							<td colspan="2">All</td>
+						</tr>
 						<!-- ko foreach: kinds -->
 						<tr class="entry">
+							<td class="show">&nbsp;</td>
 							<td><div class="solid_line" data-bind="style: { 'border-style': border_style }">&nbsp;</div></td>
 							<td data-bind="text: description" colspan="2"></td>
 						</tr>
@@ -1035,6 +1063,6 @@
 			</div>
 		</div>
 	</div>
-	<p class="copyright">Version 0.4.1. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
+	<p class="copyright">Version 0.5.0. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
 </body>
 </html>
