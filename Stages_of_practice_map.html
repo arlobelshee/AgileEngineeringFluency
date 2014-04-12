@@ -711,6 +711,11 @@
 			margin: 0 2em;
 		}
 
+		.label {
+			font-size:1.4em;
+			margin:0.4em 0;
+		}
+
 		.skill_focus_dialog {
 			background-color: rgba(0,0,0,0.5);
 			position: fixed;
@@ -1059,10 +1064,12 @@
 					<button data-bind="click: function() { $root.app.editing(false); }, clickBubble: false">Close</button>
 					<p class="error_display" data-bind="text: markdown_error"></p>
 					<textarea rows="35" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
+					<p class="label">Help needed:</p>
+					<textarea rows="3" cols="30" data-bind="value: help_needed, valueUpdate: 'afterkeydown'"></textarea>
 				</div>
 			</div>
 		</div>
 	</div>
-	<p class="copyright">Version 0.5.0. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
+	<p class="copyright">Version 0.5.1. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
 </body>
 </html>
