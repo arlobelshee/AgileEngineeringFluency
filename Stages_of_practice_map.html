@@ -31,6 +31,14 @@
 			}
 			return result;
 		}
+		function filter_map(arr, op) {
+			var result = [];
+			for (var i = 0, m = arr.length; i < m; ++i) {
+				var r = op(arr[i], i);
+				if (r !== null) { result.push(r); }
+			}
+			return result;
+		}
 
 		function Clone() { }
 		function clone(obj) {
@@ -141,9 +149,11 @@
 				this.focal_skill = ko.observable(null);
 				this.show_skill_details = function (skill) {
 					self.focal_skill(skill);
+					self.navigate_to(skill);
 				};
 				this.hide_skill_details = function () {
 					self.focal_skill(null);
+					self.navigate_to(null);
 				};
 				this.editing = ko.observable(false);
 				this.ask_for_help = ko.observable(false);
@@ -160,6 +170,17 @@
 				set_data_error: function (reason) {
 					this.valid(false);
 					this.error_message(reason);
+				},
+				navigate_to: function (skill) {
+					var url = "?stage=" + (skill ? skill.slug : "") + "&show="
+						+ (this.show_all_dependencies() ? "" :
+							filter_map(this.components(), function (c) {
+								return c.show_dependencies() ? c.slug : null;
+							})).join(",");
+					History.pushState(null, null, url);
+				},
+				handle_navigation: function () {
+					var url = History.getState().url;
 				},
 				update_data: function (data, is_initial_data) {
 					if (this.prev_data === data) return;
@@ -250,6 +271,7 @@
 				this.name = ko.observable(data.name);
 				this.techniques = ko.observable(data.techniques);
 				this.color = data.color;
+				this.slug = data.slug;
 				this.show_dependencies = ko.observable(false);
 				this.app = app;
 			}
@@ -259,6 +281,7 @@
 						name: unwrap(this.name),
 						techniques: unwrap(this.techniques),
 						color: unwrap(this.color),
+						slug: unwrap(this.slug),
 					};
 				},
 				do_one_time_data_updates: function () {
@@ -314,6 +337,7 @@
 				this.label_position = layout.place_label(this);
 				this.enables = [];
 				this.obsoletes = data.obsoletes;
+				this.slug = data.slug;
 			}
 			base_class(SkillVm, {
 				to_JS: function (unwrap) {
@@ -334,6 +358,7 @@
 						}),
 						description: unwrap(this.description),
 						help_needed: unwrap(this.help_needed),
+						slug: unwrap(this.slug),
 					};
 				},
 				resolve_obj_references: function (lookup, mark_invalid) {
