@@ -39,6 +39,14 @@
 			}
 			return result;
 		}
+		function find_elt(arr, pred) {
+			for (var i = 0, m = arr.length; i < m; ++i) {
+				if (pred(arr[i], i)) {
+					return arr[i];
+				}
+			}
+			return null;
+		}
 
 		function Clone() { }
 		function clone(obj) {
@@ -103,6 +111,55 @@
 			no_err.call(this, result);
 		}
 
+		var UrlData = function () {
+			function UrlData(skill, show_all, components, ask_for_help) {
+				this.skill = skill;
+				this.show_all = show_all;
+				this.components_to_show = components;
+				this.ask_for_help = ask_for_help;
+			}
+			base_class(UrlData, {
+				to_url: function () {
+					var args = [];
+					if (this.skill) {
+						args.push("stage=" + this.skill);
+					}
+					if (!this.show_all) {
+						args.push("show=" + this.components_to_show.join(","));
+					}
+					if (this.ask_for_help) {
+						args.push("ask_for_help=true");
+					}
+					return "?" + args.join("&");
+				},
+			});
+			UrlData.from_url = function (url) {
+				var parts = url.replace("?", "").split("&");
+				var result = new UrlData(null, true, [], false);
+				each_elt(parts, function (p) {
+					var name_value = p.split("=");
+					if (name_value[0] === "stage") {
+						result.skill = name_value[1];
+					}
+					if (name_value[0] === "show") {
+						result.show_all = false;
+						result.components_to_show = name_value[1].split(",");
+					}
+					if (name_value[0] === "ask_for_help") {
+						result.ask_for_help = true;
+					}
+				});
+				return result;
+			};
+			UrlData.from_vms = function (skill, show_all, components, ask_for_help) {
+				components = filter_map(components, function (c) {
+					return c.show_dependencies() ? c.slug : null;
+				});
+				return new UrlData((skill ? skill.slug : null), show_all, components, ask_for_help);
+			};
+			return UrlData;
+		}();
+
 		function ViewModel() {
 			var vm = this;
 			this._id = "whole_app";
@@ -128,6 +185,9 @@
 				},
 				owner: vm
 			});
+			History.Adapter.bind(window, 'statechange', function () {
+				vm.app.handle_navigation();
+			});
 			this.reset_data_to = function (data) {
 				vm.is_initial_data = true;
 				vm.json_blob(JSON.stringify(data, undefined, '\t'));
@@ -148,11 +208,9 @@
 				this.show_all_dependencies = ko.observable(true);
 				this.focal_skill = ko.observable(null);
 				this.show_skill_details = function (skill) {
-					self.focal_skill(skill);
 					self.navigate_to(skill);
 				};
 				this.hide_skill_details = function () {
-					self.focal_skill(null);
 					self.navigate_to(null);
 				};
 				this.editing = ko.observable(false);
@@ -172,15 +230,18 @@
 					this.error_message(reason);
 				},
 				navigate_to: function (skill) {
-					var url = "?stage=" + (skill ? skill.slug : "") + "&show="
-						+ (this.show_all_dependencies() ? "" :
-							filter_map(this.components(), function (c) {
-								return c.show_dependencies() ? c.slug : null;
-							})).join(",");
-					History.pushState(null, null, url);
+					var data = UrlData.from_vms(skill, this.show_all_dependencies(), this.components(), this.ask_for_help());
+					History.pushState(null, null, data.to_url());
 				},
 				handle_navigation: function () {
-					var url = History.getState().url;
+					var url = History.getState().url.split("?")[1];
+					var data = UrlData.from_url(url);
+					this.focal_skill(find_by_slug(data.skill, this.skills()));
+					this.show_all_dependencies(data.show_all);
+					each_elt(this.components(), function (c) {
+						c.show_dependencies(data.components_to_show.indexOf(c.slug) >= 0);
+					});
+					this.ask_for_help(data.ask_for_help);
 				},
 				update_data: function (data, is_initial_data) {
 					if (this.prev_data === data) return;
@@ -224,6 +285,11 @@
 					this.components(hash_to_array(lookup.components));
 				},
 			});
+
+			function find_by_slug(slug, items) {
+				if (is_blank(slug)) { return null; }
+				return find_elt(items, function (item) { return item.slug === slug; });
+			};
 
 			function unwrap_to_hash(arr, sort_fn) {
 				var result = {};
@@ -640,6 +706,7 @@
 			extend_ko();
 			var vm = new ViewModel();
 			vm.reset_data_to(stages_data());
+			vm.app.handle_navigation();
 			ko.applyBindings(vm);
 		}
 	</script>
