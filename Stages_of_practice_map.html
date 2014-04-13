@@ -134,8 +134,9 @@
 				},
 			});
 			UrlData.from_url = function (url) {
-				var parts = url.replace("?", "").split("&");
 				var result = new UrlData(null, true, [], false);
+				if (!url) return result;
+				var parts = url.replace("?", "").split("&");
 				each_elt(parts, function (p) {
 					var name_value = p.split("=");
 					if (name_value[0] === "stage") {
@@ -180,7 +181,7 @@
 					if_err.call(this, function () { return JSON.parse(value); },
 						function (err) { this.app.set_data_error("Unable to parse the JSON."); },
 						function (data) {
-							this.app.update_data(data, this.is_initial_data);
+							this.app.update_data(data, value, this.is_initial_data);
 						});
 				},
 				owner: vm
@@ -215,6 +216,7 @@
 				};
 				this.editing = ko.observable(false);
 				this.ask_for_help = ko.observable(false);
+				this.data_link = new DownloadVm();
 			}
 			base_class(StagesVm, {
 				to_JS: function () {
@@ -243,7 +245,7 @@
 					});
 					this.ask_for_help(data.ask_for_help);
 				},
-				update_data: function (data, is_initial_data) {
+				update_data: function (data, data_string, is_initial_data) {
 					if (this.prev_data === data) return;
 					this.valid(true);
 					this.error_message("");
@@ -279,6 +281,9 @@
 					}
 					if (!this.valid()) { return; }
 					this.prev_data = data;
+					if (!is_initial_data) {
+						this.data_link.update_data(data_string);
+					}
 					this.skills(hash_to_array(lookup.skills));
 					this.levels(hash_to_array(lookup.levels));
 					this.kinds(hash_to_array(lookup.kinds));
@@ -306,6 +311,29 @@
 			}
 
 			return StagesVm;
+		}();
+
+		var DownloadVm = function () {
+			window.URL = window.URL || window.webkitURL;
+			function DownloadVm(data) {
+				this.display_style = ko.observable("none");
+				this.url = ko.observable("");
+			}
+			base_class(DownloadVm, {
+				update_data: function (data) {
+					return;
+					if (!URL) return;
+					this.display_style("block");
+					if (this.url()) {
+						URL.revokeObjectURL(this.url());
+					}
+					var contents = ["function stages_data() {\n\treturn ", data, ";\n}\n"];
+					var options = { type: "text/javascript" };
+					var js_file_data = new Blob(contents, options);
+					this.url(URL.createObjectURL(js_file_data));
+				},
+			});
+			return DownloadVm;
 		}();
 
 		var LevelVm = function () {
@@ -1079,11 +1107,20 @@
 							height: 0.9em;
 							vertical-align: middle;
 						}
+		#download_data {
+			position: absolute;
+			top: 5px;
+			left: 5px;
+			z-index: 2000;
+			font-size: 2.4em;
+			display: none;
+		}
 	</style>
 </head>
 <body onload="start();">
 	<div class="display_port">
 		<div class="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app, with: app">
+			<a id="download_data" download="stages_data.js" data-bind="style: { display: data_link.display_style }, attr: { href: data_link.url }">Updated data</a>
 			<canvas id="skillsCanvas" width="2860" height="1140" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: levels -->
