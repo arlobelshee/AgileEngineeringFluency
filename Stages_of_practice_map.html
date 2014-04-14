@@ -175,14 +175,9 @@
 			this.json_blob = ko.computed({
 				read: function () {
 					var info = this.app.to_JS();
-					return JSON.stringify(info, undefined, '\t');
-				},
-				write: function (value) {
-					if_err.call(this, function () { return JSON.parse(value); },
-						function (err) { this.app.set_data_error("Unable to parse the JSON."); },
-						function (data) {
-							this.app.update_data(data, value, this.is_initial_data);
-						});
+					return "function stages_data() {\n\treturn "
+						+ JSON.stringify(info, undefined, '\t').replace("\n", "\n\t")
+						+ ";\n}\n";
 				},
 				owner: vm
 			});
@@ -190,9 +185,7 @@
 				vm.app.handle_navigation();
 			});
 			this.reset_data_to = function (data) {
-				vm.is_initial_data = true;
-				vm.json_blob(JSON.stringify(data, undefined, '\t'));
-				delete vm.is_initial_data;
+				this.app.update_data(data, true);
 			};
 		}
 
@@ -216,7 +209,6 @@
 				};
 				this.editing = ko.observable(false);
 				this.ask_for_help = ko.observable(false);
-				this.data_link = new DownloadVm();
 			}
 			base_class(StagesVm, {
 				to_JS: function () {
@@ -245,7 +237,7 @@
 					});
 					this.ask_for_help(data.ask_for_help);
 				},
-				update_data: function (data, data_string, is_initial_data) {
+				update_data: function (data, is_initial_data) {
 					if (this.prev_data === data) return;
 					this.valid(true);
 					this.error_message("");
@@ -281,9 +273,6 @@
 					}
 					if (!this.valid()) { return; }
 					this.prev_data = data;
-					if (!is_initial_data) {
-						this.data_link.update_data(data_string);
-					}
 					this.skills(hash_to_array(lookup.skills));
 					this.levels(hash_to_array(lookup.levels));
 					this.kinds(hash_to_array(lookup.kinds));
@@ -311,29 +300,6 @@
 			}
 
 			return StagesVm;
-		}();
-
-		var DownloadVm = function () {
-			window.URL = window.URL || window.webkitURL;
-			function DownloadVm(data) {
-				this.display_style = ko.observable("none");
-				this.url = ko.observable("");
-			}
-			base_class(DownloadVm, {
-				update_data: function (data) {
-					return;
-					if (!URL) return;
-					this.display_style("block");
-					if (this.url()) {
-						URL.revokeObjectURL(this.url());
-					}
-					var contents = ["function stages_data() {\n\treturn ", data, ";\n}\n"];
-					var options = { type: "text/javascript" };
-					var js_file_data = new Blob(contents, options);
-					this.url(URL.createObjectURL(js_file_data));
-				},
-			});
-			return DownloadVm;
 		}();
 
 		var LevelVm = function () {
@@ -804,6 +770,15 @@
 				margin: 0.4em;
 			}
 
+			.options_pane label {
+				vertical-align: middle;
+			}
+
+			.options_pane input {
+				margin: 0 0.4em;
+				vertical-align: middle;
+			}
+
 		.main_pane {
 			position: relative;
 			z-index: 0;
@@ -1120,7 +1095,6 @@
 <body onload="start();">
 	<div class="display_port">
 		<div class="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app, with: app">
-			<a id="download_data" download="stages_data.js" data-bind="style: { display: data_link.display_style }, attr: { href: data_link.url }">Updated data</a>
 			<canvas id="skillsCanvas" width="2860" height="1140" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: levels -->
@@ -1167,12 +1141,12 @@
 		<img class="options_corner" src="page-fold.png" data-bind="click: open_options" />
 		<div class="options_pane hidden" data-bind="css: { hidden: !expanded() }">
 			<p style="padding-left:2em;">
-				Enter JSON data here to update the diagram
+				Copy JSON from here to the stages_data.js file.
 				<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
 				<span class="error_display" data-bind="text: app.error_message()"></span>
 			</p>
 			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;float:left;" data-bind="value: json_blob, valueUpdate: 'afterkeydown', css: { invalid: !app.valid() }"></textarea>
-			<div><input type="checkbox" data-bind="checked: app.ask_for_help" id="ask_for_help" /><label for="ask_for_help">Show help needed</label></div>
+			<div class="option"><input type="checkbox" data-bind="checked: app.ask_for_help" id="ask_for_help" /><label for="ask_for_help">Show help needed</label></div>
 		</div>
 	</div>
 	<div class="skill_focus_dialog hidden" data-bind="css: { hidden: !app.focal_skill(), editing: app.editing() }, click: app.hide_skill_details">
