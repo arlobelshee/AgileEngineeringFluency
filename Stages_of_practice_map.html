@@ -209,6 +209,7 @@
 				};
 				this.editing = ko.observable(false);
 				this.ask_for_help = ko.observable(false);
+				this.kinds_of_help = ko.observable([]);
 			}
 			base_class(StagesVm, {
 				to_JS: function () {
@@ -216,6 +217,7 @@
 						levels: unwrap_to_hash(this.levels),
 						components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
 						dependency_kinds: unwrap_to_hash(this.kinds),
+						help_kinds: unwrap_to_hash(this.kinds_of_help),
 						skills: unwrap_to_hash(this.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
 					};
 				},
@@ -248,28 +250,31 @@
 						self.error_message(msg_fn.apply(null, args));
 						return null;
 					}
+					data.help_kinds = data.help_kinds || {
+						H_KEY: "key idea",
+						H_CORE: "description and recipies",
+						H_REQS: "explain requirements",
+						H_ADV: "advantages and considerations",
+						H_REVIEW: "review",
+					};
 					var lookup = {
 						levels: create_items(data.levels, LevelVm),
 						components: create_items(data.components, ComponentVm, self),
 						kinds: create_items(data.dependency_kinds, KindVm),
-						skills: create_items(data.skills, SkillVm, layout),
+						skills: create_items(data.skills, SkillVm, { layout: layout, app: self }),
+						kinds_of_help: create_items(data.help_kinds, HelpKindVm),
 					};
 					each_item(lookup.skills, function (skill) {
 						skill.resolve_obj_references(lookup, mark_invalid);
 					});
 					if (is_initial_data) {
-						each_item(lookup.skills, function (skill) {
-							skill.do_one_time_data_updates();
-						});
-						each_item(lookup.components, function (component) {
-							component.do_one_time_data_updates();
-						});
-						each_item(lookup.levels, function (level) {
-							level.do_one_time_data_updates();
-						});
-						each_item(lookup.kinds, function (kind) {
-							kind.do_one_time_data_updates();
-						});
+						var do_updates = function (obj) {
+							obj.do_one_time_data_updates();
+						};
+						each_item(lookup.skills, do_updates);
+						each_item(lookup.components, do_updates);
+						each_item(lookup.levels, do_updates);
+						each_item(lookup.kinds, do_updates);
 					}
 					if (!this.valid()) { return; }
 					this.prev_data = data;
@@ -277,6 +282,7 @@
 					this.levels(hash_to_array(lookup.levels));
 					this.kinds(hash_to_array(lookup.kinds));
 					this.components(hash_to_array(lookup.components));
+					this.kinds_of_help(hash_to_array(lookup.kinds_of_help));
 				},
 			});
 
@@ -300,6 +306,18 @@
 			}
 
 			return StagesVm;
+		}();
+
+		var HelpKindVm = function () {
+			function HelpKindVm(data) {
+				this.name = ko.observable(data);
+			}
+			base_class(HelpKindVm, {
+				to_JS: function (unwrap) {
+					return unwrap(this.name);
+				},
+			});
+			return HelpKindVm;
 		}();
 
 		var LevelVm = function () {
@@ -376,7 +394,9 @@
 		}();
 
 		var SkillVm = function () {
-			function SkillVm(data, layout) {
+			function SkillVm(data, options) {
+				var layout = options.layout;
+				var app = options.app;
 				var self = this;
 				function format_desc(new_value) {
 					self.description_display(textile(new_value));
@@ -386,6 +406,11 @@
 				this.description = ko.observable(data.description);
 				this.description.subscribe(format_desc);
 				this.help_needed = ko.observable(data.help_needed);
+				this.help_to_request = ko.computed({
+					read: function () {
+						return app.ask_for_help() ? map_elt(self.help_needed(), function(h) { return h.name(); }) : [];
+					},
+				});
 				this.name = ko.observable(data.name);
 				this.markdown_error = ko.observable(null);
 				this.x = data.x;
@@ -417,7 +442,9 @@
 							return link.skill._id;
 						}),
 						description: unwrap(this.description),
-						help_needed: unwrap(this.help_needed),
+						help_needed: map_elt(unwrap(this.help_needed), function (h) {
+							return h._id;
+						}),
 						slug: unwrap(this.slug),
 					};
 				},
@@ -440,6 +467,9 @@
 					this.obsoletes = map_elt(this.obsoletes, function (skill_id) {
 						return build_relation(skill_id, "IS_REQUIRED");
 					});
+					this.help_needed(map_elt(this.help_needed(), function(help) {
+						return lookup.kinds_of_help[help] || mark_invalid(error_failed_to_find_key, "help", help, skill_id);
+					}));
 					if (this.level && (this.x < this.level.min || this.x > this.level.max)) {
 						mark_invalid(error_skill_not_in_range, this.x, this.level, this._id);
 					}
@@ -769,14 +799,10 @@
 			.options_pane p {
 				margin: 0.4em;
 			}
-
-			.options_pane label {
-				vertical-align: middle;
-			}
-
-			.options_pane input {
-				margin: 0 0.4em;
-				vertical-align: middle;
+			.options_pane textarea {
+				clear: both;
+				float: left;
+				display: block;
 			}
 
 		.main_pane {
@@ -1104,8 +1130,8 @@
 			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }, click: $parent.show_skill_details">
 				<span class="name" data-bind="text: name"></span>
 			</div>
-			<!-- ko if: !is_blank(help_needed()) && $parent.ask_for_help -->
-			<div class="help_action" data-bind="text: help_needed, style: { top: label_position.top, left: label_position.left }"></div>
+			<!-- ko if: help_to_request().length -->
+			<div class="help_action" data-bind="text: help_to_request().join(', '), style: { top: label_position.top, left: label_position.left }"></div>
 			<!-- /ko -->
 			<!-- /ko -->
 			<div class="legend">
@@ -1145,7 +1171,7 @@
 				<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
 				<span class="error_display" data-bind="text: app.error_message()"></span>
 			</p>
-			<textarea id="jsonInput" cols="120" rows="20" style="clear:both;float:left;" data-bind="value: json_blob, valueUpdate: 'afterkeydown', css: { invalid: !app.valid() }"></textarea>
+			<textarea cols="60" rows="20" data-bind="value: json_blob, valueUpdate: 'afterkeydown', css: { invalid: !app.valid() }"></textarea>
 			<div class="option"><input type="checkbox" data-bind="checked: app.ask_for_help" id="ask_for_help" /><label for="ask_for_help">Show help needed</label></div>
 		</div>
 	</div>
@@ -1174,7 +1200,9 @@
 					<p class="error_display" data-bind="text: markdown_error"></p>
 					<textarea rows="35" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
 					<p class="label">Help needed:</p>
-					<textarea rows="3" cols="30" data-bind="value: help_needed, valueUpdate: 'afterkeydown'"></textarea>
+					<!-- ko foreach: { data: help_needed, as: 'help' } -->
+					<p data-bind="text: help.name"></p>
+					<!-- /ko -->
 				</div>
 			</div>
 		</div>
