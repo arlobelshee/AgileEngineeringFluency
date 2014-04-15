@@ -194,10 +194,10 @@
 				var self = this;
 				this.valid = ko.observable(true);
 				this.error_message = ko.observable("");
-				this.skills = ko.observable([]);
-				this.levels = ko.observable([]);
-				this.kinds = ko.observable([]);
-				this.components = ko.observable([]);
+				this.skills = ko.observableArray([]);
+				this.levels = ko.observableArray([]);
+				this.kinds = ko.observableArray([]);
+				this.components = ko.observableArray([]);
 				this._id = "stages";
 				this.show_all_dependencies = ko.observable(true);
 				this.focal_skill = ko.observable(null);
@@ -209,7 +209,7 @@
 				};
 				this.editing = ko.observable(false);
 				this.ask_for_help = ko.observable(false);
-				this.kinds_of_help = ko.observable([]);
+				this.kinds_of_help = ko.observableArray([]);
 			}
 			base_class(StagesVm, {
 				to_JS: function () {
@@ -250,13 +250,6 @@
 						self.error_message(msg_fn.apply(null, args));
 						return null;
 					}
-					data.help_kinds = data.help_kinds || {
-						H_KEY: "key idea",
-						H_CORE: "description and recipies",
-						H_REQS: "explain requirements",
-						H_ADV: "advantages and considerations",
-						H_REVIEW: "review",
-					};
 					var lookup = {
 						levels: create_items(data.levels, LevelVm),
 						components: create_items(data.components, ComponentVm, self),
@@ -283,6 +276,7 @@
 					this.kinds(hash_to_array(lookup.kinds));
 					this.components(hash_to_array(lookup.components));
 					this.kinds_of_help(hash_to_array(lookup.kinds_of_help));
+					this.help_index = lookup.kinds_of_help;
 				},
 			});
 
@@ -405,10 +399,15 @@
 				format_desc(data.description);
 				this.description = ko.observable(data.description);
 				this.description.subscribe(format_desc);
-				this.help_needed = ko.observable(data.help_needed);
+				this.help_needed = ko.observableArray(data.help_needed);
 				this.help_to_request = ko.computed({
 					read: function () {
-						return app.ask_for_help() ? map_elt(self.help_needed(), function(h) { return h.name(); }) : [];
+						var help_kinds = app.help_index;
+						var values = self.help_needed();
+						if (!app.ask_for_help() || !help_kinds) return null;
+						return map_elt(values, function (h) {
+							return help_kinds[h].name();
+						}).join(', ');
 					},
 				});
 				this.name = ko.observable(data.name);
@@ -442,9 +441,7 @@
 							return link.skill._id;
 						}),
 						description: unwrap(this.description),
-						help_needed: map_elt(unwrap(this.help_needed), function (h) {
-							return h._id;
-						}),
+						help_needed: unwrap(this.help_needed),
 						slug: unwrap(this.slug),
 					};
 				},
@@ -467,9 +464,9 @@
 					this.obsoletes = map_elt(this.obsoletes, function (skill_id) {
 						return build_relation(skill_id, "IS_REQUIRED");
 					});
-					this.help_needed(map_elt(this.help_needed(), function(help) {
-						return lookup.kinds_of_help[help] || mark_invalid(error_failed_to_find_key, "help", help, skill_id);
-					}));
+					each_elt(this.help_needed(), function(help) {
+						lookup.kinds_of_help[help] || mark_invalid(error_failed_to_find_key, "help", help, skill_id);
+					});
 					if (this.level && (this.x < this.level.min || this.x > this.level.max)) {
 						mark_invalid(error_skill_not_in_range, this.x, this.level, this._id);
 					}
@@ -721,7 +718,7 @@
 	</script>
 	<script type="text/javascript" src="textile.js">
 	</script>
-	<script type="text/javascript" src="knockout-3.0.0.js">
+	<script type="text/javascript" src="javascripts/knockout-3.1.0.js">
 	</script>
 	<script type="text/javascript" src="javascripts/history1.8/native.history.js">
 	</script>
@@ -1130,8 +1127,8 @@
 			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }, click: $parent.show_skill_details">
 				<span class="name" data-bind="text: name"></span>
 			</div>
-			<!-- ko if: help_to_request().length -->
-			<div class="help_action" data-bind="text: help_to_request().join(', '), style: { top: label_position.top, left: label_position.left }"></div>
+			<!-- ko if: help_to_request -->
+			<div class="help_action" data-bind="text: help_to_request, style: { top: label_position.top, left: label_position.left }"></div>
 			<!-- /ko -->
 			<!-- /ko -->
 			<div class="legend">
@@ -1198,15 +1195,15 @@
 				<div class="editor">
 					<button data-bind="click: function() { $root.app.editing(false); }, clickBubble: false">Close</button>
 					<p class="error_display" data-bind="text: markdown_error"></p>
-					<textarea rows="35" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
+					<textarea rows="25" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
 					<p class="label">Help needed:</p>
-					<!-- ko foreach: { data: help_needed, as: 'help' } -->
-					<p data-bind="text: help.name"></p>
+					<!-- ko foreach: { data: $root.app.kinds_of_help, as: 'help' } -->
+					<p><input type="checkbox" data-bind="checkedValue: help._id, checked: $parent.help_needed" /> <span data-bind="text: help.name"></span></p>
 					<!-- /ko -->
 				</div>
 			</div>
 		</div>
 	</div>
-	<p class="copyright">Version 0.7.0. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
+	<p class="copyright">Version 0.7.1. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
 </body>
 </html>
