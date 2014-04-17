@@ -1125,6 +1125,10 @@ function stages_data() {
 						"kind": "IS_REQUIRED"
 					},
 					{
+						"skill": "SK_ACTION_RETROS",
+						"kind": "IS_REQUIRED"
+					},
+					{
 						"skill": "SK_PAIR_REGULARLY",
 						"kind": "IS_HELPFUL"
 					}
@@ -1341,6 +1345,10 @@ function stages_data() {
 						"kind": "IS_HELPFUL"
 					},
 					{
+						"skill": "SK_ACTION_RETROS",
+						"kind": "IS_HELPFUL"
+					},
+					{
 						"skill": "SK_SMALL_SPECS",
 						"kind": "IS_REQUIRED"
 					},
@@ -1396,6 +1404,10 @@ function stages_data() {
 				"requires": [
 					{
 						"skill": "SK_DRY",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_ACTION_RETROS",
 						"kind": "IS_REQUIRED"
 					},
 					{
@@ -1746,6 +1758,10 @@ function stages_data() {
 						"kind": "IS_REQUIRED"
 					},
 					{
+						"skill": "SK_REFLECTIVE_DESIGN",
+						"kind": "IS_REQUIRED"
+					},
+					{
 						"skill": "SK_SESSION_MANUAL_TESTING",
 						"kind": "IS_REQUIRED"
 					}
@@ -1808,7 +1824,7 @@ function stages_data() {
 				"slug": "test_legacy"
 			},
 			"SK_RGR": {
-				"name": "Rapid coding inner loop",
+				"name": "Rapid coding inner loop (R-G-R)",
 				"x": 15,
 				"y": 5,
 				"level": "L_NO_DEBT",
@@ -1866,7 +1882,7 @@ function stages_data() {
 				"slug": "auto_deploy_verify"
 			},
 			"SK_VERIFY_EXAMPLES": {
-				"name": "Verify examples",
+				"name": "Verify examples (ATDD)",
 				"x": 15,
 				"y": 7,
 				"level": "L_NO_DEBT",
@@ -1928,6 +1944,10 @@ function stages_data() {
 				"requires": [
 					{
 						"skill": "SK_TEST_LEGACY",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_BUG_RATCHET",
 						"kind": "IS_REQUIRED"
 					},
 					{
@@ -2256,6 +2276,10 @@ function stages_data() {
 				"requires": [
 					{
 						"skill": "SK_EVO_DESIGN",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_BUG_RATCHET",
 						"kind": "IS_REQUIRED"
 					},
 					{
