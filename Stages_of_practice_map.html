@@ -276,7 +276,6 @@
 					this.kinds(hash_to_array(lookup.kinds));
 					this.components(hash_to_array(lookup.components));
 					this.kinds_of_help(hash_to_array(lookup.kinds_of_help));
-					this.help_index = lookup.kinds_of_help;
 				},
 			});
 
@@ -402,11 +401,10 @@
 				this.help_needed = ko.observableArray(data.help_needed);
 				this.help_to_request = ko.computed({
 					read: function () {
-						var help_kinds = app.help_index;
 						var values = self.help_needed();
-						if (!app.ask_for_help() || !help_kinds) return null;
+						if (!app.ask_for_help()) return null;
 						return map_elt(values, function (h) {
-							return help_kinds[h].name();
+							return h.name();
 						}).join(', ');
 					},
 				});
@@ -464,9 +462,9 @@
 					this.obsoletes = map_elt(this.obsoletes, function (skill_id) {
 						return build_relation(skill_id, "IS_REQUIRED");
 					});
-					each_elt(this.help_needed(), function(help) {
-						lookup.kinds_of_help[help] || mark_invalid(error_failed_to_find_key, "help", help, skill_id);
-					});
+					this.help_needed(map_elt(this.help_needed(), function(help) {
+						return lookup.kinds_of_help[help] || mark_invalid(error_failed_to_find_key, "help", help, skill_id);
+					}));
 					if (this.level && (this.x < this.level.min || this.x > this.level.max)) {
 						mark_invalid(error_skill_not_in_range, this.x, this.level, this._id);
 					}
@@ -1198,7 +1196,7 @@
 					<textarea rows="25" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
 					<p class="label">Help needed:</p>
 					<!-- ko foreach: { data: $root.app.kinds_of_help, as: 'help' } -->
-					<p><input type="checkbox" data-bind="checkedValue: help._id, checked: $parent.help_needed" /> <span data-bind="text: help.name"></span></p>
+					<p><input type="checkbox" data-bind="checkedValue: help, checked: $parent.help_needed" /> <span data-bind="text: help.name"></span></p>
 					<!-- /ko -->
 				</div>
 			</div>
