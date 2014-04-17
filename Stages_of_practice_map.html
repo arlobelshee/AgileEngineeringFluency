@@ -128,7 +128,7 @@
 						args.push("show=" + this.components_to_show.join(","));
 					}
 					if (this.ask_for_help) {
-						args.push("ask_for_help=true");
+						args.push("ask_for_help=" + this.ask_for_help);
 					}
 					return "?" + args.join("&");
 				},
@@ -147,7 +147,7 @@
 						result.components_to_show = name_value[1].split(",");
 					}
 					if (name_value[0] === "ask_for_help") {
-						result.ask_for_help = true;
+						result.ask_for_help = name_value[1];
 					}
 				});
 				return result;
@@ -208,7 +208,7 @@
 					self.navigate_to(null);
 				};
 				this.editing = ko.observable(false);
-				this.ask_for_help = ko.observable(false);
+				this.ask_for_help = ko.observable("");
 				this.kinds_of_help = ko.observableArray([]);
 			}
 			base_class(StagesVm, {
@@ -402,10 +402,12 @@
 				this.help_to_request = ko.computed({
 					read: function () {
 						var values = self.help_needed();
-						if (!app.ask_for_help()) return null;
-						return map_elt(values, function (h) {
-							return h.name();
-						}).join(', ');
+						var offer = app.ask_for_help();
+						var requests = filter_map(values, function (h) {
+							return (h._id === offer || offer === "ALL") ? h.name() : null;
+						});
+						if (!requests) return null;
+						return requests.join(', ');
 					},
 				});
 				this.name = ko.observable(data.name);
@@ -794,10 +796,16 @@
 			.options_pane p {
 				margin: 0.4em;
 			}
+
 			.options_pane textarea {
 				clear: both;
 				float: left;
 				display: block;
+				margin-right: 0.8em;
+			}
+
+			.options_pane .option input {
+				margin-right: 0.4em;
 			}
 
 		.main_pane {
@@ -1167,7 +1175,12 @@
 				<span class="error_display" data-bind="text: app.error_message()"></span>
 			</p>
 			<textarea cols="60" rows="20" data-bind="value: json_blob, valueUpdate: 'afterkeydown', css: { invalid: !app.valid() }"></textarea>
-			<div class="option"><input type="checkbox" data-bind="checked: app.ask_for_help" id="ask_for_help" /><label for="ask_for_help">Show help needed</label></div>
+			<div class="option"><p>How I want to help today:</p>
+			<ul>
+				<li><input type="radio" data-bind="checked: app.ask_for_help" value="" name="howToHelp" />No thanks, I just want to read.</li>
+				<li><input type="radio" data-bind="checked: app.ask_for_help" value="ALL" name="howToHelp" />I'll do anything.</li>
+			</ul>
+			</div>
 		</div>
 	</div>
 	<div class="skill_focus_dialog hidden" data-bind="css: { hidden: !app.focal_skill(), editing: app.editing() }, click: app.hide_skill_details">
