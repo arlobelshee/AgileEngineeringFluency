@@ -181,9 +181,9 @@
 				},
 				owner: vm
 			});
-			History.Adapter.bind(window, 'statechange', function () {
+			this.begin_tracking_history = function () {
 				vm.app.handle_navigation();
-			});
+			};
 			this.reset_data_to = function (data) {
 				this.app.update_data(data, true);
 			};
@@ -202,10 +202,12 @@
 				this.show_all_dependencies = ko.observable(true);
 				this.focal_skill = ko.observable(null);
 				this.show_skill_details = function (skill) {
-					self.navigate_to(skill);
+					self.focal_skill(skill);
+					self.update_url();
 				};
 				this.hide_skill_details = function () {
-					self.navigate_to(null);
+					self.focal_skill(null);
+					self.update_url();
 				};
 				this.editing = ko.observable(false);
 				this.ask_for_help = ko.observable("");
@@ -225,9 +227,9 @@
 					this.valid(false);
 					this.error_message(reason);
 				},
-				navigate_to: function (skill) {
-					var data = UrlData.from_vms(skill, this.show_all_dependencies(), this.components(), this.ask_for_help());
-					History.pushState(null, null, data.to_url());
+				update_url: function () {
+					var data = UrlData.from_vms(this.focal_skill(), this.show_all_dependencies(), this.components(), this.ask_for_help());
+					History.replaceState(null, null, data.to_url());
 				},
 				handle_navigation: function () {
 					var url = History.getState().url.split("?")[1];
@@ -276,6 +278,12 @@
 					this.kinds(hash_to_array(lookup.kinds));
 					this.components(hash_to_array(lookup.components));
 					this.kinds_of_help(hash_to_array(lookup.kinds_of_help));
+					var update_url = function () { self.update_url(); };
+					each_elt(this.components, function (c) {
+						c.show_dependencies.subscribe(update_url);
+					});
+					this.ask_for_help.subscribe(update_url);
+					this.show_all_dependencies.subscribe(update_url);
 				},
 			});
 
@@ -727,7 +735,7 @@
 			extend_ko();
 			var vm = new ViewModel();
 			vm.reset_data_to(stages_data());
-			vm.app.handle_navigation();
+			vm.begin_tracking_history();
 			ko.applyBindings(vm);
 		}
 	</script>
