@@ -1179,6 +1179,9 @@
 			<ul>
 				<li><input type="radio" data-bind="checked: app.ask_for_help" value="" name="howToHelp" />No thanks, I just want to read.</li>
 				<li><input type="radio" data-bind="checked: app.ask_for_help" value="ALL" name="howToHelp" />I'll do anything.</li>
+				<!-- ko foreach: { data: app.kinds_of_help, as: 'help' } -->
+				<li><input type="radio" data-bind="checked: $root.app.ask_for_help, value: help._id" name="howToHelp" /><span data-bind="text: help.name"></span></li>
+				<!-- /ko -->
 			</ul>
 			</div>
 		</div>
@@ -1215,6 +1218,6 @@
 			</div>
 		</div>
 	</div>
-	<p class="copyright">Version 0.7.1. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
+	<p class="copyright">Version 0.7.2. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
 </body>
 </html>
