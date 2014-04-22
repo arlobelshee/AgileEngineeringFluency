@@ -449,7 +449,9 @@
 							return link.skill._id;
 						}),
 						description: unwrap(this.description),
-						help_needed: unwrap(this.help_needed),
+						help_needed: map_elt(unwrap(this.help_needed), function (h) {
+							return h._id;
+						}),
 						slug: unwrap(this.slug),
 					};
 				},
