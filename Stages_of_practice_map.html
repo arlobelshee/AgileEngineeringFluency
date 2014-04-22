@@ -180,7 +180,7 @@
 						+ ";\n}\n";
 				},
 				owner: vm
-			});
+			}).extend({ rateLimit: { method: "notifyWhenChangesStop", timeout: 1000 }});
 			this.begin_tracking_history = function () {
 				vm.app.handle_navigation();
 			};
