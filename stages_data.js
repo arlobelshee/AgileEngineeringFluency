@@ -7,34 +7,40 @@ function stages_data() {
 				"max": 5,
 				"color": "#e0e0ff"
 			},
-			"L_CORE": {
-				"name": "Core modern engineering",
+			"L_TEAM": {
+				"name": "Work as a team",
 				"min": 6,
 				"max": 8,
+				"color": "#cccccc"
+			},
+			"L_CORE": {
+				"name": "Core modern engineering",
+				"min": 9,
+				"max": 11,
 				"color": "#ffe0d0"
 			},
 			"L_ADAPTIVE": {
 				"name": "Adaptive engineering",
-				"min": 9,
-				"max": 12,
+				"min": 12,
+				"max": 15,
 				"color": "#d0ffff"
 			},
 			"L_LEVERAGE": {
 				"name": "Leverage capabilities",
-				"min": 13,
-				"max": 14,
+				"min": 16,
+				"max": 17,
 				"color": "#ffe0ff"
 			},
 			"L_NO_DEBT": {
 				"name": "Eliminate debt and change the rules",
-				"min": 15,
-				"max": 17,
+				"min": 18,
+				"max": 20,
 				"color": "#e0ffe0"
 			},
 			"L_AWESOME": {
 				"name": "Take advantage of being awesome",
-				"min": 18,
-				"max": 23,
+				"min": 21,
+				"max": 26,
 				"color": "#ffffc0"
 			}
 		},
@@ -250,24 +256,6 @@ function stages_data() {
 				],
 				"slug": "death_march"
 			},
-			"SK_TEAMS": {
-				"name": "Single-assignment teams",
-				"x": 1,
-				"y": 0,
-				"level": "L_TRADITIONAL",
-				"component": "V_IMPROVE",
-				"requires": [],
-				"obsoletes": [
-					"SK_WORK_GROUPS"
-				],
-				"description": "bq>. Cross-functional teams are the heart of modern software development.\n\nh1. What this is\n\nModern software development is done by teams, not by groups of individuals. A well-functioning team is more flexible and has more capacity than the sum of the individuals who make it up.\n\nThe critical elements are:\n\n* **Single assignment:** each individual is assigned to exactly one team at a time. No one is assigned to multiple teams; no one works as a loner (without a team).\n* **Cross-functional:** the team contains all skills, disciplines, or other specialties that are needed to deliver customer value to the marketplace. It can take an idea from concept to cash. Most such efforts do not require coordinating with other teams (or individuals).\n* **8 people:** 6-10 are OK. Numbers larger than this break trust formation (exceeds human family-scale trust boundary). Smaller numbers make it hard to cross-train (not enough heterogeneity).\n\nThere are 2 known-good techniques for forming these teams. Other approaches may work, but these are the ones that have been tested in hundreds of industries.\n\n**Durable teams**. Add:\n\n* **Person-centric identity:** the team is a set of people that takes on work / projects. Identity is defined by the set of people on the team. It likely has a name like \"team Bluefish\" not like \"the Security team\" (a definition based on technical component) or \"the Pay by card project team\" (team identity based on project.\n* **Durable:** when a project finishes, the same team takes on a new project--which may be entirely unrelated. Team membership does not change very often; the team should commonly go years between any changes of members.\n\n**Rotational teams**. Add:\n\n* **Part of a 100-person team:** use this when you want people to associate to the 100-person group and are willing to lose some capacity in order to gain uniformity / consistency. The larger team should not exceed about 150 people, or tribe-scale identity will not form.\n* **Constant rotation:** all teams should constantly be forming and dissolving. Rotate in 2-3 people per week, or create teams for 2-10 weeks out of a larger pool.\n* **Strong culture of fun:** the whole point of this model is to enable tribe identity. So make sure that the tribe plays together--successful teams with the rotational model play together as part of work.\n\nh2. How it helps\n\nThe team collaborates and reinforces each other.\n\n* The team can make a decision and then everyone helps everyone else hold to it.\n* The team can share skills.\n* The team members help each other and maximize overall throughput, rather than attempting to maximize their individual efficiency.\n\nh2. Mindshifts\n\nFor managers:\n\n* Humans are not resources.\n* Stop allocating specialists to projects.\n\nFor doers:\n\nNone. Support your manager.\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
-				"help_needed": [
-					"H_REQS",
-					"H_ADV",
-					"H_REVIEW"
-				],
-				"slug": "teams"
-			},
 			"SK_TEAM_LEADS": {
 				"name": "Team leads",
 				"x": 1,
@@ -429,27 +417,6 @@ function stages_data() {
 				],
 				"slug": "waterfall_milestones"
 			},
-			"SK_SIT_TOGETHER": {
-				"name": "Sit together",
-				"x": 2,
-				"y": 1,
-				"level": "L_TRADITIONAL",
-				"component": "V_LEARN",
-				"requires": [
-					{
-						"skill": "SK_TEAMS",
-						"kind": "IS_REQUIRED"
-					}
-				],
-				"obsoletes": [],
-				"description": "bq>. My whole team sits in one room. No one else is in my room. We overhear lots of information but no noise.\n\nh1. What this is\n\nThe whole team sits in the same room. This makes it easy to share work. It also makes it easy to get answers to questions. This avoids either blocking on an answer or making a local decision without full information.\n\nThe most important aspect of the team space is the audio bubble. The room must be sonically isolated from outside. Everyone who is in the room must be on the same team, working towards the same goals. If these conditions are not met, much of the conversation will become disruptive noise. This either results in disruption or pressure to stop talking. Neither is acceptable.\n\nIt is helpful to also have retreat spaces outside of the team room (commonly referred to as a caves and commons layout). This need is critical if the team does not yet share work. The more the team shares work, the less these outside spaces will be used.\n\nSitting together is designed to allow work to happen collaboratively. People should leave the room when they want to not work--because non-work activities are the only things not done together.\n\nThe room MUST contain everything the team needs to do its work. This includes a lot of whiteboards, a large display or projector, a ton of office supplies, and appropriate telephony.\n\nh2. How it helps\n\nSitting together changes the default mode of working. Collaboration becomes the norm; individual work becomes rare. This makes it a lot easier to develop all the other learning and discipline practices.\n\nAdditionally, questions get answered immediately. It is trivial to notice implicit assumptions or disagreements and take them to a whiteboard. Everyone else on the team will overhear the whiteboard discussion. This keeps everyone informed and involved.\n\nh2. Mindshifts\n\n* Collaborate by default.\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\nh2. Side effects\n\nSolo concentration is impaired. Fix this by using Work together for productivity.\n\nh1. Acquiring the skill\n\nYou \"just\" need to move into a common room. This often requires significant political effort with Facilities.\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\nh2. Recipes to follow\n\nMake a standard room size. It should fit 8-10 comfortably. Seat 6-8 people in it. You will often bring in stakeholders; make sure your room accommodates them comfortably.\n\nMake every wall be either a window or a whiteboard. You can buy 4'x8' melamine sheets at a lumber store for about $6; they work well as whiteboards. Line the entire wall, from 1' to 9' height. If you want magnetic whiteboards, buy some steel screen and place it between the melamine and the wall. Converting an entire room should cost less than $300.\n\nAdd a projector or large screen. Drive it off a cheap mini-PC. You can remote from the projector machine to any of your real computers. A/V should cost less than $800.\n\nh1. Attaining fluency\n\nReally taking advantage of sitting together requires that you talk with each other. A lot. Pairing or mobbing are a natural fit.\n\nDo not expect the space to support your old ways of working. You moved together to support new ways of working.\n\n###. h2. Measuring proficiency\n\n###. TBD\n\nh2. Recipes to follow\n\nBring in customers, managers, and other stakeholders as needed. Take calls in the shared space. The whole point is to make it easy for everyone on the team to overhear what is happening.\n\nStart sharing your work. If you try to sit together without sharing your work, then everything will just be noise and disruption. If you aren't going to share work, then move back into offices and use a non-Agile method. Agile methods leverage shared work; other approaches work better if you are going to remain a confederation of individual workers.\n\nh2. Further resources\n\nTBD\n\n",
-				"help_needed": [
-					"H_REQS",
-					"H_ADV",
-					"H_REVIEW"
-				],
-				"slug": "sit_together"
-			},
 			"SK_CODE_REVIEW": {
 				"name": "Code review",
 				"x": 2,
@@ -572,10 +539,6 @@ function stages_data() {
 				"component": "V_LEARN",
 				"requires": [
 					{
-						"skill": "SK_SIT_TOGETHER",
-						"kind": "IS_HELPFUL"
-					},
-					{
 						"skill": "SK_CODE_REVIEW",
 						"kind": "IS_HELPFUL"
 					}
@@ -664,27 +627,6 @@ function stages_data() {
 				],
 				"slug": "small_specs"
 			},
-			"SK_CHARTER": {
-				"name": "Team agreement / charter",
-				"x": 4,
-				"y": 1,
-				"level": "L_TRADITIONAL",
-				"component": "V_IMPROVE",
-				"requires": [
-					{
-						"skill": "SK_TEAMS",
-						"kind": "IS_REQUIRED"
-					}
-				],
-				"obsoletes": [],
-				"description": "bq>. My team has a written agreement that describes how we work.\n\nh1. What this is\n\nThe charter is a written contract that describes the team's ways of working. It makes explicit the ways we treat each other.\n\nCharters often include:\n\n* *Working agreements*: specific rules that we agree to follow when they apply.\n* *Simple rules*: context-free rules that we will try to apply at all times.\n* *Values*: beliefs we all hold to be true and will try to express whenever possible.\n* *Aim*: the purpose for the group. What it is intended to accomplish. Optimally this is a completable objective, not an open-ended condition.\n* *Scope*: any externally-imposed constraints on our resources and decisions. We are allowed to do anything we want to within this scope. We have to ask someone else if we need to change something outside this scope.\n\nExample charter:\n\n* *Working agreements*\n** Everyone will be in the office from 9-4\n** Standup is at 10\n** We agree to make all decisions by consent unless we have explicitly chosen otherwise for a specific decision\n* *Simple rules*\n** If you are neither learning nor contributing, then go somewhere you can\n** Care and feed the team\n** First be disciplined, then be awesome\n** Be transparent, open, and honest\n** When you see a problem, fix the system that caused it.\n* *Values*\n** We trust each other\n** Work of all specialties is equal in status, value, and complexity\n** 95% of any person's behavior and results is due to the system in which they find themselves, not the person\n* *Aim*\n** Reduce bugs written, across all teams in the company, by 95%\n** Find a product like {our current vision} for which there is a market, or demonstrate that one does not exist\n** Expand {our service} to {adjacent market segment}, earning at least $xxx in revenue from that segment per month\n* *Scope*\n** No more than 10 people\n** The team must be profitable on revenues from its own products\n** Must participate in quarterly budgeting\n** The team is not allowed to do its own hiring and firing, but is expected to grow its people.\n\nOptimally, a team has one Aim, as few Scope constraints as possible, and as many values, simple rules, and working agreements as it needs right now.\n\nThe charter is always kept up to date. Items are retired as soon as they are no longer useful. They are also retired if team behavior does not match the agreement: the charter describes what we do, not what we wish we did.\n\nA charter MUST always have a working agreement about how the team will make decisions. This MUST cover the conditions required to make a decision valid (such as what constitutes quorum) and the kinds of agreement that constitute binding decisions (tradition, authority, simple majority democracy, consent, or consensus).\n\nA charter SHOULD have a set of working agreements about the schedule. My team should be explicit about its schedule assumptions.\n\nh2. How it helps\n\n* Making agreements explicit allows them to be changed. Retrospectives often update working agreements.\n* Writing a charter together helps bring a team together.\n* Reinforces the team's identity.\n\nh2. Mindshifts\n\nTBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nYou just need to get an initial charter in place.\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\nh2. Recipes to follow\n\nPerform an initial chartering session. Schedule 2 hours and pick a facilitator. Then do something like:\n\n# Find common ground\n## Ask each person: remember the best working or team experience you have ever had. Just remember and picture that team.\n## Go around the team. Each person state two characteristics that made that experience awesome. Write them down.\n## Go around again. Each person pick one item from the list that is not yours. Build on or extend it in some way.\n## Ask: does anyone see any commonalities? Circle or write those. Ask: do each of us want to dedicate yourself to ensuring that this team expresses those traits?\n# Define parts of a charter; give examples.\n# Decide how we will make decisions.\n#* Define the possible decision-making mechanisms if necessary.\n#* Record this as the team's first working agreement.\n# Invite the team members to propose additional charter components.\n#* Invite them to farm the list created at the beginning. This will mostly generate simple rules and perhaps a value or two.\n#* Invite them to remember problems they've had before and see if they can make a working agreement that would fix that.\n#* Use your agreed decision-making process to agree to each one.\n#* Do not expect to \"finish.\" In particular, it can often take months before a team's true values become apparent.\n# Define the team's Aim.\n## Bring in the person who sponsored the team (usually a manager).\n## Sponsor describes his aspirations for the team.\n## Team proposes Aims one at a time. Agree to each within the team using the agreed decision-making process. Sponsor is silent.\n## After team agrees, sponsor can ratify or veto (but cannot modify). If sponsor vetoes, he can state why he vetoed but cannot propose a change that would make him happy.\n## Team chooses when to stop. Can then ask sponsor if he still wants to sponsor the team given that Aim.\n# Define the team's Scope.\n## Keep sponsor present.\n## Sponsor states any scope restrictions he is aware of. Write them down.\n## Team can ask questions or posit additional constraints. Sponsor decides which are real scope constraints. Team cannot veto, but can ask for clarification and for reasons.\n# Choose whether to launch the team.\n#* Team decides whether it wants to commit to attempting to achieve the Aim while operating within this Scope. If not, then Scope and Aim must be renegotiated before team can form.\n\nh1. Attaining fluency\n\nThe team modifies its charter any time its circumstances change. It always lives according to the current charter; the current charter is always a good representation of what matters to the team.\n\n###. h2. Measuring proficiency\n\n###. TBD\n\nh2. Recipes to follow\n\nPost the charter publicly.\n\nReview it regularly. Every few days at first, then every few weeks, and eventually every month or two. Increase cadence any time the team has a major change (gain or lose a member, change scope or aim, change in key stakeholder). Decrease it as the charter stabilizes once more.\n\nIf you do retrospectives, then record any changed working agreements into the charter.\n\nEvery day (likely at standup), pick one of your simple rules. That day, everyone on the team looks for every way they can possibly exercise that simple rule. Don't correct others for breaking the rule. Instead notice when people apply the rule and celebrate a success. See how many different ways you can find to apply that one rule by the end of the day.\n\nh2. Further resources\n\nbook: Liftoff\n\n",
-				"help_needed": [
-					"H_REQS",
-					"H_ADV",
-					"H_REVIEW"
-				],
-				"slug": "charter"
-			},
 			"SK_PREDICTIVE_WITH_SMELLS": {
 				"name": "Smell-based predictive design",
 				"x": 4,
@@ -731,11 +673,94 @@ function stages_data() {
 				],
 				"slug": "iterated_predictive"
 			},
-			"SK_RETROS": {
-				"name": "Retrospectives with outcomes",
+			"SK_TEAMS": {
+				"name": "Single-assignment teams",
 				"x": 6,
 				"y": 0,
-				"level": "L_CORE",
+				"level": "L_TEAM",
+				"component": "V_IMPROVE",
+				"requires": [],
+				"obsoletes": [
+					"SK_WORK_GROUPS"
+				],
+				"description": "bq>. Cross-functional teams are the heart of modern software development.\n\nh1. What this is\n\nModern software development is done by teams, not by groups of individuals. A well-functioning team is more flexible and has more capacity than the sum of the individuals who make it up.\n\nThe critical elements are:\n\n* **Single assignment:** each individual is assigned to exactly one team at a time. No one is assigned to multiple teams; no one works as a loner (without a team).\n* **Cross-functional:** the team contains all skills, disciplines, or other specialties that are needed to deliver customer value to the marketplace. It can take an idea from concept to cash. Most such efforts do not require coordinating with other teams (or individuals).\n* **8 people:** 6-10 are OK. Numbers larger than this break trust formation (exceeds human family-scale trust boundary). Smaller numbers make it hard to cross-train (not enough heterogeneity).\n\nThere are 2 known-good techniques for forming these teams. Other approaches may work, but these are the ones that have been tested in hundreds of industries.\n\n**Durable teams**. Add:\n\n* **Person-centric identity:** the team is a set of people that takes on work / projects. Identity is defined by the set of people on the team. It likely has a name like \"team Bluefish\" not like \"the Security team\" (a definition based on technical component) or \"the Pay by card project team\" (team identity based on project.\n* **Durable:** when a project finishes, the same team takes on a new project--which may be entirely unrelated. Team membership does not change very often; the team should commonly go years between any changes of members.\n\n**Rotational teams**. Add:\n\n* **Part of a 100-person team:** use this when you want people to associate to the 100-person group and are willing to lose some capacity in order to gain uniformity / consistency. The larger team should not exceed about 150 people, or tribe-scale identity will not form.\n* **Constant rotation:** all teams should constantly be forming and dissolving. Rotate in 2-3 people per week, or create teams for 2-10 weeks out of a larger pool.\n* **Strong culture of fun:** the whole point of this model is to enable tribe identity. So make sure that the tribe plays together--successful teams with the rotational model play together as part of work.\n\nh2. How it helps\n\nThe team collaborates and reinforces each other.\n\n* The team can make a decision and then everyone helps everyone else hold to it.\n* The team can share skills.\n* The team members help each other and maximize overall throughput, rather than attempting to maximize their individual efficiency.\n\nh2. Mindshifts\n\nFor managers:\n\n* Humans are not resources.\n* Stop allocating specialists to projects.\n\nFor doers:\n\nNone. Support your manager.\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"help_needed": [
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "teams"
+			},
+			"SK_VISIBLE_WORK": {
+				"name": "All work visible on one board",
+				"x": 7,
+				"y": 1,
+				"level": "L_TEAM",
+				"component": "V_LEARN",
+				"requires": [
+					{
+						"skill": "SK_TEAMS",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"obsoletes": [],
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "visible_work"
+			},
+			"SK_CHARTER": {
+				"name": "Team agreement / charter",
+				"x": 7,
+				"y": 2,
+				"level": "L_TEAM",
+				"component": "V_IMPROVE",
+				"requires": [
+					{
+						"skill": "SK_TEAMS",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"obsoletes": [],
+				"description": "bq>. My team has a written agreement that describes how we work.\n\nh1. What this is\n\nThe charter is a written contract that describes the team's ways of working. It makes explicit the ways we treat each other.\n\nCharters often include:\n\n* *Working agreements*: specific rules that we agree to follow when they apply.\n* *Simple rules*: context-free rules that we will try to apply at all times.\n* *Values*: beliefs we all hold to be true and will try to express whenever possible.\n* *Aim*: the purpose for the group. What it is intended to accomplish. Optimally this is a completable objective, not an open-ended condition.\n* *Scope*: any externally-imposed constraints on our resources and decisions. We are allowed to do anything we want to within this scope. We have to ask someone else if we need to change something outside this scope.\n\nExample charter:\n\n* *Working agreements*\n** Everyone will be in the office from 9-4\n** Standup is at 10\n** We agree to make all decisions by consent unless we have explicitly chosen otherwise for a specific decision\n* *Simple rules*\n** If you are neither learning nor contributing, then go somewhere you can\n** Care and feed the team\n** First be disciplined, then be awesome\n** Be transparent, open, and honest\n** When you see a problem, fix the system that caused it.\n* *Values*\n** We trust each other\n** Work of all specialties is equal in status, value, and complexity\n** 95% of any person's behavior and results is due to the system in which they find themselves, not the person\n* *Aim*\n** Reduce bugs written, across all teams in the company, by 95%\n** Find a product like {our current vision} for which there is a market, or demonstrate that one does not exist\n** Expand {our service} to {adjacent market segment}, earning at least $xxx in revenue from that segment per month\n* *Scope*\n** No more than 10 people\n** The team must be profitable on revenues from its own products\n** Must participate in quarterly budgeting\n** The team is not allowed to do its own hiring and firing, but is expected to grow its people.\n\nOptimally, a team has one Aim, as few Scope constraints as possible, and as many values, simple rules, and working agreements as it needs right now.\n\nThe charter is always kept up to date. Items are retired as soon as they are no longer useful. They are also retired if team behavior does not match the agreement: the charter describes what we do, not what we wish we did.\n\nA charter MUST always have a working agreement about how the team will make decisions. This MUST cover the conditions required to make a decision valid (such as what constitutes quorum) and the kinds of agreement that constitute binding decisions (tradition, authority, simple majority democracy, consent, or consensus).\n\nA charter SHOULD have a set of working agreements about the schedule. My team should be explicit about its schedule assumptions.\n\nh2. How it helps\n\n* Making agreements explicit allows them to be changed. Retrospectives often update working agreements.\n* Writing a charter together helps bring a team together.\n* Reinforces the team's identity.\n\nh2. Mindshifts\n\nTBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nYou just need to get an initial charter in place.\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\nh2. Recipes to follow\n\nPerform an initial chartering session. Schedule 2 hours and pick a facilitator. Then do something like:\n\n# Find common ground\n## Ask each person: remember the best working or team experience you have ever had. Just remember and picture that team.\n## Go around the team. Each person state two characteristics that made that experience awesome. Write them down.\n## Go around again. Each person pick one item from the list that is not yours. Build on or extend it in some way.\n## Ask: does anyone see any commonalities? Circle or write those. Ask: do each of us want to dedicate yourself to ensuring that this team expresses those traits?\n# Define parts of a charter; give examples.\n# Decide how we will make decisions.\n#* Define the possible decision-making mechanisms if necessary.\n#* Record this as the team's first working agreement.\n# Invite the team members to propose additional charter components.\n#* Invite them to farm the list created at the beginning. This will mostly generate simple rules and perhaps a value or two.\n#* Invite them to remember problems they've had before and see if they can make a working agreement that would fix that.\n#* Use your agreed decision-making process to agree to each one.\n#* Do not expect to \"finish.\" In particular, it can often take months before a team's true values become apparent.\n# Define the team's Aim.\n## Bring in the person who sponsored the team (usually a manager).\n## Sponsor describes his aspirations for the team.\n## Team proposes Aims one at a time. Agree to each within the team using the agreed decision-making process. Sponsor is silent.\n## After team agrees, sponsor can ratify or veto (but cannot modify). If sponsor vetoes, he can state why he vetoed but cannot propose a change that would make him happy.\n## Team chooses when to stop. Can then ask sponsor if he still wants to sponsor the team given that Aim.\n# Define the team's Scope.\n## Keep sponsor present.\n## Sponsor states any scope restrictions he is aware of. Write them down.\n## Team can ask questions or posit additional constraints. Sponsor decides which are real scope constraints. Team cannot veto, but can ask for clarification and for reasons.\n# Choose whether to launch the team.\n#* Team decides whether it wants to commit to attempting to achieve the Aim while operating within this Scope. If not, then Scope and Aim must be renegotiated before team can form.\n\nh1. Attaining fluency\n\nThe team modifies its charter any time its circumstances change. It always lives according to the current charter; the current charter is always a good representation of what matters to the team.\n\n###. h2. Measuring proficiency\n\n###. TBD\n\nh2. Recipes to follow\n\nPost the charter publicly.\n\nReview it regularly. Every few days at first, then every few weeks, and eventually every month or two. Increase cadence any time the team has a major change (gain or lose a member, change scope or aim, change in key stakeholder). Decrease it as the charter stabilizes once more.\n\nIf you do retrospectives, then record any changed working agreements into the charter.\n\nEvery day (likely at standup), pick one of your simple rules. That day, everyone on the team looks for every way they can possibly exercise that simple rule. Don't correct others for breaking the rule. Instead notice when people apply the rule and celebrate a success. See how many different ways you can find to apply that one rule by the end of the day.\n\nh2. Further resources\n\nbook: Liftoff\n\n",
+				"help_needed": [
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "charter"
+			},
+			"SK_SIT_TOGETHER": {
+				"name": "Sit together",
+				"x": 7,
+				"y": 3,
+				"level": "L_TEAM",
+				"component": "V_LEARN",
+				"requires": [
+					{
+						"skill": "SK_TEAMS",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"obsoletes": [],
+				"description": "bq>. My whole team sits in one room. No one else is in my room. We overhear lots of information but no noise.\n\nh1. What this is\n\nThe whole team sits in the same room. This makes it easy to share work. It also makes it easy to get answers to questions. This avoids either blocking on an answer or making a local decision without full information.\n\nThe most important aspect of the team space is the audio bubble. The room must be sonically isolated from outside. Everyone who is in the room must be on the same team, working towards the same goals. If these conditions are not met, much of the conversation will become disruptive noise. This either results in disruption or pressure to stop talking. Neither is acceptable.\n\nIt is helpful to also have retreat spaces outside of the team room (commonly referred to as a caves and commons layout). This need is critical if the team does not yet share work. The more the team shares work, the less these outside spaces will be used.\n\nSitting together is designed to allow work to happen collaboratively. People should leave the room when they want to not work--because non-work activities are the only things not done together.\n\nThe room MUST contain everything the team needs to do its work. This includes a lot of whiteboards, a large display or projector, a ton of office supplies, and appropriate telephony.\n\nh2. How it helps\n\nSitting together changes the default mode of working. Collaboration becomes the norm; individual work becomes rare. This makes it a lot easier to develop all the other learning and discipline practices.\n\nAdditionally, questions get answered immediately. It is trivial to notice implicit assumptions or disagreements and take them to a whiteboard. Everyone else on the team will overhear the whiteboard discussion. This keeps everyone informed and involved.\n\nh2. Mindshifts\n\n* Collaborate by default.\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\nh2. Side effects\n\nSolo concentration is impaired. Fix this by using Work together for productivity.\n\nh1. Acquiring the skill\n\nYou \"just\" need to move into a common room. This often requires significant political effort with Facilities.\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\nh2. Recipes to follow\n\nMake a standard room size. It should fit 8-10 comfortably. Seat 6-8 people in it. You will often bring in stakeholders; make sure your room accommodates them comfortably.\n\nMake every wall be either a window or a whiteboard. You can buy 4'x8' melamine sheets at a lumber store for about $6; they work well as whiteboards. Line the entire wall, from 1' to 9' height. If you want magnetic whiteboards, buy some steel screen and place it between the melamine and the wall. Converting an entire room should cost less than $300.\n\nAdd a projector or large screen. Drive it off a cheap mini-PC. You can remote from the projector machine to any of your real computers. A/V should cost less than $800.\n\nh1. Attaining fluency\n\nReally taking advantage of sitting together requires that you talk with each other. A lot. Pairing or mobbing are a natural fit.\n\nDo not expect the space to support your old ways of working. You moved together to support new ways of working.\n\n###. h2. Measuring proficiency\n\n###. TBD\n\nh2. Recipes to follow\n\nBring in customers, managers, and other stakeholders as needed. Take calls in the shared space. The whole point is to make it easy for everyone on the team to overhear what is happening.\n\nStart sharing your work. If you try to sit together without sharing your work, then everything will just be noise and disruption. If you aren't going to share work, then move back into offices and use a non-Agile method. Agile methods leverage shared work; other approaches work better if you are going to remain a confederation of individual workers.\n\nh2. Further resources\n\nTBD\n\n",
+				"help_needed": [
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "sit_together"
+			},
+			"SK_RETROS": {
+				"name": "Retrospectives with outcomes",
+				"x": 8,
+				"y": 0,
+				"level": "L_TEAM",
 				"component": "V_IMPROVE",
 				"requires": [
 					{
@@ -761,8 +786,8 @@ function stages_data() {
 				"slug": "retros"
 			},
 			"SK_SHARED_CODE": {
-				"name": "Shared code responsibility",
-				"x": 6,
+				"name": "Shared task responsibility",
+				"x": 9,
 				"y": 1,
 				"level": "L_CORE",
 				"component": "V_LEARN",
@@ -770,10 +795,14 @@ function stages_data() {
 					{
 						"skill": "SK_TEAMS",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_VISIBLE_WORK",
+						"kind": "IS_REQUIRED"
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. No task is owned by an individual.\n\nh1. What this is\n\nAny task which produces our work output is shared. If it succeeds we all succeed. If it fails we all fail. No one person on the team will be judged differently than the team overall.\n\nThis is full team accountability, not a lack of accountability. If a task does not get done, then all of us have failed. We all take the full measure of blame.\n\nWe therefore have some way of tracking and viewing all of the work.\n\nh2. How it helps\n\nBy sharing responsibility for the outcome of all tasks, the team can now find more effective and creative ways to get the work done.\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -785,7 +814,7 @@ function stages_data() {
 			},
 			"SK_SYSTEMS_THINKING": {
 				"name": "Understand and optimize systems",
-				"x": 6,
+				"x": 9,
 				"y": 3,
 				"level": "L_CORE",
 				"component": "V_IMPROVE",
@@ -803,7 +832,7 @@ function stages_data() {
 			},
 			"SK_LOCAL_REFACTORING": {
 				"name": "Local transform-based refactoring",
-				"x": 6,
+				"x": 9,
 				"y": 4,
 				"level": "L_CORE",
 				"component": "V_CODE",
@@ -819,7 +848,7 @@ function stages_data() {
 			},
 			"SK_AUTO_DEV_TEST": {
 				"name": "Automated developer testing",
-				"x": 6,
+				"x": 9,
 				"y": 6,
 				"level": "L_CORE",
 				"component": "V_CHECK_WORK",
@@ -848,7 +877,7 @@ function stages_data() {
 			},
 			"SK_VERT_DECOMP": {
 				"name": "Decompose work vertically (by value)",
-				"x": 6,
+				"x": 9,
 				"y": 8,
 				"level": "L_CORE",
 				"component": "V_REQUIREMENTS",
@@ -871,7 +900,7 @@ function stages_data() {
 			},
 			"SK_PULL": {
 				"name": "Apply pull systems and queues",
-				"x": 6,
+				"x": 9,
 				"y": 12,
 				"level": "L_CORE",
 				"component": "V_SUSTAINABLE",
@@ -889,7 +918,7 @@ function stages_data() {
 			},
 			"SK_PAIR_REGULARLY": {
 				"name": "Work together to learn",
-				"x": 7,
+				"x": 10,
 				"y": 2,
 				"level": "L_CORE",
 				"component": "V_LEARN",
@@ -900,6 +929,10 @@ function stages_data() {
 					},
 					{
 						"skill": "SK_SHARED_CODE",
+						"kind": "IS_HELPFUL"
+					},
+					{
+						"skill": "SK_RETROS",
 						"kind": "IS_REQUIRED"
 					}
 				],
@@ -917,7 +950,7 @@ function stages_data() {
 			},
 			"SK_AUTO_BUILD_VERIFY": {
 				"name": "Automated build verification",
-				"x": 7,
+				"x": 10,
 				"y": 7,
 				"level": "L_CORE",
 				"component": "V_SHIP",
@@ -944,7 +977,7 @@ function stages_data() {
 			},
 			"SK_LIMIT_WIP": {
 				"name": "Limit WIP to uncover problems",
-				"x": 7,
+				"x": 10,
 				"y": 10,
 				"level": "L_CORE",
 				"component": "V_SUSTAINABLE",
@@ -967,7 +1000,7 @@ function stages_data() {
 			},
 			"SK_ACTION_RETROS": {
 				"name": "Iterative team improvement",
-				"x": 8,
+				"x": 11,
 				"y": 0,
 				"level": "L_CORE",
 				"component": "V_IMPROVE",
@@ -996,7 +1029,7 @@ function stages_data() {
 			},
 			"SK_T_SHAPED": {
 				"name": "T-shaped people",
-				"x": 8,
+				"x": 11,
 				"y": 1,
 				"level": "L_CORE",
 				"component": "V_LEARN",
@@ -1027,7 +1060,7 @@ function stages_data() {
 			},
 			"SK_DRY": {
 				"name": "Don't repeat yourself",
-				"x": 8,
+				"x": 11,
 				"y": 3,
 				"level": "L_CORE",
 				"component": "V_CODE",
@@ -1058,7 +1091,7 @@ function stages_data() {
 			},
 			"SK_GREAT_NAMES": {
 				"name": "Great names",
-				"x": 8,
+				"x": 11,
 				"y": 4,
 				"level": "L_CORE",
 				"component": "V_CODE",
@@ -1085,7 +1118,7 @@ function stages_data() {
 			},
 			"SK_TEST_FIRST": {
 				"name": "Test as spec",
-				"x": 8,
+				"x": 11,
 				"y": 6,
 				"level": "L_CORE",
 				"component": "V_CHECK_WORK",
@@ -1110,7 +1143,7 @@ function stages_data() {
 			},
 			"SK_COLLECTIVE_OWNERSHIP": {
 				"name": "Collective ownership",
-				"x": 9,
+				"x": 12,
 				"y": 1,
 				"level": "L_ADAPTIVE",
 				"component": "V_LEARN",
@@ -1141,7 +1174,7 @@ function stages_data() {
 			},
 			"SK_DONE_DEFINITION": {
 				"name": "Done Definition",
-				"x": 9,
+				"x": 12,
 				"y": 5,
 				"level": "L_ADAPTIVE",
 				"component": "V_CHECK_WORK",
@@ -1168,7 +1201,7 @@ function stages_data() {
 			},
 			"SK_LEARN_LOCALLY": {
 				"name": "Learn from local cmm'ty",
-				"x": 10,
+				"x": 13,
 				"y": 0,
 				"level": "L_ADAPTIVE",
 				"component": "V_IMPROVE",
@@ -1191,7 +1224,7 @@ function stages_data() {
 			},
 			"SK_PAIR_PRODUCTION": {
 				"name": "Work together for productivity",
-				"x": 10,
+				"x": 13,
 				"y": 2,
 				"level": "L_ADAPTIVE",
 				"component": "V_LEARN",
@@ -1222,7 +1255,7 @@ function stages_data() {
 			},
 			"SK_WRITE_UNITS": {
 				"name": "Code in units",
-				"x": 10,
+				"x": 13,
 				"y": 4,
 				"level": "L_ADAPTIVE",
 				"component": "V_CODE",
@@ -1249,7 +1282,7 @@ function stages_data() {
 			},
 			"SK_ITERATION": {
 				"name": "Do things in iterations",
-				"x": 10,
+				"x": 13,
 				"y": 11,
 				"level": "L_ADAPTIVE",
 				"component": "V_SUSTAINABLE",
@@ -1276,7 +1309,7 @@ function stages_data() {
 			},
 			"SK_PAIR_ALWAYS": {
 				"name": "Work together for discipline",
-				"x": 11,
+				"x": 14,
 				"y": 2,
 				"level": "L_ADAPTIVE",
 				"component": "V_LEARN",
@@ -1299,7 +1332,7 @@ function stages_data() {
 			},
 			"SK_TEST_UNITS": {
 				"name": "Test units",
-				"x": 11,
+				"x": 14,
 				"y": 4,
 				"level": "L_ADAPTIVE",
 				"component": "V_CHECK_WORK",
@@ -1330,7 +1363,7 @@ function stages_data() {
 			},
 			"SK_STORIES": {
 				"name": "Stories",
-				"x": 11,
+				"x": 14,
 				"y": 8,
 				"level": "L_ADAPTIVE",
 				"component": "V_REQUIREMENTS",
@@ -1365,7 +1398,7 @@ function stages_data() {
 			},
 			"SK_BUG_FREE_NEW_CODE": {
 				"name": "No bugs in new code",
-				"x": 12,
+				"x": 15,
 				"y": 1,
 				"level": "L_ADAPTIVE",
 				"component": "V_CODE",
@@ -1392,7 +1425,7 @@ function stages_data() {
 			},
 			"SK_REFLECTIVE_DESIGN": {
 				"name": "Reflective design",
-				"x": 12,
+				"x": 15,
 				"y": 3,
 				"level": "L_ADAPTIVE",
 				"component": "V_CODE",
@@ -1431,7 +1464,7 @@ function stages_data() {
 			},
 			"SK_TRACK_CAPACITY": {
 				"name": "Track progress against plan",
-				"x": 12,
+				"x": 15,
 				"y": 10,
 				"level": "L_ADAPTIVE",
 				"component": "V_SUSTAINABLE",
@@ -1458,7 +1491,7 @@ function stages_data() {
 			},
 			"SK_LEARN_ALL": {
 				"name": "Learn from everyone",
-				"x": 13,
+				"x": 16,
 				"y": 0,
 				"level": "L_LEVERAGE",
 				"component": "V_IMPROVE",
@@ -1481,7 +1514,7 @@ function stages_data() {
 			},
 			"SK_PROCESS_EXPERIMENTS": {
 				"name": "Process experiments",
-				"x": 13,
+				"x": 16,
 				"y": 1,
 				"level": "L_LEVERAGE",
 				"component": "V_IMPROVE",
@@ -1508,7 +1541,7 @@ function stages_data() {
 			},
 			"SK_LEARN_VS_PROVE": {
 				"name": "Learning / Proving Distinction",
-				"x": 13,
+				"x": 16,
 				"y": 5,
 				"level": "L_LEVERAGE",
 				"component": "V_IMPROVE",
@@ -1535,7 +1568,7 @@ function stages_data() {
 			},
 			"SK_AUTO_DEPLOY": {
 				"name": "Automated deploy",
-				"x": 13,
+				"x": 16,
 				"y": 7,
 				"level": "L_LEVERAGE",
 				"component": "V_SHIP",
@@ -1558,7 +1591,7 @@ function stages_data() {
 			},
 			"SK_STORY_CLUSTERING": {
 				"name": "Story clustering",
-				"x": 13,
+				"x": 16,
 				"y": 8,
 				"level": "L_LEVERAGE",
 				"component": "V_REQUIREMENTS",
@@ -1581,7 +1614,7 @@ function stages_data() {
 			},
 			"SK_ADAPTIVE_PLANNING": {
 				"name": "Iterative planning",
-				"x": 13,
+				"x": 16,
 				"y": 9,
 				"level": "L_LEVERAGE",
 				"component": "V_REQUIREMENTS",
@@ -1612,7 +1645,7 @@ function stages_data() {
 			},
 			"SK_RELATIVE_ESTIMATES": {
 				"name": "Relative based estimation",
-				"x": 13,
+				"x": 16,
 				"y": 10,
 				"level": "L_LEVERAGE",
 				"component": "V_SUSTAINABLE",
@@ -1635,7 +1668,7 @@ function stages_data() {
 			},
 			"SK_LIMIT_WORK_TO_CAPACITY": {
 				"name": "Limit work to estimated capacity",
-				"x": 13,
+				"x": 16,
 				"y": 11,
 				"level": "L_LEVERAGE",
 				"component": "V_SUSTAINABLE",
@@ -1666,7 +1699,7 @@ function stages_data() {
 			},
 			"SK_CONTINUOUS_PLAN": {
 				"name": "Continuous-form planning",
-				"x": 13,
+				"x": 16,
 				"y": 12,
 				"level": "L_LEVERAGE",
 				"component": "V_SUSTAINABLE",
@@ -1689,7 +1722,7 @@ function stages_data() {
 			},
 			"SK_SESSION_MANUAL_TESTING": {
 				"name": "Session-based manual testing",
-				"x": 14,
+				"x": 17,
 				"y": 6,
 				"level": "L_LEVERAGE",
 				"component": "V_IMPROVE",
@@ -1716,7 +1749,7 @@ function stages_data() {
 			},
 			"SK_ROLLING_WAVE_PLANNING": {
 				"name": "Rolling-wave planning",
-				"x": 14,
+				"x": 17,
 				"y": 9,
 				"level": "L_LEVERAGE",
 				"component": "V_REQUIREMENTS",
@@ -1743,7 +1776,7 @@ function stages_data() {
 			},
 			"SK_BUG_RATCHET": {
 				"name": "Bugs decrease over time",
-				"x": 15,
+				"x": 18,
 				"y": 2,
 				"level": "L_NO_DEBT",
 				"component": "V_CODE",
@@ -1774,7 +1807,7 @@ function stages_data() {
 			},
 			"SK_IMPROVING_PROOF": {
 				"name": "Improving levels of proof",
-				"x": 15,
+				"x": 18,
 				"y": 3,
 				"level": "L_NO_DEBT",
 				"component": "V_CHECK_WORK",
@@ -1797,7 +1830,7 @@ function stages_data() {
 			},
 			"SK_TEST_LEGACY": {
 				"name": "Legacy code under test",
-				"x": 15,
+				"x": 18,
 				"y": 4,
 				"level": "L_NO_DEBT",
 				"component": "V_CHECK_WORK",
@@ -1820,7 +1853,7 @@ function stages_data() {
 			},
 			"SK_RGR": {
 				"name": "Rapid coding inner loop (R-G-R)",
-				"x": 15,
+				"x": 18,
 				"y": 5,
 				"level": "L_NO_DEBT",
 				"component": "V_CHECK_WORK",
@@ -1855,7 +1888,7 @@ function stages_data() {
 			},
 			"SK_AUTO_DEPLOY_VERIFY": {
 				"name": "Automated deploy verification",
-				"x": 15,
+				"x": 18,
 				"y": 6,
 				"level": "L_NO_DEBT",
 				"component": "V_SHIP",
@@ -1878,7 +1911,7 @@ function stages_data() {
 			},
 			"SK_VERIFY_EXAMPLES": {
 				"name": "Verify examples (ATDD)",
-				"x": 15,
+				"x": 18,
 				"y": 7,
 				"level": "L_NO_DEBT",
 				"component": "V_REQUIREMENTS",
@@ -1905,7 +1938,7 @@ function stages_data() {
 			},
 			"SK_DATA_DRIVEN_CAPACITY": {
 				"name": "Use data to determine capacity",
-				"x": 15,
+				"x": 18,
 				"y": 11,
 				"level": "L_NO_DEBT",
 				"component": "V_SUSTAINABLE",
@@ -1932,7 +1965,7 @@ function stages_data() {
 			},
 			"SK_FIX_LEGACY": {
 				"name": "Pay down technical debt",
-				"x": 16,
+				"x": 19,
 				"y": 4,
 				"level": "L_NO_DEBT",
 				"component": "V_CODE",
@@ -1975,7 +2008,7 @@ function stages_data() {
 			},
 			"SK_SIMUL_PHASES": {
 				"name": "Simultaneous Phases",
-				"x": 16,
+				"x": 19,
 				"y": 5,
 				"level": "L_NO_DEBT",
 				"component": "V_CODE",
@@ -2006,7 +2039,7 @@ function stages_data() {
 			},
 			"SK_CLEAN_CODE": {
 				"name": "Clean code",
-				"x": 17,
+				"x": 20,
 				"y": 3,
 				"level": "L_NO_DEBT",
 				"component": "V_CODE",
@@ -2029,7 +2062,7 @@ function stages_data() {
 			},
 			"SK_SHORT_TERM_RELIABILITY": {
 				"name": "Reliable short-term commitments",
-				"x": 17,
+				"x": 20,
 				"y": 11,
 				"level": "L_NO_DEBT",
 				"component": "V_SUSTAINABLE",
@@ -2060,7 +2093,7 @@ function stages_data() {
 			},
 			"SK_M_SHAPED": {
 				"name": "M-shaped people",
-				"x": 18,
+				"x": 21,
 				"y": 1,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
@@ -2083,7 +2116,7 @@ function stages_data() {
 			},
 			"SK_EVO_DESIGN": {
 				"name": "Evolutionary Design",
-				"x": 18,
+				"x": 21,
 				"y": 4,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
@@ -2118,7 +2151,7 @@ function stages_data() {
 			},
 			"SK_FEATURE_ISOLATION": {
 				"name": "Feature isolation",
-				"x": 18,
+				"x": 21,
 				"y": 5,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
@@ -2141,7 +2174,7 @@ function stages_data() {
 			},
 			"SK_AUTO_ROLLBACK": {
 				"name": "Automated rollback",
-				"x": 18,
+				"x": 21,
 				"y": 6,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
@@ -2164,7 +2197,7 @@ function stages_data() {
 			},
 			"SK_HYPOTHESIS_STORIES": {
 				"name": "Hypothesis stories",
-				"x": 18,
+				"x": 21,
 				"y": 7,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
@@ -2187,7 +2220,7 @@ function stages_data() {
 			},
 			"SK_EXPERIENCE_FOCUS": {
 				"name": "Experience focus",
-				"x": 18,
+				"x": 21,
 				"y": 8,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
@@ -2210,7 +2243,7 @@ function stages_data() {
 			},
 			"SK_PROJECTIONS": {
 				"name": "Reliable long-range planning",
-				"x": 18,
+				"x": 21,
 				"y": 10,
 				"level": "L_AWESOME",
 				"component": "V_SUSTAINABLE",
@@ -2241,7 +2274,7 @@ function stages_data() {
 			},
 			"SK_UNIVERSAL_SPECIALIST": {
 				"name": "Full-product specialization",
-				"x": 19,
+				"x": 22,
 				"y": 2,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
@@ -2264,7 +2297,7 @@ function stages_data() {
 			},
 			"SK_NO_BUGS": {
 				"name": "No bugs",
-				"x": 19,
+				"x": 22,
 				"y": 3,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
@@ -2295,7 +2328,7 @@ function stages_data() {
 			},
 			"SK_TELL_VS_ASK": {
 				"name": "Universal CQRS",
-				"x": 19,
+				"x": 22,
 				"y": 5,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
@@ -2318,7 +2351,7 @@ function stages_data() {
 			},
 			"SK_WHOLE_TEAM_BUSINESS": {
 				"name": "Whole team business innovation",
-				"x": 19,
+				"x": 22,
 				"y": 8,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
@@ -2345,7 +2378,7 @@ function stages_data() {
 			},
 			"SK_SMOOTH_FLOW": {
 				"name": "Predictable, smooth flow",
-				"x": 19,
+				"x": 22,
 				"y": 9,
 				"level": "L_AWESOME",
 				"component": "V_SUSTAINABLE",
@@ -2376,7 +2409,7 @@ function stages_data() {
 			},
 			"SK_YAGNI": {
 				"name": "YAGNI and simplest thing",
-				"x": 20,
+				"x": 23,
 				"y": 3,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
@@ -2399,7 +2432,7 @@ function stages_data() {
 			},
 			"SK_CONT_SHIP": {
 				"name": "Continuous delivery",
-				"x": 20,
+				"x": 23,
 				"y": 6,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
@@ -2426,7 +2459,7 @@ function stages_data() {
 			},
 			"SK_TIP": {
 				"name": "Testing in production",
-				"x": 20,
+				"x": 23,
 				"y": 7,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
@@ -2453,7 +2486,7 @@ function stages_data() {
 			},
 			"SK_SINGLE_PIECE_FLOW": {
 				"name": "Single piece flow",
-				"x": 20,
+				"x": 23,
 				"y": 9,
 				"level": "L_AWESOME",
 				"component": "V_SUSTAINABLE",
@@ -2476,7 +2509,7 @@ function stages_data() {
 			},
 			"SK_PROCESS_INNOVATION": {
 				"name": "Useful process innovation",
-				"x": 21,
+				"x": 24,
 				"y": 0,
 				"level": "L_AWESOME",
 				"component": "V_IMPROVE",
@@ -2503,7 +2536,7 @@ function stages_data() {
 			},
 			"SK_RADICAL_COLLABORATE": {
 				"name": "Radical collaboration",
-				"x": 21,
+				"x": 24,
 				"y": 2,
 				"level": "L_AWESOME",
 				"component": "V_LEARN",
@@ -2530,7 +2563,7 @@ function stages_data() {
 			},
 			"SK_TDDESIGN": {
 				"name": "Test-driven design",
-				"x": 21,
+				"x": 24,
 				"y": 4,
 				"level": "L_AWESOME",
 				"component": "V_CHECK_WORK",
@@ -2561,7 +2594,7 @@ function stages_data() {
 			},
 			"SK_CONT_DEPLOY": {
 				"name": "Continuous deployment",
-				"x": 21,
+				"x": 24,
 				"y": 6,
 				"level": "L_AWESOME",
 				"component": "V_SHIP",
@@ -2592,7 +2625,7 @@ function stages_data() {
 			},
 			"SK_METRICS_FOCUS": {
 				"name": "Business metric focus",
-				"x": 21,
+				"x": 24,
 				"y": 7,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
@@ -2619,7 +2652,7 @@ function stages_data() {
 			},
 			"SK_LISTEN_TO_CODE": {
 				"name": "Code whispering",
-				"x": 22,
+				"x": 25,
 				"y": 3,
 				"level": "L_AWESOME",
 				"component": "V_CODE",
@@ -2646,7 +2679,7 @@ function stages_data() {
 			},
 			"SK_LEAN_STARTUP": {
 				"name": "Lean startup / hypothesis-driven development",
-				"x": 22,
+				"x": 25,
 				"y": 8,
 				"level": "L_AWESOME",
 				"component": "V_REQUIREMENTS",
