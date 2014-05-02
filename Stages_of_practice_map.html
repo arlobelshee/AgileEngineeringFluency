@@ -1122,16 +1122,8 @@
 			height: 0.9em;
 			vertical-align: middle;
 		}
-		#download_data {
-			position: absolute;
-			top: 5px;
-			left: 5px;
-			z-index: 2000;
-			font-size: 2.4em;
-			display: none;
-		}
 		.main_pane, .display_port, html, body {
-			width: 2860px;
+			width: 3100px;
 			overflow: visible;
 		}
 	</style>
@@ -1143,7 +1135,7 @@
 <body onload="start();">
 	<div class="display_port">
 		<div class="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app, with: app">
-			<canvas id="skillsCanvas" width="2860" height="1180" class="drawing canvas"></canvas>
+			<canvas id="skillsCanvas" width="3100" height="1180" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: levels -->
 			<h1 class="level_title" data-bind="style: { top: label_position.top, left: label_position.left, width: label_position.width }, text: name"></h1>
@@ -1237,6 +1229,6 @@
 			</div>
 		</div>
 	</div>
-	<p class="copyright">View: <a href="http://bit.ly/AgileEngineeringStages">http://bit.ly/AgileEngineeringStages</a>, contribute: <a href="https://github.com/arlobelshee/AgileEngineeringFluency">https://github.com/arlobelshee/AgileEngineeringFluency</a>. Version 0.7.2. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
+	<p class="copyright">View: <a href="http://bit.ly/AgileEngineeringStages">http://bit.ly/AgileEngineeringStages</a>, contribute: <a href="https://github.com/arlobelshee/AgileEngineeringFluency">https://github.com/arlobelshee/AgileEngineeringFluency</a>. Version 0.8.0. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
 </body>
 </html>
