@@ -6,49 +6,98 @@ function stages_data() {
 				"min": -1,
 				"max": 5,
 				"color": "#e0e0ff",
-				"description": "bq>. 1 sentence summary.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n"
+				"description": "bq>. 1 sentence summary.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n",
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
 			},
 			"L_TEAM": {
 				"name": "Work as a team",
 				"min": 6,
 				"max": 8,
 				"color": "#cccccc",
-				"description": "bq>. 1 sentence summary.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n"
+				"description": "bq>. 1 sentence summary.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n",
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
 			},
 			"L_CORE": {
 				"name": "Core modern engineering",
 				"min": 9,
 				"max": 11,
 				"color": "#ffe0d0",
-				"description": "bq>. My team is starting to work iteratively in everything we do.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n"
+				"description": "bq>. My team is starting to work iteratively in everything we do.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n",
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
 			},
 			"L_ADAPTIVE": {
 				"name": "Adaptive engineering",
 				"min": 12,
 				"max": 15,
 				"color": "#d0ffff",
-				"description": "bq>. 1 sentence summary.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n"
+				"description": "bq>. 1 sentence summary.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n",
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
 			},
 			"L_LEVERAGE": {
 				"name": "Leverage capabilities",
 				"min": 16,
 				"max": 17,
 				"color": "#ffe0ff",
-				"description": "bq>. 1 sentence summary.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n"
+				"description": "bq>. 1 sentence summary.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n",
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
 			},
 			"L_NO_DEBT": {
 				"name": "Eliminate debt and change the rules",
 				"min": 18,
 				"max": 20,
 				"color": "#e0ffe0",
-				"description": "bq>. 1 sentence summary.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n"
+				"description": "bq>. 1 sentence summary.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n",
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
 			},
 			"L_AWESOME": {
 				"name": "Take advantage of being awesome",
 				"min": 21,
 				"max": 26,
 				"color": "#ffffc0",
-				"description": "bq>. 1 sentence summary.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n"
+				"description": "bq>. 1 sentence summary.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n",
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
 			}
 		},
 		"components": {
