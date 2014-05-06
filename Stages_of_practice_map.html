@@ -176,7 +176,7 @@
 				read: function () {
 					var info = this.app.to_JS();
 					return "function stages_data() {\n\treturn "
-						+ JSON.stringify(info, undefined, '\t').replace("\n", "\n\t")
+						+ JSON.stringify(info, undefined, '\t').replace(/\n/g, "\n\t")
 						+ ";\n}\n";
 				},
 				owner: vm
@@ -212,10 +212,12 @@
 				this.editing = ko.observable(false);
 				this.ask_for_help = ko.observable("");
 				this.kinds_of_help = ko.observableArray([]);
+				this.version = ko.observable("");
 			}
 			base_class(StagesVm, {
 				to_JS: function () {
 					return {
+						version: this.version,
 						levels: unwrap_to_hash(this.levels),
 						components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
 						dependency_kinds: unwrap_to_hash(this.kinds),
@@ -273,6 +275,7 @@
 					}
 					if (!this.valid()) { return; }
 					this.prev_data = data;
+					this.version(data.version);
 					this.skills(hash_to_array(lookup.skills));
 					this.levels(hash_to_array(lookup.levels));
 					this.kinds(hash_to_array(lookup.kinds));
@@ -1229,6 +1232,6 @@
 			</div>
 		</div>
 	</div>
-	<p class="copyright">View: <a href="http://bit.ly/AgileEngineeringStages">http://bit.ly/AgileEngineeringStages</a>, contribute: <a href="https://github.com/arlobelshee/AgileEngineeringFluency">https://github.com/arlobelshee/AgileEngineeringFluency</a>. Version 0.8.0. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
+	<p class="copyright">View: <a href="http://bit.ly/AgileEngineeringStages">http://bit.ly/AgileEngineeringStages</a>, contribute: <a href="https://github.com/arlobelshee/AgileEngineeringFluency">https://github.com/arlobelshee/AgileEngineeringFluency</a>. Version <span data-bind="text: app.version"></span>. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
 </body>
 </html>
