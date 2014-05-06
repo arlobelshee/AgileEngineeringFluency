@@ -344,8 +344,8 @@
 					self.description_display(textile(new_value));
 				}
 				this.description_display = ko.observable("");
-				format_desc(data.description || "");
-				this.description = ko.observable(data.description || "");
+				format_desc(data.description);
+				this.description = ko.observable(data.description);
 				this.description.subscribe(format_desc);
 				this.label_position = layout.place_level_label(this);
 			}
@@ -620,8 +620,8 @@
 			this.place_level_label = function (level) {
 				var left = this.translate_position_x(Math.max(level.min, 0));
 				return {
-					left: left + "px",
-					width: this.translate_position_x(level.max) - left + "px",
+					left: left - 28 + "px",
+					width: this.translate_position_x(level.max) - left + 40 + "px",
 					top: 8 + "px",
 				};
 			};
