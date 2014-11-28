@@ -176,7 +176,7 @@
 				read: function () {
 					var info = this.app.to_JS();
 					return "function stages_data() {\n\treturn "
-						+ JSON.stringify(info, undefined, '\t').replace("\n", "\n\t")
+						+ JSON.stringify(info, undefined, '\t').replace(/(\r\n|\n|\r)/gm,"\n\t")
 						+ ";\n}\n";
 				},
 				owner: vm

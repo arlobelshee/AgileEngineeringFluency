@@ -6,3 +6,4 @@ By listing your name below, you indicate agreement to the following:
 2. I choose to contribute my contribution and all rights such that the complete work can be published under a CC-BY license.
 
 * Arlo Belshee
+* Matt Hornsby
