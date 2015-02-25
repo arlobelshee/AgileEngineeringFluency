@@ -161,6 +161,31 @@
 			return UrlData;
 		}();
 
+		function add_help_display_capability(self, data, app) {
+			self.help_needed = ko.observableArray(data.help_needed);
+			self.help_to_request = ko.computed({
+				read: function () {
+					var values = self.help_needed();
+					var offer = app.ask_for_help();
+					var requests = filter_map(values, function (h) {
+						return (h._id === offer || offer === "ALL") ? h.name() : null;
+					});
+					if (!requests) return null;
+					return requests.join(', ');
+				},
+			});
+			self.help_unwrap = function(unwrap) {
+				return map_elt(unwrap(self.help_needed), function (h) {
+					return h._id;
+				});
+			};
+			self.help_resolve_references = function(lookup, mark_invalid, err, skill_id) {
+				self.help_needed(map_elt(self.help_needed(), function (help) {
+					return lookup.kinds_of_help[help] || mark_invalid(err, "help", help, skill_id);
+				}));
+			};
+		}
+
 		function ViewModel() {
 			var vm = this;
 			this._id = "whole_app";
@@ -201,6 +226,7 @@
 				this._id = "stages";
 				this.show_all_dependencies = ko.observable(true);
 				this.focal_skill = ko.observable(null);
+				this.focal_level = ko.observable(null);
 				this.show_skill_details = function (skill) {
 					self.focal_skill(skill);
 					self.update_url();
@@ -209,13 +235,23 @@
 					self.focal_skill(null);
 					self.update_url();
 				};
+				this.show_level_details = function (level) {
+					self.focal_level(level);
+					self.update_url();
+				};
+				this.hide_level_details = function () {
+					self.focal_level(null);
+					self.update_url();
+				};
 				this.editing = ko.observable(false);
 				this.ask_for_help = ko.observable("");
 				this.kinds_of_help = ko.observableArray([]);
+				this.version = ko.observable("");
 			}
 			base_class(StagesVm, {
 				to_JS: function () {
 					return {
+						version: this.version,
 						levels: unwrap_to_hash(this.levels),
 						components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
 						dependency_kinds: unwrap_to_hash(this.kinds),
@@ -253,7 +289,7 @@
 						return null;
 					}
 					var lookup = {
-						levels: create_items(data.levels, LevelVm),
+						levels: create_items(data.levels, LevelVm, { layout: layout, app: self }),
 						components: create_items(data.components, ComponentVm, self),
 						kinds: create_items(data.dependency_kinds, KindVm),
 						skills: create_items(data.skills, SkillVm, { layout: layout, app: self }),
@@ -261,6 +297,9 @@
 					};
 					each_item(lookup.skills, function (skill) {
 						skill.resolve_obj_references(lookup, mark_invalid);
+					});
+					each_item(lookup.levels, function (level) {
+						level.resolve_obj_references(lookup, mark_invalid);
 					});
 					if (is_initial_data) {
 						var do_updates = function (obj) {
@@ -273,6 +312,7 @@
 					}
 					if (!this.valid()) { return; }
 					this.prev_data = data;
+					this.version(data.version);
 					this.skills(hash_to_array(lookup.skills));
 					this.levels(hash_to_array(lookup.levels));
 					this.kinds(hash_to_array(lookup.kinds));
@@ -322,11 +362,20 @@
 		}();
 
 		var LevelVm = function () {
-			function LevelVm(data) {
+			function LevelVm(data, options) {
 				this.name = ko.observable(data.name);
 				this.min = data.min;
 				this.max = data.max;
 				this.color = data.color;
+				var self = this;
+				function format_desc(new_value) {
+					self.description_display(textile(new_value));
+				}
+				this.description_display = ko.observable("");
+				format_desc(data.description);
+				this.description = ko.observable(data.description);
+				this.description.subscribe(format_desc);
+				add_help_display_capability(this, data, options.app);
 				this.label_position = layout.place_level_label(this);
 			}
 			base_class(LevelVm, {
@@ -336,12 +385,20 @@
 						min: unwrap(this.min),
 						max: unwrap(this.max),
 						color: unwrap(this.color),
+						description: unwrap(this.description),
+						help_needed: this.help_unwrap(unwrap),
 					};
+				},
+				resolve_obj_references: function (lookup, mark_invalid) {
+					this.help_resolve_references(lookup, mark_invalid, error_failed_to_find_key, this._id);
 				},
 				do_one_time_data_updates: function () {
 					this.label_position = layout.place_level_label(this);
 				},
 			});
+			function error_failed_to_find_key(type, key, my_key) {
+				return "I could not find the " + type + " " + key + ", as referenced in the level " + my_key + ".";
+			}
 			return LevelVm;
 		}();
 
@@ -406,20 +463,8 @@
 				format_desc(data.description);
 				this.description = ko.observable(data.description);
 				this.description.subscribe(format_desc);
-				this.help_needed = ko.observableArray(data.help_needed);
-				this.help_to_request = ko.computed({
-					read: function () {
-						var values = self.help_needed();
-						var offer = app.ask_for_help();
-						var requests = filter_map(values, function (h) {
-							return (h._id === offer || offer === "ALL") ? h.name() : null;
-						});
-						if (!requests) return null;
-						return requests.join(', ');
-					},
-				});
+				add_help_display_capability(this, data, app);
 				this.name = ko.observable(data.name);
-				this.markdown_error = ko.observable(null);
 				this.x = data.x;
 				this.y = data.y;
 				this.level = data.level;
@@ -449,9 +494,7 @@
 							return link.skill._id;
 						}),
 						description: unwrap(this.description),
-						help_needed: map_elt(unwrap(this.help_needed), function (h) {
-							return h._id;
-						}),
+						help_needed: this.help_unwrap(unwrap),
 						slug: unwrap(this.slug),
 					};
 				},
@@ -474,9 +517,7 @@
 					this.obsoletes = map_elt(this.obsoletes, function (skill_id) {
 						return build_relation(skill_id, "IS_REQUIRED");
 					});
-					this.help_needed(map_elt(this.help_needed(), function(help) {
-						return lookup.kinds_of_help[help] || mark_invalid(error_failed_to_find_key, "help", help, skill_id);
-					}));
+					this.help_resolve_references(lookup, mark_invalid, error_failed_to_find_key, skill_id);
 					if (this.level && (this.x < this.level.min || this.x > this.level.max)) {
 						mark_invalid(error_skill_not_in_range, this.x, this.level, this._id);
 					}
@@ -600,8 +641,8 @@
 			this.place_level_label = function (level) {
 				var left = this.translate_position_x(Math.max(level.min, 0));
 				return {
-					left: left + "px",
-					width: this.translate_position_x(level.max) - left + "px",
+					left: left - 28 + "px",
+					width: this.translate_position_x(level.max) - left + 40 + "px",
 					top: 8 + "px",
 				};
 			};
@@ -856,7 +897,7 @@
 			margin:0.4em 0;
 		}
 
-		.skill_focus_dialog {
+		.focus_dialog {
 			background-color: rgba(0,0,0,0.5);
 			position: fixed;
 			top: 0;
@@ -867,11 +908,11 @@
 			cursor: pointer;
 		}
 
-		.skill_focus_dialog .description_block {
+		.focus_dialog .description_block {
 			position: relative;
 		}
 
-		.skill_focus_dialog .description_block .editor {
+		.focus_dialog .description_block .editor {
 			display: none;
 			position: fixed;
 			right: 0;
@@ -883,16 +924,16 @@
 			background-color: #efefef;
 		}
 
-		.skill_focus_dialog .description_block .editor button {
+		.focus_dialog .description_block .editor button {
 			display: block;
 			margin: 0.5em 3em;
 		}
 
-		.skill_focus_dialog.editing .description_block .editor {
+		.focus_dialog.editing .description_block .editor {
 			display: block;
 		}
 
-		.skill_focus_dialog .description_block .edit_button {
+		.focus_dialog .description_block .edit_button {
 			position: absolute;
 			display: block;
 			right: 0.4em;
@@ -903,15 +944,15 @@
 			background: url('edit.png') no-repeat right top;
 		}
 
-		.skill_focus_dialog .description_block .edit_button:hover {
+		.focus_dialog .description_block .edit_button:hover {
 			background-image: url('edit_hover.png');
 		}
 
-		.skill_focus_dialog.editing .description_block .edit_button {
+		.focus_dialog.editing .description_block .edit_button {
 			display: none;
 		}
 
-		.skill_focus_dialog .contents {
+		.focus_dialog .contents {
 			background-color: #FFF;
 			position: absolute;
 			top: 80px;
@@ -922,7 +963,7 @@
 			overflow-y: scroll;
 		}
 
-		.skill_focus_dialog.editing .contents {
+		.focus_dialog.editing .contents {
 			position: fixed;
 			left: 0;
 			top: 0;
@@ -931,14 +972,21 @@
 			width: 66%;
 		}
 
-		.skill_focus_dialog .contents .name {
+			.focus_dialog .contents .name {
 			font-size: 2.5em;
 			font-style: italic;
 			padding: 0.4em 0 0.4em 2em;
+			}
+
+			.skill.focus_dialog .contents .name {
 			float: left;
 		}
 
-		.skill_focus_dialog .contents .stage {
+		.level.focus_dialog .contents .name {
+			border-bottom: solid #00008b 1px;
+		}
+
+		.focus_dialog .contents .stage {
 			font-size: 1.4em;
 			color: #aaaaaa;
 			padding: 0.1em 2em 0.1em 0;
@@ -946,49 +994,49 @@
 			text-align: right;
 		}
 
-		.skill_focus_dialog .contents .stage span {
+		.focus_dialog .contents .stage span {
 			display: block;
 			margin: 0.3em 0;
 		}
 
-		.skill_focus_dialog .description_block .display {
+		.focus_dialog .description_block .display {
 			font-size: 1.4em;
 			line-height: 1.3;
 			padding: 0.5em 3.0em;
 			text-align: justify;
 		}
 
-		.skill_focus_dialog .description_block .display h1 {
+		.focus_dialog .description_block .display h1 {
 			font-size: 1.8em;
 			margin: 1.8em 0 0.3em;
 			border-top: 1px solid #000000;
 		}
 
-		.skill_focus_dialog .description_block .display h2 {
+		.focus_dialog .description_block .display h2 {
 			font-size: 1.6em;
 			margin: 0.8em 0 0.3em;
 			font-style: italic;
 		}
 
-		.skill_focus_dialog .description_block .display h3 {
+		.focus_dialog .description_block .display h3 {
 			font-size: 1.4em;
 			margin: 0.8em 0 0.3em;
 		}
 
-		.skill_focus_dialog .description_block .display p {
+		.focus_dialog .description_block .display p {
 			margin: 0.4em 0;
 		}
 
-		.skill_focus_dialog .description_block .display ul {
+		.focus_dialog .description_block .display ul {
 			margin: 0.4em 0;
 			list-style: disc outside;
 		}
 
-		.skill_focus_dialog .description_block .display ul li {
+		.focus_dialog .description_block .display ul li {
 			margin: 0 0 0 2.8em;
 		}
 
-		.skill_focus_dialog .description_block .display blockquote {
+		.focus_dialog .description_block .display blockquote {
 			margin: 1em 0 1em 0;
 			color: #aaaaaa;
 			font-style: italic;
@@ -1027,19 +1075,6 @@
 			color: #666;
 		}
 
-		.skill_text.collapsed {
-			width: 86px;
-			overflow: hidden;
-			overflow-wrap: break-word;
-			border-color: #000080;
-		}
-
-		.skill_text.collapsed:hover {
-			border-width: 2px;
-			padding: 6px;
-			cursor: pointer;
-		}
-
 		.help_action {
 			position: absolute;
 			border: 2px solid #bb0000;
@@ -1056,6 +1091,18 @@
 			font-size: 2.8em;
 			line-height: 1.3;
 			text-align: center;
+			padding: 8px;
+			background-color: rgba(255,255,255,0.7);
+			border-radius: 15px;
+			overflow: hidden;
+			overflow-wrap: break-word;
+			border: 0 solid #000080;
+		}
+
+		.level_title:hover {
+			border-width: 2px;
+			padding: 6px;
+			cursor: pointer;
 		}
 
 		.skill_text {
@@ -1067,6 +1114,19 @@
 			background-color: rgba(255,255,255,0.7);
 			border-radius: 15px;
 		}
+
+			.skill_text.collapsed {
+				width: 86px;
+				overflow: hidden;
+				overflow-wrap: break-word;
+				border-color: #000080;
+			}
+
+				.skill_text.collapsed:hover {
+					border-width: 2px;
+					padding: 6px;
+					cursor: pointer;
+				}
 
 		.copyright {
 			margin: 1em 0 0 8em;
@@ -1122,6 +1182,7 @@
 			height: 0.9em;
 			vertical-align: middle;
 		}
+
 		.main_pane, .display_port, html, body {
 			width: 3220px;
 			overflow: visible;
@@ -1138,7 +1199,10 @@
 			<canvas id="skillsCanvas" width="3220" height="1180" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: levels -->
-			<h1 class="level_title" data-bind="style: { top: label_position.top, left: label_position.left, width: label_position.width }, text: name"></h1>
+			<h1 class="level_title" data-bind="style: { top: label_position.top, left: label_position.left, width: label_position.width }, text: name, click: $parent.show_level_details"></h1>
+			<!-- ko if: help_to_request -->
+			<div class="help_action" data-bind="text: help_to_request, style: { top: label_position.top, left: label_position.left }"></div>
+			<!-- /ko -->
 			<!-- /ko -->
 			<!-- ko foreach: skills -->
 			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }, click: $parent.show_skill_details">
@@ -1197,7 +1261,24 @@
 			</div>
 		</div>
 	</div>
-	<div class="skill_focus_dialog hidden" data-bind="css: { hidden: !app.focal_skill(), editing: app.editing() }, click: app.hide_skill_details">
+	<div class="level focus_dialog hidden" data-bind="css: { hidden: !app.focal_level(), editing: app.editing() }, click: app.hide_level_details">
+		<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.focal_level()">
+			<h1 class="name" data-bind="text: name"></h1>
+			<div class="description_block">
+				<div class="edit_button" data-bind="click: function() { $root.app.editing(true); }, clickBubble: false"></div>
+				<div class="display" data-bind="html: description_display"></div>
+				<div class="editor">
+					<button data-bind="click: function() { $root.app.editing(false); }, clickBubble: false">Close</button>
+					<textarea rows="25" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
+					<p class="label">Help needed:</p>
+					<!-- ko foreach: { data: $root.app.kinds_of_help, as: 'help' } -->
+					<p><input type="checkbox" data-bind="checkedValue: help, checked: $parent.help_needed" /> <span data-bind="text: help.name"></span></p>
+					<!-- /ko -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="skill focus_dialog hidden" data-bind="css: { hidden: !app.focal_skill(), editing: app.editing() }, click: app.hide_skill_details">
 		<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.focal_skill()">
 			<h1 class="name" data-bind="text: name"></h1>
 			<p class="stage"><span class="era" data-bind="text: level.name()"></span><span class="purpose" data-bind="text: component.name()"></span></p>
@@ -1219,7 +1300,6 @@
 				<div class="display" data-bind="html: description_display"></div>
 				<div class="editor">
 					<button data-bind="click: function() { $root.app.editing(false); }, clickBubble: false">Close</button>
-					<p class="error_display" data-bind="text: markdown_error"></p>
 					<textarea rows="25" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
 					<p class="label">Help needed:</p>
 					<!-- ko foreach: { data: $root.app.kinds_of_help, as: 'help' } -->
@@ -1229,6 +1309,6 @@
 			</div>
 		</div>
 	</div>
-	<p class="copyright">View: <a href="http://bit.ly/AgileEngineeringStages">http://bit.ly/AgileEngineeringStages</a>, contribute: <a href="https://github.com/arlobelshee/AgileEngineeringFluency">https://github.com/arlobelshee/AgileEngineeringFluency</a>. Version 0.8.0. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
+	<p class="copyright">View: <a href="http://bit.ly/AgileEngineeringStages">http://bit.ly/AgileEngineeringStages</a>, contribute: <a href="https://github.com/arlobelshee/AgileEngineeringFluency">https://github.com/arlobelshee/AgileEngineeringFluency</a>, print (PDF): <a href="http://bit.ly/AgileEngineeringStagesPdf">http://bit.ly/AgileEngineeringStagesPdf</a>. Version <span data-bind="text: app.version"></span>. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
 </body>
 </html>
