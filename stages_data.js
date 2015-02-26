@@ -1,5 +1,6 @@
 ﻿function stages_data() {
 	return {
+		"version": "0.8.1",
 		"levels": {
 			"L_TRADITIONAL": {
 				"name": "Traditional done well",

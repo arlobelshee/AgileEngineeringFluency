@@ -251,7 +251,7 @@
 			base_class(StagesVm, {
 				to_JS: function () {
 					return {
-						version: this.version,
+						version: this.version(),
 						levels: unwrap_to_hash(this.levels),
 						components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
 						dependency_kinds: unwrap_to_hash(this.kinds),
