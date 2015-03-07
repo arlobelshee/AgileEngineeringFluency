@@ -1,13 +1,12 @@
 ﻿function stages_data() {
 	return {
-		"version": "0.8.1",
 		"levels": {
 			"L_TRADITIONAL": {
 				"name": "Traditional done well",
 				"min": -1,
 				"max": 5,
 				"color": "#e0e0ff",
-				"description": "bq>. 1 sentence summary.\n\nh1. What it is\n\n###. TBD\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n",
+				"description": "bq>. Traditional approaches work when they are done well. Even if we now know better ways.\n\nh1. What it is\n\nThe items in this era are about shipping software by working as individuals with central coordination. These practices are rooted in working around the high cost to gain skills.\n\nPeople spend years developing specialties. The whole process is designed to allow people of different specialties to complete tasks that cannot be done with one specialty alone.\n\nThe general approach is to break tasks into parts on the basis of what skills are needed to do each part, do the work separately, and then re-assemble them to create a solution.\n\nThese techniques are well-known and time-tested. They produce nearly optimal results for the context. We can do far better than this, but only after we change the context, by changing the cost of skill acquisition. While we are changing that context, we should also do well in the current context.\n\n###. h2. Recurring key ideas\n\n###. TBD\n\n###. h2. Outcomes of this phase\n\n###. TBD\n\n###. h2. Key proficiencies\n\n###. List of the most important proficiencies in this stage and why.\n\nh1. Adoption\n\n###. Notes on overall approach.\n\n###. h2. Recommended order\n\n###. TBD\n\n###. h2. Resources\n\n###. TBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -249,7 +248,7 @@
 				"component": "V_IMPROVE",
 				"requires": [],
 				"obsoletes": [],
-				"description": "No improvement. May actually be regression, as \"capability decays over time\":http://web.mit.edu/nelsonr/www/Repenning%3DSterman_CMR_su01_.pdf.\n\nbq>. Most companies expect learning to happen outside work. They hire good people then let them rot.\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "No improvement. May actually be regression, as \"capability decays over time\":http://web.mit.edu/nelsonr/www/Repenning%3DSterman_CMR_su01_.pdf.\n\nbq>. Cross-functional teams are the heart of modern software development.\n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
