@@ -349,13 +349,10 @@
 				"y": 5,
 				"level": "L_TRADITIONAL",
 				"component": "V_CODE",
-				"requires": [
-					{
-						"skill": "SK_COWBOY",
-						"kind": "IS_REQUIRED"
-					}
+				"requires": [],
+				"obsoletes": [
+					"SK_COWBOY"
 				],
-				"obsoletes": [],
 				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
@@ -395,13 +392,10 @@
 				"y": 7,
 				"level": "L_TRADITIONAL",
 				"component": "V_IMPROVE",
-				"requires": [
-					{
-						"skill": "SK_STASIS",
-						"kind": "IS_REQUIRED"
-					}
+				"requires": [],
+				"obsoletes": [
+					"SK_STASIS"
 				],
-				"obsoletes": [],
 				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
@@ -441,13 +435,10 @@
 				"y": 9,
 				"level": "L_TRADITIONAL",
 				"component": "V_REQUIREMENTS",
-				"requires": [
-					{
-						"skill": "SK_BUILD_FOR_ME",
-						"kind": "IS_REQUIRED"
-					}
+				"requires": [],
+				"obsoletes": [
+					"SK_BUILD_FOR_ME"
 				],
-				"obsoletes": [],
 				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
@@ -464,13 +455,10 @@
 				"y": 11,
 				"level": "L_TRADITIONAL",
 				"component": "V_SUSTAINABLE",
-				"requires": [
-					{
-						"skill": "SK_DEATH_MARCH",
-						"kind": "IS_REQUIRED"
-					}
+				"requires": [],
+				"obsoletes": [
+					"SK_DEATH_MARCH"
 				],
-				"obsoletes": [],
 				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
@@ -924,7 +912,7 @@
 				"requires": [
 					{
 						"skill": "SK_DEV_CHECK",
-						"kind": "IS_REQUIRED"
+						"kind": "IS_HELPFUL"
 					},
 					{
 						"skill": "SK_SLACK",
@@ -932,7 +920,7 @@
 					},
 					{
 						"skill": "SK_SMALL_SPECS",
-						"kind": "IS_REQUIRED"
+						"kind": "IS_HELPFUL"
 					}
 				],
 				"obsoletes": [],
@@ -953,7 +941,7 @@
 				"requires": [
 					{
 						"skill": "SK_SMALL_SPECS",
-						"kind": "IS_REQUIRED"
+						"kind": "IS_HELPFUL"
 					}
 				],
 				"obsoletes": [],
@@ -1136,7 +1124,7 @@
 				"requires": [
 					{
 						"skill": "SK_DESIGN_PATTERNS",
-						"kind": "IS_REQUIRED"
+						"kind": "IS_HELPFUL"
 					},
 					{
 						"skill": "SK_LOCAL_REFACTORING",
@@ -1362,7 +1350,7 @@
 					},
 					{
 						"skill": "SK_WATERFALL_MILESTONES",
-						"kind": "IS_REQUIRED"
+						"kind": "IS_HELPFUL"
 					}
 				],
 				"obsoletes": [],
@@ -1447,7 +1435,7 @@
 					},
 					{
 						"skill": "SK_SMALL_SPECS",
-						"kind": "IS_REQUIRED"
+						"kind": "IS_HELPFUL"
 					},
 					{
 						"skill": "SK_VERT_DECOMP",
