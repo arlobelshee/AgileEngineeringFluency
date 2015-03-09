@@ -327,7 +327,7 @@
 					this.components(hash_to_array(lookup.components));
 					this.kinds_of_help(hash_to_array(lookup.kinds_of_help));
 					var update_url = function () { self.update_url(); };
-					each_elt(this.components, function (c) {
+					each_elt(this.components(), function (c) {
 						c.show_dependencies.subscribe(update_url);
 					});
 					this.ask_for_help.subscribe(update_url);
