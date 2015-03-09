@@ -3,6 +3,7 @@
 		"levels": {
 			"L_TRADITIONAL": {
 				"name": "Traditional done well",
+				"slug": "traditional",
 				"min": -1,
 				"max": 5,
 				"color": "#e0e0ff",
@@ -17,6 +18,7 @@
 			},
 			"L_TEAM": {
 				"name": "Work as a team",
+				"slug": "team",
 				"min": 6,
 				"max": 8,
 				"color": "#cccccc",
@@ -31,6 +33,7 @@
 			},
 			"L_CORE": {
 				"name": "Core modern engineering",
+				"slug": "modern_core",
 				"min": 9,
 				"max": 11,
 				"color": "#ffe0d0",
@@ -45,6 +48,7 @@
 			},
 			"L_ADAPTIVE": {
 				"name": "Adaptive engineering",
+				"slug": "adaptive",
 				"min": 12,
 				"max": 15,
 				"color": "#d0ffff",
@@ -59,6 +63,7 @@
 			},
 			"L_LEVERAGE": {
 				"name": "Leverage capabilities",
+				"slug": "leverage",
 				"min": 16,
 				"max": 17,
 				"color": "#ffe0ff",
@@ -73,6 +78,7 @@
 			},
 			"L_NO_DEBT": {
 				"name": "Eliminate debt and change the rules",
+				"slug": "no_debt",
 				"min": 18,
 				"max": 20,
 				"color": "#e0ffe0",
@@ -87,6 +93,7 @@
 			},
 			"L_AWESOME": {
 				"name": "Take advantage of being awesome",
+				"slug": "awesome",
 				"min": 21,
 				"max": 26,
 				"color": "#ffffc0",
