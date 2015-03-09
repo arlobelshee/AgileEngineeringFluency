@@ -112,12 +112,13 @@
 		}
 
 		var UrlData = function () {
-			function UrlData(skill, show_all, components, ask_for_help, level) {
+			function UrlData(skill, show_all, components, ask_for_help, level, active_focus_name) {
 				this.skill = skill;
 				this.level = level;
 				this.show_all = show_all;
 				this.components_to_show = components;
 				this.ask_for_help = ask_for_help;
+				this.title = (active_focus_name ? active_focus_name + " | Agile Engineering Stages" : "Agile Engineering Stages");
 			}
 			base_class(UrlData, {
 				to_url: function () {
@@ -163,7 +164,7 @@
 				components = filter_map(components, function (c) {
 					return c.show_dependencies() ? c.slug : null;
 				});
-				return new UrlData((skill ? skill.slug : null), show_all, components, ask_for_help, (level ? level.slug : null));
+				return new UrlData((skill ? skill.slug : null), show_all, components, ask_for_help, (level ? level.slug : null), (skill ? skill.name() : (level ? level.name() : null)));
 			};
 			return UrlData;
 		}();
@@ -272,7 +273,7 @@
 				},
 				update_url: function () {
 					var data = UrlData.from_vms(this.focal_skill(), this.show_all_dependencies(), this.components(), this.ask_for_help(), this.focal_level());
-					History.replaceState(null, null, data.to_url());
+					History.replaceState(null, data.title, data.to_url());
 				},
 				handle_navigation: function () {
 					var url = History.getState().url.split("?")[1];
