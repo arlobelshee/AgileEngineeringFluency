@@ -192,7 +192,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "work_groups"
+				"slug": "work_groups",
+				"is_key": false
 			},
 			"SK_HELP_AD_HOC": {
 				"name": "Ad-hoc helping",
@@ -210,7 +211,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "help_ad_hoc"
+				"slug": "help_ad_hoc",
+				"is_key": false
 			},
 			"SK_COWBOY": {
 				"name": "Cowboy coding",
@@ -228,7 +230,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "cowboy"
+				"slug": "cowboy",
+				"is_key": false
 			},
 			"SK_QA": {
 				"name": "Quality Assurance",
@@ -246,7 +249,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "qa"
+				"slug": "qa",
+				"is_key": false
 			},
 			"SK_STASIS": {
 				"name": "Stasis",
@@ -264,7 +268,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "stasis"
+				"slug": "stasis",
+				"is_key": false
 			},
 			"SK_MANUAL_PACKAGE": {
 				"name": "Manual build and package",
@@ -282,7 +287,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "manual_package"
+				"slug": "manual_package",
+				"is_key": false
 			},
 			"SK_BUILD_FOR_ME": {
 				"name": "Build for myself",
@@ -300,7 +306,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "build_for_me"
+				"slug": "build_for_me",
+				"is_key": false
 			},
 			"SK_DEATH_MARCH": {
 				"name": "Death marches",
@@ -318,7 +325,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "death_march"
+				"slug": "death_march",
+				"is_key": false
 			},
 			"SK_TEAM_LEADS": {
 				"name": "Team leads",
@@ -341,7 +349,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "team_leads"
+				"slug": "team_leads",
+				"is_key": false
 			},
 			"SK_BDUF": {
 				"name": "Big design up front",
@@ -361,7 +370,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "bduf"
+				"slug": "bduf",
+				"is_key": false
 			},
 			"SK_DEV_CHECK": {
 				"name": "Developer Checking",
@@ -384,7 +394,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "dev_check"
+				"slug": "dev_check",
+				"is_key": false
 			},
 			"SK_CENTRAL_PROCESS": {
 				"name": "Centralized improvement",
@@ -404,7 +415,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "central_process"
+				"slug": "central_process",
+				"is_key": false
 			},
 			"SK_AUTO_PACKAGE": {
 				"name": "Automated package",
@@ -427,7 +439,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "auto_package"
+				"slug": "auto_package",
+				"is_key": false
 			},
 			"SK_REQUIREMENTS": {
 				"name": "Product requirements",
@@ -447,7 +460,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "requirements"
+				"slug": "requirements",
+				"is_key": false
 			},
 			"SK_WATERFALL_MILESTONES": {
 				"name": "Waterfall milestones",
@@ -467,7 +481,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "waterfall_milestones"
+				"slug": "waterfall_milestones",
+				"is_key": false
 			},
 			"SK_CODE_REVIEW": {
 				"name": "Code review",
@@ -494,7 +509,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "code_review"
+				"slug": "code_review",
+				"is_key": false
 			},
 			"SK_FORMAL_TRAINING": {
 				"name": "Formal training",
@@ -517,7 +533,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "formal_training"
+				"slug": "formal_training",
+				"is_key": false
 			},
 			"SK_DESIGN_PATTERNS": {
 				"name": "Pattern-oriented design",
@@ -540,7 +557,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "design_patterns"
+				"slug": "design_patterns",
+				"is_key": false
 			},
 			"SK_POST_MORTEM": {
 				"name": "Post-mortems",
@@ -563,7 +581,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "post_mortem"
+				"slug": "post_mortem",
+				"is_key": false
 			},
 			"SK_SLACK": {
 				"name": "Build slack in",
@@ -581,7 +600,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "slack"
+				"slug": "slack",
+				"is_key": false
 			},
 			"SK_PAIR_OCCASIONAL": {
 				"name": "Pairing on hard problems",
@@ -604,7 +624,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "pair_occasional"
+				"slug": "pair_occasional",
+				"is_key": false
 			},
 			"SK_CODE_PREVIEW": {
 				"name": "Code preview",
@@ -627,7 +648,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "code_preview"
+				"slug": "code_preview",
+				"is_key": false
 			},
 			"SK_B_ARCHI_UF": {
 				"name": "Just architecture up front",
@@ -650,7 +672,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "b_archi_uf"
+				"slug": "b_archi_uf",
+				"is_key": false
 			},
 			"SK_SMALL_SPECS": {
 				"name": "Small specs",
@@ -677,7 +700,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "small_specs"
+				"slug": "small_specs",
+				"is_key": false
 			},
 			"SK_PREDICTIVE_WITH_SMELLS": {
 				"name": "Smell-based predictive design",
@@ -700,7 +724,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "predictive_with_smells"
+				"slug": "predictive_with_smells",
+				"is_key": false
 			},
 			"SK_ITERATED_PREDICTIVE": {
 				"name": "Iterated predictive design",
@@ -723,7 +748,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "iterated_predictive"
+				"slug": "iterated_predictive",
+				"is_key": false
 			},
 			"SK_TEAMS": {
 				"name": "Single-assignment teams",
@@ -741,7 +767,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "teams"
+				"slug": "teams",
+				"is_key": false
 			},
 			"SK_VISIBLE_WORK": {
 				"name": "All work visible on one board",
@@ -753,8 +780,12 @@
 					{
 						"skill": "SK_TEAMS",
 						"kind": "IS_REQUIRED"
-					}
-				],
+					},
+				{
+					"skill": "SK_SMALL_SPECS",
+				"kind": "IS_REQUIRED"
+			}
+		],
 				"obsoletes": [],
 				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
@@ -764,7 +795,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "visible_work"
+				"slug": "visible_work",
+				"is_key": false
 			},
 			"SK_CHARTER": {
 				"name": "Team agreement / charter",
@@ -785,7 +817,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "charter"
+				"slug": "charter",
+				"is_key": false
 			},
 			"SK_SIT_TOGETHER": {
 				"name": "Sit together",
@@ -806,7 +839,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "sit_together"
+				"slug": "sit_together",
+				"is_key": false
 			},
 			"SK_RETROS": {
 				"name": "Retrospectives with outcomes",
@@ -835,7 +869,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "retros"
+				"slug": "retros",
+				"is_key": false
 			},
 			"SK_SHARED_CODE": {
 				"name": "Shared task responsibility",
@@ -862,7 +897,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "shared_code"
+				"slug": "shared_code",
+				"is_key": true
 			},
 			"SK_SYSTEMS_THINKING": {
 				"name": "Understand and optimize systems",
@@ -880,7 +916,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "vertical_decomposition"
+				"slug": "vertical_decomposition",
+				"is_key": false
 			},
 			"SK_LOCAL_REFACTORING": {
 				"name": "Local transform-based refactoring",
@@ -901,7 +938,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "local_refactoring"
+				"slug": "local_refactoring",
+				"is_key": false
 			},
 			"SK_AUTO_DEV_TEST": {
 				"name": "Automated developer testing",
@@ -930,7 +968,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "auto_dev_test"
+				"slug": "auto_dev_test",
+				"is_key": false
 			},
 			"SK_VERT_DECOMP": {
 				"name": "Decompose work vertically (by value)",
@@ -953,7 +992,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "vertical_decomposition"
+				"slug": "vertical_decomposition",
+				"is_key": false
 			},
 			"SK_PULL": {
 				"name": "Apply pull systems and queues",
@@ -971,7 +1011,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "pull"
+				"slug": "pull",
+				"is_key": false
 			},
 			"SK_PAIR_REGULARLY": {
 				"name": "Work together to learn",
@@ -1003,7 +1044,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "pair_regularly"
+				"slug": "pair_regularly",
+				"is_key": false
 			},
 			"SK_AUTO_BUILD_VERIFY": {
 				"name": "Automated build verification",
@@ -1030,7 +1072,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "auto_build_verify"
+				"slug": "auto_build_verify",
+				"is_key": false
 			},
 			"SK_LIMIT_WIP": {
 				"name": "Limit WIP to uncover problems",
@@ -1053,7 +1096,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "limit_work_continuous"
+				"slug": "limit_work_continuous",
+				"is_key": false
 			},
 			"SK_ACTION_RETROS": {
 				"name": "Iterative team improvement",
@@ -1082,7 +1126,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "improvement_process"
+				"slug": "improvement_process",
+				"is_key": false
 			},
 			"SK_T_SHAPED": {
 				"name": "T-shaped people",
@@ -1113,7 +1158,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "t_shaped"
+				"slug": "t_shaped",
+				"is_key": false
 			},
 			"SK_DRY": {
 				"name": "Don't repeat yourself",
@@ -1144,7 +1190,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "dry"
+				"slug": "dry",
+				"is_key": false
 			},
 			"SK_GREAT_NAMES": {
 				"name": "Great names",
@@ -1171,7 +1218,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "great_names"
+				"slug": "great_names",
+				"is_key": false
 			},
 			"SK_TEST_FIRST": {
 				"name": "Test as spec",
@@ -1196,7 +1244,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "test_first"
+				"slug": "test_first",
+				"is_key": false
 			},
 			"SK_COLLECTIVE_OWNERSHIP": {
 				"name": "Collective ownership",
@@ -1227,7 +1276,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "collective_ownership"
+				"slug": "collective_ownership",
+				"is_key": false
 			},
 			"SK_READ_BY_REFACTORING": {
 				"name": "Read by Refactoring",
@@ -1254,7 +1304,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "read_by_refactoring"
+				"slug": "read_by_refactoring",
+				"is_key": true
 			},
 			"SK_DONE_DEFINITION": {
 				"name": "Done Definition",
@@ -1281,7 +1332,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "done_definition"
+				"slug": "done_definition",
+				"is_key": false
 			},
 			"SK_LEARN_LOCALLY": {
 				"name": "Learn from local cmm'ty",
@@ -1304,7 +1356,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "learn_locally"
+				"slug": "learn_locally",
+				"is_key": false
 			},
 			"SK_PAIR_PRODUCTION": {
 				"name": "Work together for productivity",
@@ -1335,7 +1388,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "pair_production"
+				"slug": "pair_production",
+				"is_key": false
 			},
 			"SK_WRITE_UNITS": {
 				"name": "Code in units",
@@ -1362,7 +1416,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "write_units"
+				"slug": "write_units",
+				"is_key": false
 			},
 			"SK_ITERATION": {
 				"name": "Do things in iterations",
@@ -1389,7 +1444,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "iteration"
+				"slug": "iteration",
+				"is_key": false
 			},
 			"SK_PAIR_ALWAYS": {
 				"name": "Work together for discipline",
@@ -1412,7 +1468,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "pair_always"
+				"slug": "pair_always",
+				"is_key": false
 			},
 			"SK_TEST_UNITS": {
 				"name": "Test units",
@@ -1443,7 +1500,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "test_units"
+				"slug": "test_units",
+				"is_key": false
 			},
 			"SK_STORIES": {
 				"name": "Stories",
@@ -1478,7 +1536,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "stories"
+				"slug": "stories",
+				"is_key": false
 			},
 			"SK_BUG_FREE_NEW_CODE": {
 				"name": "No bugs in new code",
@@ -1505,7 +1564,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "bug_free_new_code"
+				"slug": "bug_free_new_code",
+				"is_key": false
 			},
 			"SK_REFLECTIVE_DESIGN": {
 				"name": "Reflective design",
@@ -1544,7 +1604,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "reflective_design"
+				"slug": "reflective_design",
+				"is_key": false
 			},
 			"SK_TRACK_CAPACITY": {
 				"name": "Track progress against plan",
@@ -1571,7 +1632,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "track_capacity"
+				"slug": "track_capacity",
+				"is_key": false
 			},
 			"SK_LEARN_ALL": {
 				"name": "Learn from everyone",
@@ -1594,7 +1656,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "learn_all"
+				"slug": "learn_all",
+				"is_key": false
 			},
 			"SK_PROCESS_EXPERIMENTS": {
 				"name": "Process experiments",
@@ -1621,7 +1684,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "process_experiments"
+				"slug": "process_experiments",
+				"is_key": false
 			},
 			"SK_LEARN_VS_PROVE": {
 				"name": "Learning / Proving Distinction",
@@ -1648,7 +1712,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "learn_vs_prove"
+				"slug": "learn_vs_prove",
+				"is_key": false
 			},
 			"SK_AUTO_DEPLOY": {
 				"name": "Automated deploy",
@@ -1671,7 +1736,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "auto_deploy"
+				"slug": "auto_deploy",
+				"is_key": false
 			},
 			"SK_STORY_CLUSTERING": {
 				"name": "Story clustering",
@@ -1694,7 +1760,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "story_clustering"
+				"slug": "story_clustering",
+				"is_key": false
 			},
 			"SK_ADAPTIVE_PLANNING": {
 				"name": "Iterative planning",
@@ -1725,7 +1792,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "adaptive_planning"
+				"slug": "adaptive_planning",
+				"is_key": false
 			},
 			"SK_RELATIVE_ESTIMATES": {
 				"name": "Relative based estimation",
@@ -1748,7 +1816,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "relative_estimates"
+				"slug": "relative_estimates",
+				"is_key": false
 			},
 			"SK_LIMIT_WORK_TO_CAPACITY": {
 				"name": "Limit work to estimated capacity",
@@ -1779,7 +1848,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "limit_work_to_capacity"
+				"slug": "limit_work_to_capacity",
+				"is_key": false
 			},
 			"SK_CONTINUOUS_PLAN": {
 				"name": "Continuous-form planning",
@@ -1802,7 +1872,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "continuous_plan"
+				"slug": "continuous_plan",
+				"is_key": false
 			},
 			"SK_SESSION_MANUAL_TESTING": {
 				"name": "Session-based manual testing",
@@ -1829,7 +1900,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "session_manual_testing"
+				"slug": "session_manual_testing",
+				"is_key": false
 			},
 			"SK_ROLLING_WAVE_PLANNING": {
 				"name": "Rolling-wave planning",
@@ -1856,7 +1928,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "rolling_wave_planning"
+				"slug": "rolling_wave_planning",
+				"is_key": false
 			},
 			"SK_BUG_RATCHET": {
 				"name": "Bugs decrease over time",
@@ -1887,7 +1960,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "bug_ratchet"
+				"slug": "bug_ratchet",
+				"is_key": false
 			},
 			"SK_IMPROVING_PROOF": {
 				"name": "Improving levels of proof",
@@ -1910,7 +1984,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "improving_proof"
+				"slug": "improving_proof",
+				"is_key": false
 			},
 			"SK_TEST_LEGACY": {
 				"name": "Legacy code under test",
@@ -1933,7 +2008,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "test_legacy"
+				"slug": "test_legacy",
+				"is_key": false
 			},
 			"SK_RGR": {
 				"name": "Rapid coding inner loop (R-G-R)",
@@ -1968,7 +2044,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "rgr"
+				"slug": "rgr",
+				"is_key": false
 			},
 			"SK_AUTO_DEPLOY_VERIFY": {
 				"name": "Automated deploy verification",
@@ -1991,7 +2068,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "auto_deploy_verify"
+				"slug": "auto_deploy_verify",
+				"is_key": false
 			},
 			"SK_VERIFY_EXAMPLES": {
 				"name": "Verify examples (ATDD)",
@@ -2018,7 +2096,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "verify_examples"
+				"slug": "verify_examples",
+				"is_key": false
 			},
 			"SK_DATA_DRIVEN_CAPACITY": {
 				"name": "Use data to determine capacity",
@@ -2045,7 +2124,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "data_driven_capacity"
+				"slug": "data_driven_capacity",
+				"is_key": false
 			},
 			"SK_FIX_LEGACY": {
 				"name": "Pay down technical debt",
@@ -2088,7 +2168,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "fix_legacy"
+				"slug": "fix_legacy",
+				"is_key": false
 			},
 			"SK_SIMUL_PHASES": {
 				"name": "Simultaneous Phases",
@@ -2119,7 +2200,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "simul_phases"
+				"slug": "simul_phases",
+				"is_key": false
 			},
 			"SK_CLEAN_CODE": {
 				"name": "Clean code",
@@ -2142,7 +2224,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "clean_code"
+				"slug": "clean_code",
+				"is_key": false
 			},
 			"SK_SHORT_TERM_RELIABILITY": {
 				"name": "Reliable short-term commitments",
@@ -2173,7 +2256,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "reliability"
+				"slug": "reliability",
+				"is_key": false
 			},
 			"SK_M_SHAPED": {
 				"name": "M-shaped people",
@@ -2196,7 +2280,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "m_shaped"
+				"slug": "m_shaped",
+				"is_key": false
 			},
 			"SK_EVO_DESIGN": {
 				"name": "Evolutionary Design",
@@ -2231,7 +2316,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "evo_design"
+				"slug": "evo_design",
+				"is_key": false
 			},
 			"SK_FEATURE_ISOLATION": {
 				"name": "Feature isolation",
@@ -2254,7 +2340,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "feature_isolation"
+				"slug": "feature_isolation",
+				"is_key": false
 			},
 			"SK_AUTO_ROLLBACK": {
 				"name": "Automated rollback",
@@ -2277,7 +2364,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "auto_rollback"
+				"slug": "auto_rollback",
+				"is_key": false
 			},
 			"SK_HYPOTHESIS_STORIES": {
 				"name": "Hypothesis stories",
@@ -2300,7 +2388,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "hypothesis_stories"
+				"slug": "hypothesis_stories",
+				"is_key": false
 			},
 			"SK_EXPERIENCE_FOCUS": {
 				"name": "Experience focus",
@@ -2323,7 +2412,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "experience_focus"
+				"slug": "experience_focus",
+				"is_key": false
 			},
 			"SK_PROJECTIONS": {
 				"name": "Reliable long-range planning",
@@ -2354,7 +2444,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "projections"
+				"slug": "projections",
+				"is_key": false
 			},
 			"SK_UNIVERSAL_SPECIALIST": {
 				"name": "Full-product specialization",
@@ -2377,7 +2468,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "universal_specialist"
+				"slug": "universal_specialist",
+				"is_key": false
 			},
 			"SK_NO_BUGS": {
 				"name": "#BugsZero",
@@ -2408,7 +2500,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "bugs_zero"
+				"slug": "bugs_zero",
+				"is_key": false
 			},
 			"SK_TELL_VS_ASK": {
 				"name": "Universal CQRS",
@@ -2431,7 +2524,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "tell_vs_ask"
+				"slug": "tell_vs_ask",
+				"is_key": false
 			},
 			"SK_WHOLE_TEAM_BUSINESS": {
 				"name": "Whole team business innovation",
@@ -2458,7 +2552,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "whole_team_business"
+				"slug": "whole_team_business",
+				"is_key": false
 			},
 			"SK_SMOOTH_FLOW": {
 				"name": "Predictable, smooth flow",
@@ -2489,7 +2584,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "smooth_flow"
+				"slug": "smooth_flow",
+				"is_key": false
 			},
 			"SK_YAGNI": {
 				"name": "YAGNI and simplest thing",
@@ -2512,7 +2608,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "yagni"
+				"slug": "yagni",
+				"is_key": false
 			},
 			"SK_CONT_SHIP": {
 				"name": "Continuous delivery",
@@ -2539,7 +2636,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "cont_ship"
+				"slug": "cont_ship",
+				"is_key": false
 			},
 			"SK_TIP": {
 				"name": "Testing in production",
@@ -2566,7 +2664,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "tip"
+				"slug": "tip",
+				"is_key": false
 			},
 			"SK_SINGLE_PIECE_FLOW": {
 				"name": "Single piece flow",
@@ -2589,7 +2688,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "single_piece_flow"
+				"slug": "single_piece_flow",
+				"is_key": false
 			},
 			"SK_PROCESS_INNOVATION": {
 				"name": "Useful process innovation",
@@ -2616,7 +2716,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "process_innovation"
+				"slug": "process_innovation",
+				"is_key": false
 			},
 			"SK_RADICAL_COLLABORATE": {
 				"name": "Radical collaboration",
@@ -2643,7 +2744,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "radical_collaborate"
+				"slug": "radical_collaborate",
+				"is_key": false
 			},
 			"SK_TDDESIGN": {
 				"name": "Test-driven design",
@@ -2674,7 +2776,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "tddesign"
+				"slug": "tddesign",
+				"is_key": false
 			},
 			"SK_CONT_DEPLOY": {
 				"name": "Continuous deployment",
@@ -2705,7 +2808,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "cont_deploy"
+				"slug": "cont_deploy",
+				"is_key": false
 			},
 			"SK_METRICS_FOCUS": {
 				"name": "Business metric focus",
@@ -2732,7 +2836,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "metrics_focus"
+				"slug": "metrics_focus",
+				"is_key": false
 			},
 			"SK_LISTEN_TO_CODE": {
 				"name": "Code whispering",
@@ -2759,7 +2864,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "listen_to_code"
+				"slug": "listen_to_code",
+				"is_key": false
 			},
 			"SK_LEAN_STARTUP": {
 				"name": "Lean startup / hypothesis-driven development",
@@ -2790,7 +2896,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "lean_startup"
+				"slug": "lean_startup",
+				"is_key": false
 			}
 		}
 	};
