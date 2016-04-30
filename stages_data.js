@@ -1,6 +1,6 @@
 ﻿function stages_data() {
 	return {
-		"version": "0.8.2",
+		"version": "0.9.0",
 		"levels": {
 			"L_TRADITIONAL": {
 				"name": "Traditional done well",
@@ -751,6 +751,30 @@
 				"slug": "iterated_predictive",
 				"is_key": false
 			},
+			"SK_SMALL_BATCHES": {
+				"name": "Milestones and iterative specs",
+				"x": 5,
+				"y": 9,
+				"level": "L_TRADITIONAL",
+				"component": "V_REQUIREMENTS",
+				"requires": [
+					{
+						"skill": "SK_SMALL_SPECS",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"obsoletes": [],
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "small_specs",
+				"is_key": true
+			},
 			"SK_TEAMS": {
 				"name": "Single-assignment teams",
 				"x": 6,
@@ -761,14 +785,14 @@
 				"obsoletes": [
 					"SK_WORK_GROUPS"
 				],
-				"description": "bq>. Cross-functional teams are the heart of modern software development.\n\nh1. What this is\n\nModern software development is done by teams, not by groups of individuals. A well-functioning team is more flexible and has more capacity than the sum of the individuals who make it up.\n\nThe critical elements are:\n\n* **Single assignment:** each individual is assigned to exactly one team at a time. No one is assigned to multiple teams; no one works as a loner (without a team).\n* **Cross-functional:** the team contains all skills, disciplines, or other specialties that are needed to deliver customer value to the marketplace. It can take an idea from concept to cash. Most such efforts do not require coordinating with other teams (or individuals).\n* **8 people:** 6-10 are OK. Numbers larger than this break trust formation (exceeds human family-scale trust boundary). Smaller numbers make it hard to cross-train (not enough heterogeneity).\n\nThere are 2 known-good techniques for forming these teams. Other approaches may work, but these are the ones that have been tested in hundreds of industries.\n\n**Durable teams**. Add:\n\n* **Person-centric identity:** the team is a set of people that takes on work / projects. Identity is defined by the set of people on the team. It likely has a name like \"team Bluefish\" not like \"the Security team\" (a definition based on technical component) or \"the Pay by card project team\" (team identity based on project.\n* **Durable:** when a project finishes, the same team takes on a new project--which may be entirely unrelated. Team membership does not change very often; the team should commonly go years between any changes of members.\n\n**Rotational teams**. Add:\n\n* **Part of a 100-person team:** use this when you want people to associate to the 100-person group and are willing to lose some capacity in order to gain uniformity / consistency. The larger team should not exceed about 150 people, or tribe-scale identity will not form.\n* **Constant rotation:** all teams should constantly be forming and dissolving. Rotate in 2-3 people per week, or create teams for 2-10 weeks out of a larger pool.\n* **Strong culture of fun:** the whole point of this model is to enable tribe identity. So make sure that the tribe plays together--successful teams with the rotational model play together as part of work.\n\nh2. How it helps\n\nThe team collaborates and reinforces each other.\n\n* The team can make a decision and then everyone helps everyone else hold to it.\n* The team can share skills.\n* The team members help each other and maximize overall throughput, rather than attempting to maximize their individual efficiency.\n\nh2. Mindshifts\n\nFor managers:\n\n* Humans are not resources.\n* Stop allocating specialists to projects.\n\nFor doers:\n\nNone. Support your manager.\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. Cross-functional teams are the heart of modern software development.\n\nh1. What this is\n\nModern software development is done by teams, not by groups of individuals. A well-functioning team is more flexible and has more capacity than the sum of the individuals who make it up.\n\nThe critical elements are:\n\n* **Single assignment:** each individual is assigned to exactly one team at a time. No one is assigned to multiple teams; no one works as a loner (without a team).\n* **Cross-functional:** the team contains all skills, disciplines, or other specialties that are needed to deliver customer value to the marketplace. It can take an idea from concept to cash. Most such efforts do not require coordinating with other teams (or individuals).\n* **8 people:** 6-10 are OK. Numbers larger than this break trust formation (exceeds human family-scale trust boundary). Smaller numbers make it hard to cross-train (not enough heterogeneity).\n* **Shared purpose:** succeed or fail together. There is no way for one person on the team to succeed while others lose. Whether they work together or separately, they have one purpose.\n\nThere are 2 known-good techniques for forming these teams. Other approaches may work, but these are the ones that have been tested in hundreds of industries.\n\n**Durable teams**. Add:\n\n* **Person-centric identity:** the team is a set of people that takes on work / projects. Identity is defined by the set of people on the team. It likely has a name like \"team Bluefish\" not like \"the Security team\" (a definition based on technical component) or \"the Pay by card project team\" (team identity based on project.\n* **Durable:** when a project finishes, the same team takes on a new project--which may be entirely unrelated. Team membership does not change very often; the team should commonly go years between any changes of members.\n\n**Rotational teams**. Add:\n\n* **Part of a 100-person team:** use this when you want people to associate to the 100-person group and are willing to lose some capacity in order to gain uniformity / consistency. The larger team should not exceed about 150 people, or tribe-scale identity will not form.\n* **Constant rotation:** all teams should constantly be forming and dissolving. Rotate in 2-3 people per week, or create teams for 2-10 weeks out of a larger pool.\n* **Strong culture of fun:** the whole point of this model is to enable tribe identity. So make sure that the tribe plays together--successful teams with the rotational model play together as part of work.\n\nMost companies are organized such that real teams can't form. They contain many things called \"teams,\" such as the set of people reporting to one manager or a \"virtual team\" composed of people who get together part-time to done one thing while all have primary responsibility to do something else with a different set of people. Yet these are each missing one of the key traits that would allow a team to form.\n\nh2. How it helps\n\nThe team collaborates and reinforces each other.\n\n* The team can make a decision and then everyone helps everyone else hold to it.\n* The team can share skills.\n* The team members help each other and maximize overall throughput, rather than attempting to maximize their individual efficiency.\n\nh2. Mindshifts\n\nFor managers:\n\n* Humans are not resources.\n* Stop allocating specialists to projects.\n\nFor doers:\n\nNone. Support your manager.\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_REQS",
 					"H_ADV",
 					"H_REVIEW"
 				],
 				"slug": "teams",
-				"is_key": false
+				"is_key": true
 			},
 			"SK_VISIBLE_WORK": {
 				"name": "All work visible on one board",
@@ -781,11 +805,11 @@
 						"skill": "SK_TEAMS",
 						"kind": "IS_REQUIRED"
 					},
-				{
-					"skill": "SK_SMALL_SPECS",
-				"kind": "IS_REQUIRED"
-			}
-		],
+					{
+						"skill": "SK_SMALL_BATCHES",
+						"kind": "IS_REQUIRED"
+					}
+				],
 				"obsoletes": [],
 				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
@@ -889,7 +913,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. No task is owned by an individual.\n\nh1. What this is\n\nAny task which produces our work output is shared. If it succeeds we all succeed. If it fails we all fail. No one person on the team will be judged differently than the team overall.\n\nThis is full team accountability, not a lack of accountability. If a task does not get done, then all of us have failed. We all take the full measure of blame.\n\nWe therefore have some way of tracking and viewing all of the work.\n\nh2. How it helps\n\nBy sharing responsibility for the outcome of all tasks, the team can now find more effective and creative ways to get the work done.\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. We are accountable as a team. No task is owned by an individual.\n\nh1. What this is\n\nAny task which produces our work output is shared. If it succeeds we all succeed. If it fails we all fail. No one person on the team will be judged differently than the team overall.\n\nThis is full team accountability, not a lack of accountability. If a task does not get done, then all of us have failed. We all take the full measure of blame.\n\nWe therefore have some way of tracking and viewing all of the work.\n\nh2. How it helps\n\nBy sharing responsibility for the outcome of all tasks, the team can now find more effective and creative ways to get the work done.\n\nh2. Mindshifts\n\nThe largest mindshift is away from individual accountability.\n\nThe prevalence of individual accountability arises because of our misuse of the word \"team\". Once we have single-assignment, small teams, we create the opportunity to move away from individual accountability. Here's how it works.\n\nMost companies are organized such that real teams can't form. Therefore they are populated by work groups which then get called teams, because few people have ever actually seen a real team. One of the biggest differences between a work group and a team is how they take on work.\n\n* Members of a work group succeed or fail independently. It is in each person's best interests to complete their own tasks, even if someone else won't. Individuals avoid taking on group work. Therefore, anything assigned to the group as a whole will simply be ignored by everyone in the group.\n\n* Members of a team succeed or fail together. It is in each person's best interests to ensure that all the most important work is done and the team overall makes as good of progress as is possible. Individuals seek opportunities to help the team succeed, taking on whatever work will most help attain the shared end. Therefore, anything assigned to the group as a whole will get the full attention of everyone on the team and anything assigned to an individual will be seen as a distraction from the important work of the team.\n\nAs groups of people shift from being work groups to being teams, they need to shift how they assign work. All important work must be assigned to the team as a whole, or it will be a distraction. However, tasks could still be executed individually. The responsibility is at the team level, and the team can change who executes a task, regardless of the number of individuals involved in actual execution.\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -939,7 +963,7 @@
 					"H_REVIEW"
 				],
 				"slug": "local_refactoring",
-				"is_key": false
+				"is_key": true
 			},
 			"SK_AUTO_DEV_TEST": {
 				"name": "Automated developer testing",
@@ -979,7 +1003,7 @@
 				"component": "V_REQUIREMENTS",
 				"requires": [
 					{
-						"skill": "SK_SMALL_SPECS",
+						"skill": "SK_SMALL_BATCHES",
 						"kind": "IS_HELPFUL"
 					}
 				],
@@ -1469,7 +1493,7 @@
 					"H_REVIEW"
 				],
 				"slug": "pair_always",
-				"is_key": false
+				"is_key": true
 			},
 			"SK_TEST_UNITS": {
 				"name": "Test units",
@@ -1519,7 +1543,7 @@
 						"kind": "IS_HELPFUL"
 					},
 					{
-						"skill": "SK_SMALL_SPECS",
+						"skill": "SK_SMALL_BATCHES",
 						"kind": "IS_HELPFUL"
 					},
 					{
@@ -1540,7 +1564,7 @@
 				"is_key": false
 			},
 			"SK_BUG_FREE_NEW_CODE": {
-				"name": "No bugs in new code",
+				"name": "No new bugs in new code",
 				"x": 15,
 				"y": 1,
 				"level": "L_ADAPTIVE",
@@ -1565,7 +1589,7 @@
 					"H_REVIEW"
 				],
 				"slug": "bug_free_new_code",
-				"is_key": false
+				"is_key": true
 			},
 			"SK_REFLECTIVE_DESIGN": {
 				"name": "Reflective design",
@@ -1771,7 +1795,7 @@
 				"component": "V_REQUIREMENTS",
 				"requires": [
 					{
-						"skill": "SK_SMALL_SPECS",
+						"skill": "SK_SMALL_BATCHES",
 						"kind": "IS_REQUIRED"
 					},
 					{
@@ -2169,7 +2193,7 @@
 					"H_REVIEW"
 				],
 				"slug": "fix_legacy",
-				"is_key": false
+				"is_key": true
 			},
 			"SK_SIMUL_PHASES": {
 				"name": "Simultaneous Phases",
@@ -2201,7 +2225,7 @@
 					"H_REVIEW"
 				],
 				"slug": "simul_phases",
-				"is_key": false
+				"is_key": true
 			},
 			"SK_CLEAN_CODE": {
 				"name": "Clean code",
@@ -2365,7 +2389,7 @@
 					"H_REVIEW"
 				],
 				"slug": "auto_rollback",
-				"is_key": false
+				"is_key": true
 			},
 			"SK_HYPOTHESIS_STORIES": {
 				"name": "Hypothesis stories",
@@ -2389,7 +2413,7 @@
 					"H_REVIEW"
 				],
 				"slug": "hypothesis_stories",
-				"is_key": false
+				"is_key": true
 			},
 			"SK_EXPERIENCE_FOCUS": {
 				"name": "Experience focus",
@@ -2501,7 +2525,7 @@
 					"H_REVIEW"
 				],
 				"slug": "bugs_zero",
-				"is_key": false
+				"is_key": true
 			},
 			"SK_TELL_VS_ASK": {
 				"name": "Universal CQRS",
@@ -2897,7 +2921,7 @@
 					"H_REVIEW"
 				],
 				"slug": "lean_startup",
-				"is_key": false
+				"is_key": true
 			}
 		}
 	};
