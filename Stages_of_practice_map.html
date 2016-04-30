@@ -111,6 +111,11 @@
 			no_err.call(this, result);
 		}
 
+		var format_for_display = function format_for_display(markup) {
+			var result = textile(markup);
+			return result;
+		};
+
 		var UrlData = function () {
 			function UrlData(skill, show_all, components, ask_for_help, level, active_focus_name) {
 				this.skill = skill;
@@ -374,7 +379,7 @@
 			function LevelVm(data, options) {
 				var self = this;
 				function format_desc(new_value) {
-					self.description_display(textile(new_value));
+					self.description_display(format_for_display(new_value));
 				}
 				this.name = ko.observable(data.name);
 				this.min = data.min;
@@ -468,7 +473,7 @@
 				var app = options.app;
 				var self = this;
 				function format_desc(new_value) {
-					self.description_display(textile(new_value));
+					self.description_display(format_for_display(new_value));
 				}
 				this.description_display = ko.observable("");
 				format_desc(data.description);
