@@ -1,6 +1,6 @@
 ﻿function stages_data() {
 	return {
-		"version": "0.8.2",
+		"version": "0.9.0",
 		"levels": {
 			"L_TRADITIONAL": {
 				"name": "Traditional done well",
@@ -192,7 +192,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "work_groups"
+				"slug": "work_groups",
+				"is_key": false
 			},
 			"SK_HELP_AD_HOC": {
 				"name": "Ad-hoc helping",
@@ -210,7 +211,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "help_ad_hoc"
+				"slug": "help_ad_hoc",
+				"is_key": false
 			},
 			"SK_COWBOY": {
 				"name": "Cowboy coding",
@@ -228,7 +230,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "cowboy"
+				"slug": "cowboy",
+				"is_key": false
 			},
 			"SK_QA": {
 				"name": "Quality Assurance",
@@ -246,7 +249,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "qa"
+				"slug": "qa",
+				"is_key": false
 			},
 			"SK_STASIS": {
 				"name": "Stasis",
@@ -264,7 +268,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "stasis"
+				"slug": "stasis",
+				"is_key": false
 			},
 			"SK_MANUAL_PACKAGE": {
 				"name": "Manual build and package",
@@ -282,7 +287,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "manual_package"
+				"slug": "manual_package",
+				"is_key": false
 			},
 			"SK_BUILD_FOR_ME": {
 				"name": "Build for myself",
@@ -300,7 +306,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "build_for_me"
+				"slug": "build_for_me",
+				"is_key": false
 			},
 			"SK_DEATH_MARCH": {
 				"name": "Death marches",
@@ -318,7 +325,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "death_march"
+				"slug": "death_march",
+				"is_key": false
 			},
 			"SK_TEAM_LEADS": {
 				"name": "Team leads",
@@ -341,7 +349,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "team_leads"
+				"slug": "team_leads",
+				"is_key": false
 			},
 			"SK_BDUF": {
 				"name": "Big design up front",
@@ -361,7 +370,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "bduf"
+				"slug": "bduf",
+				"is_key": false
 			},
 			"SK_DEV_CHECK": {
 				"name": "Developer Checking",
@@ -384,7 +394,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "dev_check"
+				"slug": "dev_check",
+				"is_key": false
 			},
 			"SK_CENTRAL_PROCESS": {
 				"name": "Centralized improvement",
@@ -404,7 +415,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "central_process"
+				"slug": "central_process",
+				"is_key": false
 			},
 			"SK_AUTO_PACKAGE": {
 				"name": "Automated package",
@@ -427,7 +439,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "auto_package"
+				"slug": "auto_package",
+				"is_key": false
 			},
 			"SK_REQUIREMENTS": {
 				"name": "Product requirements",
@@ -447,7 +460,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "requirements"
+				"slug": "requirements",
+				"is_key": false
 			},
 			"SK_WATERFALL_MILESTONES": {
 				"name": "Waterfall milestones",
@@ -467,7 +481,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "waterfall_milestones"
+				"slug": "waterfall_milestones",
+				"is_key": false
 			},
 			"SK_CODE_REVIEW": {
 				"name": "Code review",
@@ -494,7 +509,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "code_review"
+				"slug": "code_review",
+				"is_key": false
 			},
 			"SK_FORMAL_TRAINING": {
 				"name": "Formal training",
@@ -517,7 +533,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "formal_training"
+				"slug": "formal_training",
+				"is_key": false
 			},
 			"SK_DESIGN_PATTERNS": {
 				"name": "Pattern-oriented design",
@@ -540,7 +557,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "design_patterns"
+				"slug": "design_patterns",
+				"is_key": false
 			},
 			"SK_POST_MORTEM": {
 				"name": "Post-mortems",
@@ -563,7 +581,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "post_mortem"
+				"slug": "post_mortem",
+				"is_key": false
 			},
 			"SK_SLACK": {
 				"name": "Build slack in",
@@ -581,7 +600,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "slack"
+				"slug": "slack",
+				"is_key": false
 			},
 			"SK_PAIR_OCCASIONAL": {
 				"name": "Pairing on hard problems",
@@ -604,7 +624,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "pair_occasional"
+				"slug": "pair_occasional",
+				"is_key": false
 			},
 			"SK_CODE_PREVIEW": {
 				"name": "Code preview",
@@ -627,7 +648,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "code_preview"
+				"slug": "code_preview",
+				"is_key": false
 			},
 			"SK_B_ARCHI_UF": {
 				"name": "Just architecture up front",
@@ -650,7 +672,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "b_archi_uf"
+				"slug": "b_archi_uf",
+				"is_key": false
 			},
 			"SK_SMALL_SPECS": {
 				"name": "Small specs",
@@ -677,7 +700,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "small_specs"
+				"slug": "small_specs",
+				"is_key": false
 			},
 			"SK_PREDICTIVE_WITH_SMELLS": {
 				"name": "Smell-based predictive design",
@@ -700,7 +724,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "predictive_with_smells"
+				"slug": "predictive_with_smells",
+				"is_key": false
 			},
 			"SK_ITERATED_PREDICTIVE": {
 				"name": "Iterated predictive design",
@@ -723,7 +748,32 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "iterated_predictive"
+				"slug": "iterated_predictive",
+				"is_key": false
+			},
+			"SK_SMALL_BATCHES": {
+				"name": "Milestones and iterative specs",
+				"x": 5,
+				"y": 9,
+				"level": "L_TRADITIONAL",
+				"component": "V_REQUIREMENTS",
+				"requires": [
+					{
+						"skill": "SK_SMALL_SPECS",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"obsoletes": [],
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "small_specs",
+				"is_key": true
 			},
 			"SK_TEAMS": {
 				"name": "Single-assignment teams",
@@ -735,13 +785,14 @@
 				"obsoletes": [
 					"SK_WORK_GROUPS"
 				],
-				"description": "bq>. Cross-functional teams are the heart of modern software development.\n\nh1. What this is\n\nModern software development is done by teams, not by groups of individuals. A well-functioning team is more flexible and has more capacity than the sum of the individuals who make it up.\n\nThe critical elements are:\n\n* **Single assignment:** each individual is assigned to exactly one team at a time. No one is assigned to multiple teams; no one works as a loner (without a team).\n* **Cross-functional:** the team contains all skills, disciplines, or other specialties that are needed to deliver customer value to the marketplace. It can take an idea from concept to cash. Most such efforts do not require coordinating with other teams (or individuals).\n* **8 people:** 6-10 are OK. Numbers larger than this break trust formation (exceeds human family-scale trust boundary). Smaller numbers make it hard to cross-train (not enough heterogeneity).\n\nThere are 2 known-good techniques for forming these teams. Other approaches may work, but these are the ones that have been tested in hundreds of industries.\n\n**Durable teams**. Add:\n\n* **Person-centric identity:** the team is a set of people that takes on work / projects. Identity is defined by the set of people on the team. It likely has a name like \"team Bluefish\" not like \"the Security team\" (a definition based on technical component) or \"the Pay by card project team\" (team identity based on project.\n* **Durable:** when a project finishes, the same team takes on a new project--which may be entirely unrelated. Team membership does not change very often; the team should commonly go years between any changes of members.\n\n**Rotational teams**. Add:\n\n* **Part of a 100-person team:** use this when you want people to associate to the 100-person group and are willing to lose some capacity in order to gain uniformity / consistency. The larger team should not exceed about 150 people, or tribe-scale identity will not form.\n* **Constant rotation:** all teams should constantly be forming and dissolving. Rotate in 2-3 people per week, or create teams for 2-10 weeks out of a larger pool.\n* **Strong culture of fun:** the whole point of this model is to enable tribe identity. So make sure that the tribe plays together--successful teams with the rotational model play together as part of work.\n\nh2. How it helps\n\nThe team collaborates and reinforces each other.\n\n* The team can make a decision and then everyone helps everyone else hold to it.\n* The team can share skills.\n* The team members help each other and maximize overall throughput, rather than attempting to maximize their individual efficiency.\n\nh2. Mindshifts\n\nFor managers:\n\n* Humans are not resources.\n* Stop allocating specialists to projects.\n\nFor doers:\n\nNone. Support your manager.\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. Cross-functional teams are the heart of modern software development.\n\nh1. What this is\n\nModern software development is done by teams, not by groups of individuals. A well-functioning team is more flexible and has more capacity than the sum of the individuals who make it up.\n\nThe critical elements are:\n\n* **Single assignment:** each individual is assigned to exactly one team at a time. No one is assigned to multiple teams; no one works as a loner (without a team).\n* **Cross-functional:** the team contains all skills, disciplines, or other specialties that are needed to deliver customer value to the marketplace. It can take an idea from concept to cash. Most such efforts do not require coordinating with other teams (or individuals).\n* **8 people:** 6-10 are OK. Numbers larger than this break trust formation (exceeds human family-scale trust boundary). Smaller numbers make it hard to cross-train (not enough heterogeneity).\n* **Shared purpose:** succeed or fail together. There is no way for one person on the team to succeed while others lose. Whether they work together or separately, they have one purpose.\n\nThere are 2 known-good techniques for forming these teams. Other approaches may work, but these are the ones that have been tested in hundreds of industries.\n\n**Durable teams**. Add:\n\n* **Person-centric identity:** the team is a set of people that takes on work / projects. Identity is defined by the set of people on the team. It likely has a name like \"team Bluefish\" not like \"the Security team\" (a definition based on technical component) or \"the Pay by card project team\" (team identity based on project.\n* **Durable:** when a project finishes, the same team takes on a new project--which may be entirely unrelated. Team membership does not change very often; the team should commonly go years between any changes of members.\n\n**Rotational teams**. Add:\n\n* **Part of a 100-person team:** use this when you want people to associate to the 100-person group and are willing to lose some capacity in order to gain uniformity / consistency. The larger team should not exceed about 150 people, or tribe-scale identity will not form.\n* **Constant rotation:** all teams should constantly be forming and dissolving. Rotate in 2-3 people per week, or create teams for 2-10 weeks out of a larger pool.\n* **Strong culture of fun:** the whole point of this model is to enable tribe identity. So make sure that the tribe plays together--successful teams with the rotational model play together as part of work.\n\nMost companies are organized such that real teams can't form. They contain many things called \"teams,\" such as the set of people reporting to one manager or a \"virtual team\" composed of people who get together part-time to done one thing while all have primary responsibility to do something else with a different set of people. Yet these are each missing one of the key traits that would allow a team to form.\n\nh2. How it helps\n\nThe team collaborates and reinforces each other.\n\n* The team can make a decision and then everyone helps everyone else hold to it.\n* The team can share skills.\n* The team members help each other and maximize overall throughput, rather than attempting to maximize their individual efficiency.\n\nh2. Mindshifts\n\nFor managers:\n\n* Humans are not resources.\n* Stop allocating specialists to projects.\n\nFor doers:\n\nNone. Support your manager.\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_REQS",
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "teams"
+				"slug": "teams",
+				"is_key": true
 			},
 			"SK_VISIBLE_WORK": {
 				"name": "All work visible on one board",
@@ -753,10 +804,14 @@
 					{
 						"skill": "SK_TEAMS",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_SMALL_BATCHES",
+						"kind": "IS_REQUIRED"
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset goes here.\n\nh1. What this is\n\n*All* the work of the team is always visible to everyone on the team.\n\nIdeally this is a physical artifact (cards/post-its) on a wall in the team's shared space.\n\nWhen a task is moved to completion, everyone can see that happen and celebrate.\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -764,7 +819,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "visible_work"
+				"slug": "visible_work",
+				"is_key": false
 			},
 			"SK_CHARTER": {
 				"name": "Team agreement / charter",
@@ -785,7 +841,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "charter"
+				"slug": "charter",
+				"is_key": false
 			},
 			"SK_SIT_TOGETHER": {
 				"name": "Sit together",
@@ -806,7 +863,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "sit_together"
+				"slug": "sit_together",
+				"is_key": false
 			},
 			"SK_RETROS": {
 				"name": "Retrospectives with outcomes",
@@ -835,7 +893,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "retros"
+				"slug": "retros",
+				"is_key": false
 			},
 			"SK_SHARED_CODE": {
 				"name": "Shared task responsibility",
@@ -854,7 +913,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. No task is owned by an individual.\n\nh1. What this is\n\nAny task which produces our work output is shared. If it succeeds we all succeed. If it fails we all fail. No one person on the team will be judged differently than the team overall.\n\nThis is full team accountability, not a lack of accountability. If a task does not get done, then all of us have failed. We all take the full measure of blame.\n\nWe therefore have some way of tracking and viewing all of the work.\n\nh2. How it helps\n\nBy sharing responsibility for the outcome of all tasks, the team can now find more effective and creative ways to get the work done.\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. We are accountable as a team. No task is owned by an individual.\n\nh1. What this is\n\nAny task which produces our work output is shared. If it succeeds we all succeed. If it fails we all fail. No one person on the team will be judged differently than the team overall.\n\nThis is full team accountability, not a lack of accountability. If a task does not get done, then all of us have failed. We all take the full measure of blame.\n\nWe therefore have some way of tracking and viewing all of the work.\n\nh2. How it helps\n\nBy sharing responsibility for the outcome of all tasks, the team can now find more effective and creative ways to get the work done.\n\nh2. Mindshifts\n\nThe largest mindshift is away from individual accountability.\n\nThe prevalence of individual accountability arises because of our misuse of the word \"team\". Once we have single-assignment, small teams, we create the opportunity to move away from individual accountability. Here's how it works.\n\nMost companies are organized such that real teams can't form. Therefore they are populated by work groups which then get called teams, because few people have ever actually seen a real team. One of the biggest differences between a work group and a team is how they take on work.\n\n* Members of a work group succeed or fail independently. It is in each person's best interests to complete their own tasks, even if someone else won't. Individuals avoid taking on group work. Therefore, anything assigned to the group as a whole will simply be ignored by everyone in the group.\n\n* Members of a team succeed or fail together. It is in each person's best interests to ensure that all the most important work is done and the team overall makes as good of progress as is possible. Individuals seek opportunities to help the team succeed, taking on whatever work will most help attain the shared end. Therefore, anything assigned to the group as a whole will get the full attention of everyone on the team and anything assigned to an individual will be seen as a distraction from the important work of the team.\n\nAs groups of people shift from being work groups to being teams, they need to shift how they assign work. All important work must be assigned to the team as a whole, or it will be a distraction. However, tasks could still be executed individually. The responsibility is at the team level, and the team can change who executes a task, regardless of the number of individuals involved in actual execution.\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -862,7 +921,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "shared_code"
+				"slug": "shared_code",
+				"is_key": true
 			},
 			"SK_SYSTEMS_THINKING": {
 				"name": "Understand and optimize systems",
@@ -872,7 +932,7 @@
 				"component": "V_IMPROVE",
 				"requires": [],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nLocalized improvement is not the only option.\n\nWhen faced with a problem, you can fix it locally, but you can also look at the system context. \n\nWhat cultural factors, practices, tooling, organizational structure, etc. are contributing to this problem, and how could those be changed to address the problem? What other consequences would that change have, and are they desirable?\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTheory of constraints.\n\n",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -880,7 +940,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "vertical_decomposition"
+				"slug": "vertical_decomposition",
+				"is_key": false
 			},
 			"SK_LOCAL_REFACTORING": {
 				"name": "Local transform-based refactoring",
@@ -901,7 +962,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "local_refactoring"
+				"slug": "local_refactoring",
+				"is_key": true
 			},
 			"SK_AUTO_DEV_TEST": {
 				"name": "Automated developer testing",
@@ -930,7 +992,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "auto_dev_test"
+				"slug": "auto_dev_test",
+				"is_key": false
 			},
 			"SK_VERT_DECOMP": {
 				"name": "Decompose work vertically (by value)",
@@ -940,12 +1003,12 @@
 				"component": "V_REQUIREMENTS",
 				"requires": [
 					{
-						"skill": "SK_SMALL_SPECS",
+						"skill": "SK_SMALL_BATCHES",
 						"kind": "IS_HELPFUL"
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nTo decompose horizontally, think about technical elements and architectural layers. Make each one a separate task. None of the tasks deliver value until they are all done. *Don't do this.*\n\nEach slice should create something of real value right away.\n\nAlign teams along vertical slices. Instead of having a back-end team and a front-end team (which much always coordinate to get anything done), you could give each team a customer segment, for example.\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nhttp://coach-agile.com/wp-content/uploads/2015/04/coach-agile-mvp-coactiv.png",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -953,7 +1016,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "vertical_decomposition"
+				"slug": "vertical_decomposition",
+				"is_key": false
 			},
 			"SK_PULL": {
 				"name": "Apply pull systems and queues",
@@ -971,7 +1035,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "pull"
+				"slug": "pull",
+				"is_key": false
 			},
 			"SK_PAIR_REGULARLY": {
 				"name": "Work together to learn",
@@ -1003,7 +1068,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "pair_regularly"
+				"slug": "pair_regularly",
+				"is_key": false
 			},
 			"SK_AUTO_BUILD_VERIFY": {
 				"name": "Automated build verification",
@@ -1030,7 +1096,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "auto_build_verify"
+				"slug": "auto_build_verify",
+				"is_key": false
 			},
 			"SK_LIMIT_WIP": {
 				"name": "Limit WIP to uncover problems",
@@ -1053,7 +1120,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "limit_work_continuous"
+				"slug": "limit_work_continuous",
+				"is_key": false
 			},
 			"SK_ACTION_RETROS": {
 				"name": "Iterative team improvement",
@@ -1082,7 +1150,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "improvement_process"
+				"slug": "improvement_process",
+				"is_key": false
 			},
 			"SK_T_SHAPED": {
 				"name": "T-shaped people",
@@ -1105,7 +1174,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nGiven people who have deep specialties (\"I-shaped\"), working & learning together to learn a little bit about what everyone else is good at.\n\nLearning decays exponentially.\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTED talk \"Your first or 20 hours of how good you can get in a small amount of time.\"",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -1113,7 +1182,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "t_shaped"
+				"slug": "t_shaped",
+				"is_key": false
 			},
 			"SK_DRY": {
 				"name": "Don't repeat yourself",
@@ -1136,7 +1206,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. Each piece of knowledge should be expressed in exactly one place. \n\nh1. What this is\n\nIn code, each idea is expressed in exactly one place.\n\nIn both code and human communication, we use a consistent ubiquitous language, without synonyms.\n\nKnowledge shall not be duplicated in any format, even across technologies, formats, code comments, and documentation.\n\nThis is not about duplicating code. Two pieces of code may be *incidentally* identical, if they are expressing different ideas.\n\nIf you attempt to eliminate duplication and things don't become simpler, then maybe you should back up.\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\n* \"DRY in Pragmatic Programmer (book)\":http://pragmatictips.com/11\n\n",
+				"description": "bq>. Each piece of knowledge should be expressed in exactly one place. \n\nh1. What this is\n\nTBD\n\nh2. How it helps\n\nTBD\n\nh2. Mindshifts\n\nTBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\n* \"DRY in Pragmatic Programmer (book)\":http://pragmatictips.com/11\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -1144,7 +1214,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "dry"
+				"slug": "dry",
+				"is_key": false
 			},
 			"SK_GREAT_NAMES": {
 				"name": "Great names",
@@ -1163,7 +1234,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nPeople can understand the names.\n\n*Honest* - it doesn't lie to you.\n\n*Complete* - it tells you the whole truth. e.g., the body of a method and the name of the method match completely.\n\nSomething can only be named well if it *does the right thing*.\n\nA great name reveals *intent*.\n\nWhen multiple intention-revealing names come together, a *domain abstraction* is revealed.\n\nWhen you learn something new, improve the name - rename it.\n\nGreat names are *consistent*, throughout the bounded context.\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nhttp://arlobelshee.com/tag/naming-is-a-process/\n\nUbiquitous language.",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -1171,7 +1242,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "great_names"
+				"slug": "great_names",
+				"is_key": false
 			},
 			"SK_TEST_FIRST": {
 				"name": "Test as spec",
@@ -1196,7 +1268,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "test_first"
+				"slug": "test_first",
+				"is_key": false
 			},
 			"SK_COLLECTIVE_OWNERSHIP": {
 				"name": "Collective ownership",
@@ -1227,7 +1300,36 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "collective_ownership"
+				"slug": "collective_ownership",
+				"is_key": false
+			},
+			"SK_READ_BY_REFACTORING": {
+				"name": "Read by Refactoring",
+				"x": 12,
+				"y": 4,
+				"level": "L_ADAPTIVE",
+				"component": "V_CODE",
+				"requires": [
+					{
+						"skill": "SK_GREAT_NAMES",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_HELPFUL"
+					}
+				],
+				"obsoletes": [],
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "read_by_refactoring",
+				"is_key": true
 			},
 			"SK_DONE_DEFINITION": {
 				"name": "Done Definition",
@@ -1246,7 +1348,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nAgreement across the *entire* team of what it means for a task/story/etc.  to be done. \n\nThe important thing here is that no one says \"X is done\" while someone else still has work to do on X.\n\nThis often means that X is fully ready to be shipped to production and be used by customers.\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -1254,7 +1356,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "done_definition"
+				"slug": "done_definition",
+				"is_key": false
 			},
 			"SK_LEARN_LOCALLY": {
 				"name": "Learn from local cmm'ty",
@@ -1277,7 +1380,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "learn_locally"
+				"slug": "learn_locally",
+				"is_key": false
 			},
 			"SK_PAIR_PRODUCTION": {
 				"name": "Work together for productivity",
@@ -1300,7 +1404,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nPairing/mobbing the vast majority of time, on 100% of production code, because it's the best way to get overall productivity.\n\nCombines multiple pairing styles (strong, driver/navigator, ping-pong, etc.).\n\nThis comes after most of the team has been trained up.\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -1308,7 +1412,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "pair_production"
+				"slug": "pair_production",
+				"is_key": false
 			},
 			"SK_WRITE_UNITS": {
 				"name": "Code in units",
@@ -1318,7 +1423,7 @@
 				"component": "V_CODE",
 				"requires": [
 					{
-						"skill": "SK_GREAT_NAMES",
+						"skill": "SK_READ_BY_REFACTORING",
 						"kind": "IS_REQUIRED"
 					},
 					{
@@ -1327,7 +1432,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nMost people write code that doesn't actually have units, and then try to unit test it. \n\n\"Unit\" means Context Neutrality. Can be verified in any context, including no context.\n\nEither Tell, Don't Ask or pure functional.\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nSee GOOS (Growing Object Oriented Software, Guided by Tests - Freeman & Pryce).\n\n",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -1335,7 +1440,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "write_units"
+				"slug": "write_units",
+				"is_key": false
 			},
 			"SK_ITERATION": {
 				"name": "Do things in iterations",
@@ -1362,7 +1468,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "iteration"
+				"slug": "iteration",
+				"is_key": false
 			},
 			"SK_PAIR_ALWAYS": {
 				"name": "Work together for discipline",
@@ -1377,7 +1484,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nWe pair/mob on 100% of tasks, not just code. Marketing, code, email, management, everything.\n\nManagement 1-1s go away.\n\nBecause we recognize that the team must be productive; not about individuals.\n\n2-day retrospective cycles -- 2-day habit shifts, can only be done with this high discipline.\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -1385,7 +1492,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "pair_always"
+				"slug": "pair_always",
+				"is_key": true
 			},
 			"SK_TEST_UNITS": {
 				"name": "Test units",
@@ -1408,7 +1516,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nEach test verifies 1 aspect of 1 behavior of 1 code element.\n\n```\n    var subject = new Foo(....);\n    var result = subject.Bar(...);\n    Assert(result);\n```\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -1416,7 +1524,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "test_units"
+				"slug": "test_units",
+				"is_key": false
 			},
 			"SK_STORIES": {
 				"name": "Stories",
@@ -1434,7 +1543,7 @@
 						"kind": "IS_HELPFUL"
 					},
 					{
-						"skill": "SK_SMALL_SPECS",
+						"skill": "SK_SMALL_BATCHES",
 						"kind": "IS_HELPFUL"
 					},
 					{
@@ -1443,7 +1552,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nShift from talking about technology changes to talking about the value you intend to create.\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -1451,10 +1560,11 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "stories"
+				"slug": "stories",
+				"is_key": false
 			},
 			"SK_BUG_FREE_NEW_CODE": {
-				"name": "No bugs in new code",
+				"name": "No new bugs in new code",
 				"x": 15,
 				"y": 1,
 				"level": "L_ADAPTIVE",
@@ -1470,7 +1580,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. We chose to write new code without writing bugs in it.\n\nh1. What this is\n\nDon't just fix bugs; find root causes and eliminate them.\n\nWe still have legacy code, and when we work there, we may still introduce bugs. But in *new* code, we are confident our changes will be bug-free.\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -1478,7 +1588,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "bug_free_new_code"
+				"slug": "bug_free_new_code",
+				"is_key": true
 			},
 			"SK_REFLECTIVE_DESIGN": {
 				"name": "Reflective design",
@@ -1496,7 +1607,7 @@
 						"kind": "IS_REQUIRED"
 					},
 					{
-						"skill": "SK_GREAT_NAMES",
+						"skill": "SK_READ_BY_REFACTORING",
 						"kind": "IS_REQUIRED"
 					},
 					{
@@ -1509,7 +1620,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nThe opposite of predictive design. I look for two things:\n\n- hard to name. Indicates structural flaw.\n\n- hard to test. Indicates context neutrality violation.\n\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\nSee James Shore blog.",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -1517,7 +1628,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "reflective_design"
+				"slug": "reflective_design",
+				"is_key": false
 			},
 			"SK_TRACK_CAPACITY": {
 				"name": "Track progress against plan",
@@ -1544,7 +1656,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "track_capacity"
+				"slug": "track_capacity",
+				"is_key": false
 			},
 			"SK_LEARN_ALL": {
 				"name": "Learn from everyone",
@@ -1567,7 +1680,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "learn_all"
+				"slug": "learn_all",
+				"is_key": false
 			},
 			"SK_PROCESS_EXPERIMENTS": {
 				"name": "Process experiments",
@@ -1594,7 +1708,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "process_experiments"
+				"slug": "process_experiments",
+				"is_key": false
 			},
 			"SK_LEARN_VS_PROVE": {
 				"name": "Learning / Proving Distinction",
@@ -1613,7 +1728,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nSome tests are for learning; some are for proving. Every test does one of these; no tests do both.\n\n*Learning examples:*\n- Are users happy with the performance of the system?\n- How often do they use feature X?\n\n*Proving examples:*\n- Given these inputs, this code produces these outputs.\n- This code runs as fast as expected.\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -1621,7 +1736,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "learn_vs_prove"
+				"slug": "learn_vs_prove",
+				"is_key": false
 			},
 			"SK_AUTO_DEPLOY": {
 				"name": "Automated deploy",
@@ -1644,7 +1760,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "auto_deploy"
+				"slug": "auto_deploy",
+				"is_key": false
 			},
 			"SK_STORY_CLUSTERING": {
 				"name": "Story clustering",
@@ -1667,7 +1784,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "story_clustering"
+				"slug": "story_clustering",
+				"is_key": false
 			},
 			"SK_ADAPTIVE_PLANNING": {
 				"name": "Iterative planning",
@@ -1677,7 +1795,7 @@
 				"component": "V_REQUIREMENTS",
 				"requires": [
 					{
-						"skill": "SK_SMALL_SPECS",
+						"skill": "SK_SMALL_BATCHES",
 						"kind": "IS_REQUIRED"
 					},
 					{
@@ -1698,7 +1816,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "adaptive_planning"
+				"slug": "adaptive_planning",
+				"is_key": false
 			},
 			"SK_RELATIVE_ESTIMATES": {
 				"name": "Relative based estimation",
@@ -1721,7 +1840,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "relative_estimates"
+				"slug": "relative_estimates",
+				"is_key": false
 			},
 			"SK_LIMIT_WORK_TO_CAPACITY": {
 				"name": "Limit work to estimated capacity",
@@ -1752,7 +1872,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "limit_work_to_capacity"
+				"slug": "limit_work_to_capacity",
+				"is_key": false
 			},
 			"SK_CONTINUOUS_PLAN": {
 				"name": "Continuous-form planning",
@@ -1775,7 +1896,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "continuous_plan"
+				"slug": "continuous_plan",
+				"is_key": false
 			},
 			"SK_SESSION_MANUAL_TESTING": {
 				"name": "Session-based manual testing",
@@ -1802,7 +1924,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "session_manual_testing"
+				"slug": "session_manual_testing",
+				"is_key": false
 			},
 			"SK_ROLLING_WAVE_PLANNING": {
 				"name": "Rolling-wave planning",
@@ -1829,7 +1952,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "rolling_wave_planning"
+				"slug": "rolling_wave_planning",
+				"is_key": false
 			},
 			"SK_BUG_RATCHET": {
 				"name": "Bugs decrease over time",
@@ -1860,7 +1984,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "bug_ratchet"
+				"slug": "bug_ratchet",
+				"is_key": false
 			},
 			"SK_IMPROVING_PROOF": {
 				"name": "Improving levels of proof",
@@ -1883,7 +2008,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "improving_proof"
+				"slug": "improving_proof",
+				"is_key": false
 			},
 			"SK_TEST_LEGACY": {
 				"name": "Legacy code under test",
@@ -1906,7 +2032,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "test_legacy"
+				"slug": "test_legacy",
+				"is_key": false
 			},
 			"SK_RGR": {
 				"name": "Rapid coding inner loop (R-G-R)",
@@ -1941,7 +2068,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "rgr"
+				"slug": "rgr",
+				"is_key": false
 			},
 			"SK_AUTO_DEPLOY_VERIFY": {
 				"name": "Automated deploy verification",
@@ -1964,7 +2092,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "auto_deploy_verify"
+				"slug": "auto_deploy_verify",
+				"is_key": false
 			},
 			"SK_VERIFY_EXAMPLES": {
 				"name": "Verify examples (ATDD)",
@@ -1991,7 +2120,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "verify_examples"
+				"slug": "verify_examples",
+				"is_key": false
 			},
 			"SK_DATA_DRIVEN_CAPACITY": {
 				"name": "Use data to determine capacity",
@@ -2018,7 +2148,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "data_driven_capacity"
+				"slug": "data_driven_capacity",
+				"is_key": false
 			},
 			"SK_FIX_LEGACY": {
 				"name": "Pay down technical debt",
@@ -2061,7 +2192,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "fix_legacy"
+				"slug": "fix_legacy",
+				"is_key": true
 			},
 			"SK_SIMUL_PHASES": {
 				"name": "Simultaneous Phases",
@@ -2092,7 +2224,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "simul_phases"
+				"slug": "simul_phases",
+				"is_key": true
 			},
 			"SK_CLEAN_CODE": {
 				"name": "Clean code",
@@ -2115,7 +2248,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "clean_code"
+				"slug": "clean_code",
+				"is_key": false
 			},
 			"SK_SHORT_TERM_RELIABILITY": {
 				"name": "Reliable short-term commitments",
@@ -2146,7 +2280,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "reliability"
+				"slug": "reliability",
+				"is_key": false
 			},
 			"SK_M_SHAPED": {
 				"name": "M-shaped people",
@@ -2169,7 +2304,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "m_shaped"
+				"slug": "m_shaped",
+				"is_key": false
 			},
 			"SK_EVO_DESIGN": {
 				"name": "Evolutionary Design",
@@ -2196,7 +2332,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nKnowing how much to design when; designing only based on the information you currently have, not on assumptions.\n\n\"Can I encapsulate this issue?\"\n\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -2204,7 +2340,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "evo_design"
+				"slug": "evo_design",
+				"is_key": false
 			},
 			"SK_FEATURE_ISOLATION": {
 				"name": "Feature isolation",
@@ -2227,7 +2364,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "feature_isolation"
+				"slug": "feature_isolation",
+				"is_key": false
 			},
 			"SK_AUTO_ROLLBACK": {
 				"name": "Automated rollback",
@@ -2250,7 +2388,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "auto_rollback"
+				"slug": "auto_rollback",
+				"is_key": true
 			},
 			"SK_HYPOTHESIS_STORIES": {
 				"name": "Hypothesis stories",
@@ -2273,7 +2412,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "hypothesis_stories"
+				"slug": "hypothesis_stories",
+				"is_key": true
 			},
 			"SK_EXPERIENCE_FOCUS": {
 				"name": "Experience focus",
@@ -2296,7 +2436,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "experience_focus"
+				"slug": "experience_focus",
+				"is_key": false
 			},
 			"SK_PROJECTIONS": {
 				"name": "Reliable long-range planning",
@@ -2327,7 +2468,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "projections"
+				"slug": "projections",
+				"is_key": false
 			},
 			"SK_UNIVERSAL_SPECIALIST": {
 				"name": "Full-product specialization",
@@ -2350,10 +2492,11 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "universal_specialist"
+				"slug": "universal_specialist",
+				"is_key": false
 			},
 			"SK_NO_BUGS": {
-				"name": "No bugs",
+				"name": "#BugsZero",
 				"x": 22,
 				"y": 3,
 				"level": "L_AWESOME",
@@ -2381,7 +2524,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "no_bugs"
+				"slug": "bugs_zero",
+				"is_key": true
 			},
 			"SK_TELL_VS_ASK": {
 				"name": "Universal CQRS",
@@ -2396,7 +2540,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\nIn every part of the system, and at every level of abstraction, commands are separate from queries. Everything either creates a side effect without returning a result (Tell, Don't Ask) or returns a result without creating a side effect (functional), but not both.\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -2404,7 +2548,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "tell_vs_ask"
+				"slug": "tell_vs_ask",
+				"is_key": false
 			},
 			"SK_WHOLE_TEAM_BUSINESS": {
 				"name": "Whole team business innovation",
@@ -2431,7 +2576,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "whole_team_business"
+				"slug": "whole_team_business",
+				"is_key": false
 			},
 			"SK_SMOOTH_FLOW": {
 				"name": "Predictable, smooth flow",
@@ -2462,7 +2608,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "smooth_flow"
+				"slug": "smooth_flow",
+				"is_key": false
 			},
 			"SK_YAGNI": {
 				"name": "YAGNI and simplest thing",
@@ -2485,7 +2632,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "yagni"
+				"slug": "yagni",
+				"is_key": false
 			},
 			"SK_CONT_SHIP": {
 				"name": "Continuous delivery",
@@ -2512,7 +2660,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "cont_ship"
+				"slug": "cont_ship",
+				"is_key": false
 			},
 			"SK_TIP": {
 				"name": "Testing in production",
@@ -2539,7 +2688,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "tip"
+				"slug": "tip",
+				"is_key": false
 			},
 			"SK_SINGLE_PIECE_FLOW": {
 				"name": "Single piece flow",
@@ -2562,7 +2712,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "single_piece_flow"
+				"slug": "single_piece_flow",
+				"is_key": false
 			},
 			"SK_PROCESS_INNOVATION": {
 				"name": "Useful process innovation",
@@ -2589,7 +2740,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "process_innovation"
+				"slug": "process_innovation",
+				"is_key": false
 			},
 			"SK_RADICAL_COLLABORATE": {
 				"name": "Radical collaboration",
@@ -2616,7 +2768,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "radical_collaborate"
+				"slug": "radical_collaborate",
+				"is_key": false
 			},
 			"SK_TDDESIGN": {
 				"name": "Test-driven design",
@@ -2647,7 +2800,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "tddesign"
+				"slug": "tddesign",
+				"is_key": false
 			},
 			"SK_CONT_DEPLOY": {
 				"name": "Continuous deployment",
@@ -2678,7 +2832,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "cont_deploy"
+				"slug": "cont_deploy",
+				"is_key": false
 			},
 			"SK_METRICS_FOCUS": {
 				"name": "Business metric focus",
@@ -2705,7 +2860,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "metrics_focus"
+				"slug": "metrics_focus",
+				"is_key": false
 			},
 			"SK_LISTEN_TO_CODE": {
 				"name": "Code whispering",
@@ -2724,7 +2880,7 @@
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n\nBy mastering Evolutionary Design + experimentation in both product and process domains, a programmer is now able to listen to the artifacts and learn about the domain and context. They no longer seek intentional learning or explanations. They just look at what is, and gain a tacit understanding of what system must be operating. Including oddities and inconsistencies in that system.\n\nProgrammers are (or become) very good at detecting complexity. As you continuously drive incidental complexity out of the system, the only remaining complexity is inherent to the domain. Programmers can detect this domain complexity and offer improvement/simplification back to the business.\n\n\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_KEY",
 					"H_CORE",
@@ -2732,7 +2888,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "listen_to_code"
+				"slug": "listen_to_code",
+				"is_key": false
 			},
 			"SK_LEAN_STARTUP": {
 				"name": "Lean startup / hypothesis-driven development",
@@ -2763,7 +2920,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "lean_startup"
+				"slug": "lean_startup",
+				"is_key": true
 			}
 		}
 	};
