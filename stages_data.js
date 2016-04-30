@@ -825,7 +825,7 @@
 			"SK_CHARTER": {
 				"name": "Team agreement / charter",
 				"x": 7,
-				"y": 2,
+				"y": 4,
 				"level": "L_TEAM",
 				"component": "V_IMPROVE",
 				"requires": [
