@@ -1217,8 +1217,8 @@
 				"slug": "dry",
 				"is_key": false
 			},
-			"SK_GREAT_NAMES": {
-				"name": "Great names",
+			"SK_READ_BY_REFACTORING": {
+				"name": "Read by Refactoring / naming is a process",
 				"x": 11,
 				"y": 4,
 				"level": "L_CORE",
@@ -1242,8 +1242,8 @@
 					"H_ADV",
 					"H_REVIEW"
 				],
-				"slug": "great_names",
-				"is_key": false
+				"slug": "read_by_refactoring",
+				"is_key": true
 			},
 			"SK_TEST_FIRST": {
 				"name": "Test as spec",
@@ -1302,34 +1302,6 @@
 				],
 				"slug": "collective_ownership",
 				"is_key": false
-			},
-			"SK_READ_BY_REFACTORING": {
-				"name": "Read by Refactoring",
-				"x": 12,
-				"y": 4,
-				"level": "L_ADAPTIVE",
-				"component": "V_CODE",
-				"requires": [
-					{
-						"skill": "SK_GREAT_NAMES",
-						"kind": "IS_REQUIRED"
-					},
-					{
-						"skill": "SK_PAIR_REGULARLY",
-						"kind": "IS_HELPFUL"
-					}
-				],
-				"obsoletes": [],
-				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
-				"help_needed": [
-					"H_KEY",
-					"H_CORE",
-					"H_REQS",
-					"H_ADV",
-					"H_REVIEW"
-				],
-				"slug": "read_by_refactoring",
-				"is_key": true
 			},
 			"SK_DONE_DEFINITION": {
 				"name": "Done Definition",
@@ -1512,6 +1484,10 @@
 					},
 					{
 						"skill": "SK_PAIR_PRODUCTION",
+						"kind": "IS_HELPFUL"
+					},
+					{
+						"skill": "SK_TEST_FIRST",
 						"kind": "IS_HELPFUL"
 					}
 				],
@@ -2020,6 +1996,10 @@
 				"requires": [
 					{
 						"skill": "SK_TEST_UNITS",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_TEST_FIRST",
 						"kind": "IS_REQUIRED"
 					}
 				],
