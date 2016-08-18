@@ -1485,6 +1485,10 @@
 					{
 						"skill": "SK_PAIR_PRODUCTION",
 						"kind": "IS_HELPFUL"
+					},
+					{
+						"skill": "SK_TEST_FIRST",
+						"kind": "IS_HELPFUL"
 					}
 				],
 				"obsoletes": [],
@@ -1992,6 +1996,10 @@
 				"requires": [
 					{
 						"skill": "SK_TEST_UNITS",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_TEST_FIRST",
 						"kind": "IS_REQUIRED"
 					}
 				],
