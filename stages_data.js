@@ -1676,7 +1676,7 @@ function stages_data() {
 			"SK_LEARN_VS_PROVE": {
 				"name": "Learning / Proving Distinction",
 				"x": 16,
-				"y": 5,
+				"y": 3,
 				"level": "L_LEVERAGE",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1699,6 +1699,34 @@ function stages_data() {
 					"H_REVIEW"
 				],
 				"slug": "learn_vs_prove",
+				"is_key": false
+			},
+			"SK_TEST_BEYOND_CORRECT": {
+				"name": "Test Beyond Correctness",
+				"x": 16,
+				"y": 5,
+				"level": "L_LEVERAGE",
+				"component": "V_CHECK_WORK",
+				"requires": [
+					{
+						"skill": "SK_DONE_DEFINITION",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_AUTO_DEV_TEST",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"obsoletes": [],
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "test_beyond_correct",
 				"is_key": false
 			},
 			"SK_AUTO_DEPLOY": {
@@ -1864,7 +1892,7 @@ function stages_data() {
 			"SK_SESSION_MANUAL_TESTING": {
 				"name": "Session-based manual testing",
 				"x": 17,
-				"y": 6,
+				"y": 3,
 				"level": "L_LEVERAGE",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1935,6 +1963,10 @@ function stages_data() {
 					{
 						"skill": "SK_SESSION_MANUAL_TESTING",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_TEST_BEYOND_CORRECT",
+						"kind": "IS_HELPFUL"
 					}
 				],
 				"obsoletes": [],
@@ -1958,6 +1990,10 @@ function stages_data() {
 				"requires": [
 					{
 						"skill": "SK_SESSION_MANUAL_TESTING",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_TEST_BEYOND_CORRECT",
 						"kind": "IS_REQUIRED"
 					}
 				],
