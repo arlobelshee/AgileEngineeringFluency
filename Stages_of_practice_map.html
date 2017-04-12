@@ -476,9 +476,9 @@
 					self.description_display(format_for_display(new_value));
 				}
 				this.description_display = ko.observable("");
-				format_desc(data.description);
-				this.description = ko.observable(data.description);
+				this.description = ko.observable("");
 				this.description.subscribe(format_desc);
+                this.description(this.parse_multiline(data.description));
 				add_help_display_capability(this, data, app);
 				this.name = ko.observable(data.name);
 				this.x = data.x;
@@ -494,7 +494,13 @@
 				this.is_key = data.is_key;
 			}
 			base_class(SkillVm, {
-				to_JS: function (unwrap) {
+                make_multiline: function (input) {
+					return input;
+                },
+                parse_multiline: function (input) {
+                    return input;
+                },
+                to_JS: function (unwrap) {
 					return {
 						name: unwrap(this.name),
 						x: unwrap(this.x),
@@ -510,7 +516,7 @@
 						obsoletes: map_elt(unwrap(this.obsoletes), function (link) {
 							return link.skill._id;
 						}),
-						description: unwrap(this.description),
+						description: this.make_multiline(unwrap(this.description)),
 						help_needed: this.help_unwrap(unwrap),
 						slug: unwrap(this.slug),
 						is_key: unwrap(this.is_key),
@@ -627,7 +633,7 @@
 
 		function LayoutSpecialist() {
 			var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = { x: 120, y: 80 };
-			var OFFSET_TO_GRID_ORIGIN = { x: 40, y: 140 };
+			var OFFSET_TO_GRID_ORIGIN = { x: 40, y: 160 };
 			var self = this;
 
 			this.translatePoint = function (point) {
