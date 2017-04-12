@@ -1,6 +1,6 @@
 function stages_data() {
 	return {
-		"version": "0.10.1",
+		"version": "0.10.2",
 		"levels": {
 			"L_TRADITIONAL": {
 				"name": "Traditional done well",
@@ -944,7 +944,7 @@ function stages_data() {
 					}
 				],
 				"obsoletes": [],
-				"description": "bq>. We can execute local, named transformations on our code. Rather than typing edits within a function, we execute transforms.\n\nh1. What this is\n\nThere are a set of code transformations that can be guaranteed to change code without altering its behaviors. They have names. Tools perform these transformations with guaranteed safety.\n\nThe important refactorings to learn first are:\n\n# Extract method.\n# Introduce variable.\n# Introduce parameter.\n# Introduce field.\n# Inline {anything}.\n# Rename {anything}.\n\nWe can execute these 6 refactorings using an automated tool. Each takes less than 5 seconds to perform and requires no conscious thought.\n\nAdditionally, refactoring tools analyze your code and make suggestions. Following these suggestions helps you avoid techniques that cause bugs. So we also learn:\n\n# Watch for suggestion.\n# Apply auto-fix.\n\nh2. How it helps\n\nWe can make simple, local changes to our code without introducing errors or having to think. This raises the level of abstraction in our editing, making it easier to keep slightly more complex changes in mind at once.\n\nBoth of these effects reduce the probability of introducing bugs when editing code.\n\nAuto-fixes allow us to learn better techniques for writing specific coding constructs. They also decrease the amount of code we have to write. With time we learn to lean on the tool. We write just enough that it can figure out our intent and give the right suggestion. Then we apply the auto-fix to write the final code. Coding is faster and more accurate.\n\nh2. Mindshifts\n\nWhile typing new code is OK, editing existing code is not. Instead, use the editor to transform the code in known-safe ways.\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nBasic levels of this skill allow you to perform refactorings with labor. You will have to use menu navigation and memory aids to remember what is possible and to execute it.\n\nh2. Recipes to follow\n\nGrab a copy of the cheat sheet for your refactoring tool. Print it and tape it to your screen.\n\nEach tool offers suggestions about refactorings it can do in a particular context. Find out how your tool offers these suggestions (for example, this is @Ctrl+Shift+R@ in ReSharper). Find out where it shows you the hot key to use for each refactoring.\n\nWhen editing code, keep the list of refactorings in front of you. Rather than just editing code, ask yourself whether you are trying to do any of the refactorings. If so, use the tool instead of typing the code--even if that feels silly and slow.\n\nFind how your tool makes suggestions and how you apply auto-fixes for those suggestions. This may be in-line in the editor or in a separate window.\n\nh1. Attaining fluency\n\nFluency is all about how quickly you can perform these refactorings and how little you think about the refactoring while doing so.\n\nYou should be able to perform every refactoring without using a mouse or menu (using only hot keys).\n\nYou should no longer write all of your code. you will write just enough that the tool can figure out what you meant and fill in the details for you.\n\nh2. Measuring proficiency\n\nProficiency is the number of refactorings that you can perform without conscious thought.\n\nh2. Recipes to follow\n\nEach day, pick one refactoring to make fluent. Look up its hot key (on the sheet or via menus). Use it at least 50 times that day. Find excuses if necessary. You are trying to train finger memory.\n\nMake sure to continue to use refactorings from previous days as well. Otherwise you will lose them as you add new ones.\n\nPick one file and make it \"ReSharper clean.\" Address every suggestion. Apply auto-fixes to most of them. You should not disable many suggestions.\n\nExperiment with partial lines of code. How little can you write such that the tool suggests the rest of the line? Hint: in modern OO and procedural languages, type and expression constraints tend to flow from right to left in a statement. If you fill in the right side, the computer can often fill in the left.\n\nh2. Further resources\n\nTBD\n\n",
+				"description": "bq>. We can execute local, named transformations on our code. Rather than typing edits within a function, we execute transforms.\n\nh1. What this is\n\nThere are a set of code transformations that can be guaranteed to change code without altering its behaviors. They have names. Tools perform these transformations with guaranteed safety.\n\nThe important refactorings to learn first are:\n\n# Extract method.\n# Introduce variable.\n# Introduce parameter.\n# Introduce field.\n# Inline {anything}.\n# Rename {anything}.\n\nWe can execute these 6 refactorings using an automated tool. Each takes less than 5 seconds to perform and requires no conscious thought.\n\nAdditionally, refactoring tools analyze your code and make suggestions. Following these suggestions helps you avoid techniques that cause bugs. So we also learn:\n\n# Watch for suggestion.\n# Apply auto-fix.\n\nh2. How it helps\n\nWe can make simple, local changes to our code without introducing errors or having to think. This raises the level of abstraction in our editing, making it easier to keep slightly more complex changes in mind at once.\n\nBoth of these effects reduce the probability of introducing bugs when editing code.\n\nAuto-fixes allow us to learn better techniques for writing specific coding constructs. They also decrease the amount of code we have to write. With time we learn to lean on the tool. We write just enough that it can figure out our intent and give the right suggestion. Then we apply the auto-fix to write the final code. Coding is faster and more accurate.\n\nh2. Mindshifts\n\nWhile typing new code is OK, editing existing code is not. Instead, use the editor to transform the code in known-safe ways.\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\nh1. Acquiring the skill\n\nBasic levels of this skill allow you to perform refactorings with labor. You will have to use menu navigation and memory aids to remember what is possible and to execute it.\n\nh2. Recipes to follow\n\nGrab a copy of the cheat sheet for your refactoring tool. Print it and tape it to your screen.\n\nEach tool offers suggestions about refactorings it can do in a particular context. Find out how your tool offers these suggestions (for example, this is @Ctrl+Shift+R@ in ReSharper). Find out where it shows you the hot key to use for each refactoring.\n\nWhen editing code, keep the list of refactorings in front of you. Rather than just editing code, ask yourself whether you are trying to do any of the refactorings. If so, use the tool instead of typing the code--even if that feels silly and slow.\n\nFind how your tool makes suggestions and how you apply auto-fixes for those suggestions. This may be in-line in the editor or in a separate window.\n\nh1. Attaining fluency\n\nFluency is all about how quickly you can perform these refactorings and how little you think about the refactoring while doing so.\n\nYou should be able to perform every refactoring without using a mouse or menu (using only hot keys).\n\nYou should no longer write all of your code. you will write just enough that the tool can figure out what you meant and fill in the details for you.\n\nh2. Measuring proficiency\n\nProficiency is the number of refactorings that you can perform without conscious thought.\n\nh2. Recipes to follow\n\nEach day, pick one refactoring to make fluent. Look up its hot key (on the sheet or via menus). Use it at least 50 times that day. Find excuses if necessary. You are trying to train finger memory.\n\nMake sure to continue to use refactorings from previous days as well. Otherwise you will lose them as you add new ones.\n\nPick one file and make it \"ReSharper clean.\" Address every suggestion. Apply auto-fixes to most of them. You should not disable many suggestions.\n\nExperiment with partial lines of code. How little can you write such that the tool suggests the rest of the line? Hint: in modern OO and procedural languages, type and expression constraints tend to flow from right to left in a statement. If you fill in the right side, the computer can often fill in the left.\n\nPractice a simple code kata, such as Bob Martin's \"Prime Factors Kata\":http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata, once or twice a day.  Challenge yourself to complete the kata without touching the mouse and even minimizing keystrokes.  Time your end-to-end kata duration, and strive to break your record. \n\nh2. Further resources\n\nTBD\n\n",
 				"help_needed": [
 					"H_REQS",
 					"H_ADV",
@@ -1676,7 +1676,7 @@ function stages_data() {
 			"SK_LEARN_VS_PROVE": {
 				"name": "Learning / Proving Distinction",
 				"x": 16,
-				"y": 5,
+				"y": 3,
 				"level": "L_LEVERAGE",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1699,6 +1699,34 @@ function stages_data() {
 					"H_REVIEW"
 				],
 				"slug": "learn_vs_prove",
+				"is_key": false
+			},
+			"SK_TEST_BEYOND_CORRECT": {
+				"name": "Test Beyond Correctness",
+				"x": 16,
+				"y": 5,
+				"level": "L_LEVERAGE",
+				"component": "V_CHECK_WORK",
+				"requires": [
+					{
+						"skill": "SK_DONE_DEFINITION",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_AUTO_DEV_TEST",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"obsoletes": [],
+				"description": "bq>. 1-sentence mindset quote goes here\n\nh1. What this is\n\n###. TBD\n\n###. h2. How it helps\n\n###. TBD\n\n###. h2. Mindshifts\n\n###. TBD\n\n###. h2. Measuring impact\n\n###. If you are doing this well, you should see improvements in:\n\n###. * TBD\n\n###. You may also see:\n\n###. * TBD\n\n###. h2. Side effects\n\n###. TBD (list side effects and practices / stages that can be used to counter them).\n\n###. h1. Acquiring the skill\n\n###. TBD\n\n###. h2. Role during transition\n\n###. TBD\n\n###. h2. Why these prereqs help\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\n###. h1. Attaining fluency\n\n###. TBD\n\n###. h2. Measuring proficiency\n\n###. TBD\n\n###. h2. Recipes to follow\n\n###. TBD\n\nh2. Further resources\n\nTBD\n\n",
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "test_beyond_correct",
 				"is_key": false
 			},
 			"SK_AUTO_DEPLOY": {
@@ -1864,7 +1892,7 @@ function stages_data() {
 			"SK_SESSION_MANUAL_TESTING": {
 				"name": "Session-based manual testing",
 				"x": 17,
-				"y": 6,
+				"y": 3,
 				"level": "L_LEVERAGE",
 				"component": "V_IMPROVE",
 				"requires": [
@@ -1935,6 +1963,10 @@ function stages_data() {
 					{
 						"skill": "SK_SESSION_MANUAL_TESTING",
 						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_TEST_BEYOND_CORRECT",
+						"kind": "IS_HELPFUL"
 					}
 				],
 				"obsoletes": [],
@@ -1958,6 +1990,10 @@ function stages_data() {
 				"requires": [
 					{
 						"skill": "SK_SESSION_MANUAL_TESTING",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_TEST_BEYOND_CORRECT",
 						"kind": "IS_REQUIRED"
 					}
 				],
