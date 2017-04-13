@@ -160,11 +160,11 @@ html, body {
         height: 25px;
         width: 25px;
         z-index: 1;
-        background: url('static/img/edit.png') no-repeat right top;
+        background: url('../img/edit.png') no-repeat right top;
     }
 
         .focus_dialog .description_block .edit_button:hover {
-            background-image: url('static/img/edit_hover.png');
+            background-image: url('../img/edit_hover.png');
         }
 
     .focus_dialog.editing .description_block .edit_button {
