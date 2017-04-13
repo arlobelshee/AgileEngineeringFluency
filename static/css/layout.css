@@ -1,0 +1,413 @@
+table, tr, td, th, html, body, div, canvas, ul, li, p, input {
+    margin: 0;
+    padding: 0;
+    border: 0 solid black;
+}
+
+a {
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    width: 100%;
+    font-size: 10px;
+    font-family: "Segoe UI","Times New Roman",serif;
+    line-height: 1.0;
+}
+
+.display_port {
+    position: relative;
+}
+
+.canvas {
+    background-color: transparent;
+}
+
+.drawing {
+}
+
+.debug {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.options_pane {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid black;
+    padding: 0.2em;
+    font-size: 1.4em;
+    line-height: 1.3;
+}
+
+    .options_pane p {
+        margin: 0.4em;
+    }
+
+    .options_pane textarea {
+        clear: both;
+        float: left;
+        display: block;
+        margin-right: 0.8em;
+    }
+
+    .options_pane ul {
+        list-style-type: none;
+    }
+
+    .options_pane .option input {
+        margin-right: 0.4em;
+    }
+
+.main_pane {
+    position: relative;
+    z-index: 0;
+}
+
+.extra_scroll_space {
+    padding-bottom: 35.2em;
+}
+
+.hidden {
+    display: none;
+}
+
+.options_corner {
+    position: fixed;
+    display: block;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.invalid {
+    border: 2px solid red;
+}
+
+.error_display {
+    color: red;
+    margin: 0 2em;
+}
+
+.label {
+    font-size: 1.4em;
+    margin: 0.4em 0;
+}
+
+.focus_dialog {
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    cursor: pointer;
+}
+
+    .focus_dialog .description_block {
+        position: relative;
+    }
+
+        .focus_dialog .description_block .editor {
+            display: none;
+            position: fixed;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 33%;
+            padding: 0.4em;
+            border-width: 0 0 0 1px;
+            background-color: #efefef;
+        }
+
+            .focus_dialog .description_block .editor button {
+                display: block;
+                margin: 0.5em 3em;
+            }
+
+    .focus_dialog.editing .description_block .editor {
+        display: block;
+    }
+
+    .focus_dialog .description_block .edit_button {
+        position: absolute;
+        display: block;
+        right: 0.4em;
+        top: 0.4em;
+        height: 25px;
+        width: 25px;
+        z-index: 1;
+        background: url('static/img/edit.png') no-repeat right top;
+    }
+
+        .focus_dialog .description_block .edit_button:hover {
+            background-image: url('static/img/edit_hover.png');
+        }
+
+    .focus_dialog.editing .description_block .edit_button {
+        display: none;
+    }
+
+    .focus_dialog .contents {
+        background-color: #FFF;
+        position: absolute;
+        top: 80px;
+        left: 100px;
+        right: 100px;
+        bottom: 80px;
+        cursor: default;
+        overflow-y: scroll;
+    }
+
+    .focus_dialog.editing .contents {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: auto;
+        width: 66%;
+    }
+
+    .focus_dialog .contents .name {
+        font-size: 2.5em;
+        font-style: italic;
+        padding: 0.4em 0 0.4em 2em;
+    }
+
+.skill.focus_dialog .contents .name {
+    float: left;
+}
+
+.level.focus_dialog .contents .name {
+    border-bottom: solid #00008b 1px;
+}
+
+.focus_dialog .contents .stage {
+    font-size: 1.4em;
+    color: #aaaaaa;
+    padding: 0.1em 2em 0.1em 0;
+    float: right;
+    text-align: right;
+}
+
+    .focus_dialog .contents .stage span {
+        display: block;
+        margin: 0.3em 0;
+    }
+
+.focus_dialog .description_block .display {
+    font-size: 1.4em;
+    line-height: 1.3;
+    padding: 0.5em 3.0em;
+    text-align: justify;
+}
+
+    .focus_dialog .description_block .display h1 {
+        font-size: 1.8em;
+        margin: 1.8em 0 0.3em;
+        border-top: 1px solid #000000;
+    }
+
+    .focus_dialog .description_block .display h2 {
+        font-size: 1.6em;
+        margin: 0.8em 0 0.3em;
+        font-style: italic;
+    }
+
+    .focus_dialog .description_block .display h3 {
+        font-size: 1.4em;
+        margin: 0.8em 0 0.3em;
+    }
+
+    .focus_dialog .description_block .display p {
+        margin: 0.4em 0;
+    }
+
+    .focus_dialog .description_block .display ul {
+        margin: 0.4em 0;
+        list-style: disc outside;
+    }
+
+        .focus_dialog .description_block .display ul li {
+            margin: 0 0 0 2.8em;
+        }
+
+    .focus_dialog .description_block .display blockquote {
+        margin: 1em 0 1em 0;
+        color: #aaaaaa;
+        font-style: italic;
+    }
+
+.relationships {
+    padding: 0 0.6em;
+    border: solid #00008b;
+    border-width: 1px 0;
+    font-size: 1.4em;
+    clear: both;
+}
+
+    .relationships ul, .relationships ul > li {
+        display: inline-block;
+    }
+
+        .relationships ul > li {
+            margin: 0.2em 0;
+            padding: 0.4em;
+        }
+
+            .relationships ul > li.relation {
+                background-color: #efefef;
+            }
+
+    .relationships div {
+        margin: 0.2em 0;
+    }
+
+    .relationships a {
+        color: #0091FF;
+    }
+
+        .relationships a.optional {
+            color: #666;
+        }
+
+.help_action {
+    position: absolute;
+    border: 2px solid #bb0000;
+    margin: -0.8em 0 0 18px;
+    padding: 2px;
+    background-color: #fff;
+    width: 8em;
+    z-index: 3;
+}
+
+.level_title {
+    position: absolute;
+    z-index: 2;
+    font-size: 2.8em;
+    line-height: 1.3;
+    text-align: center;
+    padding: 8px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 15px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    border: 0 solid #000080;
+}
+
+    .level_title:hover {
+        border-width: 2px;
+        padding: 6px;
+        cursor: pointer;
+    }
+
+.skill_text {
+    position: absolute;
+    z-index: 2;
+    font-size: 1.4em;
+    line-height: 1.3;
+    padding: 5px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 15px;
+}
+
+    .skill_text.key {
+        font-weight: 600;
+        background-color: rgba(200,255,200,0.9);
+    }
+
+    .skill_text.collapsed {
+        width: 92px;
+        overflow: hidden;
+        overflow-wrap: break-word;
+        border-color: #000080;
+    }
+
+        .skill_text.collapsed:hover {
+            border-width: 2px;
+            padding: 3px;
+            cursor: pointer;
+        }
+
+.copyright {
+    margin: 0.6em 0 0 8em;
+    width: 3140px;
+}
+
+.legend {
+    position: fixed;
+    z-index: 50;
+    bottom: 2px;
+    right: 2px;
+    padding: 0.4em 0.8em;
+    border: 2px solid #000090;
+    background-color: #fff;
+}
+
+    .legend h2 {
+        font-size: 1.8em;
+        text-decoration: underline;
+        margin: 0 auto 0.3em;
+        text-align: center;
+    }
+
+    .legend #show_label {
+        position: absolute;
+        top: 1.8em;
+        left: 0.6em;
+    }
+
+    .legend .entry .solid_line {
+        display: inline-block;
+        border: 2px solid black;
+        height: 0px;
+        width: 20px;
+        vertical-align: middle;
+    }
+
+    .legend .entry td {
+        font-size: 1.2em;
+        padding: 1px 4px;
+    }
+
+        .legend .entry td.techniques {
+            font-size: 1.0em;
+        }
+
+        .legend .entry td.show {
+            font-size: 1.0em;
+            padding: 0;
+        }
+
+            .legend .entry td.show input {
+                height: 0.9em;
+                vertical-align: middle;
+            }
+
+.main_pane, .display_port, html, body {
+    width: 3220px;
+    overflow: visible;
+}
