@@ -106,7 +106,7 @@
 			<h1 class="name" data-bind="text: name"></h1>
 			<div class="description_block">
 				<div class="edit_button" data-bind="click: function() { $root.app.editing(true); }, clickBubble: false"></div>
-				<div class="display" data-bind="html: description_display"></div>
+				<div class="display" data-bind="html: description_display, click: function() { return true; }, clickBubble: false"></div>
 				<div class="editor">
 					<button data-bind="click: function() { $root.app.editing(false); }, clickBubble: false">Close</button>
 					<textarea rows="25" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
@@ -137,7 +137,7 @@
 			</div>
 			<div class="description_block">
 				<div class="edit_button" data-bind="click: function() { $root.app.editing(true); }, clickBubble: false"></div>
-				<div class="display" data-bind="html: description_display"></div>
+				<div class="display" data-bind="html: description_display, click: function() { return true; }, clickBubble: false"></div>
 				<div class="editor">
 					<button data-bind="click: function() { $root.app.editing(false); }, clickBubble: false">Close</button>
 					<textarea rows="25" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
