@@ -30,12 +30,20 @@
 		.legend {
 			position: absolute;
 		}
+
+		.display_port {
+			width: 100%;
+		}
+
+		.detail_pane {
+			display: none;
+		}
 	</style>
 </head>
 <body onload="start();">
 	<div class="display_port" data-bind="css: { extra_scroll_space: expanded }">
 		<div class="main_pane" data-bind="stages: app, with: app">
-			<canvas id="skillsCanvas" width="3220" height="1180" class="drawing canvas"></canvas>
+			<canvas id="skillsCanvas" width="3220" height="1280" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: levels -->
 			<h1 class="level_title" data-bind="style: { top: label_position.top, left: label_position.left, width: label_position.width }, text: name, click: $parent.show_level_details"></h1>
