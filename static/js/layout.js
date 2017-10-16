@@ -127,7 +127,7 @@ var UrlData = function () {
         this.show_all = show_all;
         this.components_to_show = components;
         this.ask_for_help = ask_for_help;
-        this.title = (active_focus_name ? active_focus_name + " | Agile Engineering Fluency Stages" : "Agile Engineering Fluency Stages");
+        this.title = (active_focus_name ? active_focus_name + " | Code by Refactoring" : "Code by Refactoring");
     }
     base_class(UrlData, {
         to_url: function () {
@@ -245,20 +245,19 @@ var StagesVm = function () {
         this.focal_skill = ko.observable(null);
         this.focal_level = ko.observable(null);
         this.show_skill_details = function (skill) {
-            self.focal_skill(skill);
-            self.update_url();
+        	self.focal_level(null);
+        	self.focal_skill(skill);
+        	self.update_url();
         };
-        this.hide_skill_details = function () {
+        this.hide_details = function () {
             self.focal_skill(null);
+            self.focal_level(null);
             self.update_url();
         };
         this.show_level_details = function (level) {
-            self.focal_level(level);
-            self.update_url();
-        };
-        this.hide_level_details = function () {
-            self.focal_level(null);
-            self.update_url();
+        	self.focal_skill(null);
+        	self.focal_level(level);
+        	self.update_url();
         };
         this.editing = ko.observable(false);
         this.ask_for_help = ko.observable("");
@@ -632,7 +631,7 @@ function Painter(canvas) {
 
 function LayoutSpecialist() {
     var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = { x: 120, y: 80 };
-    var OFFSET_TO_GRID_ORIGIN = { x: 40, y: 160 };
+    var OFFSET_TO_GRID_ORIGIN = { x: 40, y: 120 };
     var self = this;
 
     this.translatePoint = function (point) {

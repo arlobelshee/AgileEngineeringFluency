@@ -33,8 +33,8 @@
 	</style>
 </head>
 <body onload="start();">
-	<div class="display_port">
-		<div class="main_pane" data-bind="css: { extra_scroll_space: expanded }, stages: app, with: app">
+	<div class="display_port" data-bind="css: { extra_scroll_space: expanded }">
+		<div class="main_pane" data-bind="stages: app, with: app">
 			<canvas id="skillsCanvas" width="3220" height="1180" class="drawing canvas"></canvas>
 			<canvas id="debugCanvas" class="debug canvas"></canvas>
 			<!-- ko foreach: levels -->
@@ -44,111 +44,120 @@
 			<!-- /ko -->
 			<!-- /ko -->
 			<!-- ko foreach: skills -->
-			<div class="skill_text collapsed" data-bind="style: { top: label_position.top, left: label_position.left }, css {key: is_key}, click: $parent.show_skill_details">
+			<div class="skill_text" data-bind="style: { top: label_position.top, left: label_position.left }, css {key: is_key, expanded: _id == ($parent.focal_skill() ? $parent.focal_skill()._id : null) }, click: $parent.show_skill_details">
 				<span class="name" data-bind="text: name"></span>
 			</div>
 			<!-- ko if: help_to_request -->
 			<div class="help_action" data-bind="text: help_to_request, style: { top: label_position.top, left: label_position.left }"></div>
 			<!-- /ko -->
 			<!-- /ko -->
-			<div class="legend">
-				<h2>Legend</h2>
-				<div id="show_label">Show</div>
-				<table>
-					<tbody>
-						<!-- ko foreach: components -->
-						<tr class="entry">
-							<td class="show"><input type="checkbox" data-bind="checked: show_dependencies" /></td>
-							<td>
-								<div class="solid_line" data-bind="style: { 'border-color': color }">&nbsp;</div>
-							</td>
-							<td class="category" data-bind="text: name"></td>
-							<td class="techniques" data-bind="text: '(' + techniques() + ')'"></td>
-						</tr>
-						<!-- /ko -->
-						<tr class="entry">
-							<td class="show"><input type="checkbox" data-bind="checked: show_all_dependencies" /></td>
-							<td colspan="2">All</td>
-						</tr>
-						<!-- ko foreach: kinds -->
-						<tr class="entry">
-							<td class="show">&nbsp;</td>
-							<td><div class="solid_line" data-bind="style: { 'border-style': border_style }">&nbsp;</div></td>
-							<td data-bind="text: description" colspan="2"></td>
-						</tr>
-						<!-- /ko -->
-					</tbody>
-				</table>
-			</div>
 		</div>
-		<img class="options_corner" src="static/img/page-fold.png" data-bind="click: open_options" />
-		<div class="options_pane hidden" data-bind="css: { hidden: !expanded() }">
-			<p style="padding-left:2em;">
-				Copy JSON from here to the stages_data.js file.
-				<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
-				<span class="error_display" data-bind="text: app.error_message()"></span>
-			</p>
-			<textarea cols="60" rows="20" data-bind="value: json_blob, valueUpdate: 'afterkeydown', css: { invalid: !app.valid() }"></textarea>
-			<div class="option">
-				<p>How I want to help today:</p>
-				<ul>
-					<li><input type="radio" data-bind="checked: app.ask_for_help" value="" name="howToHelp" />No thanks, I just want to read.</li>
-					<li><input type="radio" data-bind="checked: app.ask_for_help" value="ALL" name="howToHelp" />I'll do anything.</li>
-					<!-- ko foreach: { data: app.kinds_of_help, as: 'help' } -->
-					<li><input type="radio" data-bind="checked: $root.app.ask_for_help, value: help._id" name="howToHelp" /><span data-bind="text: help.name"></span></li>
-					<!-- /ko -->
-				</ul>
-			</div>
-		</div>
+		<p class="copyright">View: <a href="http://bit.ly/CodeByRefactoringModules">http://bit.ly/CodeByRefactoringModules</a>, print (PDF): <a href="http://bit.ly/CodeByRefactoringModulesPdf">http://bit.ly/CodeByRefactoringModulesPdf</a>. Version <span data-bind="text: app.version"></span>. Copyright &copy; Innovating Teams, LLC, 2016.</p>
 	</div>
-	<div class="level focus_dialog hidden" data-bind="css: { hidden: !app.focal_level(), editing: app.editing() }, click: app.hide_level_details">
-		<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.focal_level()">
-			<h1 class="name" data-bind="text: name"></h1>
-			<div class="description_block">
-				<div class="edit_button" data-bind="click: function() { $root.app.editing(true); }, clickBubble: false"></div>
-				<div class="display" data-bind="html: description_display, click: function() { return true; }, clickBubble: false"></div>
-				<div class="editor">
-					<button data-bind="click: function() { $root.app.editing(false); }, clickBubble: false">Close</button>
-					<textarea rows="25" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
-					<p class="label">Help needed:</p>
-					<!-- ko foreach: { data: $root.app.kinds_of_help, as: 'help' } -->
-					<p><input type="checkbox" data-bind="checkedValue: help, checked: $parent.help_needed" /> <span data-bind="text: help.name"></span></p>
+	<div class="detail_pane">
+		<div class="how_to">
+			<h2>Code by Refactoring</h2>
+			<p>Use the map on the left find your next module and challenge.</p>
+			<h1>Click on the Start Here module to begin.</h1>
+		</div>
+		<div class="legend" data-bind="with: app">
+			<h2>Legend</h2>
+			<div id="show_label">Show</div>
+			<table>
+				<tbody>
+					<!-- ko foreach: components -->
+					<tr class="entry">
+						<td class="show"><input type="checkbox" data-bind="checked: show_dependencies" /></td>
+						<td>
+							<div class="solid_line" data-bind="style: { 'border-color': color }">&nbsp;</div>
+						</td>
+						<td class="category" data-bind="text: name"></td>
+						<td class="techniques" data-bind="text: '(' + techniques() + ')'"></td>
+					</tr>
 					<!-- /ko -->
+					<tr class="entry">
+						<td class="show"><input type="checkbox" data-bind="checked: show_all_dependencies" /></td>
+						<td colspan="2">All</td>
+					</tr>
+					<!-- ko foreach: kinds -->
+					<tr class="entry">
+						<td class="show">&nbsp;</td>
+						<td><div class="solid_line" data-bind="style: { 'border-style': border_style }">&nbsp;</div></td>
+						<td data-bind="text: description" colspan="2"></td>
+					</tr>
+					<!-- /ko -->
+				</tbody>
+			</table>
+		</div>
+		<div class="skill focus_dialog hidden" data-bind="css: { hidden: !app.focal_skill(), editing: app.editing() }, click: app.hide_details">
+			<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.focal_skill()">
+				<h1 class="name" data-bind="text: name"></h1>
+				<p class="stage"><span class="era" data-bind="text: level.name()"></span><span class="purpose" data-bind="text: component.name()"></span></p>
+				<div class="relationships">
+					<script type="text/html" id="relationships-template">
+						<ul>
+							<li data-bind="text: relationship"></li>
+							<!-- ko foreach: { data: data, as: 'req' } -->
+							<li class="relation"><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }, attr: { title: req.kind.name }, click: function(link) { $root.app.show_skill_details(link.skill); }, clickBubble: false"></a></li>
+							<!-- /ko -->
+						</ul>
+					</script>
+					<div data-bind="template: { name: 'relationships-template', data: { relationship: 'Depends on', data: requires } }"></div>
+					<div data-bind="template: { name: 'relationships-template', data: { relationship: 'Enables', data: enables } }"></div>
+					<!--<div data-bind="template: { name: 'relationships-template', data: { relationship: 'Obsoletes', data: obsoletes } }"></div>-->
+				</div>
+				<div class="description_block">
+					<div class="edit_button" data-bind="click: function() { $root.app.editing(true); }, clickBubble: false"></div>
+					<div class="display" data-bind="html: description_display, click: function() { return true; }, clickBubble: false"></div>
+					<div class="editor">
+						<button data-bind="click: function() { $root.app.editing(false); }, clickBubble: false">Close</button>
+						<textarea rows="25" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
+						<p>This uses <a href="https://txstyle.org/">Textile formatting</a>.</p>
+						<p class="label">Help needed:</p>
+						<!-- ko foreach: { data: $root.app.kinds_of_help, as: 'help' } -->
+						<p><input type="checkbox" data-bind="checkedValue: help, checked: $parent.help_needed" /> <span data-bind="text: help.name"></span></p>
+						<!-- /ko -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="level focus_dialog hidden" data-bind="css: { hidden: !app.focal_level(), editing: app.editing() }, click: app.hide_details">
+			<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.focal_level()">
+				<h1 class="name" data-bind="text: name"></h1>
+				<div class="description_block">
+					<div class="edit_button" data-bind="click: function() { $root.app.editing(true); }, clickBubble: false"></div>
+					<div class="display" data-bind="html: description_display, click: function() { return true; }, clickBubble: false"></div>
+					<div class="editor">
+						<button data-bind="click: function() { $root.app.editing(false); }, clickBubble: false">Close</button>
+						<textarea rows="25" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
+						<p>This uses <a href="https://txstyle.org/">Textile formatting</a>.</p>
+						<p class="label">Help needed:</p>
+						<!-- ko foreach: { data: $root.app.kinds_of_help, as: 'help' } -->
+						<p><input type="checkbox" data-bind="checkedValue: help, checked: $parent.help_needed" /> <span data-bind="text: help.name"></span></p>
+						<!-- /ko -->
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="skill focus_dialog hidden" data-bind="css: { hidden: !app.focal_skill(), editing: app.editing() }, click: app.hide_skill_details">
-		<div class="contents" data-bind="click: function(){}, clickBubble: false, with: app.focal_skill()">
-			<h1 class="name" data-bind="text: name"></h1>
-			<p class="stage"><span class="era" data-bind="text: level.name()"></span><span class="purpose" data-bind="text: component.name()"></span></p>
-			<div class="relationships">
-				<script type="text/html" id="relationships-template">
-					<ul>
-						<li data-bind="text: relationship"></li>
-						<!-- ko foreach: { data: data, as: 'req' } -->
-						<li class="relation"><a href="#" data-bind="text: req.skill.name(), css: { optional: req.kind._id !== 'IS_REQUIRED' }, attr: { title: req.kind.name }, click: function(link) { $root.app.show_skill_details(link.skill); }, clickBubble: false"></a></li>
-						<!-- /ko -->
-					</ul>
-				</script>
-				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'Depends on', data: requires } }"></div>
-				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'Enables', data: enables } }"></div>
-				<div data-bind="template: { name: 'relationships-template', data: { relationship: 'Obsoletes', data: obsoletes } }"></div>
-			</div>
-			<div class="description_block">
-				<div class="edit_button" data-bind="click: function() { $root.app.editing(true); }, clickBubble: false"></div>
-				<div class="display" data-bind="html: description_display, click: function() { return true; }, clickBubble: false"></div>
-				<div class="editor">
-					<button data-bind="click: function() { $root.app.editing(false); }, clickBubble: false">Close</button>
-					<textarea rows="25" cols="50" data-bind="value: description, valueUpdate: 'afterkeydown'"></textarea>
-					<p class="label">Help needed:</p>
-					<!-- ko foreach: { data: $root.app.kinds_of_help, as: 'help' } -->
-					<p><input type="checkbox" data-bind="checkedValue: help, checked: $parent.help_needed" /> <span data-bind="text: help.name"></span></p>
-					<!-- /ko -->
-				</div>
-			</div>
+	<img class="options_corner" src="static/img/page-fold.png" data-bind="click: open_options" />
+	<div class="options_pane hidden" data-bind="css: { hidden: !expanded() }">
+		<p style="padding-left:2em;">
+			Copy JSON from here to the stages_data.js file.
+			<button data-bind="click: close_options" style="margin-left:2em;">Close</button>
+			<span class="error_display" data-bind="text: app.error_message()"></span>
+		</p>
+		<textarea cols="60" rows="20" data-bind="value: json_blob, valueUpdate: 'afterkeydown', css: { invalid: !app.valid() }"></textarea>
+		<div class="option">
+			<p>How I want to help today:</p>
+			<ul>
+				<li><input type="radio" data-bind="checked: app.ask_for_help" value="" name="howToHelp" />No thanks, I just want to read.</li>
+				<li><input type="radio" data-bind="checked: app.ask_for_help" value="ALL" name="howToHelp" />I'll do anything.</li>
+				<!-- ko foreach: { data: app.kinds_of_help, as: 'help' } -->
+				<li><input type="radio" data-bind="checked: $root.app.ask_for_help, value: help._id" name="howToHelp" /><span data-bind="text: help.name"></span></li>
+				<!-- /ko -->
+			</ul>
 		</div>
 	</div>
-	<p class="copyright">View: <a href="http://bit.ly/AgileEngineeringStages">http://bit.ly/AgileEngineeringStages</a>, contribute: <a href="https://github.com/arlobelshee/AgileEngineeringFluency">https://github.com/arlobelshee/AgileEngineeringFluency</a>, print (PDF): <a href="http://bit.ly/AgileEngineeringStagesPdf">http://bit.ly/AgileEngineeringStagesPdf</a>. Version <span data-bind="text: app.version"></span>. Copyright &copy; Arlo Belshee, 2014. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" style="margin-left: 3em;"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a></p>
 </body>
 </html>

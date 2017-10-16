@@ -1,6 +1,6 @@
 function load_data() {
 	return {
-		"version": "0.11.0",
+		"version": "0.11.1",
 		"file_format_version": "2.0.0",
 		"levels": {
 			"L_TRADITIONAL": {
@@ -8,7 +8,7 @@ function load_data() {
 				"slug": "traditional",
 				"min": -1,
 				"max": 5,
-				"color": "#e0e0ff",
+				"color": "#cccccc",
 				"description": [
 					"bq>. Traditional approaches work when they are done well. Even if we now know better ways.",
 					"",
@@ -60,7 +60,7 @@ function load_data() {
 				"slug": "team",
 				"min": 6,
 				"max": 8,
-				"color": "#cccccc",
+				"color": "#dedede",
 				"description": [
 					"bq>. 1 sentence summary.",
 					"",
@@ -107,7 +107,7 @@ function load_data() {
 				"slug": "modern_core",
 				"min": 9,
 				"max": 11,
-				"color": "#ffe0d0",
+				"color": "#cccccc",
 				"description": [
 					"bq>. My team is starting to work iteratively in everything we do.",
 					"",
@@ -154,7 +154,7 @@ function load_data() {
 				"slug": "adaptive",
 				"min": 12,
 				"max": 15,
-				"color": "#d0ffff",
+				"color": "#dedede",
 				"description": [
 					"bq>. 1 sentence summary.",
 					"",
@@ -201,7 +201,7 @@ function load_data() {
 				"slug": "leverage",
 				"min": 16,
 				"max": 17,
-				"color": "#ffe0ff",
+				"color": "#cccccc",
 				"description": [
 					"bq>. 1 sentence summary.",
 					"",
@@ -248,7 +248,7 @@ function load_data() {
 				"slug": "no_debt",
 				"min": 18,
 				"max": 20,
-				"color": "#e0ffe0",
+				"color": "#dedede",
 				"description": [
 					"bq>. 1 sentence summary.",
 					"",
@@ -295,7 +295,7 @@ function load_data() {
 				"slug": "awesome",
 				"min": 21,
 				"max": 26,
-				"color": "#ffffc0",
+				"color": "#cccccc",
 				"description": [
 					"bq>. 1 sentence summary.",
 					"",
