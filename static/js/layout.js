@@ -127,7 +127,7 @@ var UrlData = function () {
 		this.show_all = show_all;
 		this.components_to_show = components;
 		this.ask_for_help = ask_for_help;
-		this.title = (active_focus_name ? active_focus_name + " | Code by Refactoring" : "Code by Refactoring");
+		this.title = (active_focus_name ? active_focus_name + " | Agile Engineering Stages" : "Agile Engineering Stages");
 	}
 	base_class(UrlData, {
 		to_url: function () {
@@ -225,6 +225,9 @@ function ViewModel() {
 	}).extend({ rateLimit: { method: "notifyWhenChangesStop", timeout: 1000 } });
 	this.begin_tracking_history = function () {
 		vm.app.handle_navigation();
+		window.addEventListener('popstate', function () {
+			vm.app.handle_navigation()
+		});
 	};
 	this.reset_data_to = function (data) {
 		this.app.update_data(data, true);
@@ -282,7 +285,7 @@ var StagesVm = function () {
 		},
 		update_url: function () {
 			var data = UrlData.from_vms(this.focal_skill(), this.show_all_dependencies(), this.components(), this.ask_for_help(), this.focal_level());
-			History.replaceState(null, data.title, data.to_url());
+			History.pushState(null, data.title, data.to_url());
 		},
 		handle_navigation: function () {
 			var url = History.getState().url.split("?")[1];
