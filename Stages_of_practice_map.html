@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Agile Engineering Fluency Stages</title>
 	<script type="text/javascript" src="static/js/layout.js">
+
 	</script>
 	<script type="text/javascript" src="stages_data.js">
+
 	</script>
 	<script type="text/javascript" src="static/js/textile.js">
+
 	</script>
 	<script type="text/javascript" src="static/js/knockout-3.1.0.js">
+
 	</script>
 	<script type="text/javascript" src="static/js/history1.8/native.history.js">
+
 	</script>
 	<script type="text/javascript">
 		function start() {
@@ -38,8 +44,10 @@
 		.detail_pane {
 			display: none;
 		}
+
 	</style>
 </head>
+
 <body onload="start();">
 	<div class="display_port" data-bind="css: { extra_scroll_space: expanded }">
 		<div class="main_pane" data-bind="stages: app, with: app">
@@ -60,13 +68,58 @@
 			<!-- /ko -->
 			<!-- /ko -->
 		</div>
-		<p class="copyright">View: <a href="http://bit.ly/CodeByRefactoringModules">http://bit.ly/CodeByRefactoringModules</a>, print (PDF): <a href="http://bit.ly/CodeByRefactoringModulesPdf">http://bit.ly/CodeByRefactoringModulesPdf</a>. Version <span data-bind="text: app.version"></span>. Copyright &copy; Innovating Teams, LLC, 2016.</p>
+		<p class="copyright">View: <a href="http://bit.ly/CodeByRefactoringModules">http://bit.ly/CodeByRefactoringModules</a>, print (PDF): <a href="http://bit.ly/CodeByRefactoringModulesPdf">http://bit.ly/CodeByRefactoringModulesPdf</a>.
+			Version <span data-bind="text: app.version"></span>. Copyright &copy; Innovating Teams, LLC, 2016.</p>
 	</div>
 	<div class="detail_pane">
 		<div class="how_to">
-			<h2>Code by Refactoring</h2>
-			<p>Use the map on the left find your next module and challenge.</p>
-			<h1>Click on the Start Here module to begin.</h1>
+			<p>View details for any practice by clicking it on the map.</p>
+			<header>
+				<h1 class="title">Agile Engineering Fluency</h1>
+				<p class="tagline">A model for undertanding the specific proficiencies involved in creating a good <a href="http://agilefluency.com/">2+star agile</a>					team.</p>
+			</header>
+			<article>
+				<p>Teams develop by gaining fluency at specific proficiencies. Those proficiencies seem to follow common patterns: later
+					proficiencies require fluency at lower-level proficiencies.</p>
+
+				<h2>Why fluency?</h2>
+
+				<p>Fluency means the ability to perform some proficiency without thought and in all circumstances. You are fluent at the
+					things that you do when you are behind on a critical deadline and dealing with a live-site issue in the middle of the
+					night with a customer on the line. When the chips are down and stress is high, you will perform using the techniques
+					at which you are fluent.</p>
+
+				<p>Outcomes are determined mostly by the stages at which everyone on your team has full fluency. The things at which you
+					are aspiring (you do them on your best days) will not give consistent results. Your overall result will be determined
+					more by your normal and worst days than by your best. For this reason, we recommend that teams focus on developing fluency
+					at various levels, not just aspiring to basic capability at the proficiency.</p>
+
+				<h2>Why not skip levels?</h2>
+
+				<p>Some proficiencies are not even understandable or valued until fluency is achieved with some set of prior proficiencies.
+					The tight inner dev loop (red-green-refactor, with minimum time in red and green steps) is one such.</p>
+
+				<p>Until a team has gained full fluency at reflective design, they will not be able to create good designs in such small
+					steps. R-G-R is actively harmful for early teams. Yet once a team masters reflective design, R-G-R gives them more frequent
+					data and assessment of the results of their designs: they couldn't get as good a design in any other way.</p>
+
+				<h2>What the model gives you</h2>
+
+				<p>This model lays out the <a href="Stages_of_practice_map.html">Agile Engineering stages</a> of proficiency. Each stage
+					shows what it is, its pre-reqs, what it obsoletes, how to gain basic proficiency, how to attain full fluency, and some
+					of the benefits and costs caused by fluency at that stage.</p>
+
+				<h2>Contributing</h2>
+
+				<p>The model is editable. We welcome insights. To contribute, fork the <a href="https://github.com/arlobelshee/AgileEngineeringFluency">github project</a>					and send me a pull request. All of the data is stored in stages_data.js. You can edit the markdown live on the site,
+					then copy the contents for this file from a textarea in the options pane (open using the little curled up corner in
+					the lower-left).
+				</p>
+
+				<p>All contributions are given under the license for this project. By issuing a pull request, you indicate that you understand
+					all copyright and other IP issues, have rights to your contribution, and are releasing such rights to that contribution
+					such that we can include it with the rest of the model for immediate publication.</p>
+			</article>
 		</div>
 		<div class="legend" data-bind="with: app">
 			<h2>Legend</h2>
@@ -90,7 +143,9 @@
 					<!-- ko foreach: kinds -->
 					<tr class="entry">
 						<td class="show">&nbsp;</td>
-						<td><div class="solid_line" data-bind="style: { 'border-style': border_style }">&nbsp;</div></td>
+						<td>
+							<div class="solid_line" data-bind="style: { 'border-style': border_style }">&nbsp;</div>
+						</td>
 						<td data-bind="text: description" colspan="2"></td>
 					</tr>
 					<!-- /ko -->
@@ -168,4 +223,5 @@
 		</div>
 	</div>
 </body>
+
 </html>
