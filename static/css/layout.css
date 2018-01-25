@@ -18,12 +18,13 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 0;
 	font-weight: normal;
 	font-style: normal;
+	font-family: "Oswald";
 }
 
 html, body {
 	width: 100%;
 	font-size: 10px;
-	font-family: "Segoe UI","Times New Roman",serif;
+	font-family: "Lato","Times New Roman",sans-serif;
 	line-height: 1.0;
 }
 
@@ -324,7 +325,7 @@ html, body {
 	z-index: 2;
 	font-size: 1.4em;
 	line-height: 1.3;
-	padding: 5px;
+	padding: 8px;
 	background-color: rgba(255,255,255,0.85);
 	border-radius: 15px;
 	width: 92px;
@@ -338,8 +339,8 @@ html, body {
 	}
 
 		.skill_text:hover {
-			border: 2px solid #000080;
-			padding: 3px;
+			border: 2px solid #bb0000;
+			padding: 6px;
 			cursor: pointer;
 		}
 
@@ -378,6 +379,13 @@ html, body {
 		width: 20px;
 		vertical-align: middle;
 	}
+
+	.legend .entry .block {
+		display: inline-block;
+		border: 5px solid rgb(206, 255, 199);
+		height: 0px;
+		width: 15px;
+		vertical-align: middle;	
 
 	.legend .entry td {
 		font-size: 1.2em;
