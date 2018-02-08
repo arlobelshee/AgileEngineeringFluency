@@ -370,7 +370,7 @@ function load_data() {
 				"slug": "learn"
 			},
 			"V_IMPROVE": {
-				"name": "Improve as a Team",
+				"name": "Improve as a team",
 				"techniques": "Teams, Retrospectives",
 				"color": "#cf4040",
 				"slug": "team"

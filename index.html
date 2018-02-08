@@ -138,7 +138,15 @@
 					<!-- /ko -->
 					<tr class="entry">
 						<td class="show"><input type="checkbox" data-bind="checked: show_all_dependencies" /></td>
-						<td colspan="2">All</td>
+						<td colspan="3"class="category">All</td>
+					</tr>
+					<tr class="entry">
+						<td class="show">&nbsp;</td>
+						<td>
+							<div class="block">&nbsp;</div>
+						</td>
+						<td class="category">Key skill</td>
+						<td class="techniques">(Step that significantly changes the team's results)</td>
 					</tr>
 					<!-- ko foreach: kinds -->
 					<tr class="entry">
@@ -146,7 +154,7 @@
 						<td>
 							<div class="solid_line" data-bind="style: { 'border-style': border_style }">&nbsp;</div>
 						</td>
-						<td data-bind="text: description" colspan="2"></td>
+						<td data-bind="text: description" colspan="2" class="category"></td>
 					</tr>
 					<!-- /ko -->
 				</tbody>
