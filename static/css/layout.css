@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 html, body {
 	width: 100%;
 	font-size: 10px;
-	font-family: "Lato","Times New Roman",sans-serif;
+	font-family: "Lato",sans-serif;
 	line-height: 1.0;
 }
 
@@ -382,10 +382,11 @@ html, body {
 
 	.legend .entry .block {
 		display: inline-block;
-		border: 5px solid rgb(206, 255, 199);
-		height: 0px;
-		width: 15px;
-		vertical-align: middle;	
+		background: rgba(200,255,200,0.9);
+		height: 10px;
+		width: 24px;
+		vertical-align: middle;
+	}
 
 	.legend .entry td {
 		font-size: 1.2em;
