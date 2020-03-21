@@ -4812,11 +4812,11 @@ function load_data() {
 				],
 				"obsoletes": [],
 				"description": [
-					"bq>. 1-sentence mindset quote goes here",
+					"bq>. Anyone in the team can make changes and improve the code base",
 					"",
 					"h1. What this is",
 					"",
-					"###. TBD",
+					"Collective code ownership is a practice described in *Extreme Programming*. In the second edition of Extreme Programming it was renamed to Shared Code while maintaining the same meaning: the code base is owned by the whole team and anyone can make changes to it and is encouraged to contribute with new ideas to all segments of the project on which the team works, thus any developer can edit any line of code to add functionality, fix bugs and perform refactoring.",
 					"",
 					"###. h2. How it helps",
 					"",
@@ -4870,7 +4870,7 @@ function load_data() {
 					"",
 					"h2. Further resources",
 					"",
-					"TBD",
+					"\"Martin Fowler on Code Ownership\":https://martinfowler.com/bliki/CodeOwnership.html",
 					"",
 					""
 				],
