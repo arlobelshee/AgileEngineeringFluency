@@ -9957,11 +9957,11 @@ function load_data() {
 				],
 				"obsoletes": [],
 				"description": [
-					"bq>. 1-sentence mindset quote goes here",
+					"bq>. Your code can tell you things that are hard to learn anywhere else.",
 					"",
 					"h1. What this is",
 					"",
-					"###. TBD",
+					"As programmers we develop the ability to detect complexity in software systems. At first we use that to identify and eliminate accidental complexity, but when the code eventually becomes an excellent model of the problem domain, our sensitivity complexity helps us detect and resolve complexity in the problem domain.",
 					"",
 					"###. h2. How it helps",
 					"",
