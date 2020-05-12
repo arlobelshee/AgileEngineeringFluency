@@ -1,6 +1,6 @@
 function load_data() {
 	return {
-		"version": "0.11.1",
+		"version": "0.11.2",
 		"file_format_version": "2.0.0",
 		"levels": {
 			"L_TRADITIONAL": {
