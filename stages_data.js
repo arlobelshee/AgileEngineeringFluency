@@ -1,6 +1,6 @@
 function load_data() {
 	return {
-		version: "0.11.2",
+		version: "0.11.3",
 		file_format_version: "2.0.0",
 		levels: {
 			L_TRADITIONAL: {
@@ -2726,7 +2726,7 @@ function load_data() {
 					"",
 					"h2. Side effects",
 					"",
-					"Solo concentration is impaired. Fix this by using Work together for productivity.",
+					"Solo concentration is impaired. Fix this by using Pair / Mob for productivity.",
 					"",
 					"h1. Acquiring the skill",
 					"",
@@ -3441,7 +3441,7 @@ function load_data() {
 					"",
 					"h2. Side effects",
 					"",
-					"Development takes longer to get to code complete (typically about +40%). This can be addressed by Work together for production and by Tests as Specs.",
+					"Development takes longer to get to code complete (typically about +40%). This can be addressed by Pair / Mob for productivity and by Tests as Specs.",
 					"",
 					"h1. Acquiring the skill",
 					"",
@@ -4742,7 +4742,7 @@ function load_data() {
 				is_key: false,
 			},
 			SK_PAIR_PRODUCTION: {
-				name: "Work together for productivity",
+				name: "Pair / Mob for productivity",
 				x: 13,
 				y: 2,
 				level: "L_ADAPTIVE",
@@ -4998,7 +4998,7 @@ function load_data() {
 				is_key: false,
 			},
 			SK_PAIR_ALWAYS: {
-				name: "Work together for discipline",
+				name: "Pair / Mob for discipline",
 				x: 14,
 				y: 2,
 				level: "L_ADAPTIVE",
