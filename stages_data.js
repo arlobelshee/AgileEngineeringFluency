@@ -9320,8 +9320,8 @@ function load_data() {
 						kind: "IS_REQUIRED",
 					},
 				],
-				"obsoletes": [],
-				"description": [
+				obsoletes: [],
+				description: [
 					"bq>. Your code can tell you things that are hard to learn anywhere else.",
 					"",
 					"h1. What this is",
