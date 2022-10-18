@@ -3399,7 +3399,7 @@ function load_data() {
 					"",
 					"No code is considered done until it has been proven. We are starting to apply this thinking to our other work as well, especially habit changes from retros. The call *Prove it!* starts to ring around the halls.",
 					"",
-					"When we way Prove it, however, we currently mean just to prove that you are done and didn't break anything. We don't yet have the maturity to prove whether what we did matters.",
+					"When we say 'Prove it', however, we currently mean just to prove that you are done and didn't break anything. We don't yet have the maturity to prove whether what we did matters.",
 					"",
 					"h2. What it is not",
 					"",
