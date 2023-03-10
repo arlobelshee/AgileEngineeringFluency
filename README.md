@@ -19,6 +19,6 @@ Contributing
 
 We love pull requests!
 
-Please make sure you can submit your work for publication under the above license. And add your name to the CONTRIBUTORS.txt as part of your pull request. That way we can thank you and also avoid (some) sticky legal situations.
+Please make sure you can submit your work for publication under the above license. And add your name to the [`CONTRIBUTORS.txt`](CONTRIBUTORS.txt) as part of your pull request. That way we can thank you and also avoid (some) sticky legal situations.
 
 To edit things, you can either edit [`stages_data.js`](stages_data.js) directly or you can edit in the display. If you edit in the display, there is a little turned-up corner in the lower-left. Click that and you will see a text area. Copy the JS from that into [`stages_data.js`](stages_data.js).
