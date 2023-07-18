@@ -9,4 +9,5 @@ By listing your name below, you indicate agreement to the following:
 * Matt Hornsby
 * Brightspace <brightspace.com>
 * Daniel Steinberg
+* Jay Bazuzi (@JayBazuzi)
 * Alex Kessinger (@voidfiles)
