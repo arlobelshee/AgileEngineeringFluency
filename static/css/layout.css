@@ -154,8 +154,8 @@ html, body {
 		.focus_dialog .description_block .edit_button {
 			position: absolute;
 			display: block;
-			right: 0.4em;
-			top: 0.4em;
+			right: 20px;
+			top: -15px;
 			height: 25px;
 			width: 25px;
 			z-index: 1;
