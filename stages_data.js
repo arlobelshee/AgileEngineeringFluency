@@ -7874,7 +7874,7 @@ function load_data() {
 			SK_INTENTIONAL_TECHNICAL_DEBT: {
 				name: "Intentional Technical Debt",
 				x: 20,
-				y: 6.5,
+				y: 9,
 				level: "L_NO_DEBT",
 				component: "V_REQUIREMENTS",
 				requires: [
