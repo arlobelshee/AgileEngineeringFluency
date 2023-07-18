@@ -2620,7 +2620,7 @@ function load_data() {
 					"",
 					"Preparing a kanban board is certainly a good starting point.",
 					"",
-					"###. h2. How it helps",
+					"h2. How it helps",
 					"",
 					"At any time, the team can quickly (visually) have an idea of the status of the activities. By viewing the work in progress, control mechanisms can be enabled on the amount of work in progress, highlighting any bottlenecks.",
 					"",
