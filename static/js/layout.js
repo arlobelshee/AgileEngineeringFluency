@@ -423,13 +423,10 @@ var LevelVm = function () {
 		},
 		to_JS: function (unwrap) {
 			return {
-				name: unwrap(this.name),
 				slug: unwrap(this.slug),
 				min: unwrap(this.min),
 				max: unwrap(this.max),
 				color: unwrap(this.color),
-				description: make_multiline(unwrap(this.description)),
-				help_needed: this.help_unwrap(unwrap),
 			};
 		},
 		resolve_obj_references: function (lookup, mark_invalid) {
