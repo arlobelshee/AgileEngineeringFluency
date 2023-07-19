@@ -1,15 +1,15 @@
 function load_data() {
 	return {
-		version: "1.0.0",
-		file_format_version: "2.0.0",
-		levels: {
-			L_TRADITIONAL: {
-				name: "Traditional done well",
-				slug: "traditional",
-				min: -1,
-				max: 5,
-				color: "#cccccc",
-				description: [
+		"version": "1.0.0",
+		"file_format_version": "2.0.0",
+		"levels": {
+			"L_TRADITIONAL": {
+				"name": "Traditional done well",
+				"slug": "traditional",
+				"min": -1,
+				"max": 5,
+				"color": "#cccccc",
+				"description": [
 					"bq>. Traditional approaches work when they are done well. Even if we now know better ways.",
 					"",
 					"h1. What it is",
@@ -46,17 +46,22 @@ function load_data() {
 					"",
 					"###. TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
+				"help_needed": [
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
 			},
-			L_TEAM: {
-				name: "Work as a team",
-				slug: "team",
-				min: 6,
-				max: 8,
-				color: "#dedede",
-				description: [
+			"L_TEAM": {
+				"name": "Work as a team",
+				"slug": "team",
+				"min": 6,
+				"max": 8,
+				"color": "#dedede",
+				"description": [
 					"bq>. 1 sentence summary.",
 					"",
 					"h1. What it is",
@@ -87,17 +92,23 @@ function load_data() {
 					"",
 					"###. TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
 			},
-			L_CORE: {
-				name: "Core modern engineering",
-				slug: "modern_core",
-				min: 9,
-				max: 11,
-				color: "#cccccc",
-				description: [
+			"L_CORE": {
+				"name": "Core modern engineering",
+				"slug": "modern_core",
+				"min": 9,
+				"max": 11,
+				"color": "#cccccc",
+				"description": [
 					"bq>. My team is starting to work iteratively in everything we do.",
 					"",
 					"h1. What it is",
@@ -128,17 +139,23 @@ function load_data() {
 					"",
 					"###. TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
 			},
-			L_ADAPTIVE: {
-				name: "Adaptive engineering",
-				slug: "adaptive",
-				min: 12,
-				max: 15,
-				color: "#dedede",
-				description: [
+			"L_ADAPTIVE": {
+				"name": "Adaptive engineering",
+				"slug": "adaptive",
+				"min": 12,
+				"max": 15,
+				"color": "#dedede",
+				"description": [
 					"bq>. 1 sentence summary.",
 					"",
 					"h1. What it is",
@@ -169,17 +186,23 @@ function load_data() {
 					"",
 					"###. TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
 			},
-			L_LEVERAGE: {
-				name: "Leverage capabilities",
-				slug: "leverage",
-				min: 16,
-				max: 17,
-				color: "#cccccc",
-				description: [
+			"L_LEVERAGE": {
+				"name": "Leverage capabilities",
+				"slug": "leverage",
+				"min": 16,
+				"max": 17,
+				"color": "#cccccc",
+				"description": [
 					"bq>. 1 sentence summary.",
 					"",
 					"h1. What it is",
@@ -210,17 +233,23 @@ function load_data() {
 					"",
 					"###. TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
 			},
-			L_NO_DEBT: {
-				name: "Eliminate debt and change the rules",
-				slug: "no_debt",
-				min: 18,
-				max: 20,
-				color: "#dedede",
-				description: [
+			"L_NO_DEBT": {
+				"name": "Eliminate debt and change the rules",
+				"slug": "no_debt",
+				"min": 18,
+				"max": 20,
+				"color": "#dedede",
+				"description": [
 					"bq>. 1 sentence summary.",
 					"",
 					"h1. What it is",
@@ -251,17 +280,23 @@ function load_data() {
 					"",
 					"###. TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
 			},
-			L_AWESOME: {
-				name: "Take advantage of being awesome",
-				slug: "awesome",
-				min: 21,
-				max: 26,
-				color: "#cccccc",
-				description: [
+			"L_AWESOME": {
+				"name": "Take advantage of being awesome",
+				"slug": "awesome",
+				"min": 21,
+				"max": 26,
+				"color": "#cccccc",
+				"description": [
 					"bq>. 1 sentence summary.",
 					"",
 					"h1. What it is",
@@ -292,93 +327,101 @@ function load_data() {
 					"",
 					"###. TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-			},
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				]
+			}
 		},
-		components: {
-			V_CHECK_WORK: {
-				name: "Check your work",
-				techniques: "TDD, Exploratory Testing",
-				color: "cornflowerblue",
-				slug: "test",
+		"components": {
+			"V_CHECK_WORK": {
+				"name": "Check your work",
+				"techniques": "TDD, Exploratory Testing",
+				"color": "cornflowerblue",
+				"slug": "test"
 			},
-			V_CODE: {
-				name: "Write good code",
-				techniques: "Refactoring, Design, Recovering legacy code",
-				color: "limegreen",
-				slug: "code",
+			"V_CODE": {
+				"name": "Write good code",
+				"techniques": "Refactoring, Design, Recovering legacy code",
+				"color": "limegreen",
+				"slug": "code"
 			},
-			V_SHIP: {
-				name: "Ship at will",
-				techniques: "Continuous Integration, Continuous Deployment, Dev Ops",
-				color: "#A825D3",
-				slug: "ship",
+			"V_SHIP": {
+				"name": "Ship at will",
+				"techniques": "Continuous Integration, Continuous Deployment, Dev Ops",
+				"color": "#A825D3",
+				"slug": "ship"
 			},
-			V_REQUIREMENTS: {
-				name: "Know what to build",
-				techniques: "Stories, Vertical Decomposition, Planning",
-				color: "orange",
-				slug: "plan",
+			"V_REQUIREMENTS": {
+				"name": "Know what to build",
+				"techniques": "Stories, Vertical Decomposition, Planning",
+				"color": "orange",
+				"slug": "plan"
 			},
-			V_LEARN: {
-				name: "Discipline and learning",
-				techniques: "Pairing, Mobbing",
-				color: "fuchsia",
-				slug: "learn",
+			"V_LEARN": {
+				"name": "Discipline and learning",
+				"techniques": "Pairing, Mobbing",
+				"color": "fuchsia",
+				"slug": "learn"
 			},
-			V_IMPROVE: {
-				name: "Improve as a team",
-				techniques: "Teams, Retrospectives",
-				color: "#cf4040",
-				slug: "team",
+			"V_IMPROVE": {
+				"name": "Improve as a team",
+				"techniques": "Teams, Retrospectives",
+				"color": "#cf4040",
+				"slug": "team"
 			},
-			V_SUSTAINABLE: {
-				name: "Not hurried",
-				techniques: "Velocity, Planning to Capacity",
-				color: "#bc8f8f",
-				slug: "sustain",
-			},
+			"V_SUSTAINABLE": {
+				"name": "Not hurried",
+				"techniques": "Velocity, Planning to Capacity",
+				"color": "#bc8f8f",
+				"slug": "sustain"
+			}
 		},
-		dependency_kinds: {
-			IS_REQUIRED: {
-				name: "required",
-				description: "Doing A is nearly required to do B",
-				dash_style: [],
-				border_style: "solid",
+		"dependency_kinds": {
+			"IS_REQUIRED": {
+				"name": "required",
+				"description": "Doing A is nearly required to do B",
+				"dash_style": [],
+				"border_style": "solid"
 			},
-			IS_HELPFUL: {
-				name: "helpful",
-				description: "Doing A helps a lot when doing B",
-				dash_style: [8],
-				border_style: "dashed",
-			},
+			"IS_HELPFUL": {
+				"name": "helpful",
+				"description": "Doing A helps a lot when doing B",
+				"dash_style": [
+					8
+				],
+				"border_style": "dashed"
+			}
 		},
-		help_kinds: {
-			H_KEY: "key idea",
-			H_CORE: "description and recipies",
-			H_REQS: "explain requirements",
-			H_ADV: "advantages and considerations",
-			H_REVIEW: "review",
+		"help_kinds": {
+			"H_KEY": "key idea",
+			"H_CORE": "description and recipies",
+			"H_REQS": "explain requirements",
+			"H_ADV": "advantages and considerations",
+			"H_REVIEW": "review"
 		},
-		skills: {
-			SK_WORK_GROUPS: {
-				name: "Matrixed pseudo-teams",
-				x: 0,
-				y: 0,
-				level: "L_TRADITIONAL",
-				component: "V_IMPROVE",
-				requires: [],
-				obsoletes: [],
-				description: [
+		"skills": {
+			"SK_WORK_GROUPS": {
+				"name": "Matrixed pseudo-teams",
+				"x": 0,
+				"y": 0,
+				"level": "L_TRADITIONAL",
+				"component": "V_IMPROVE",
+				"requires": [],
+				"obsoletes": [],
+				"description": [
 					"bq>. n people work on m teams",
 					"",
 					"h1. What this is",
 					"",
 					"Some of the people working on a project are also assigned to other projects, often in an inconsistent way.",
 					"",
-					'The canonical example is "You get 5% of the DBA on your project."',
+					"The canonical example is \"You get 5% of the DBA on your project.\"",
 					"",
 					"An exception is a stable group of 8 people who together work on _m_ different projects--that's OK. It's the _team_ that matters, not the project.",
 					"",
@@ -436,21 +479,26 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "work_groups",
-				is_key: false,
+				"help_needed": [
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "work_groups",
+				"is_key": false
 			},
-			SK_HELP_AD_HOC: {
-				name: "Ad-hoc helping",
-				x: 0,
-				y: 2,
-				level: "L_TRADITIONAL",
-				component: "V_LEARN",
-				requires: [],
-				obsoletes: [],
-				description: [
+			"SK_HELP_AD_HOC": {
+				"name": "Ad-hoc helping",
+				"x": 0,
+				"y": 2,
+				"level": "L_TRADITIONAL",
+				"component": "V_LEARN",
+				"requires": [],
+				"obsoletes": [],
+				"description": [
 					"bq>. Hey, can you help me with this?",
 					"",
 					"h1. What this is",
@@ -513,21 +561,26 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "help_ad_hoc",
-				is_key: false,
+				"help_needed": [
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "help_ad_hoc",
+				"is_key": false
 			},
-			SK_COWBOY: {
-				name: "Cowboy coding",
-				x: 0,
-				y: 5,
-				level: "L_TRADITIONAL",
-				component: "V_CODE",
-				requires: [],
-				obsoletes: [],
-				description: [
+			"SK_COWBOY": {
+				"name": "Cowboy coding",
+				"x": 0,
+				"y": 5,
+				"level": "L_TRADITIONAL",
+				"component": "V_CODE",
+				"requires": [],
+				"obsoletes": [],
+				"description": [
 					"bq>. Programmer acting alone, without consulting or informing anyone else of their actions.",
 					"",
 					"h1. What this is",
@@ -559,21 +612,24 @@ function load_data() {
 					"Cowboy has significant side effects. You may be shipping code",
 					"that has obvious defects. It might be completely one off and have ",
 					"no future value.",
-					"",
+					""
 				],
-				help_needed: ["H_ADV", "H_REVIEW"],
-				slug: "cowboy",
-				is_key: false,
+				"help_needed": [
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "cowboy",
+				"is_key": false
 			},
-			SK_QA: {
-				name: "Quality Assurance",
-				x: 0,
-				y: 6,
-				level: "L_TRADITIONAL",
-				component: "V_CHECK_WORK",
-				requires: [],
-				obsoletes: [],
-				description: [
+			"SK_QA": {
+				"name": "Quality Assurance",
+				"x": 0,
+				"y": 6,
+				"level": "L_TRADITIONAL",
+				"component": "V_CHECK_WORK",
+				"requires": [],
+				"obsoletes": [],
+				"description": [
 					"bq>. We want to find our bugs before customers do.",
 					"",
 					"h1. What this is",
@@ -634,26 +690,31 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "qa",
-				is_key: false,
+				"help_needed": [
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "qa",
+				"is_key": false
 			},
-			SK_STASIS: {
-				name: "Stasis",
-				x: 0,
-				y: 7,
-				level: "L_TRADITIONAL",
-				component: "V_IMPROVE",
-				requires: [],
-				obsoletes: [],
-				description: [
+			"SK_STASIS": {
+				"name": "Stasis",
+				"x": 0,
+				"y": 7,
+				"level": "L_TRADITIONAL",
+				"component": "V_IMPROVE",
+				"requires": [],
+				"obsoletes": [],
+				"description": [
 					"bq>. We're too busy to get better.",
 					"",
 					"h1. What this is",
 					"",
-					'No improvement. May actually be regression, as "capability decays over time":http://web.mit.edu/nelsonr/www/Repenning%3DSterman_CMR_su01_.pdf.',
+					"No improvement. May actually be regression, as \"capability decays over time\":http://web.mit.edu/nelsonr/www/Repenning%3DSterman_CMR_su01_.pdf.",
 					"",
 					"h2. How it helps",
 					"",
@@ -709,21 +770,26 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "stasis",
-				is_key: false,
+				"help_needed": [
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "stasis",
+				"is_key": false
 			},
-			SK_MANUAL_PACKAGE: {
-				name: "Manual build and package",
-				x: 0,
-				y: 8,
-				level: "L_TRADITIONAL",
-				component: "V_SHIP",
-				requires: [],
-				obsoletes: [],
-				description: [
+			"SK_MANUAL_PACKAGE": {
+				"name": "Manual build and package",
+				"x": 0,
+				"y": 8,
+				"level": "L_TRADITIONAL",
+				"component": "V_SHIP",
+				"requires": [],
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -784,21 +850,27 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "manual_package",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "manual_package",
+				"is_key": false
 			},
-			SK_BUILD_FOR_ME: {
-				name: "Build for myself",
-				x: 0,
-				y: 9,
-				level: "L_TRADITIONAL",
-				component: "V_REQUIREMENTS",
-				requires: [],
-				obsoletes: [],
-				description: [
+			"SK_BUILD_FOR_ME": {
+				"name": "Build for myself",
+				"x": 0,
+				"y": 9,
+				"level": "L_TRADITIONAL",
+				"component": "V_REQUIREMENTS",
+				"requires": [],
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -859,26 +931,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "build_for_me",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "build_for_me",
+				"is_key": false
 			},
-			SK_DEATH_MARCH: {
-				name: "Death marches",
-				x: 0,
-				y: 11,
-				level: "L_TRADITIONAL",
-				component: "V_SUSTAINABLE",
-				requires: [],
-				obsoletes: [],
-				description: [
+			"SK_DEATH_MARCH": {
+				"name": "Death marches",
+				"x": 0,
+				"y": 11,
+				"level": "L_TRADITIONAL",
+				"component": "V_SUSTAINABLE",
+				"requires": [],
+				"obsoletes": [],
+				"description": [
 					"bq>. We will do whatever it takes to ship.",
 					"",
 					"h1. What this is",
 					"",
-					'As deadlines loom (and then whiz by!) we start working longer hours to get the product out the door. Buy dinner for the team. Sunday is family day at the office". ',
+					"As deadlines loom (and then whiz by!) we start working longer hours to get the product out the door. Buy dinner for the team. Sunday is family day at the office\". ",
 					"",
 					"When the product finally ships, people feel like heroes. Dirty heroes.",
 					"",
@@ -936,26 +1014,31 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "death_march",
-				is_key: false,
+				"help_needed": [
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "death_march",
+				"is_key": false
 			},
-			SK_TEAM_LEADS: {
-				name: "Team leads",
-				x: 1,
-				y: 2,
-				level: "L_TRADITIONAL",
-				component: "V_LEARN",
-				requires: [
+			"SK_TEAM_LEADS": {
+				"name": "Team leads",
+				"x": 1,
+				"y": 2,
+				"level": "L_TRADITIONAL",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_HELP_AD_HOC",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_HELP_AD_HOC",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -1016,21 +1099,29 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "team_leads",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "team_leads",
+				"is_key": false
 			},
-			SK_BDUF: {
-				name: "Big design up front",
-				x: 1,
-				y: 5,
-				level: "L_TRADITIONAL",
-				component: "V_CODE",
-				requires: [],
-				obsoletes: ["SK_COWBOY"],
-				description: [
+			"SK_BDUF": {
+				"name": "Big design up front",
+				"x": 1,
+				"y": 5,
+				"level": "L_TRADITIONAL",
+				"component": "V_CODE",
+				"requires": [],
+				"obsoletes": [
+					"SK_COWBOY"
+				],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -1091,26 +1182,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "bduf",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "bduf",
+				"is_key": false
 			},
-			SK_DEV_CHECK: {
-				name: "Developer Checking",
-				x: 1,
-				y: 6,
-				level: "L_TRADITIONAL",
-				component: "V_CHECK_WORK",
-				requires: [
+			"SK_DEV_CHECK": {
+				"name": "Developer Checking",
+				"x": 1,
+				"y": 6,
+				"level": "L_TRADITIONAL",
+				"component": "V_CHECK_WORK",
+				"requires": [
 					{
-						skill: "SK_QA",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_QA",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -1171,21 +1268,29 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "dev_check",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "dev_check",
+				"is_key": false
 			},
-			SK_CENTRAL_PROCESS: {
-				name: "Centralized improvement",
-				x: 1,
-				y: 7,
-				level: "L_TRADITIONAL",
-				component: "V_IMPROVE",
-				requires: [],
-				obsoletes: ["SK_STASIS"],
-				description: [
+			"SK_CENTRAL_PROCESS": {
+				"name": "Centralized improvement",
+				"x": 1,
+				"y": 7,
+				"level": "L_TRADITIONAL",
+				"component": "V_IMPROVE",
+				"requires": [],
+				"obsoletes": [
+					"SK_STASIS"
+				],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -1246,26 +1351,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "central_process",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "central_process",
+				"is_key": false
 			},
-			SK_AUTO_PACKAGE: {
-				name: "Automated package",
-				x: 1,
-				y: 8,
-				level: "L_TRADITIONAL",
-				component: "V_SHIP",
-				requires: [
+			"SK_AUTO_PACKAGE": {
+				"name": "Automated package",
+				"x": 1,
+				"y": 8,
+				"level": "L_TRADITIONAL",
+				"component": "V_SHIP",
+				"requires": [
 					{
-						skill: "SK_MANUAL_PACKAGE",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_MANUAL_PACKAGE",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -1326,21 +1437,29 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "auto_package",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "auto_package",
+				"is_key": false
 			},
-			SK_REQUIREMENTS: {
-				name: "Product requirements",
-				x: 1,
-				y: 9,
-				level: "L_TRADITIONAL",
-				component: "V_REQUIREMENTS",
-				requires: [],
-				obsoletes: ["SK_BUILD_FOR_ME"],
-				description: [
+			"SK_REQUIREMENTS": {
+				"name": "Product requirements",
+				"x": 1,
+				"y": 9,
+				"level": "L_TRADITIONAL",
+				"component": "V_REQUIREMENTS",
+				"requires": [],
+				"obsoletes": [
+					"SK_BUILD_FOR_ME"
+				],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -1401,21 +1520,29 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "requirements",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "requirements",
+				"is_key": false
 			},
-			SK_WATERFALL_MILESTONES: {
-				name: "Waterfall milestones",
-				x: 1,
-				y: 11,
-				level: "L_TRADITIONAL",
-				component: "V_SUSTAINABLE",
-				requires: [],
-				obsoletes: ["SK_DEATH_MARCH"],
-				description: [
+			"SK_WATERFALL_MILESTONES": {
+				"name": "Waterfall milestones",
+				"x": 1,
+				"y": 11,
+				"level": "L_TRADITIONAL",
+				"component": "V_SUSTAINABLE",
+				"requires": [],
+				"obsoletes": [
+					"SK_DEATH_MARCH"
+				],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -1476,30 +1603,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "waterfall_milestones",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "waterfall_milestones",
+				"is_key": false
 			},
-			SK_CODE_REVIEW: {
-				name: "Code review",
-				x: 2,
-				y: 2,
-				level: "L_TRADITIONAL",
-				component: "V_LEARN",
-				requires: [
+			"SK_CODE_REVIEW": {
+				"name": "Code review",
+				"x": 2,
+				"y": 2,
+				"level": "L_TRADITIONAL",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_HELP_AD_HOC",
-						kind: "IS_REQUIRED",
+						"skill": "SK_HELP_AD_HOC",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_TEAM_LEADS",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_TEAM_LEADS",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -1508,7 +1641,7 @@ function load_data() {
 					"",
 					"###. h2. How it helps",
 					"",
-					'- "Obvious" mistakes can get caught in review before they do damage',
+					"- \"Obvious\" mistakes can get caught in review before they do damage",
 					"",
 					"- A second person knows what is going on, in case the original dev is not available later on.",
 					"",
@@ -1564,26 +1697,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "code_review",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "code_review",
+				"is_key": false
 			},
-			SK_FORMAL_TRAINING: {
-				name: "Formal training",
-				x: 2,
-				y: 3,
-				level: "L_TRADITIONAL",
-				component: "V_LEARN",
-				requires: [
+			"SK_FORMAL_TRAINING": {
+				"name": "Formal training",
+				"x": 2,
+				"y": 3,
+				"level": "L_TRADITIONAL",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_TEAM_LEADS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_TEAM_LEADS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -1644,26 +1783,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "formal_training",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "formal_training",
+				"is_key": false
 			},
-			SK_DESIGN_PATTERNS: {
-				name: "Pattern-oriented design",
-				x: 2,
-				y: 4,
-				level: "L_TRADITIONAL",
-				component: "V_CODE",
-				requires: [
+			"SK_DESIGN_PATTERNS": {
+				"name": "Pattern-oriented design",
+				"x": 2,
+				"y": 4,
+				"level": "L_TRADITIONAL",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_BDUF",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_BDUF",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -1724,26 +1869,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "design_patterns",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "design_patterns",
+				"is_key": false
 			},
-			SK_POST_MORTEM: {
-				name: "Post-mortems",
-				x: 2,
-				y: 7,
-				level: "L_TRADITIONAL",
-				component: "V_IMPROVE",
-				requires: [
+			"SK_POST_MORTEM": {
+				"name": "Post-mortems",
+				"x": 2,
+				"y": 7,
+				"level": "L_TRADITIONAL",
+				"component": "V_IMPROVE",
+				"requires": [
 					{
-						skill: "SK_CENTRAL_PROCESS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_CENTRAL_PROCESS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -1804,21 +1955,27 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "post_mortem",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "post_mortem",
+				"is_key": false
 			},
-			SK_SLACK: {
-				name: "Build slack in",
-				x: 2,
-				y: 10,
-				level: "L_TRADITIONAL",
-				component: "V_SUSTAINABLE",
-				requires: [],
-				obsoletes: [],
-				description: [
+			"SK_SLACK": {
+				"name": "Build slack in",
+				"x": 2,
+				"y": 10,
+				"level": "L_TRADITIONAL",
+				"component": "V_SUSTAINABLE",
+				"requires": [],
+				"obsoletes": [],
+				"description": [
 					"bq>. We deliver on our commitments.",
 					"",
 					"h1. What this is",
@@ -1908,32 +2065,34 @@ function load_data() {
 					"",
 					"h2. Further resources",
 					"",
-					'"The Art of Agile Development, 2nd edition [Shore, 2007]":http://www.jamesshore.com/Agile-Book/slack.html',
+					"\"The Art of Agile Development, 2nd edition [Shore, 2007]\":http://www.jamesshore.com/Agile-Book/slack.html",
 					"Slack: Getting Past Burnout, Busywork, and the Myth of Total Efficiency [DeMarco 2002]",
 					"The Goal [Goldratt 1992]",
 					"Critical Chain [Goldratt 1997]",
-					'"Silicon Valley Patterns Study of Domain-Driven Design":https://www.youtube.com/watch?v=g9JrTcmFzzk',
-					'"XP Practice: Slack":http://agilesoftwaredevelopment.com/xp/practices/slack',
-					'"Slack and Scheduling in XP[Shore, 2005]":http://www.jamesshore.com/Blog/Slack%20and%20Scheduling%20in%20XP.html',
+					"\"Silicon Valley Patterns Study of Domain-Driven Design\":https://www.youtube.com/watch?v=g9JrTcmFzzk",
+					"\"XP Practice: Slack\":http://agilesoftwaredevelopment.com/xp/practices/slack",
+					"\"Slack and Scheduling in XP[Shore, 2005]\":http://www.jamesshore.com/Blog/Slack%20and%20Scheduling%20in%20XP.html"
 				],
-				help_needed: ["H_REVIEW"],
-				slug: "slack",
-				is_key: false,
+				"help_needed": [
+					"H_REVIEW"
+				],
+				"slug": "slack",
+				"is_key": false
 			},
-			SK_PAIR_OCCASIONAL: {
-				name: "Pairing on hard problems",
-				x: 3,
-				y: 2,
-				level: "L_TRADITIONAL",
-				component: "V_LEARN",
-				requires: [
+			"SK_PAIR_OCCASIONAL": {
+				"name": "Pairing on hard problems",
+				"x": 3,
+				"y": 2,
+				"level": "L_TRADITIONAL",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_CODE_REVIEW",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_CODE_REVIEW",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -1994,26 +2153,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "pair_occasional",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "pair_occasional",
+				"is_key": false
 			},
-			SK_CODE_PREVIEW: {
-				name: "Code preview",
-				x: 3,
-				y: 3,
-				level: "L_TRADITIONAL",
-				component: "V_LEARN",
-				requires: [
+			"SK_CODE_PREVIEW": {
+				"name": "Code preview",
+				"x": 3,
+				"y": 3,
+				"level": "L_TRADITIONAL",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_CODE_REVIEW",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_CODE_REVIEW",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -2074,26 +2239,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "code_preview",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "code_preview",
+				"is_key": false
 			},
-			SK_B_ARCHI_UF: {
-				name: "Just architecture up front",
-				x: 3,
-				y: 5,
-				level: "L_TRADITIONAL",
-				component: "V_CODE",
-				requires: [
+			"SK_B_ARCHI_UF": {
+				"name": "Just architecture up front",
+				"x": 3,
+				"y": 5,
+				"level": "L_TRADITIONAL",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_DESIGN_PATTERNS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_DESIGN_PATTERNS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -2154,30 +2325,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "b_archi_uf",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "b_archi_uf",
+				"is_key": false
 			},
-			SK_SMALL_SPECS: {
-				name: "Small specs",
-				x: 3,
-				y: 9,
-				level: "L_TRADITIONAL",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_SMALL_SPECS": {
+				"name": "Small specs",
+				"x": 3,
+				"y": 9,
+				"level": "L_TRADITIONAL",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_SLACK",
-						kind: "IS_REQUIRED",
+						"skill": "SK_SLACK",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_REQUIREMENTS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_REQUIREMENTS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -2238,26 +2415,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "small_specs",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "small_specs",
+				"is_key": false
 			},
-			SK_PREDICTIVE_WITH_SMELLS: {
-				name: "Smell-based predictive design",
-				x: 4,
-				y: 5,
-				level: "L_TRADITIONAL",
-				component: "V_CODE",
-				requires: [
+			"SK_PREDICTIVE_WITH_SMELLS": {
+				"name": "Smell-based predictive design",
+				"x": 4,
+				"y": 5,
+				"level": "L_TRADITIONAL",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_B_ARCHI_UF",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_B_ARCHI_UF",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -2318,26 +2501,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "predictive_with_smells",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "predictive_with_smells",
+				"is_key": false
 			},
-			SK_ITERATED_PREDICTIVE: {
-				name: "Iterated predictive design",
-				x: 5,
-				y: 5,
-				level: "L_TRADITIONAL",
-				component: "V_CODE",
-				requires: [
+			"SK_ITERATED_PREDICTIVE": {
+				"name": "Iterated predictive design",
+				"x": 5,
+				"y": 5,
+				"level": "L_TRADITIONAL",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_PREDICTIVE_WITH_SMELLS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_PREDICTIVE_WITH_SMELLS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -2398,26 +2587,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "iterated_predictive",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "iterated_predictive",
+				"is_key": false
 			},
-			SK_SMALL_BATCHES: {
-				name: "Milestones and iterative specs",
-				x: 5,
-				y: 9,
-				level: "L_TRADITIONAL",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_SMALL_BATCHES": {
+				"name": "Milestones and iterative specs",
+				"x": 5,
+				"y": 9,
+				"level": "L_TRADITIONAL",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_SMALL_SPECS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_SMALL_SPECS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -2478,21 +2673,29 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "small_specs",
-				is_key: true,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "small_specs",
+				"is_key": true
 			},
-			SK_TEAMS: {
-				name: "Single-assignment teams",
-				x: 6,
-				y: 0,
-				level: "L_TEAM",
-				component: "V_IMPROVE",
-				requires: [],
-				obsoletes: ["SK_WORK_GROUPS"],
-				description: [
+			"SK_TEAMS": {
+				"name": "Single-assignment teams",
+				"x": 6,
+				"y": 0,
+				"level": "L_TEAM",
+				"component": "V_IMPROVE",
+				"requires": [],
+				"obsoletes": [
+					"SK_WORK_GROUPS"
+				],
+				"description": [
 					"bq>. Cross-functional teams are the heart of modern software development.",
 					"",
 					"h1. What this is",
@@ -2510,7 +2713,7 @@ function load_data() {
 					"",
 					"**Durable teams**. Add:",
 					"",
-					'* **Person-centric identity:** the team is a set of people that takes on work / projects. Identity is defined by the set of people on the team. It likely has a name like "team Bluefish" not like "the Security team" (a definition based on technical component) or "the Pay by card project team" (team identity based on project.',
+					"* **Person-centric identity:** the team is a set of people that takes on work / projects. Identity is defined by the set of people on the team. It likely has a name like \"team Bluefish\" not like \"the Security team\" (a definition based on technical component) or \"the Pay by card project team\" (team identity based on project.",
 					"* **Durable:** when a project finishes, the same team takes on a new project--which may be entirely unrelated. Team membership does not change very often; the team should commonly go years between any changes of members.",
 					"",
 					"**Rotational teams**. Add:",
@@ -2519,7 +2722,7 @@ function load_data() {
 					"* **Constant rotation:** all teams should constantly be forming and dissolving. Rotate in 2-3 people per week, or create teams for 2-10 weeks out of a larger pool.",
 					"* **Strong culture of fun:** the whole point of this model is to enable tribe identity. So make sure that the tribe plays together--successful teams with the rotational model play together as part of work.",
 					"",
-					'Most companies are organized such that real teams can\'t form. They contain many things called "teams," such as the set of people reporting to one manager or a "virtual team" composed of people who get together part-time to done one thing while all have primary responsibility to do something else with a different set of people. Yet these are each missing one of the key traits that would allow a team to form.',
+					"Most companies are organized such that real teams can't form. They contain many things called \"teams,\" such as the set of people reporting to one manager or a \"virtual team\" composed of people who get together part-time to done one thing while all have primary responsibility to do something else with a different set of people. Yet these are each missing one of the key traits that would allow a team to form.",
 					"",
 					"h2. How it helps",
 					"",
@@ -2586,30 +2789,34 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "teams",
-				is_key: true,
+				"help_needed": [
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "teams",
+				"is_key": true
 			},
-			SK_VISIBLE_WORK: {
-				name: "All work visible on one board",
-				x: 7,
-				y: 1,
-				level: "L_TEAM",
-				component: "V_LEARN",
-				requires: [
+			"SK_VISIBLE_WORK": {
+				"name": "All work visible on one board",
+				"x": 7,
+				"y": 1,
+				"level": "L_TEAM",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_TEAMS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_TEAMS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_SMALL_BATCHES",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_SMALL_BATCHES",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. If it is not on the one true board, it doesn't exist.",
 					"",
 					"h1. What this is",
@@ -2678,26 +2885,31 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "visible_work",
-				is_key: false,
+				"help_needed": [
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "visible_work",
+				"is_key": false
 			},
-			SK_SIT_TOGETHER: {
-				name: "Sit together",
-				x: 7,
-				y: 3,
-				level: "L_TEAM",
-				component: "V_LEARN",
-				requires: [
+			"SK_SIT_TOGETHER": {
+				"name": "Sit together",
+				"x": 7,
+				"y": 3,
+				"level": "L_TEAM",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_TEAMS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_TEAMS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. My whole team sits in one room. No one else is in my room. We overhear lots of information but no noise.",
 					"",
 					"h1. What this is",
@@ -2738,7 +2950,7 @@ function load_data() {
 					"",
 					"h1. Acquiring the skill",
 					"",
-					'You "just" need to move into a common room. This often requires significant political effort with Facilities.',
+					"You \"just\" need to move into a common room. This often requires significant political effort with Facilities.",
 					"",
 					"###. h2. Role during transition",
 					"",
@@ -2776,26 +2988,30 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "sit_together",
-				is_key: false,
+				"help_needed": [
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "sit_together",
+				"is_key": false
 			},
-			SK_CHARTER: {
-				name: "Team agreement / charter",
-				x: 7,
-				y: 4,
-				level: "L_TEAM",
-				component: "V_IMPROVE",
-				requires: [
+			"SK_CHARTER": {
+				"name": "Team agreement / charter",
+				"x": 7,
+				"y": 4,
+				"level": "L_TEAM",
+				"component": "V_IMPROVE",
+				"requires": [
 					{
-						skill: "SK_TEAMS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_TEAMS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. My team has a written agreement that describes how we work.",
 					"",
 					"h1. What this is",
@@ -2897,7 +3113,7 @@ function load_data() {
 					"#* Invite them to farm the list created at the beginning. This will mostly generate simple rules and perhaps a value or two.",
 					"#* Invite them to remember problems they've had before and see if they can make a working agreement that would fix that.",
 					"#* Use your agreed decision-making process to agree to each one.",
-					'#* Do not expect to "finish." In particular, it can often take months before a team\'s true values become apparent.',
+					"#* Do not expect to \"finish.\" In particular, it can often take months before a team's true values become apparent.",
 					"# Define the team's Aim.",
 					"## Bring in the person who sponsored the team (usually a manager).",
 					"## Sponsor describes his aspirations for the team.",
@@ -2933,34 +3149,38 @@ function load_data() {
 					"",
 					"book: Liftoff",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "charter",
-				is_key: false,
+				"help_needed": [
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "charter",
+				"is_key": false
 			},
-			SK_RETROS: {
-				name: "Retrospectives with outcomes",
-				x: 8,
-				y: 0,
-				level: "L_TEAM",
-				component: "V_IMPROVE",
-				requires: [
+			"SK_RETROS": {
+				"name": "Retrospectives with outcomes",
+				"x": 8,
+				"y": 0,
+				"level": "L_TEAM",
+				"component": "V_IMPROVE",
+				"requires": [
 					{
-						skill: "SK_SLACK",
-						kind: "IS_REQUIRED",
+						"skill": "SK_SLACK",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_TEAMS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_TEAMS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_CHARTER",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_CHARTER",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. My team improves itself iteratively.",
 					"",
 					"h1. What this is",
@@ -2984,7 +3204,7 @@ function load_data() {
 					"",
 					"Many teams mistakenly do the following things and think of them as retros:",
 					"",
-					'* *Gather data for someone else*. The retro consists of some data gathering exercise. This data is presented to someone else (a manager or a virtual team) who will then make decisions and drive change. The team does not change itself; it just asks to be changed. This is actually the "Post-mortem":?stage=post_mortem process.',
+					"* *Gather data for someone else*. The retro consists of some data gathering exercise. This data is presented to someone else (a manager or a virtual team) who will then make decisions and drive change. The team does not change itself; it just asks to be changed. This is actually the \"Post-mortem\":?stage=post_mortem process.",
 					"* *Run less often than once per week*. The team waits too long between retros. Too many issues will build up between retros. The meetings take much longer. The team cannot address things in a timely fashion. People become unwilling to allow an issue to wait until next time; this makes it hard to get a decision and get something done this time.",
 					"* *Don't do the action items*. If you don't execute the changes, then the retro is a waste of time. It still provides a modicum of value by letting people complain. At this point it is just a \"post-mortem\":?stage=post_mortem done during the project. Shorten it or drop it altogether--or finish the action items.",
 					"* *Invite too many people*. The most common form is to invite multiple teams just because they all report to the same higher-level manager. The team doesn't all work tightly together every hour, so they all have different problems. They will be unable to make progress on important issues because they don't share the same issues.",
@@ -3016,7 +3236,7 @@ function load_data() {
 					"",
 					"h1. Acquiring the skill",
 					"",
-					'See Esther Derby\'s "Agile Retrospectives":http://www.slideshare.net/estherderby/agile-retrospectives-4976896 deck for a good framework. This includes one good practice for each step in the framework.',
+					"See Esther Derby's \"Agile Retrospectives\":http://www.slideshare.net/estherderby/agile-retrospectives-4976896 deck for a good framework. This includes one good practice for each step in the framework.",
 					"",
 					"###. h2. Role during transition",
 					"",
@@ -3080,38 +3300,42 @@ function load_data() {
 					"",
 					"book: Innovation Games",
 					"",
-					'"Agile Retrospectives deck":http://www.slideshare.net/estherderby/agile-retrospectives-4976896',
+					"\"Agile Retrospectives deck\":http://www.slideshare.net/estherderby/agile-retrospectives-4976896",
 					"",
-					'"Liberating Structures":http://www.liberatingstructures.com/ls-menu/',
+					"\"Liberating Structures\":http://www.liberatingstructures.com/ls-menu/",
 					"",
-					'"Use gestures to facilitate conversation flow":http://facilitationpatterns.org/patterns/use_gestures',
+					"\"Use gestures to facilitate conversation flow\":http://facilitationpatterns.org/patterns/use_gestures",
 					"",
-					'"Lean Coffee":http://leancoffee.org/',
+					"\"Lean Coffee\":http://leancoffee.org/",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "retros",
-				is_key: false,
+				"help_needed": [
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "retros",
+				"is_key": false
 			},
-			SK_SHARED_CODE: {
-				name: "Shared task responsibility",
-				x: 9,
-				y: 1,
-				level: "L_CORE",
-				component: "V_LEARN",
-				requires: [
+			"SK_SHARED_CODE": {
+				"name": "Shared task responsibility",
+				"x": 9,
+				"y": 1,
+				"level": "L_CORE",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_TEAMS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_TEAMS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_VISIBLE_WORK",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_VISIBLE_WORK",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. We are accountable as a team. No task is owned by an individual.",
 					"",
 					"h1. What this is",
@@ -3130,7 +3354,7 @@ function load_data() {
 					"",
 					"The largest mindshift is away from individual accountability.",
 					"",
-					'The prevalence of individual accountability arises because of our misuse of the word "team". Once we have single-assignment, small teams, we create the opportunity to move away from individual accountability. Here\'s how it works.',
+					"The prevalence of individual accountability arises because of our misuse of the word \"team\". Once we have single-assignment, small teams, we create the opportunity to move away from individual accountability. Here's how it works.",
 					"",
 					"Most companies are organized such that real teams can't form. Therefore they are populated by work groups which then get called teams, because few people have ever actually seen a real team. One of the biggest differences between a work group and a team is how they take on work.",
 					"",
@@ -3186,21 +3410,26 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "shared_code",
-				is_key: true,
+				"help_needed": [
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "shared_code",
+				"is_key": true
 			},
-			SK_SYSTEMS_THINKING: {
-				name: "Understand and optimize systems",
-				x: 9,
-				y: 3,
-				level: "L_CORE",
-				component: "V_IMPROVE",
-				requires: [],
-				obsoletes: [],
-				description: [
+			"SK_SYSTEMS_THINKING": {
+				"name": "Understand and optimize systems",
+				"x": 9,
+				"y": 3,
+				"level": "L_CORE",
+				"component": "V_IMPROVE",
+				"requires": [],
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -3261,26 +3490,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "vertical_decomposition",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "vertical_decomposition",
+				"is_key": false
 			},
-			SK_LOCAL_REFACTORING: {
-				name: "Local transform-based refactoring",
-				x: 9,
-				y: 4,
-				level: "L_CORE",
-				component: "V_CODE",
-				requires: [
+			"SK_LOCAL_REFACTORING": {
+				"name": "Local transform-based refactoring",
+				"x": 9,
+				"y": 4,
+				"level": "L_CORE",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_SLACK",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_SLACK",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. We can execute local, named transformations on our code. Rather than typing edits within a function, we execute transforms.",
 					"",
 					"h1. What this is",
@@ -3361,44 +3596,48 @@ function load_data() {
 					"",
 					"Make sure to continue to use refactorings from previous days as well. Otherwise you will lose them as you add new ones.",
 					"",
-					'Pick one file and make it "ReSharper clean." Address every suggestion. Apply auto-fixes to most of them. You should not disable many suggestions.',
+					"Pick one file and make it \"ReSharper clean.\" Address every suggestion. Apply auto-fixes to most of them. You should not disable many suggestions.",
 					"",
 					"Experiment with partial lines of code. How little can you write such that the tool suggests the rest of the line? Hint: in modern OO and procedural languages, type and expression constraints tend to flow from right to left in a statement. If you fill in the right side, the computer can often fill in the left.",
 					"",
-					'Practice a simple code kata, such as Bob Martin\'s "Prime Factors Kata":http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata, once or twice a day.  Challenge yourself to complete the kata without touching the mouse and even minimizing keystrokes.  Time your end-to-end kata duration, and strive to break your record. ',
+					"Practice a simple code kata, such as Bob Martin's \"Prime Factors Kata\":http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata, once or twice a day.  Challenge yourself to complete the kata without touching the mouse and even minimizing keystrokes.  Time your end-to-end kata duration, and strive to break your record. ",
 					"",
 					"h2. Further resources",
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "local_refactoring",
-				is_key: true,
+				"help_needed": [
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "local_refactoring",
+				"is_key": true
 			},
-			SK_AUTO_DEV_TEST: {
-				name: "Automated developer testing",
-				x: 9,
-				y: 6,
-				level: "L_CORE",
-				component: "V_CHECK_WORK",
-				requires: [
+			"SK_AUTO_DEV_TEST": {
+				"name": "Automated developer testing",
+				"x": 9,
+				"y": 6,
+				"level": "L_CORE",
+				"component": "V_CHECK_WORK",
+				"requires": [
 					{
-						skill: "SK_DEV_CHECK",
-						kind: "IS_HELPFUL",
+						"skill": "SK_DEV_CHECK",
+						"kind": "IS_HELPFUL"
 					},
 					{
-						skill: "SK_SLACK",
-						kind: "IS_REQUIRED",
+						"skill": "SK_SLACK",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_SMALL_SPECS",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_SMALL_SPECS",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. The people who make mistakes are responsible for finding those mistakes. This lets us learn; we don't repeat mistakes.",
 					"",
 					"h1. What this is",
@@ -3469,11 +3708,11 @@ function load_data() {
 					"",
 					"h2. Recipes to follow",
 					"",
-					'Just write automated tests. The hard part with this level is just getting started. So encourage that, no matter how "bad" the test.',
+					"Just write automated tests. The hard part with this level is just getting started. So encourage that, no matter how \"bad\" the test.",
 					"",
 					"Min requirement for a test:",
 					"",
-					'* Must be written in our team\'s dev auto test framework (xUnit family, etc). It will run whenever I execute the "run all tests" command.',
+					"* Must be written in our team's dev auto test framework (xUnit family, etc). It will run whenever I execute the \"run all tests\" command.",
 					"* Must be self-verifying. Has a binary pass/fail result.",
 					"* Must be deterministic. Always succeeds or always fails, depending only on the product code.",
 					"* Verifies some aspect of the product that we care about.",
@@ -3522,26 +3761,30 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "auto_dev_test",
-				is_key: false,
+				"help_needed": [
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "auto_dev_test",
+				"is_key": false
 			},
-			SK_VERT_DECOMP: {
-				name: "Decompose work vertically (by value)",
-				x: 9,
-				y: 8,
-				level: "L_CORE",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_VERT_DECOMP": {
+				"name": "Decompose work vertically (by value)",
+				"x": 9,
+				"y": 8,
+				"level": "L_CORE",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_SMALL_BATCHES",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_SMALL_BATCHES",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -3602,21 +3845,27 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "vertical_decomposition",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "vertical_decomposition",
+				"is_key": false
 			},
-			SK_PULL: {
-				name: "Apply pull systems and queues",
-				x: 9,
-				y: 12,
-				level: "L_CORE",
-				component: "V_SUSTAINABLE",
-				requires: [],
-				obsoletes: [],
-				description: [
+			"SK_PULL": {
+				"name": "Apply pull systems and queues",
+				"x": 9,
+				"y": 12,
+				"level": "L_CORE",
+				"component": "V_SUSTAINABLE",
+				"requires": [],
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -3677,34 +3926,42 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "pull",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "pull",
+				"is_key": false
 			},
-			SK_PAIR_REGULARLY: {
-				name: "Work together to learn",
-				x: 10,
-				y: 2,
-				level: "L_CORE",
-				component: "V_LEARN",
-				requires: [
+			"SK_PAIR_REGULARLY": {
+				"name": "Work together to learn",
+				"x": 10,
+				"y": 2,
+				"level": "L_CORE",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_PAIR_OCCASIONAL",
-						kind: "IS_HELPFUL",
+						"skill": "SK_PAIR_OCCASIONAL",
+						"kind": "IS_HELPFUL"
 					},
 					{
-						skill: "SK_SHARED_CODE",
-						kind: "IS_HELPFUL",
+						"skill": "SK_SHARED_CODE",
+						"kind": "IS_HELPFUL"
 					},
 					{
-						skill: "SK_RETROS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_RETROS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: ["SK_CODE_REVIEW"],
-				description: [
+				"obsoletes": [
+					"SK_CODE_REVIEW"
+				],
+				"description": [
 					"bq>. We spend part of each day doing our normal work together in pairs or mobs. This teaches us stuff we didn't know we didn't know.",
 					"",
 					"h1. What this is",
@@ -3798,30 +4055,35 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "pair_regularly",
-				is_key: false,
+				"help_needed": [
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "pair_regularly",
+				"is_key": false
 			},
-			SK_AUTO_BUILD_VERIFY: {
-				name: "Automated build verification",
-				x: 10,
-				y: 7,
-				level: "L_CORE",
-				component: "V_SHIP",
-				requires: [
+			"SK_AUTO_BUILD_VERIFY": {
+				"name": "Automated build verification",
+				"x": 10,
+				"y": 7,
+				"level": "L_CORE",
+				"component": "V_SHIP",
+				"requires": [
 					{
-						skill: "SK_AUTO_DEV_TEST",
-						kind: "IS_REQUIRED",
+						"skill": "SK_AUTO_DEV_TEST",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_AUTO_PACKAGE",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_AUTO_PACKAGE",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -3882,26 +4144,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "auto_build_verify",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "auto_build_verify",
+				"is_key": false
 			},
-			SK_LIMIT_WIP: {
-				name: "Limit WIP to uncover problems",
-				x: 10,
-				y: 10,
-				level: "L_CORE",
-				component: "V_SUSTAINABLE",
-				requires: [
+			"SK_LIMIT_WIP": {
+				"name": "Limit WIP to uncover problems",
+				"x": 10,
+				"y": 10,
+				"level": "L_CORE",
+				"component": "V_SUSTAINABLE",
+				"requires": [
 					{
-						skill: "SK_PULL",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_PULL",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -3962,34 +4230,40 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "limit_work_continuous",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "limit_work_continuous",
+				"is_key": false
 			},
-			SK_ACTION_RETROS: {
-				name: "Iterative team improvement",
-				x: 11,
-				y: 0,
-				level: "L_CORE",
-				component: "V_IMPROVE",
-				requires: [
+			"SK_ACTION_RETROS": {
+				"name": "Iterative team improvement",
+				"x": 11,
+				"y": 0,
+				"level": "L_CORE",
+				"component": "V_IMPROVE",
+				"requires": [
 					{
-						skill: "SK_RETROS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_RETROS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_SYSTEMS_THINKING",
-						kind: "IS_REQUIRED",
+						"skill": "SK_SYSTEMS_THINKING",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_LIMIT_WIP",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_LIMIT_WIP",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. My team makes one small, intentional improvement every 2-5 days. Small gains accrue over time to give big results.",
 					"",
 					"h1. What it is",
@@ -4128,34 +4402,38 @@ function load_data() {
 					"",
 					"",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "improvement_process",
-				is_key: false,
+				"help_needed": [
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "improvement_process",
+				"is_key": false
 			},
-			SK_T_SHAPED: {
-				name: "T-shaped people",
-				x: 11,
-				y: 1,
-				level: "L_CORE",
-				component: "V_LEARN",
-				requires: [
+			"SK_T_SHAPED": {
+				"name": "T-shaped people",
+				"x": 11,
+				"y": 1,
+				"level": "L_CORE",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_SHARED_CODE",
-						kind: "IS_REQUIRED",
+						"skill": "SK_SHARED_CODE",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_SIT_TOGETHER",
-						kind: "IS_HELPFUL",
+						"skill": "SK_SIT_TOGETHER",
+						"kind": "IS_HELPFUL"
 					},
 					{
-						skill: "SK_PAIR_REGULARLY",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -4216,34 +4494,40 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "t_shaped",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "t_shaped",
+				"is_key": false
 			},
-			SK_DRY: {
-				name: "Don't repeat yourself",
-				x: 11,
-				y: 3,
-				level: "L_CORE",
-				component: "V_CODE",
-				requires: [
+			"SK_DRY": {
+				"name": "Don't repeat yourself",
+				"x": 11,
+				"y": 3,
+				"level": "L_CORE",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_DESIGN_PATTERNS",
-						kind: "IS_HELPFUL",
+						"skill": "SK_DESIGN_PATTERNS",
+						"kind": "IS_HELPFUL"
 					},
 					{
-						skill: "SK_LOCAL_REFACTORING",
-						kind: "IS_REQUIRED",
+						"skill": "SK_LOCAL_REFACTORING",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_PAIR_REGULARLY",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. Each piece of knowledge should be expressed in exactly one place. ",
 					"",
 					"h1. What this is",
@@ -4302,32 +4586,38 @@ function load_data() {
 					"",
 					"h2. Further resources",
 					"",
-					'* "DRY in Pragmatic Programmer (book)":http://pragmatictips.com/11',
+					"* \"DRY in Pragmatic Programmer (book)\":http://pragmatictips.com/11",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "dry",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "dry",
+				"is_key": false
 			},
-			SK_READ_BY_REFACTORING: {
-				name: "Naming as a process / Safely modify legacy code",
-				x: 11,
-				y: 4,
-				level: "L_CORE",
-				component: "V_CODE",
-				requires: [
+			"SK_READ_BY_REFACTORING": {
+				"name": "Naming as a process / Safely modify legacy code",
+				"x": 11,
+				"y": 4,
+				"level": "L_CORE",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_LOCAL_REFACTORING",
-						kind: "IS_REQUIRED",
+						"skill": "SK_LOCAL_REFACTORING",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_PAIR_REGULARLY",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -4388,30 +4678,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "read_by_refactoring",
-				is_key: true,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "read_by_refactoring",
+				"is_key": true
 			},
-			SK_TEST_FIRST: {
-				name: "Test as spec",
-				x: 11,
-				y: 6,
-				level: "L_CORE",
-				component: "V_CHECK_WORK",
-				requires: [
+			"SK_TEST_FIRST": {
+				"name": "Test as spec",
+				"x": 11,
+				"y": 6,
+				"level": "L_CORE",
+				"component": "V_CHECK_WORK",
+				"requires": [
 					{
-						skill: "SK_AUTO_DEV_TEST",
-						kind: "IS_REQUIRED",
+						"skill": "SK_AUTO_DEV_TEST",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_PAIR_REGULARLY",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. The most detailed form of my spec is the set of automated tests. The tests are the spec for the code.",
 					"",
 					"h1. What this is",
@@ -4491,34 +4787,38 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "test_first",
-				is_key: false,
+				"help_needed": [
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "test_first",
+				"is_key": false
 			},
-			SK_COLLECTIVE_OWNERSHIP: {
-				name: "Collective ownership",
-				x: 12,
-				y: 1,
-				level: "L_ADAPTIVE",
-				component: "V_LEARN",
-				requires: [
+			"SK_COLLECTIVE_OWNERSHIP": {
+				"name": "Collective ownership",
+				"x": 12,
+				"y": 1,
+				"level": "L_ADAPTIVE",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_T_SHAPED",
-						kind: "IS_REQUIRED",
+						"skill": "SK_T_SHAPED",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_ACTION_RETROS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_ACTION_RETROS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_PAIR_REGULARLY",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. Anyone in the team can make changes and improve the code base",
 					"",
 					"h1. What this is",
@@ -4577,32 +4877,38 @@ function load_data() {
 					"",
 					"h2. Further resources",
 					"",
-					'"Martin Fowler on Code Ownership":https://martinfowler.com/bliki/CodeOwnership.html',
+					"\"Martin Fowler on Code Ownership\":https://martinfowler.com/bliki/CodeOwnership.html",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "collective_ownership",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "collective_ownership",
+				"is_key": false
 			},
-			SK_DONE_DEFINITION: {
-				name: "Done definition",
-				x: 12,
-				y: 5,
-				level: "L_ADAPTIVE",
-				component: "V_CHECK_WORK",
-				requires: [
+			"SK_WRITE_UNITS": {
+				"name": "Code in small, testable units",
+				"x": 12,
+				"y": 4,
+				"level": "L_ADAPTIVE",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_SHARED_CODE",
-						kind: "IS_REQUIRED",
+						"skill": "SK_READ_BY_REFACTORING",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_SMALL_SPECS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -4663,26 +4969,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "done_definition",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "write_units",
+				"is_key": false
 			},
-			SK_LEARN_LOCALLY: {
-				name: "Learn from local cmm'ty",
-				x: 13,
-				y: 0,
-				level: "L_ADAPTIVE",
-				component: "V_IMPROVE",
-				requires: [
+			"SK_DONE_DEFINITION": {
+				"name": "Done definition",
+				"x": 12,
+				"y": 5,
+				"level": "L_ADAPTIVE",
+				"component": "V_CHECK_WORK",
+				"requires": [
 					{
-						skill: "SK_ACTION_RETROS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_SHARED_CODE",
+						"kind": "IS_REQUIRED"
 					},
+					{
+						"skill": "SK_SMALL_SPECS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -4743,34 +5059,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "learn_locally",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "done_definition",
+				"is_key": false
 			},
-			SK_PAIR_PRODUCTION: {
-				name: "Pair / Mob for productivity",
-				x: 13,
-				y: 2,
-				level: "L_ADAPTIVE",
-				component: "V_LEARN",
-				requires: [
+			"SK_AUTO_DEPLOY": {
+				"name": "Automated deploy",
+				"x": 12,
+				"y": 7,
+				"level": "L_ADAPTIVE",
+				"component": "V_SHIP",
+				"requires": [
 					{
-						skill: "SK_COLLECTIVE_OWNERSHIP",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_SIT_TOGETHER",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_PAIR_REGULARLY",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_AUTO_BUILD_VERIFY",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -4831,30 +5145,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "pair_production",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "auto_deploy",
+				"is_key": false
 			},
-			SK_WRITE_UNITS: {
-				name: "Code in small, testable units",
-				x: 12,
-				y: 4,
-				level: "L_ADAPTIVE",
-				component: "V_CODE",
-				requires: [
+			"SK_LEARN_LOCALLY": {
+				"name": "Learn from local cmm'ty",
+				"x": 13,
+				"y": 0,
+				"level": "L_ADAPTIVE",
+				"component": "V_IMPROVE",
+				"requires": [
 					{
-						skill: "SK_READ_BY_REFACTORING",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_PAIR_REGULARLY",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_ACTION_RETROS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -4915,30 +5231,40 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "write_units",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "learn_locally",
+				"is_key": false
 			},
-			SK_ITERATION: {
-				name: "Do things in iterations",
-				x: 13,
-				y: 11,
-				level: "L_ADAPTIVE",
-				component: "V_SUSTAINABLE",
-				requires: [
+			"SK_PAIR_PRODUCTION": {
+				"name": "Pair / Mob for productivity",
+				"x": 13,
+				"y": 2,
+				"level": "L_ADAPTIVE",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_SLACK",
-						kind: "IS_HELPFUL",
+						"skill": "SK_COLLECTIVE_OWNERSHIP",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_WATERFALL_MILESTONES",
-						kind: "IS_HELPFUL",
+						"skill": "SK_SIT_TOGETHER",
+						"kind": "IS_REQUIRED"
 					},
+					{
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -4999,26 +5325,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "iteration",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "pair_production",
+				"is_key": false
 			},
-			SK_PAIR_ALWAYS: {
-				name: "Pair / Mob for discipline",
-				x: 14,
-				y: 2,
-				level: "L_ADAPTIVE",
-				component: "V_LEARN",
-				requires: [
+			"SK_ITERATION": {
+				"name": "Do things in iterations",
+				"x": 13,
+				"y": 11,
+				"level": "L_ADAPTIVE",
+				"component": "V_SUSTAINABLE",
+				"requires": [
 					{
-						skill: "SK_PAIR_PRODUCTION",
-						kind: "IS_REQUIRED",
+						"skill": "SK_SLACK",
+						"kind": "IS_HELPFUL"
 					},
+					{
+						"skill": "SK_WATERFALL_MILESTONES",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -5079,38 +5415,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "pair_always",
-				is_key: true,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "iteration",
+				"is_key": false
 			},
-			SK_TEST_UNITS: {
-				name: "Fast, consistent automated tests",
-				x: 14,
-				y: 6,
-				level: "L_ADAPTIVE",
-				component: "V_CHECK_WORK",
-				requires: [
+			"SK_PAIR_ALWAYS": {
+				"name": "Pair / Mob for discipline",
+				"x": 14,
+				"y": 2,
+				"level": "L_ADAPTIVE",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_AUTO_DEV_TEST",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_WRITE_UNITS",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_PAIR_PRODUCTION",
-						kind: "IS_HELPFUL",
-					},
-					{
-						skill: "SK_TEST_FIRST",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_PAIR_PRODUCTION",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -5171,38 +5501,44 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "test_units",
-				is_key: true,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "pair_always",
+				"is_key": true
 			},
-			SK_STORIES: {
-				name: "Stories",
-				x: 14,
-				y: 8,
-				level: "L_ADAPTIVE",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_TEST_UNITS": {
+				"name": "Fast, consistent automated tests",
+				"x": 14,
+				"y": 6,
+				"level": "L_ADAPTIVE",
+				"component": "V_CHECK_WORK",
+				"requires": [
 					{
-						skill: "SK_TEST_FIRST",
-						kind: "IS_HELPFUL",
+						"skill": "SK_AUTO_DEV_TEST",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_ACTION_RETROS",
-						kind: "IS_HELPFUL",
+						"skill": "SK_WRITE_UNITS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_SMALL_BATCHES",
-						kind: "IS_HELPFUL",
+						"skill": "SK_PAIR_PRODUCTION",
+						"kind": "IS_HELPFUL"
 					},
 					{
-						skill: "SK_VERT_DECOMP",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_TEST_FIRST",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -5263,30 +5599,44 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "stories",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "test_units",
+				"is_key": true
 			},
-			SK_BUG_FREE_NEW_CODE: {
-				name: "No new bugs in new code",
-				x: 15,
-				y: 1,
-				level: "L_ADAPTIVE",
-				component: "V_CODE",
-				requires: [
+			"SK_STORIES": {
+				"name": "Stories",
+				"x": 14,
+				"y": 8,
+				"level": "L_ADAPTIVE",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_TEST_UNITS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_TEST_FIRST",
+						"kind": "IS_HELPFUL"
 					},
 					{
-						skill: "SK_PAIR_ALWAYS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_ACTION_RETROS",
+						"kind": "IS_HELPFUL"
 					},
+					{
+						"skill": "SK_SMALL_BATCHES",
+						"kind": "IS_HELPFUL"
+					},
+					{
+						"skill": "SK_VERT_DECOMP",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -5347,42 +5697,138 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "bug_free_new_code",
-				is_key: true,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "stories",
+				"is_key": false
 			},
-			SK_REFLECTIVE_DESIGN: {
-				name: "Reflective design",
-				x: 15,
-				y: 3,
-				level: "L_ADAPTIVE",
-				component: "V_CODE",
-				requires: [
+			"SK_BUG_FREE_NEW_CODE": {
+				"name": "No new bugs in new code",
+				"x": 15,
+				"y": 1,
+				"level": "L_ADAPTIVE",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_DRY",
-						kind: "IS_REQUIRED",
+						"skill": "SK_TEST_UNITS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_ACTION_RETROS",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_READ_BY_REFACTORING",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_PAIR_REGULARLY",
-						kind: "IS_HELPFUL",
-					},
-					{
-						skill: "SK_PAIR_ALWAYS",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_PAIR_ALWAYS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
+					"bq>. 1-sentence mindset quote goes here",
+					"",
+					"h1. What this is",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. How it helps",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Mindshifts",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Measuring impact",
+					"",
+					"###. If you are doing this well, you should see improvements in:",
+					"",
+					"###. * TBD",
+					"",
+					"###. You may also see:",
+					"",
+					"###. * TBD",
+					"",
+					"###. h2. Side effects",
+					"",
+					"###. TBD (list side effects and practices / stages that can be used to counter them).",
+					"",
+					"###. h1. Acquiring the skill",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Role during transition",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Why these prereqs help",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Recipes to follow",
+					"",
+					"###. TBD",
+					"",
+					"###. h1. Attaining fluency",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Measuring proficiency",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Recipes to follow",
+					"",
+					"###. TBD",
+					"",
+					"h2. Further resources",
+					"",
+					"TBD",
+					"",
+					""
+				],
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "bug_free_new_code",
+				"is_key": true
+			},
+			"SK_REFLECTIVE_DESIGN": {
+				"name": "Reflective design",
+				"x": 15,
+				"y": 3,
+				"level": "L_ADAPTIVE",
+				"component": "V_CODE",
+				"requires": [
+					{
+						"skill": "SK_DRY",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_ACTION_RETROS",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_READ_BY_REFACTORING",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_PAIR_REGULARLY",
+						"kind": "IS_HELPFUL"
+					},
+					{
+						"skill": "SK_PAIR_ALWAYS",
+						"kind": "IS_HELPFUL"
+					}
+				],
+				"obsoletes": [],
+				"description": [
 					"bq>. I do my design work when I read code, not when I write it.",
 					"",
 					"h1. What this is",
@@ -5401,30 +5847,30 @@ function load_data() {
 					"",
 					"It might be interesting to look at some examples. ",
 					"",
-					'I poked around on GitHub and found this @if/elseif/elseif@ in a method called "@ImportProject@":https://github.com/mono/MonoGame/blob/25578d0d8f4b5c0dcaec1e58f6df3c3016515b1e/Tools/Pipeline/Common/PipelineProjectParser.cs#L374',
+					"I poked around on GitHub and found this @if/elseif/elseif@ in a method called \"@ImportProject@\":https://github.com/mono/MonoGame/blob/25578d0d8f4b5c0dcaec1e58f6df3c3016515b1e/Tools/Pipeline/Common/PipelineProjectParser.cs#L374",
 					"",
 					"I've never read this code before, and don't really know what it does, but I my design sense suggests extracting three methods from the bodies of these blocks. The result would look something like this:",
 					"",
-					'bc.. if (buildAction.Equals("Reference"))',
+					"bc.. if (buildAction.Equals(\"Reference\"))",
 					"{",
 					"  ImportProject_BuildAction_Reference(...);",
 					"}",
-					'else if (buildAction.Equals("Content") || buildAction.Equals("None"))',
+					"else if (buildAction.Equals(\"Content\") || buildAction.Equals(\"None\"))",
 					"{",
 					"  ImportProject_BuildAction_ContentOrNone(...);",
 					"}",
-					'else if (buildAction.Equals("Compile"))',
+					"else if (buildAction.Equals(\"Compile\"))",
 					"{",
 					"  ImportProject_BuildAction_Compile(...);",
 					"}",
 					"",
-					'p. This is an example of the "None->Honest naming transition":http://arlobelshee.com/tag/naming-is-a-process/. ',
+					"p. This is an example of the \"None->Honest naming transition\":http://arlobelshee.com/tag/naming-is-a-process/. ",
 					"",
 					"It's Reflective Design because someone wrote it one way, and then the need for those three methods became visible. ",
 					"",
 					"I'm looking at the @ReadInclude*@ methods and noticing that they are each used exactly once and have a lot of @out@ parameters, which means they may not be the right methods. And they also have a lot of code in common. So I want to look for a way to extract the commonality of those methods in to a new place (eventually a new class), and the inline what is left. There are plenty more refactorings that want to be applied here, but that's fine for now: my goal is not Good, it's Better (fast). ",
 					"",
-					'Someone doing **Predictive Design** when first writing this code might have thought "I bet there are multiple behaviors here and each has some complexity. I\'ll use Strategy Pattern.":',
+					"Someone doing **Predictive Design** when first writing this code might have thought \"I bet there are multiple behaviors here and each has some complexity. I'll use Strategy Pattern.\":",
 					"",
 					"bc.. ProjectImporter.GetStrategy(buildAction)",
 					"\t               .Import(...);",
@@ -5497,30 +5943,34 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "reflective_design",
-				is_key: false,
+				"help_needed": [
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "reflective_design",
+				"is_key": false
 			},
-			SK_TRACK_CAPACITY: {
-				name: "Track progress against plan",
-				x: 15,
-				y: 10,
-				level: "L_ADAPTIVE",
-				component: "V_SUSTAINABLE",
-				requires: [
+			"SK_FAST_BUILD_VERIFY": {
+				"name": "Fast build verification",
+				"x": 15,
+				"y": 6,
+				"level": "L_ADAPTIVE",
+				"component": "V_SHIP",
+				"requires": [
 					{
-						skill: "SK_ITERATION",
-						kind: "IS_REQUIRED",
+						"skill": "SK_AUTO_BUILD_VERIFY",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_STORIES",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_TEST_UNITS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -5581,26 +6031,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "track_capacity",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "fast_build_verify",
+				"is_key": false
 			},
-			SK_LEARN_ALL: {
-				name: "Learn from everyone",
-				x: 16,
-				y: 0,
-				level: "L_LEVERAGE",
-				component: "V_IMPROVE",
-				requires: [
+			"SK_TRACK_CAPACITY": {
+				"name": "Track progress against plan",
+				"x": 15,
+				"y": 10,
+				"level": "L_ADAPTIVE",
+				"component": "V_SUSTAINABLE",
+				"requires": [
 					{
-						skill: "SK_LEARN_LOCALLY",
-						kind: "IS_REQUIRED",
+						"skill": "SK_ITERATION",
+						"kind": "IS_REQUIRED"
 					},
+					{
+						"skill": "SK_STORIES",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -5661,30 +6121,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "learn_all",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "track_capacity",
+				"is_key": false
 			},
-			SK_PROCESS_EXPERIMENTS: {
-				name: "Process experiments",
-				x: 16,
-				y: 1,
-				level: "L_LEVERAGE",
-				component: "V_IMPROVE",
-				requires: [
+			"SK_LEARN_ALL": {
+				"name": "Learn from everyone",
+				"x": 16,
+				"y": 0,
+				"level": "L_LEVERAGE",
+				"component": "V_IMPROVE",
+				"requires": [
 					{
-						skill: "SK_ACTION_RETROS",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_LEARN_LOCALLY",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_LEARN_LOCALLY",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -5745,30 +6207,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "process_experiments",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "learn_all",
+				"is_key": false
 			},
-			SK_LEARN_VS_PROVE: {
-				name: "Learning / proving distinction",
-				x: 16,
-				y: 3,
-				level: "L_LEVERAGE",
-				component: "V_IMPROVE",
-				requires: [
+			"SK_PROCESS_EXPERIMENTS": {
+				"name": "Process experiments",
+				"x": 16,
+				"y": 1,
+				"level": "L_LEVERAGE",
+				"component": "V_IMPROVE",
+				"requires": [
 					{
-						skill: "SK_DONE_DEFINITION",
-						kind: "IS_REQUIRED",
+						"skill": "SK_ACTION_RETROS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_AUTO_DEV_TEST",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_LEARN_LOCALLY",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -5829,30 +6297,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "learn_vs_prove",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "process_experiments",
+				"is_key": false
 			},
-			SK_TEST_BEYOND_CORRECT: {
-				name: "Test beyond correctness",
-				x: 16,
-				y: 5,
-				level: "L_LEVERAGE",
-				component: "V_CHECK_WORK",
-				requires: [
+			"SK_LEARN_VS_PROVE": {
+				"name": "Learning / proving distinction",
+				"x": 16,
+				"y": 3,
+				"level": "L_LEVERAGE",
+				"component": "V_IMPROVE",
+				"requires": [
 					{
-						skill: "SK_DONE_DEFINITION",
-						kind: "IS_REQUIRED",
+						"skill": "SK_DONE_DEFINITION",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_TEST_UNITS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_AUTO_DEV_TEST",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -5913,26 +6387,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "test_beyond_correct",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "learn_vs_prove",
+				"is_key": false
 			},
-			SK_AUTO_DEPLOY: {
-				name: "Automated deploy",
-				x: 12,
-				y: 7,
-				level: "L_ADAPTIVE",
-				component: "V_SHIP",
-				requires: [
+			"SK_TEST_BEYOND_CORRECT": {
+				"name": "Test beyond correctness",
+				"x": 16,
+				"y": 5,
+				"level": "L_LEVERAGE",
+				"component": "V_CHECK_WORK",
+				"requires": [
 					{
-						skill: "SK_AUTO_BUILD_VERIFY",
-						kind: "IS_REQUIRED",
+						"skill": "SK_DONE_DEFINITION",
+						"kind": "IS_REQUIRED"
 					},
+					{
+						"skill": "SK_TEST_UNITS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -5993,30 +6477,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "auto_deploy",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "test_beyond_correct",
+				"is_key": false
 			},
-			SK_FAST_BUILD_VERIFY: {
-				name: "Fast build verification",
-				x: 15,
-				y: 6,
-				level: "L_ADAPTIVE",
-				component: "V_SHIP",
-				requires: [
+			"SK_FAST_AUTO_DEPLOY": {
+				"name": "Sustainable automated deploy",
+				"x": 16,
+				"y": 7,
+				"level": "L_LEVERAGE",
+				"component": "V_SHIP",
+				"requires": [
 					{
-						skill: "SK_AUTO_BUILD_VERIFY",
-						kind: "IS_REQUIRED",
+						"skill": "SK_AUTO_DEPLOY",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_TEST_UNITS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_FAST_BUILD_VERIFY",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -6077,30 +6567,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "fast_build_verify",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "fast_auto_deploy",
+				"is_key": false
 			},
-			SK_FAST_AUTO_DEPLOY: {
-				name: "Sustainable automated deploy",
-				x: 16,
-				y: 7,
-				level: "L_LEVERAGE",
-				component: "V_SHIP",
-				requires: [
+			"SK_STORY_CLUSTERING": {
+				"name": "Story clustering",
+				"x": 16,
+				"y": 8,
+				"level": "L_LEVERAGE",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_AUTO_DEPLOY",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_FAST_BUILD_VERIFY",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_STORIES",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -6161,26 +6653,40 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "fast_auto_deploy",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "story_clustering",
+				"is_key": false
 			},
-			SK_STORY_CLUSTERING: {
-				name: "Story clustering",
-				x: 16,
-				y: 8,
-				level: "L_LEVERAGE",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_ADAPTIVE_PLANNING": {
+				"name": "Iterative planning",
+				"x": 16,
+				"y": 9,
+				"level": "L_LEVERAGE",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_STORIES",
-						kind: "IS_REQUIRED",
+						"skill": "SK_SMALL_BATCHES",
+						"kind": "IS_REQUIRED"
 					},
+					{
+						"skill": "SK_ITERATION",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_STORIES",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -6241,34 +6747,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "story_clustering",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "adaptive_planning",
+				"is_key": false
 			},
-			SK_ADAPTIVE_PLANNING: {
-				name: "Iterative planning",
-				x: 16,
-				y: 9,
-				level: "L_LEVERAGE",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_RELATIVE_ESTIMATES": {
+				"name": "Relative based estimation",
+				"x": 16,
+				"y": 10,
+				"level": "L_LEVERAGE",
+				"component": "V_SUSTAINABLE",
+				"requires": [
 					{
-						skill: "SK_SMALL_BATCHES",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_ITERATION",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_STORIES",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_TRACK_CAPACITY",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -6329,26 +6833,40 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "adaptive_planning",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "relative_estimates",
+				"is_key": false
 			},
-			SK_RELATIVE_ESTIMATES: {
-				name: "Relative based estimation",
-				x: 16,
-				y: 10,
-				level: "L_LEVERAGE",
-				component: "V_SUSTAINABLE",
-				requires: [
+			"SK_LIMIT_WORK_TO_CAPACITY": {
+				"name": "Limit work to estimated capacity",
+				"x": 16,
+				"y": 11,
+				"level": "L_LEVERAGE",
+				"component": "V_SUSTAINABLE",
+				"requires": [
 					{
-						skill: "SK_TRACK_CAPACITY",
-						kind: "IS_REQUIRED",
+						"skill": "SK_SLACK",
+						"kind": "IS_HELPFUL"
 					},
+					{
+						"skill": "SK_TRACK_CAPACITY",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_ITERATION",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -6409,34 +6927,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "relative_estimates",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "limit_work_to_capacity",
+				"is_key": false
 			},
-			SK_LIMIT_WORK_TO_CAPACITY: {
-				name: "Limit work to estimated capacity",
-				x: 16,
-				y: 11,
-				level: "L_LEVERAGE",
-				component: "V_SUSTAINABLE",
-				requires: [
+			"SK_CONTINUOUS_PLAN": {
+				"name": "Continuous-form planning",
+				"x": 16,
+				"y": 12,
+				"level": "L_LEVERAGE",
+				"component": "V_SUSTAINABLE",
+				"requires": [
 					{
-						skill: "SK_SLACK",
-						kind: "IS_HELPFUL",
-					},
-					{
-						skill: "SK_TRACK_CAPACITY",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_ITERATION",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_PULL",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -6497,26 +7013,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "limit_work_to_capacity",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "continuous_plan",
+				"is_key": false
 			},
-			SK_CONTINUOUS_PLAN: {
-				name: "Continuous-form planning",
-				x: 16,
-				y: 12,
-				level: "L_LEVERAGE",
-				component: "V_SUSTAINABLE",
-				requires: [
+			"SK_SESSION_MANUAL_TESTING": {
+				"name": "Session-based manual testing",
+				"x": 17,
+				"y": 3,
+				"level": "L_LEVERAGE",
+				"component": "V_IMPROVE",
+				"requires": [
 					{
-						skill: "SK_PULL",
-						kind: "IS_REQUIRED",
+						"skill": "SK_LEARN_VS_PROVE",
+						"kind": "IS_REQUIRED"
 					},
+					{
+						"skill": "SK_AUTO_BUILD_VERIFY",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -6577,30 +7103,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "continuous_plan",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "session_manual_testing",
+				"is_key": false
 			},
-			SK_SESSION_MANUAL_TESTING: {
-				name: "Session-based manual testing",
-				x: 17,
-				y: 3,
-				level: "L_LEVERAGE",
-				component: "V_IMPROVE",
-				requires: [
+			"SK_ROLLING_WAVE_PLANNING": {
+				"name": "Rolling-wave planning",
+				"x": 17,
+				"y": 9,
+				"level": "L_LEVERAGE",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_LEARN_VS_PROVE",
-						kind: "IS_REQUIRED",
+						"skill": "SK_STORY_CLUSTERING",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_AUTO_BUILD_VERIFY",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_ADAPTIVE_PLANNING",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -6661,30 +7193,44 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "session_manual_testing",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "rolling_wave_planning",
+				"is_key": false
 			},
-			SK_ROLLING_WAVE_PLANNING: {
-				name: "Rolling-wave planning",
-				x: 17,
-				y: 9,
-				level: "L_LEVERAGE",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_BUG_RATCHET": {
+				"name": "Bugs decrease over time",
+				"x": 18,
+				"y": 2,
+				"level": "L_NO_DEBT",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_STORY_CLUSTERING",
-						kind: "IS_REQUIRED",
+						"skill": "SK_BUG_FREE_NEW_CODE",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_ADAPTIVE_PLANNING",
-						kind: "IS_REQUIRED",
+						"skill": "SK_REFLECTIVE_DESIGN",
+						"kind": "IS_REQUIRED"
 					},
+					{
+						"skill": "SK_SESSION_MANUAL_TESTING",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_TEST_BEYOND_CORRECT",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -6745,38 +7291,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "rolling_wave_planning",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "bug_ratchet",
+				"is_key": false
 			},
-			SK_BUG_RATCHET: {
-				name: "Bugs decrease over time",
-				x: 18,
-				y: 2,
-				level: "L_NO_DEBT",
-				component: "V_CODE",
-				requires: [
+			"SK_IMPROVING_PROOF": {
+				"name": "Improving levels of proof",
+				"x": 18,
+				"y": 3,
+				"level": "L_NO_DEBT",
+				"component": "V_CHECK_WORK",
+				"requires": [
 					{
-						skill: "SK_BUG_FREE_NEW_CODE",
-						kind: "IS_REQUIRED",
+						"skill": "SK_SESSION_MANUAL_TESTING",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_REFLECTIVE_DESIGN",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_SESSION_MANUAL_TESTING",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_TEST_BEYOND_CORRECT",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_TEST_BEYOND_CORRECT",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -6837,30 +7381,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "bug_ratchet",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "improving_proof",
+				"is_key": false
 			},
-			SK_IMPROVING_PROOF: {
-				name: "Improving levels of proof",
-				x: 18,
-				y: 3,
-				level: "L_NO_DEBT",
-				component: "V_CHECK_WORK",
-				requires: [
+			"SK_TEST_LEGACY": {
+				"name": "Legacy code under test",
+				"x": 18,
+				"y": 4,
+				"level": "L_NO_DEBT",
+				"component": "V_CHECK_WORK",
+				"requires": [
 					{
-						skill: "SK_SESSION_MANUAL_TESTING",
-						kind: "IS_REQUIRED",
+						"skill": "SK_TEST_UNITS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_TEST_BEYOND_CORRECT",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_TEST_FIRST",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -6921,30 +7471,44 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "improving_proof",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "test_legacy",
+				"is_key": false
 			},
-			SK_TEST_LEGACY: {
-				name: "Legacy code under test",
-				x: 18,
-				y: 4,
-				level: "L_NO_DEBT",
-				component: "V_CHECK_WORK",
-				requires: [
+			"SK_RGR": {
+				"name": "Rapid coding inner loop (R-G-R)",
+				"x": 18,
+				"y": 5,
+				"level": "L_NO_DEBT",
+				"component": "V_CHECK_WORK",
+				"requires": [
 					{
-						skill: "SK_TEST_UNITS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_TEST_FIRST",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_TEST_FIRST",
-						kind: "IS_REQUIRED",
+						"skill": "SK_TEST_UNITS",
+						"kind": "IS_REQUIRED"
 					},
+					{
+						"skill": "SK_REFLECTIVE_DESIGN",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_PAIR_ALWAYS",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -7005,38 +7569,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "test_legacy",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "rgr",
+				"is_key": false
 			},
-			SK_RGR: {
-				name: "Rapid coding inner loop (R-G-R)",
-				x: 18,
-				y: 5,
-				level: "L_NO_DEBT",
-				component: "V_CHECK_WORK",
-				requires: [
+			"SK_AUTO_DEPLOY_VERIFY": {
+				"name": "Automated deploy verification",
+				"x": 18,
+				"y": 6,
+				"level": "L_NO_DEBT",
+				"component": "V_SHIP",
+				"requires": [
 					{
-						skill: "SK_TEST_FIRST",
-						kind: "IS_REQUIRED",
+						"skill": "SK_AUTO_DEPLOY",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_TEST_UNITS",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_REFLECTIVE_DESIGN",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_PAIR_ALWAYS",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_FAST_AUTO_DEPLOY",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -7097,30 +7659,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "rgr",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "auto_deploy_verify",
+				"is_key": false
 			},
-			SK_AUTO_DEPLOY_VERIFY: {
-				name: "Automated deploy verification",
-				x: 18,
-				y: 6,
-				level: "L_NO_DEBT",
-				component: "V_SHIP",
-				requires: [
+			"SK_VERIFY_EXAMPLES": {
+				"name": "Verify examples (ATDD)",
+				"x": 18,
+				"y": 7,
+				"level": "L_NO_DEBT",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_AUTO_DEPLOY",
-						kind: "IS_REQUIRED",
+						"skill": "SK_STORIES",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_FAST_AUTO_DEPLOY",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_TEST_FIRST",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -7181,30 +7749,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "auto_deploy_verify",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "verify_examples",
+				"is_key": false
 			},
-			SK_VERIFY_EXAMPLES: {
-				name: "Verify examples (ATDD)",
-				x: 18,
-				y: 7,
-				level: "L_NO_DEBT",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_DATA_DRIVEN_CAPACITY": {
+				"name": "Use data to determine capacity",
+				"x": 18,
+				"y": 11,
+				"level": "L_NO_DEBT",
+				"component": "V_SUSTAINABLE",
+				"requires": [
 					{
-						skill: "SK_STORIES",
-						kind: "IS_REQUIRED",
+						"skill": "SK_RELATIVE_ESTIMATES",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_TEST_FIRST",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_LIMIT_WORK_TO_CAPACITY",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -7265,30 +7839,52 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "verify_examples",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "data_driven_capacity",
+				"is_key": false
 			},
-			SK_DATA_DRIVEN_CAPACITY: {
-				name: "Use data to determine capacity",
-				x: 18,
-				y: 11,
-				level: "L_NO_DEBT",
-				component: "V_SUSTAINABLE",
-				requires: [
+			"SK_FIX_LEGACY": {
+				"name": "Pay down technical debt",
+				"x": 19,
+				"y": 4,
+				"level": "L_NO_DEBT",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_RELATIVE_ESTIMATES",
-						kind: "IS_REQUIRED",
+						"skill": "SK_TEST_LEGACY",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_LIMIT_WORK_TO_CAPACITY",
-						kind: "IS_REQUIRED",
+						"skill": "SK_BUG_RATCHET",
+						"kind": "IS_REQUIRED"
 					},
+					{
+						"skill": "SK_RGR",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_REFLECTIVE_DESIGN",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_COLLECTIVE_OWNERSHIP",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_IMPROVING_PROOF",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -7349,46 +7945,40 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "data_driven_capacity",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "fix_legacy",
+				"is_key": true
 			},
-			SK_FIX_LEGACY: {
-				name: "Pay down technical debt",
-				x: 19,
-				y: 4,
-				level: "L_NO_DEBT",
-				component: "V_CODE",
-				requires: [
+			"SK_SIMUL_PHASES": {
+				"name": "Simultaneous Phases",
+				"x": 19,
+				"y": 5,
+				"level": "L_NO_DEBT",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_TEST_LEGACY",
-						kind: "IS_REQUIRED",
+						"skill": "SK_RGR",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_BUG_RATCHET",
-						kind: "IS_REQUIRED",
+						"skill": "SK_FAST_AUTO_DEPLOY",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_RGR",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_REFLECTIVE_DESIGN",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_COLLECTIVE_OWNERSHIP",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_IMPROVING_PROOF",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_ADAPTIVE_PLANNING",
+						"kind": "IS_HELPFUL"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -7449,34 +8039,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "fix_legacy",
-				is_key: true,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "simul_phases",
+				"is_key": true
 			},
-			SK_SIMUL_PHASES: {
-				name: "Simultaneous Phases",
-				x: 19,
-				y: 5,
-				level: "L_NO_DEBT",
-				component: "V_CODE",
-				requires: [
+			"SK_CLEAN_CODE": {
+				"name": "Clean code",
+				"x": 20,
+				"y": 3,
+				"level": "L_NO_DEBT",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_RGR",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_FAST_AUTO_DEPLOY",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_ADAPTIVE_PLANNING",
-						kind: "IS_HELPFUL",
-					},
+						"skill": "SK_FIX_LEGACY",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -7537,526 +8125,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "simul_phases",
-				is_key: true,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "clean_code",
+				"is_key": false
 			},
-			SK_CLEAN_CODE: {
-				name: "Clean code",
-				x: 20,
-				y: 3,
-				level: "L_NO_DEBT",
-				component: "V_CODE",
-				requires: [
+			"SK_INTENTIONAL_TECHNICAL_DEBT": {
+				"name": "Intentional Technical Debt",
+				"x": 20,
+				"y": 9,
+				"level": "L_NO_DEBT",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_FIX_LEGACY",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_FIX_LEGACY",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
-					"bq>. 1-sentence mindset quote goes here",
-					"",
-					"h1. What this is",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. How it helps",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Mindshifts",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Measuring impact",
-					"",
-					"###. If you are doing this well, you should see improvements in:",
-					"",
-					"###. * TBD",
-					"",
-					"###. You may also see:",
-					"",
-					"###. * TBD",
-					"",
-					"###. h2. Side effects",
-					"",
-					"###. TBD (list side effects and practices / stages that can be used to counter them).",
-					"",
-					"###. h1. Acquiring the skill",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Role during transition",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Why these prereqs help",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Recipes to follow",
-					"",
-					"###. TBD",
-					"",
-					"###. h1. Attaining fluency",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Measuring proficiency",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Recipes to follow",
-					"",
-					"###. TBD",
-					"",
-					"h2. Further resources",
-					"",
-					"TBD",
-					"",
-					"",
-				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "clean_code",
-				is_key: false,
-			},
-			SK_SHORT_TERM_RELIABILITY: {
-				name: "Reliable short-term commitments",
-				x: 20,
-				y: 11,
-				level: "L_NO_DEBT",
-				component: "V_SUSTAINABLE",
-				requires: [
-					{
-						skill: "SK_DATA_DRIVEN_CAPACITY",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_SIMUL_PHASES",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_ADAPTIVE_PLANNING",
-						kind: "IS_REQUIRED",
-					},
-				],
-				obsoletes: [],
-				description: [
-					"bq>. 1-sentence mindset quote goes here",
-					"",
-					"h1. What this is",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. How it helps",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Mindshifts",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Measuring impact",
-					"",
-					"###. If you are doing this well, you should see improvements in:",
-					"",
-					"###. * TBD",
-					"",
-					"###. You may also see:",
-					"",
-					"###. * TBD",
-					"",
-					"###. h2. Side effects",
-					"",
-					"###. TBD (list side effects and practices / stages that can be used to counter them).",
-					"",
-					"###. h1. Acquiring the skill",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Role during transition",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Why these prereqs help",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Recipes to follow",
-					"",
-					"###. TBD",
-					"",
-					"###. h1. Attaining fluency",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Measuring proficiency",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Recipes to follow",
-					"",
-					"###. TBD",
-					"",
-					"h2. Further resources",
-					"",
-					"TBD",
-					"",
-					"",
-				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "reliability",
-				is_key: false,
-			},
-			SK_M_SHAPED: {
-				name: "M-shaped people",
-				x: 21,
-				y: 1,
-				level: "L_AWESOME",
-				component: "V_LEARN",
-				requires: [
-					{
-						skill: "SK_PAIR_ALWAYS",
-						kind: "IS_REQUIRED",
-					},
-				],
-				obsoletes: [],
-				description: [
-					"bq>. 1-sentence mindset quote goes here",
-					"",
-					"h1. What this is",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. How it helps",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Mindshifts",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Measuring impact",
-					"",
-					"###. If you are doing this well, you should see improvements in:",
-					"",
-					"###. * TBD",
-					"",
-					"###. You may also see:",
-					"",
-					"###. * TBD",
-					"",
-					"###. h2. Side effects",
-					"",
-					"###. TBD (list side effects and practices / stages that can be used to counter them).",
-					"",
-					"###. h1. Acquiring the skill",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Role during transition",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Why these prereqs help",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Recipes to follow",
-					"",
-					"###. TBD",
-					"",
-					"###. h1. Attaining fluency",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Measuring proficiency",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Recipes to follow",
-					"",
-					"###. TBD",
-					"",
-					"h2. Further resources",
-					"",
-					"TBD",
-					"",
-					"",
-				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "m_shaped",
-				is_key: false,
-			},
-			SK_EVO_DESIGN: {
-				name: "Evolutionary Design",
-				x: 21,
-				y: 4,
-				level: "L_AWESOME",
-				component: "V_CODE",
-				requires: [
-					{
-						skill: "SK_CLEAN_CODE",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_SIMUL_PHASES",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_REFLECTIVE_DESIGN",
-						kind: "IS_REQUIRED",
-					},
-					{
-						skill: "SK_PAIR_ALWAYS",
-						kind: "IS_HELPFUL",
-					},
-				],
-				obsoletes: [],
-				description: [
-					"bq>. 1-sentence mindset quote goes here",
-					"",
-					"h1. What this is",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. How it helps",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Mindshifts",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Measuring impact",
-					"",
-					"###. If you are doing this well, you should see improvements in:",
-					"",
-					"###. * TBD",
-					"",
-					"###. You may also see:",
-					"",
-					"###. * TBD",
-					"",
-					"###. h2. Side effects",
-					"",
-					"###. TBD (list side effects and practices / stages that can be used to counter them).",
-					"",
-					"###. h1. Acquiring the skill",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Role during transition",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Why these prereqs help",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Recipes to follow",
-					"",
-					"###. TBD",
-					"",
-					"###. h1. Attaining fluency",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Measuring proficiency",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Recipes to follow",
-					"",
-					"###. TBD",
-					"",
-					"h2. Further resources",
-					"",
-					"TBD",
-					"",
-					"",
-				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "evo_design",
-				is_key: false,
-			},
-			SK_FEATURE_ISOLATION: {
-				name: "Feature isolation",
-				x: 21,
-				y: 5,
-				level: "L_AWESOME",
-				component: "V_SHIP",
-				requires: [
-					{
-						skill: "SK_FAST_AUTO_DEPLOY",
-						kind: "IS_REQUIRED",
-					},
-				],
-				obsoletes: [],
-				description: [
-					"bq>. 1-sentence mindset quote goes here",
-					"",
-					"h1. What this is",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. How it helps",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Mindshifts",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Measuring impact",
-					"",
-					"###. If you are doing this well, you should see improvements in:",
-					"",
-					"###. * TBD",
-					"",
-					"###. You may also see:",
-					"",
-					"###. * TBD",
-					"",
-					"###. h2. Side effects",
-					"",
-					"###. TBD (list side effects and practices / stages that can be used to counter them).",
-					"",
-					"###. h1. Acquiring the skill",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Role during transition",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Why these prereqs help",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Recipes to follow",
-					"",
-					"###. TBD",
-					"",
-					"###. h1. Attaining fluency",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Measuring proficiency",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Recipes to follow",
-					"",
-					"###. TBD",
-					"",
-					"h2. Further resources",
-					"",
-					"TBD",
-					"",
-					"",
-				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "feature_isolation",
-				is_key: false,
-			},
-			SK_AUTO_ROLLBACK: {
-				name: "Automated rollback",
-				x: 21,
-				y: 6,
-				level: "L_AWESOME",
-				component: "V_SHIP",
-				requires: [
-					{
-						skill: "SK_AUTO_DEPLOY_VERIFY",
-						kind: "IS_REQUIRED",
-					},
-				],
-				obsoletes: [],
-				description: [
-					"bq>. 1-sentence mindset quote goes here",
-					"",
-					"h1. What this is",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. How it helps",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Mindshifts",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Measuring impact",
-					"",
-					"###. If you are doing this well, you should see improvements in:",
-					"",
-					"###. * TBD",
-					"",
-					"###. You may also see:",
-					"",
-					"###. * TBD",
-					"",
-					"###. h2. Side effects",
-					"",
-					"###. TBD (list side effects and practices / stages that can be used to counter them).",
-					"",
-					"###. h1. Acquiring the skill",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Role during transition",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Why these prereqs help",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Recipes to follow",
-					"",
-					"###. TBD",
-					"",
-					"###. h1. Attaining fluency",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Measuring proficiency",
-					"",
-					"###. TBD",
-					"",
-					"###. h2. Recipes to follow",
-					"",
-					"###. TBD",
-					"",
-					"h2. Further resources",
-					"",
-					"TBD",
-					"",
-					"",
-				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "auto_rollback",
-				is_key: true,
-			},
-			SK_INTENTIONAL_TECHNICAL_DEBT: {
-				name: "Intentional Technical Debt",
-				x: 20,
-				y: 9,
-				level: "L_NO_DEBT",
-				component: "V_REQUIREMENTS",
-				requires: [
-					{
-						skill: "SK_FIX_LEGACY",
-						kind: "IS_REQUIRED",
-					},
-				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. We can occasionally defer refactoring and will come back to it before long.",
 					"",
 					"h1. What this is",
@@ -8117,30 +8211,486 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "intentional_technical_debt",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "intentional_technical_debt",
+				"is_key": false
 			},
-			SK_HYPOTHESIS_STORIES: {
-				name: "Hypothesis stories",
-				x: 21,
-				y: 7,
-				level: "L_AWESOME",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_SHORT_TERM_RELIABILITY": {
+				"name": "Reliable short-term commitments",
+				"x": 20,
+				"y": 11,
+				"level": "L_NO_DEBT",
+				"component": "V_SUSTAINABLE",
+				"requires": [
 					{
-						skill: "SK_STORY_CLUSTERING",
-						kind: "IS_REQUIRED",
+						"skill": "SK_DATA_DRIVEN_CAPACITY",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_INTENTIONAL_TECHNICAL_DEBT",
-						kind: "IS_HELPFUL",
+						"skill": "SK_SIMUL_PHASES",
+						"kind": "IS_REQUIRED"
 					},
+					{
+						"skill": "SK_ADAPTIVE_PLANNING",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
+					"bq>. 1-sentence mindset quote goes here",
+					"",
+					"h1. What this is",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. How it helps",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Mindshifts",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Measuring impact",
+					"",
+					"###. If you are doing this well, you should see improvements in:",
+					"",
+					"###. * TBD",
+					"",
+					"###. You may also see:",
+					"",
+					"###. * TBD",
+					"",
+					"###. h2. Side effects",
+					"",
+					"###. TBD (list side effects and practices / stages that can be used to counter them).",
+					"",
+					"###. h1. Acquiring the skill",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Role during transition",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Why these prereqs help",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Recipes to follow",
+					"",
+					"###. TBD",
+					"",
+					"###. h1. Attaining fluency",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Measuring proficiency",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Recipes to follow",
+					"",
+					"###. TBD",
+					"",
+					"h2. Further resources",
+					"",
+					"TBD",
+					"",
+					""
+				],
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "reliability",
+				"is_key": false
+			},
+			"SK_M_SHAPED": {
+				"name": "M-shaped people",
+				"x": 21,
+				"y": 1,
+				"level": "L_AWESOME",
+				"component": "V_LEARN",
+				"requires": [
+					{
+						"skill": "SK_PAIR_ALWAYS",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"obsoletes": [],
+				"description": [
+					"bq>. 1-sentence mindset quote goes here",
+					"",
+					"h1. What this is",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. How it helps",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Mindshifts",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Measuring impact",
+					"",
+					"###. If you are doing this well, you should see improvements in:",
+					"",
+					"###. * TBD",
+					"",
+					"###. You may also see:",
+					"",
+					"###. * TBD",
+					"",
+					"###. h2. Side effects",
+					"",
+					"###. TBD (list side effects and practices / stages that can be used to counter them).",
+					"",
+					"###. h1. Acquiring the skill",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Role during transition",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Why these prereqs help",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Recipes to follow",
+					"",
+					"###. TBD",
+					"",
+					"###. h1. Attaining fluency",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Measuring proficiency",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Recipes to follow",
+					"",
+					"###. TBD",
+					"",
+					"h2. Further resources",
+					"",
+					"TBD",
+					"",
+					""
+				],
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "m_shaped",
+				"is_key": false
+			},
+			"SK_EVO_DESIGN": {
+				"name": "Evolutionary Design",
+				"x": 21,
+				"y": 4,
+				"level": "L_AWESOME",
+				"component": "V_CODE",
+				"requires": [
+					{
+						"skill": "SK_CLEAN_CODE",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_SIMUL_PHASES",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_REFLECTIVE_DESIGN",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_PAIR_ALWAYS",
+						"kind": "IS_HELPFUL"
+					}
+				],
+				"obsoletes": [],
+				"description": [
+					"bq>. 1-sentence mindset quote goes here",
+					"",
+					"h1. What this is",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. How it helps",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Mindshifts",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Measuring impact",
+					"",
+					"###. If you are doing this well, you should see improvements in:",
+					"",
+					"###. * TBD",
+					"",
+					"###. You may also see:",
+					"",
+					"###. * TBD",
+					"",
+					"###. h2. Side effects",
+					"",
+					"###. TBD (list side effects and practices / stages that can be used to counter them).",
+					"",
+					"###. h1. Acquiring the skill",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Role during transition",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Why these prereqs help",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Recipes to follow",
+					"",
+					"###. TBD",
+					"",
+					"###. h1. Attaining fluency",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Measuring proficiency",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Recipes to follow",
+					"",
+					"###. TBD",
+					"",
+					"h2. Further resources",
+					"",
+					"TBD",
+					"",
+					""
+				],
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "evo_design",
+				"is_key": false
+			},
+			"SK_FEATURE_ISOLATION": {
+				"name": "Feature isolation",
+				"x": 21,
+				"y": 5,
+				"level": "L_AWESOME",
+				"component": "V_SHIP",
+				"requires": [
+					{
+						"skill": "SK_FAST_AUTO_DEPLOY",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"obsoletes": [],
+				"description": [
+					"bq>. 1-sentence mindset quote goes here",
+					"",
+					"h1. What this is",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. How it helps",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Mindshifts",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Measuring impact",
+					"",
+					"###. If you are doing this well, you should see improvements in:",
+					"",
+					"###. * TBD",
+					"",
+					"###. You may also see:",
+					"",
+					"###. * TBD",
+					"",
+					"###. h2. Side effects",
+					"",
+					"###. TBD (list side effects and practices / stages that can be used to counter them).",
+					"",
+					"###. h1. Acquiring the skill",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Role during transition",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Why these prereqs help",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Recipes to follow",
+					"",
+					"###. TBD",
+					"",
+					"###. h1. Attaining fluency",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Measuring proficiency",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Recipes to follow",
+					"",
+					"###. TBD",
+					"",
+					"h2. Further resources",
+					"",
+					"TBD",
+					"",
+					""
+				],
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "feature_isolation",
+				"is_key": false
+			},
+			"SK_AUTO_ROLLBACK": {
+				"name": "Automated rollback",
+				"x": 21,
+				"y": 6,
+				"level": "L_AWESOME",
+				"component": "V_SHIP",
+				"requires": [
+					{
+						"skill": "SK_AUTO_DEPLOY_VERIFY",
+						"kind": "IS_REQUIRED"
+					}
+				],
+				"obsoletes": [],
+				"description": [
+					"bq>. 1-sentence mindset quote goes here",
+					"",
+					"h1. What this is",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. How it helps",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Mindshifts",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Measuring impact",
+					"",
+					"###. If you are doing this well, you should see improvements in:",
+					"",
+					"###. * TBD",
+					"",
+					"###. You may also see:",
+					"",
+					"###. * TBD",
+					"",
+					"###. h2. Side effects",
+					"",
+					"###. TBD (list side effects and practices / stages that can be used to counter them).",
+					"",
+					"###. h1. Acquiring the skill",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Role during transition",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Why these prereqs help",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Recipes to follow",
+					"",
+					"###. TBD",
+					"",
+					"###. h1. Attaining fluency",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Measuring proficiency",
+					"",
+					"###. TBD",
+					"",
+					"###. h2. Recipes to follow",
+					"",
+					"###. TBD",
+					"",
+					"h2. Further resources",
+					"",
+					"TBD",
+					"",
+					""
+				],
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "auto_rollback",
+				"is_key": true
+			},
+			"SK_HYPOTHESIS_STORIES": {
+				"name": "Hypothesis stories",
+				"x": 21,
+				"y": 7,
+				"level": "L_AWESOME",
+				"component": "V_REQUIREMENTS",
+				"requires": [
+					{
+						"skill": "SK_STORY_CLUSTERING",
+						"kind": "IS_REQUIRED"
+					},
+					{
+						"skill": "SK_INTENTIONAL_TECHNICAL_DEBT",
+						"kind": "IS_HELPFUL"
+					}
+				],
+				"obsoletes": [],
+				"description": [
 					"bq>. Treat development as a series of experiments, where each experiment tests a hypothesis.",
 					"",
 					"h1. What this is",
@@ -8182,7 +8732,7 @@ function load_data() {
 					"",
 					"Then, practice putting your hypothesis to the test: perform the experiment and collect measurements. The experiment is complete once the assumptions once you have measured the value of what is being delivered - in other words, once you have gathered data to validate our hypothesis.",
 					"",
-					'Finally, practice closing the loop with any follow-up.  For example, "if our hypothesis proves correct, we will take action <a>, and if our hypothesis proves incorrect, we will take action <b>"',
+					"Finally, practice closing the loop with any follow-up.  For example, \"if our hypothesis proves correct, we will take action <a>, and if our hypothesis proves incorrect, we will take action <b>\"",
 					" ",
 					"###. TBD",
 					"",
@@ -8214,30 +8764,36 @@ function load_data() {
 					"",
 					"h2. Further resources",
 					"",
-					'"How to implement Hypothesis-Driven Development [O\'Reilly, 2014]":https://www.thoughtworks.com/insights/blog/how-implement-hypothesis-driven-development',
-					'"Spotify Wants To Be Good at Failing [Linders, 2016]":https://www.infoq.com/news/2016/07/spotify-good-at-failing',
-					'"Hypothesis-Driven Development [Taylor, 2011]":http://www.drdobbs.com/architecture-and-design/hypothesis-driven-development/229000656',
-					'"Hypothesis-driven development [Cho]":https://www.ibm.com/devops/method/content/learn/practice_hypothesis_driven_development/',
-					"",
+					"\"How to implement Hypothesis-Driven Development [O'Reilly, 2014]\":https://www.thoughtworks.com/insights/blog/how-implement-hypothesis-driven-development",
+					"\"Spotify Wants To Be Good at Failing [Linders, 2016]\":https://www.infoq.com/news/2016/07/spotify-good-at-failing",
+					"\"Hypothesis-Driven Development [Taylor, 2011]\":http://www.drdobbs.com/architecture-and-design/hypothesis-driven-development/229000656",
+					"\"Hypothesis-driven development [Cho]\":https://www.ibm.com/devops/method/content/learn/practice_hypothesis_driven_development/",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "hypothesis_stories",
-				is_key: true,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "hypothesis_stories",
+				"is_key": true
 			},
-			SK_EXPERIENCE_FOCUS: {
-				name: "Experience focus",
-				x: 21,
-				y: 8,
-				level: "L_AWESOME",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_EXPERIENCE_FOCUS": {
+				"name": "Experience focus",
+				"x": 21,
+				"y": 8,
+				"level": "L_AWESOME",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_STORY_CLUSTERING",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_STORY_CLUSTERING",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -8298,34 +8854,40 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "experience_focus",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "experience_focus",
+				"is_key": false
 			},
-			SK_PROJECTIONS: {
-				name: "Reliable long-range planning",
-				x: 21,
-				y: 10,
-				level: "L_AWESOME",
-				component: "V_SUSTAINABLE",
-				requires: [
+			"SK_PROJECTIONS": {
+				"name": "Reliable long-range planning",
+				"x": 21,
+				"y": 10,
+				"level": "L_AWESOME",
+				"component": "V_SUSTAINABLE",
+				"requires": [
 					{
-						skill: "SK_ROLLING_WAVE_PLANNING",
-						kind: "IS_REQUIRED",
+						"skill": "SK_ROLLING_WAVE_PLANNING",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_SHORT_TERM_RELIABILITY",
-						kind: "IS_REQUIRED",
+						"skill": "SK_SHORT_TERM_RELIABILITY",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_SIMUL_PHASES",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_SIMUL_PHASES",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -8386,26 +8948,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "projections",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "projections",
+				"is_key": false
 			},
-			SK_UNIVERSAL_SPECIALIST: {
-				name: "Full-product specialization",
-				x: 22,
-				y: 2,
-				level: "L_AWESOME",
-				component: "V_LEARN",
-				requires: [
+			"SK_UNIVERSAL_SPECIALIST": {
+				"name": "Full-product specialization",
+				"x": 22,
+				"y": 2,
+				"level": "L_AWESOME",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_M_SHAPED",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_M_SHAPED",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -8466,34 +9034,40 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "universal_specialist",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "universal_specialist",
+				"is_key": false
 			},
-			SK_NO_BUGS: {
-				name: "#BugsZero",
-				x: 22,
-				y: 3,
-				level: "L_AWESOME",
-				component: "V_CODE",
-				requires: [
+			"SK_NO_BUGS": {
+				"name": "#BugsZero",
+				"x": 22,
+				"y": 3,
+				"level": "L_AWESOME",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_EVO_DESIGN",
-						kind: "IS_REQUIRED",
+						"skill": "SK_EVO_DESIGN",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_BUG_RATCHET",
-						kind: "IS_REQUIRED",
+						"skill": "SK_BUG_RATCHET",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_PAIR_ALWAYS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_PAIR_ALWAYS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -8554,26 +9128,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "bugs_zero",
-				is_key: true,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "bugs_zero",
+				"is_key": true
 			},
-			SK_TELL_VS_ASK: {
-				name: "Universal CQRS",
-				x: 22,
-				y: 5,
-				level: "L_AWESOME",
-				component: "V_CODE",
-				requires: [
+			"SK_TELL_VS_ASK": {
+				"name": "Universal CQRS",
+				"x": 22,
+				"y": 5,
+				"level": "L_AWESOME",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_EVO_DESIGN",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_EVO_DESIGN",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -8634,30 +9214,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "tell_vs_ask",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "tell_vs_ask",
+				"is_key": false
 			},
-			SK_WHOLE_TEAM_BUSINESS: {
-				name: "Whole team business innovation",
-				x: 22,
-				y: 8,
-				level: "L_AWESOME",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_WHOLE_TEAM_BUSINESS": {
+				"name": "Whole team business innovation",
+				"x": 22,
+				"y": 8,
+				"level": "L_AWESOME",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_EXPERIENCE_FOCUS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_EXPERIENCE_FOCUS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_M_SHAPED",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_M_SHAPED",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -8718,34 +9304,40 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "whole_team_business",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "whole_team_business",
+				"is_key": false
 			},
-			SK_SMOOTH_FLOW: {
-				name: "Predictable, smooth flow",
-				x: 22,
-				y: 9,
-				level: "L_AWESOME",
-				component: "V_SUSTAINABLE",
-				requires: [
+			"SK_SMOOTH_FLOW": {
+				"name": "Predictable, smooth flow",
+				"x": 22,
+				"y": 9,
+				"level": "L_AWESOME",
+				"component": "V_SUSTAINABLE",
+				"requires": [
 					{
-						skill: "SK_CONTINUOUS_PLAN",
-						kind: "IS_REQUIRED",
+						"skill": "SK_CONTINUOUS_PLAN",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_PROJECTIONS",
-						kind: "IS_HELPFUL",
+						"skill": "SK_PROJECTIONS",
+						"kind": "IS_HELPFUL"
 					},
 					{
-						skill: "SK_SIMUL_PHASES",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_SIMUL_PHASES",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -8806,26 +9398,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "smooth_flow",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "smooth_flow",
+				"is_key": false
 			},
-			SK_YAGNI: {
-				name: "YAGNI and simplest thing",
-				x: 23,
-				y: 3,
-				level: "L_AWESOME",
-				component: "V_CODE",
-				requires: [
+			"SK_YAGNI": {
+				"name": "YAGNI and simplest thing",
+				"x": 23,
+				"y": 3,
+				"level": "L_AWESOME",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_NO_BUGS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_NO_BUGS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -8886,30 +9484,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "yagni",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "yagni",
+				"is_key": false
 			},
-			SK_CONT_SHIP: {
-				name: "Continuous delivery",
-				x: 23,
-				y: 6,
-				level: "L_AWESOME",
-				component: "V_SHIP",
-				requires: [
+			"SK_CONT_SHIP": {
+				"name": "Continuous delivery",
+				"x": 23,
+				"y": 6,
+				"level": "L_AWESOME",
+				"component": "V_SHIP",
+				"requires": [
 					{
-						skill: "SK_NO_BUGS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_NO_BUGS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_FEATURE_ISOLATION",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_FEATURE_ISOLATION",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -8970,30 +9574,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "cont_ship",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "cont_ship",
+				"is_key": false
 			},
-			SK_TIP: {
-				name: "Testing in production",
-				x: 23,
-				y: 7,
-				level: "L_AWESOME",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_TIP": {
+				"name": "Testing in production",
+				"x": 23,
+				"y": 7,
+				"level": "L_AWESOME",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_HYPOTHESIS_STORIES",
-						kind: "IS_REQUIRED",
+						"skill": "SK_HYPOTHESIS_STORIES",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_NO_BUGS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_NO_BUGS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -9054,26 +9664,32 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "tip",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "tip",
+				"is_key": false
 			},
-			SK_SINGLE_PIECE_FLOW: {
-				name: "Single piece flow",
-				x: 23,
-				y: 9,
-				level: "L_AWESOME",
-				component: "V_SUSTAINABLE",
-				requires: [
+			"SK_SINGLE_PIECE_FLOW": {
+				"name": "Single piece flow",
+				"x": 23,
+				"y": 9,
+				"level": "L_AWESOME",
+				"component": "V_SUSTAINABLE",
+				"requires": [
 					{
-						skill: "SK_SMOOTH_FLOW",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_SMOOTH_FLOW",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -9134,30 +9750,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "single_piece_flow",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "single_piece_flow",
+				"is_key": false
 			},
-			SK_PROCESS_INNOVATION: {
-				name: "Useful process innovation",
-				x: 24,
-				y: 0,
-				level: "L_AWESOME",
-				component: "V_IMPROVE",
-				requires: [
+			"SK_PROCESS_INNOVATION": {
+				"name": "Useful process innovation",
+				"x": 24,
+				"y": 0,
+				"level": "L_AWESOME",
+				"component": "V_IMPROVE",
+				"requires": [
 					{
-						skill: "SK_PROCESS_EXPERIMENTS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_PROCESS_EXPERIMENTS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_LEARN_ALL",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_LEARN_ALL",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -9218,30 +9840,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "process_innovation",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "process_innovation",
+				"is_key": false
 			},
-			SK_RADICAL_COLLABORATE: {
-				name: "Radical collaboration",
-				x: 24,
-				y: 2,
-				level: "L_AWESOME",
-				component: "V_LEARN",
-				requires: [
+			"SK_RADICAL_COLLABORATE": {
+				"name": "Radical collaboration",
+				"x": 24,
+				"y": 2,
+				"level": "L_AWESOME",
+				"component": "V_LEARN",
+				"requires": [
 					{
-						skill: "SK_M_SHAPED",
-						kind: "IS_REQUIRED",
+						"skill": "SK_M_SHAPED",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_SINGLE_PIECE_FLOW",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_SINGLE_PIECE_FLOW",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -9302,34 +9930,40 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "radical_collaborate",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "radical_collaborate",
+				"is_key": false
 			},
-			SK_TDDESIGN: {
-				name: "Test-driven design",
-				x: 24,
-				y: 4,
-				level: "L_AWESOME",
-				component: "V_CHECK_WORK",
-				requires: [
+			"SK_TDDESIGN": {
+				"name": "Test-driven design",
+				"x": 24,
+				"y": 4,
+				"level": "L_AWESOME",
+				"component": "V_CHECK_WORK",
+				"requires": [
 					{
-						skill: "SK_EVO_DESIGN",
-						kind: "IS_REQUIRED",
+						"skill": "SK_EVO_DESIGN",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_SIMUL_PHASES",
-						kind: "IS_REQUIRED",
+						"skill": "SK_SIMUL_PHASES",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_TELL_VS_ASK",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_TELL_VS_ASK",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -9390,34 +10024,40 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "tddesign",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "tddesign",
+				"is_key": false
 			},
-			SK_CONT_DEPLOY: {
-				name: "Continuous deployment",
-				x: 24,
-				y: 6,
-				level: "L_AWESOME",
-				component: "V_SHIP",
-				requires: [
+			"SK_CONT_DEPLOY": {
+				"name": "Continuous deployment",
+				"x": 24,
+				"y": 6,
+				"level": "L_AWESOME",
+				"component": "V_SHIP",
+				"requires": [
 					{
-						skill: "SK_CONT_SHIP",
-						kind: "IS_REQUIRED",
+						"skill": "SK_CONT_SHIP",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_AUTO_ROLLBACK",
-						kind: "IS_REQUIRED",
+						"skill": "SK_AUTO_ROLLBACK",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_TIP",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_TIP",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -9478,30 +10118,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "cont_deploy",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "cont_deploy",
+				"is_key": false
 			},
-			SK_METRICS_FOCUS: {
-				name: "Business metric focus",
-				x: 24,
-				y: 7,
-				level: "L_AWESOME",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_METRICS_FOCUS": {
+				"name": "Business metric focus",
+				"x": 24,
+				"y": 7,
+				"level": "L_AWESOME",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_EXPERIENCE_FOCUS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_EXPERIENCE_FOCUS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_TIP",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_TIP",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -9562,30 +10208,36 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "metrics_focus",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "metrics_focus",
+				"is_key": false
 			},
-			SK_LISTEN_TO_CODE: {
-				name: "Code whispering",
-				x: 25,
-				y: 3,
-				level: "L_AWESOME",
-				component: "V_CODE",
-				requires: [
+			"SK_LISTEN_TO_CODE": {
+				"name": "Code whispering",
+				"x": 25,
+				"y": 3,
+				"level": "L_AWESOME",
+				"component": "V_CODE",
+				"requires": [
 					{
-						skill: "SK_YAGNI",
-						kind: "IS_REQUIRED",
+						"skill": "SK_YAGNI",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_TDDESIGN",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_TDDESIGN",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. Your code can tell you things that are hard to learn anywhere else.",
 					"",
 					"h1. What this is",
@@ -9646,34 +10298,40 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "listen_to_code",
-				is_key: false,
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "listen_to_code",
+				"is_key": false
 			},
-			SK_LEAN_STARTUP: {
-				name: "Lean startup / hypothesis-driven development",
-				x: 25,
-				y: 8,
-				level: "L_AWESOME",
-				component: "V_REQUIREMENTS",
-				requires: [
+			"SK_LEAN_STARTUP": {
+				"name": "Lean startup / hypothesis-driven development",
+				"x": 25,
+				"y": 8,
+				"level": "L_AWESOME",
+				"component": "V_REQUIREMENTS",
+				"requires": [
 					{
-						skill: "SK_METRICS_FOCUS",
-						kind: "IS_REQUIRED",
+						"skill": "SK_METRICS_FOCUS",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_CONT_DEPLOY",
-						kind: "IS_REQUIRED",
+						"skill": "SK_CONT_DEPLOY",
+						"kind": "IS_REQUIRED"
 					},
 					{
-						skill: "SK_WHOLE_TEAM_BUSINESS",
-						kind: "IS_REQUIRED",
-					},
+						"skill": "SK_WHOLE_TEAM_BUSINESS",
+						"kind": "IS_REQUIRED"
+					}
 				],
-				obsoletes: [],
-				description: [
+				"obsoletes": [],
+				"description": [
 					"bq>. 1-sentence mindset quote goes here",
 					"",
 					"h1. What this is",
@@ -9734,12 +10392,18 @@ function load_data() {
 					"",
 					"TBD",
 					"",
-					"",
+					""
 				],
-				help_needed: ["H_KEY", "H_CORE", "H_REQS", "H_ADV", "H_REVIEW"],
-				slug: "lean_startup",
-				is_key: true,
-			},
-		},
+				"help_needed": [
+					"H_KEY",
+					"H_CORE",
+					"H_REQS",
+					"H_ADV",
+					"H_REVIEW"
+				],
+				"slug": "lean_startup",
+				"is_key": true
+			}
+		}
 	};
 }
