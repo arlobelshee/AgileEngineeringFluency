@@ -633,7 +633,7 @@ function Painter(canvas) {
 }
 
 function LayoutSpecialist() {
-	var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = { x: 120, y: 80 };
+	var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = { x: 150, y: 80 };
 	var OFFSET_TO_GRID_ORIGIN = { x: 40, y: 120 };
 	var self = this;
 
