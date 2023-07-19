@@ -322,6 +322,7 @@ var StagesVm = function () {
 				kinds: create_items(data.dependency_kinds, KindVm),
 				skills: create_items(data.skills, SkillVm, { layout: layout, app: self }),
 				kinds_of_help: create_items(data.help_kinds, HelpKindVm),
+				skill_descriptions: create_items(data.skill_descriptions, SkillDescSerializer.from_JS, self),
 			};
 			each_item(lookup.skills, function (skill) {
 				skill.resolve_obj_references(lookup, mark_invalid);
@@ -492,9 +493,9 @@ var SkillVm = function () {
 		this.description_display = ko.observable("");
 		this.description = ko.observable("");
 		this.description.subscribe(format_desc);
-		this.description(parse_multiline(data.description));
+		data.help_needed = [];
 		add_help_display_capability(this, data, app);
-		this.name = ko.observable(data.name);
+		this.name = ko.observable("");
 		this.x = data.x;
 		this.y = data.y;
 		this.level = data.level;
@@ -552,6 +553,10 @@ var SkillVm = function () {
 			this.obsoletes = map_elt(this.obsoletes, function (skill_id) {
 				return build_relation(skill_id, "IS_REQUIRED");
 			});
+			var desc = lookup.skill_descriptions[skill_id] || mark_invalid(error_failed_to_find_key, "description", skill_id, skill_id)
+			this.description(desc.description);
+			this.name(desc.name);
+			this.help_needed(desc.help_needed);
 			this.help_resolve_references(lookup, mark_invalid, error_failed_to_find_key, skill_id);
 			if (this.level && (this.x < this.level.min || this.x > this.level.max)) {
 				mark_invalid(error_skill_not_in_range, this.x, this.level, this._id);
@@ -592,7 +597,7 @@ var SkillDescSerializer = function () {
 	});
 	SkillDescSerializer.from_JS = function from_JS(data, skill_id) {
 		const description = parse_multiline(data.description);
-		return new SkillDescSerializer(skill_id, description, data.name, data.help_needed, 0, 0)
+		return new SkillDescSerializer("", description, data.name, data.help_needed, 0, 0)
 	}
 	return SkillDescSerializer;
 }();
