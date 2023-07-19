@@ -203,6 +203,12 @@ function add_help_display_capability(self, data, app) {
 	};
 }
 
+function help_unwrap(self, unwrap) {
+	return map_elt(unwrap(self.help_needed), function (h) {
+		return h._id;
+	});
+};
+
 function ViewModel() {
 	var vm = this;
 	this._id = "whole_app";
@@ -271,12 +277,13 @@ var StagesVm = function () {
 		to_JS: function () {
 			return {
 				version: this.version(),
-				file_format_version: "2.0.0",
+				file_format_version: "2.1.0",
 				levels: unwrap_to_hash(this.levels),
 				components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
 				dependency_kinds: unwrap_to_hash(this.kinds),
 				help_kinds: unwrap_to_hash(this.kinds_of_help),
 				skills: unwrap_to_hash(this.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
+				skill_descriptions: unwrap_to_hash(map_elt(ko.utils.unwrapObservable(this.skills), function (s) { return s.to_description(); }), function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
 			};
 		},
 		set_data_error: function (reason) {
@@ -501,6 +508,9 @@ var SkillVm = function () {
 		this.is_key = data.is_key;
 	}
 	base_class(SkillVm, {
+		to_description: function () {
+			return new SkillDescSerializer(this._id, this.description, this.name, this.help_needed);
+		},
 		to_JS: function (unwrap) {
 			return {
 				name: unwrap(this.name),
@@ -558,6 +568,33 @@ var SkillVm = function () {
 		return "The skill " + skill_key + " is positioned incorrectly. It should be in level " + level._id + ", with x in the range [" + level.min + ", " + level.max + "], but x = " + x + ".";
 	}
 	return SkillVm;
+}();
+
+var SkillDescSerializer = function () {
+	function SkillDescSerializer(skill_id, description, name, help_needed, x, y) {
+		this._id = skill_id;
+		this.description = description;
+		this.name = name;
+		this.help_needed = help_needed;
+		this.x = x;
+		this.y = y;
+	}
+	base_class(SkillDescSerializer, {
+		to_JS: function (unwrap) {
+			return {
+				name: unwrap(this.name),
+				description: make_multiline(unwrap(this.description)),
+				help_needed: help_unwrap(this, unwrap),
+			};
+		},
+		do_one_time_data_updates: function () {
+		},
+	});
+	SkillDescSerializer.from_JS = function from_JS(data, skill_id) {
+		const description = parse_multiline(data.description);
+		return new SkillDescSerializer(skill_id, description, data.name, data.help_needed, 0, 0)
+	}
+	return SkillDescSerializer;
 }();
 
 function Painter(canvas) {
