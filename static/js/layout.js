@@ -404,7 +404,7 @@ var LevelVm = function () {
 		function format_desc(new_value) {
 			self.description_display(format_for_display(new_value));
 		}
-		this.name = ko.observable(data.name);
+		this.name = ko.observable("");
 		this.min = data.min;
 		this.max = data.max;
 		this.color = data.color;
@@ -412,7 +412,8 @@ var LevelVm = function () {
 		this.description_display = ko.observable("");
 		this.description = ko.observable("");
 		this.description.subscribe(format_desc);
-		this.description(parse_multiline(data.description));
+		this.description("");
+		data.help_needed = [];
 		add_help_display_capability(this, data, options.app);
 		this.label_position = layout.place_level_label(this);
 	}
@@ -432,6 +433,10 @@ var LevelVm = function () {
 			};
 		},
 		resolve_obj_references: function (lookup, mark_invalid) {
+			var desc = lookup.descriptions[this._id] || mark_invalid(error_failed_to_find_key, "description", this._id, this._id)
+			this.description(desc.description);
+			this.name(desc.name);
+			this.help_needed(desc.help_needed);
 			this.help_resolve_references(lookup, mark_invalid, error_failed_to_find_key, this._id);
 		},
 		do_one_time_data_updates: function () {
