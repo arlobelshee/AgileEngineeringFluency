@@ -2764,9 +2764,9 @@ function load_data() {
 						"is_key": false
 					},
 					"SK_AUTO_DEPLOY": {
-						"x": 12,
+						"x": 16,
 						"y": 7,
-						"level": "L_ADAPTIVE",
+						"level": "L_LEVERAGE",
 						"component": "V_SHIP",
 						"requires": [
 							{
@@ -3037,7 +3037,7 @@ function load_data() {
 								"kind": "IS_REQUIRED"
 							},
 							{
-								"skill": "SK_TEST_UNITS",
+								"skill": "SK_AUTO_DEV_TEST",
 								"kind": "IS_REQUIRED"
 							}
 						],
