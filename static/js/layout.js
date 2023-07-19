@@ -277,7 +277,7 @@ var StagesVm = function () {
 		to_JS: function () {
 			return {
 				version: this.version(),
-				file_format_version: "2.1.0",
+				file_format_version: "3.0.0",
 				levels: unwrap_to_hash(this.levels),
 				components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
 				dependency_kinds: unwrap_to_hash(this.kinds),
@@ -514,7 +514,6 @@ var SkillVm = function () {
 		},
 		to_JS: function (unwrap) {
 			return {
-				name: unwrap(this.name),
 				x: unwrap(this.x),
 				y: unwrap(this.y),
 				level: unwrap(this.level)._id,
@@ -528,8 +527,6 @@ var SkillVm = function () {
 				obsoletes: map_elt(unwrap(this.obsoletes), function (link) {
 					return link.skill._id;
 				}),
-				description: make_multiline(unwrap(this.description)),
-				help_needed: this.help_unwrap(unwrap),
 				slug: unwrap(this.slug),
 				is_key: unwrap(this.is_key),
 			};
