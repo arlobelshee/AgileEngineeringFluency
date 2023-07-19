@@ -2852,7 +2852,7 @@ function load_data() {
 					},
 					"SK_TEST_UNITS": {
 						"x": 14,
-						"y": 6,
+						"y": 4,
 						"level": "L_ADAPTIVE",
 						"component": "V_CHECK_WORK",
 						"requires": [
@@ -2954,25 +2954,6 @@ function load_data() {
 						"slug": "reflective_design",
 						"is_key": false
 					},
-					"SK_FAST_BUILD_VERIFY": {
-						"x": 15,
-						"y": 6,
-						"level": "L_ADAPTIVE",
-						"component": "V_SHIP",
-						"requires": [
-							{
-								"skill": "SK_AUTO_BUILD_VERIFY",
-								"kind": "IS_REQUIRED"
-							},
-							{
-								"skill": "SK_TEST_UNITS",
-								"kind": "IS_REQUIRED"
-							}
-						],
-						"obsoletes": [],
-						"slug": "fast_build_verify",
-						"is_key": false
-					},
 					"SK_TRACK_CAPACITY": {
 						"x": 15,
 						"y": 10,
@@ -3062,25 +3043,6 @@ function load_data() {
 						],
 						"obsoletes": [],
 						"slug": "test_beyond_correct",
-						"is_key": false
-					},
-					"SK_FAST_AUTO_DEPLOY": {
-						"x": 16,
-						"y": 7,
-						"level": "L_LEVERAGE",
-						"component": "V_SHIP",
-						"requires": [
-							{
-								"skill": "SK_AUTO_DEPLOY",
-								"kind": "IS_REQUIRED"
-							},
-							{
-								"skill": "SK_FAST_BUILD_VERIFY",
-								"kind": "IS_REQUIRED"
-							}
-						],
-						"obsoletes": [],
-						"slug": "fast_auto_deploy",
 						"is_key": false
 					},
 					"SK_STORY_CLUSTERING": {
@@ -3314,10 +3276,6 @@ function load_data() {
 								"skill": "SK_AUTO_DEPLOY",
 								"kind": "IS_REQUIRED"
 							},
-							{
-								"skill": "SK_FAST_AUTO_DEPLOY",
-								"kind": "IS_HELPFUL"
-							}
 						],
 						"obsoletes": [],
 						"slug": "auto_deploy_verify",
@@ -3407,7 +3365,7 @@ function load_data() {
 								"kind": "IS_REQUIRED"
 							},
 							{
-								"skill": "SK_FAST_AUTO_DEPLOY",
+								"skill": "SK_AUTO_DEPLOY",
 								"kind": "IS_REQUIRED"
 							},
 							{
@@ -3521,7 +3479,7 @@ function load_data() {
 						"component": "V_SHIP",
 						"requires": [
 							{
-								"skill": "SK_FAST_AUTO_DEPLOY",
+								"skill": "SK_AUTO_DEPLOY",
 								"kind": "IS_REQUIRED"
 							}
 						],
