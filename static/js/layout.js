@@ -19,6 +19,13 @@ function map_item(obj, op, create_fn) {
 	}
 	return result;
 }
+function map_item_to_array(obj, op) {
+	var result = [];
+	for (var key in obj) {
+		result.push(op(obj[key], key));
+	}
+	return result;
+}
 function map_elt(arr, op) {
 	var result = [];
 	for (var i = 0, m = arr.length; i < m; ++i) {
@@ -247,6 +254,7 @@ var StagesVm = function () {
 		this.valid = ko.observable(true);
 		this.error_message = ko.observable("");
 		this.versions = ko.observable({});
+		this.version_options = ko.observableArray([]);
 		this.version_display = ko.observable("");
 		this.skills = ko.observableArray([]);
 		this.levels = ko.observableArray([]);
@@ -393,6 +401,12 @@ var StagesVm = function () {
 					skills: hash_to_array(version_info.skills),
 					levels: hash_to_array(version_info.levels),
 					components: hash_to_array(version_info.components),
+				};
+			}));
+			this.version_options(map_item_to_array(lookup.versions, function (version_info, key) {
+				return {
+					name: version_info.name,
+					_id: key,
 				};
 			}));
 			this.version(DEFAULT_VERSION);
