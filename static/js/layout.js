@@ -357,11 +357,15 @@ var StagesVm = function () {
 				level.resolve_obj_references(lookup, mark_invalid);
 			});
 			each_item(lookup.versions, function (version_info) {
+				const version_specific_lookup = {
+					...lookup,
+					...version_info,
+				};
 				each_item(version_info.skills, function (skill) {
-					skill.resolve_obj_references(lookup, mark_invalid);
+					skill.resolve_obj_references(version_specific_lookup, mark_invalid);
 				});
 				each_item(version_info.levels, function (level) {
-					level.resolve_obj_references(lookup, mark_invalid);
+					level.resolve_obj_references(version_specific_lookup, mark_invalid);
 				});
 			});
 			if (is_initial_data) {
@@ -371,6 +375,7 @@ var StagesVm = function () {
 				each_item(lookup.versions, function (version_info) {
 					each_item(version_info.skills, do_updates);
 					each_item(version_info.levels, do_updates);
+					each_item(version_info.components, do_updates);
 				});
 				each_item(lookup.skills, do_updates);
 				each_item(lookup.components, do_updates);
