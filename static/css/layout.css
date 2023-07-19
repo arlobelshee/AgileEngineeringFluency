@@ -366,7 +366,17 @@ html, body {
 		text-align: center;
 	}
 
-	.legend #show_label {
+.legend #version_selector {
+	position: absolute;
+	top: 0.3em;
+	right: 0.3em;
+}
+
+.legend #version_selector select {
+	font-size: 1.0em;
+}
+
+.legend #show_label {
 		position: absolute;
 		top: 1.8em;
 		left: 0.6em;

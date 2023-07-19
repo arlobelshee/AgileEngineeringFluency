@@ -19,6 +19,13 @@ function map_item(obj, op, create_fn) {
 	}
 	return result;
 }
+function map_item_to_array(obj, op) {
+	var result = [];
+	for (var key in obj) {
+		result.push(op(obj[key], key));
+	}
+	return result;
+}
 function map_elt(arr, op) {
 	var result = [];
 	for (var i = 0, m = arr.length; i < m; ++i) {
@@ -203,6 +210,12 @@ function add_help_display_capability(self, data, app) {
 	};
 }
 
+function help_unwrap(self, unwrap) {
+	return map_elt(unwrap(self.help_needed), function (h) {
+		return h._id;
+	});
+};
+
 function ViewModel() {
 	var vm = this;
 	this._id = "whole_app";
@@ -234,15 +247,29 @@ function ViewModel() {
 	};
 }
 
+const DEFAULT_VERSION = "V_ONE";
 var StagesVm = function () {
 	function StagesVm(layout) {
 		var self = this;
 		this.valid = ko.observable(true);
 		this.error_message = ko.observable("");
+		this.versions = ko.observable({});
+		this.version_options = ko.observableArray([]);
+		this.version_display = ko.observable("");
 		this.skills = ko.observableArray([]);
 		this.levels = ko.observableArray([]);
-		this.kinds = ko.observableArray([]);
 		this.components = ko.observableArray([]);
+		function on_change_version(new_value) {
+			if (!new_value) return;
+			const version_info = self.versions()[new_value];
+			self.version_display(version_info.name);
+			self.skills(version_info.skills);
+			self.levels(version_info.levels);
+			self.components(version_info.components);
+		}
+		this.version = ko.observable("");
+		this.version.subscribe(on_change_version);
+		this.kinds = ko.observableArray([]);
 		this._id = "stages";
 		this.show_all_dependencies = ko.observable(true);
 		this.focal_skill = ko.observable(null);
@@ -265,18 +292,23 @@ var StagesVm = function () {
 		this.editing = ko.observable(false);
 		this.ask_for_help = ko.observable("");
 		this.kinds_of_help = ko.observableArray([]);
-		this.version = ko.observable("");
 	}
 	base_class(StagesVm, {
 		to_JS: function () {
 			return {
-				version: this.version(),
-				file_format_version: "2.0.0",
-				levels: unwrap_to_hash(this.levels),
-				components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
+				file_format_version: "4.0.0",
+				version: "V_ONE",
+				versions: unwrap_hash_keeping_keys(this.versions, function (version_info) {
+					return {
+						name: ko.utils.unwrapObservable(version_info.name),
+						skills: unwrap_to_hash(version_info.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
+						levels: unwrap_to_hash(version_info.levels, function (l, r) { return l.min - r.min; }),
+						components: unwrap_to_hash(version_info.components),
+					};
+				}),
 				dependency_kinds: unwrap_to_hash(this.kinds),
 				help_kinds: unwrap_to_hash(this.kinds_of_help),
-				skills: unwrap_to_hash(this.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
+				descriptions: unwrap_to_hash(map_elt(ko.utils.unwrapObservable(this.skills).concat(ko.utils.unwrapObservable(this.levels)), function (s) { return s.to_description(); }), function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
 			};
 		},
 		set_data_error: function (reason) {
@@ -310,34 +342,59 @@ var StagesVm = function () {
 				return null;
 			}
 			var lookup = {
-				levels: create_items(data.levels, LevelVm, { layout: layout, app: self }),
-				components: create_items(data.components, ComponentVm, self),
+				versions: create_items(data.versions, function (version_data, _) {
+					return {
+						name: ko.observable(version_data.name),
+						levels: create_items(version_data.levels, LevelVm, { layout: layout, app: self }),
+						skills: create_items(version_data.skills, SkillVm, { layout: layout, app: self }),
+						components: create_items(version_data.components, ComponentVm, self),
+					};
+				}, { layout: layout, app: self }),
 				kinds: create_items(data.dependency_kinds, KindVm),
-				skills: create_items(data.skills, SkillVm, { layout: layout, app: self }),
 				kinds_of_help: create_items(data.help_kinds, HelpKindVm),
+				descriptions: create_items(data.descriptions, DescSerializer.from_JS, self),
 			};
-			each_item(lookup.skills, function (skill) {
-				skill.resolve_obj_references(lookup, mark_invalid);
-			});
-			each_item(lookup.levels, function (level) {
-				level.resolve_obj_references(lookup, mark_invalid);
+			each_item(lookup.versions, function (version_info) {
+				const version_specific_lookup = {
+					...lookup,
+					...version_info,
+				};
+				each_item(version_info.skills, function (skill) {
+					skill.resolve_obj_references(version_specific_lookup, mark_invalid);
+				});
+				each_item(version_info.levels, function (level) {
+					level.resolve_obj_references(version_specific_lookup, mark_invalid);
+				});
 			});
 			if (is_initial_data) {
 				var do_updates = function (obj) {
 					obj.do_one_time_data_updates();
 				};
-				each_item(lookup.skills, do_updates);
-				each_item(lookup.components, do_updates);
-				each_item(lookup.levels, do_updates);
+				each_item(lookup.versions, function (version_info) {
+					each_item(version_info.skills, do_updates);
+					each_item(version_info.levels, do_updates);
+					each_item(version_info.components, do_updates);
+				});
 				each_item(lookup.kinds, do_updates);
 			}
 			if (!this.valid()) { return; }
 			this.prev_data = data;
-			this.version(data.version);
-			this.skills(hash_to_array(lookup.skills));
-			this.levels(hash_to_array(lookup.levels));
+			this.versions(map_item(lookup.versions, function (version_info) {
+				return {
+					name: version_info.name,
+					skills: hash_to_array(version_info.skills),
+					levels: hash_to_array(version_info.levels),
+					components: hash_to_array(version_info.components),
+				};
+			}));
+			this.version_options(map_item_to_array(lookup.versions, function (version_info, key) {
+				return {
+					name: version_info.name,
+					_id: key,
+				};
+			}));
+			this.version(DEFAULT_VERSION);
 			this.kinds(hash_to_array(lookup.kinds));
-			this.components(hash_to_array(lookup.components));
 			this.kinds_of_help(hash_to_array(lookup.kinds_of_help));
 			var update_url = function () { self.update_url(); };
 			each_elt(this.components(), function (c) {
@@ -367,6 +424,10 @@ var StagesVm = function () {
 		return result;
 	}
 
+	function unwrap_hash_keeping_keys(obj, value_transform) {
+		return map_item(ko.utils.unwrapObservable(obj), value_transform);
+	}
+
 	return StagesVm;
 }();
 
@@ -388,7 +449,7 @@ var LevelVm = function () {
 		function format_desc(new_value) {
 			self.description_display(format_for_display(new_value));
 		}
-		this.name = ko.observable(data.name);
+		this.name = ko.observable("");
 		this.min = data.min;
 		this.max = data.max;
 		this.color = data.color;
@@ -396,23 +457,28 @@ var LevelVm = function () {
 		this.description_display = ko.observable("");
 		this.description = ko.observable("");
 		this.description.subscribe(format_desc);
-		this.description(parse_multiline(data.description));
+		this.description("");
+		data.help_needed = [];
 		add_help_display_capability(this, data, options.app);
 		this.label_position = layout.place_level_label(this);
 	}
 	base_class(LevelVm, {
+		to_description: function () {
+			return new DescSerializer(this._id, this.description, this.name, this.help_needed, this.min, 1);
+		},
 		to_JS: function (unwrap) {
 			return {
-				name: unwrap(this.name),
 				slug: unwrap(this.slug),
 				min: unwrap(this.min),
 				max: unwrap(this.max),
 				color: unwrap(this.color),
-				description: make_multiline(unwrap(this.description)),
-				help_needed: this.help_unwrap(unwrap),
 			};
 		},
 		resolve_obj_references: function (lookup, mark_invalid) {
+			var desc = lookup.descriptions[this._id] || mark_invalid(error_failed_to_find_key, "description", this._id, this._id)
+			this.description(desc.description);
+			this.name(desc.name);
+			this.help_needed(desc.help_needed);
 			this.help_resolve_references(lookup, mark_invalid, error_failed_to_find_key, this._id);
 		},
 		do_one_time_data_updates: function () {
@@ -485,9 +551,9 @@ var SkillVm = function () {
 		this.description_display = ko.observable("");
 		this.description = ko.observable("");
 		this.description.subscribe(format_desc);
-		this.description(parse_multiline(data.description));
+		data.help_needed = [];
 		add_help_display_capability(this, data, app);
-		this.name = ko.observable(data.name);
+		this.name = ko.observable("");
 		this.x = data.x;
 		this.y = data.y;
 		this.level = data.level;
@@ -501,9 +567,11 @@ var SkillVm = function () {
 		this.is_key = data.is_key;
 	}
 	base_class(SkillVm, {
+		to_description: function () {
+			return new DescSerializer(this._id, this.description, this.name, this.help_needed, this.x, this.y);
+		},
 		to_JS: function (unwrap) {
 			return {
-				name: unwrap(this.name),
 				x: unwrap(this.x),
 				y: unwrap(this.y),
 				level: unwrap(this.level)._id,
@@ -517,8 +585,6 @@ var SkillVm = function () {
 				obsoletes: map_elt(unwrap(this.obsoletes), function (link) {
 					return link.skill._id;
 				}),
-				description: make_multiline(unwrap(this.description)),
-				help_needed: this.help_unwrap(unwrap),
 				slug: unwrap(this.slug),
 				is_key: unwrap(this.is_key),
 			};
@@ -542,6 +608,10 @@ var SkillVm = function () {
 			this.obsoletes = map_elt(this.obsoletes, function (skill_id) {
 				return build_relation(skill_id, "IS_REQUIRED");
 			});
+			var desc = lookup.descriptions[skill_id] || mark_invalid(error_failed_to_find_key, "description", skill_id, skill_id)
+			this.description(desc.description);
+			this.name(desc.name);
+			this.help_needed(desc.help_needed);
 			this.help_resolve_references(lookup, mark_invalid, error_failed_to_find_key, skill_id);
 			if (this.level && (this.x < this.level.min || this.x > this.level.max)) {
 				mark_invalid(error_skill_not_in_range, this.x, this.level, this._id);
@@ -558,6 +628,33 @@ var SkillVm = function () {
 		return "The skill " + skill_key + " is positioned incorrectly. It should be in level " + level._id + ", with x in the range [" + level.min + ", " + level.max + "], but x = " + x + ".";
 	}
 	return SkillVm;
+}();
+
+var DescSerializer = function () {
+	function DescSerializer(skill_id, description, name, help_needed, x, y) {
+		this._id = skill_id;
+		this.description = description;
+		this.name = name;
+		this.help_needed = help_needed;
+		this.x = x;
+		this.y = y;
+	}
+	base_class(DescSerializer, {
+		to_JS: function (unwrap) {
+			return {
+				name: unwrap(this.name),
+				description: make_multiline(unwrap(this.description)),
+				help_needed: help_unwrap(this, unwrap),
+			};
+		},
+		do_one_time_data_updates: function () {
+		},
+	});
+	DescSerializer.from_JS = function from_JS(data) {
+		const description = parse_multiline(data.description);
+		return new DescSerializer("", description, data.name, data.help_needed, 0, 0)
+	}
+	return DescSerializer;
 }();
 
 function Painter(canvas) {
@@ -633,7 +730,7 @@ function Painter(canvas) {
 }
 
 function LayoutSpecialist() {
-	var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = { x: 120, y: 80 };
+	var PIXELS_BETWEEN_LOGICAL_GRID_POSITIONS = { x: 150, y: 80 };
 	var OFFSET_TO_GRID_ORIGIN = { x: 40, y: 120 };
 	var self = this;
 
