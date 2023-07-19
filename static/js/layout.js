@@ -248,17 +248,20 @@ var StagesVm = function () {
 		this.error_message = ko.observable("");
 		this.versions = ko.observable({});
 		this.version_display = ko.observable("");
+		this.skills = ko.observableArray([]);
+		this.levels = ko.observableArray([]);
+		this.components = ko.observableArray([]);
 		function on_change_version(new_value) {
 			if (!new_value) return;
 			const version_info = self.versions()[new_value];
 			self.version_display(version_info.name);
+			self.skills(version_info.skills);
+			self.levels(version_info.levels);
+			self.components(version_info.components);
 		}
 		this.version = ko.observable("");
 		this.version.subscribe(on_change_version);
-		this.skills = ko.observableArray([]);
-		this.levels = ko.observableArray([]);
 		this.kinds = ko.observableArray([]);
-		this.components = ko.observableArray([]);
 		this._id = "stages";
 		this.show_all_dependencies = ko.observable(true);
 		this.focal_skill = ko.observable(null);
@@ -393,10 +396,7 @@ var StagesVm = function () {
 				};
 			}));
 			this.version(DEFAULT_VERSION);
-			this.skills(hash_to_array(lookup.skills));
-			this.levels(hash_to_array(lookup.levels));
 			this.kinds(hash_to_array(lookup.kinds));
-			this.components(hash_to_array(lookup.components));
 			this.kinds_of_help(hash_to_array(lookup.kinds_of_help));
 			var update_url = function () { self.update_url(); };
 			each_elt(this.components(), function (c) {
