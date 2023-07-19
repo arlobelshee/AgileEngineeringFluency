@@ -296,10 +296,9 @@ var StagesVm = function () {
 	base_class(StagesVm, {
 		to_JS: function () {
 			return {
-				file_format_version: "3.2.0",
+				file_format_version: "4.0.0",
 				version: "V_ONE",
 				versions: unwrap_hash_keeping_keys(this.versions, function (version_info) {
-					console.log(version_info);
 					return {
 						name: ko.utils.unwrapObservable(version_info.name),
 						skills: unwrap_to_hash(version_info.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
@@ -307,11 +306,8 @@ var StagesVm = function () {
 						components: unwrap_to_hash(version_info.components),
 					};
 				}),
-				levels: unwrap_to_hash(this.levels, function (l, r) { return l.min - r.min; }),
-				components: unwrap_to_hash(this.components),
 				dependency_kinds: unwrap_to_hash(this.kinds),
 				help_kinds: unwrap_to_hash(this.kinds_of_help),
-				skills: unwrap_to_hash(this.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
 				descriptions: unwrap_to_hash(map_elt(ko.utils.unwrapObservable(this.skills).concat(ko.utils.unwrapObservable(this.levels)), function (s) { return s.to_description(); }), function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
 			};
 		},
@@ -351,22 +347,13 @@ var StagesVm = function () {
 						name: ko.observable(version_data.name),
 						levels: create_items(version_data.levels, LevelVm, { layout: layout, app: self }),
 						skills: create_items(version_data.skills, SkillVm, { layout: layout, app: self }),
-						components: create_items(data.components, ComponentVm, self),
+						components: create_items(version_data.components, ComponentVm, self),
 					};
 				}, { layout: layout, app: self }),
-				levels: create_items(data.levels, LevelVm, { layout: layout, app: self }),
-				components: create_items(data.components, ComponentVm, self),
 				kinds: create_items(data.dependency_kinds, KindVm),
-				skills: create_items(data.skills, SkillVm, { layout: layout, app: self }),
 				kinds_of_help: create_items(data.help_kinds, HelpKindVm),
 				descriptions: create_items(data.descriptions, DescSerializer.from_JS, self),
 			};
-			each_item(lookup.skills, function (skill) {
-				skill.resolve_obj_references(lookup, mark_invalid);
-			});
-			each_item(lookup.levels, function (level) {
-				level.resolve_obj_references(lookup, mark_invalid);
-			});
 			each_item(lookup.versions, function (version_info) {
 				const version_specific_lookup = {
 					...lookup,
@@ -388,9 +375,6 @@ var StagesVm = function () {
 					each_item(version_info.levels, do_updates);
 					each_item(version_info.components, do_updates);
 				});
-				each_item(lookup.skills, do_updates);
-				each_item(lookup.components, do_updates);
-				each_item(lookup.levels, do_updates);
 				each_item(lookup.kinds, do_updates);
 			}
 			if (!this.valid()) { return; }
