@@ -277,7 +277,15 @@ var StagesVm = function () {
 		to_JS: function () {
 			return {
 				version: this.version(),
-				file_format_version: "3.0.0",
+				versions: {
+					V_ONE: {
+						name: "1.0.0",
+						skills: unwrap_to_hash(this.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
+						levels: unwrap_to_hash(this.levels),
+						components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
+					},
+				},
+				file_format_version: "3.1.0",
 				levels: unwrap_to_hash(this.levels),
 				components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
 				dependency_kinds: unwrap_to_hash(this.kinds),
