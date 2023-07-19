@@ -240,6 +240,7 @@ function ViewModel() {
 	};
 }
 
+const DEFAULT_VERSION = "V_ONE";
 var StagesVm = function () {
 	function StagesVm(layout) {
 		var self = this;
@@ -385,7 +386,7 @@ var StagesVm = function () {
 			if (!this.valid()) { return; }
 			this.prev_data = data;
 			this.versions(data.versions);
-			this.version("V_ONE");
+			this.version(DEFAULT_VERSION);
 			this.skills(hash_to_array(lookup.skills));
 			this.levels(hash_to_array(lookup.levels));
 			this.kinds(hash_to_array(lookup.kinds));
