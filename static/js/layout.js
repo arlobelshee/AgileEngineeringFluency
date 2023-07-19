@@ -250,9 +250,7 @@ var StagesVm = function () {
 		this.version_display = ko.observable("");
 		function on_change_version(new_value) {
 			if (!new_value) return;
-			console.log(self.versions());
 			const version_info = self.versions()[new_value];
-			console.log(version_info);
 			self.version_display(version_info.name);
 		}
 		this.version = ko.observable("");
@@ -289,22 +287,17 @@ var StagesVm = function () {
 			return {
 				file_format_version: "3.2.0",
 				version: "V_ONE",
-				versions: {
-					V_ONE: {
-						name: "1.0.0",
-						skills: unwrap_to_hash(this.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
-						levels: unwrap_to_hash(this.levels),
-						components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
-					},
-					V_ZERO: {
-						name: "0.11.3",
-						skills: unwrap_to_hash(this.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
-						levels: unwrap_to_hash(this.levels),
-						components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
-					},
-				},
-				levels: unwrap_to_hash(this.levels),
-				components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
+				versions: unwrap_hash_keeping_keys(this.versions, function (version_info) {
+					console.log(version_info);
+					return {
+						name: ko.utils.unwrapObservable(version_info.name),
+						skills: unwrap_to_hash(version_info.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
+						levels: unwrap_to_hash(version_info.levels, function (l, r) { return l.min - r.min; }),
+						components: unwrap_to_hash(version_info.components),
+					};
+				}),
+				levels: unwrap_to_hash(this.levels, function (l, r) { return l.min - r.min; }),
+				components: unwrap_to_hash(this.components),
 				dependency_kinds: unwrap_to_hash(this.kinds),
 				help_kinds: unwrap_to_hash(this.kinds_of_help),
 				skills: unwrap_to_hash(this.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
@@ -347,6 +340,7 @@ var StagesVm = function () {
 						name: ko.observable(version_data.name),
 						levels: create_items(version_data.levels, LevelVm, { layout: layout, app: self }),
 						skills: create_items(version_data.skills, SkillVm, { layout: layout, app: self }),
+						components: create_items(data.components, ComponentVm, self),
 					};
 				}, { layout: layout, app: self }),
 				levels: create_items(data.levels, LevelVm, { layout: layout, app: self }),
@@ -385,7 +379,14 @@ var StagesVm = function () {
 			}
 			if (!this.valid()) { return; }
 			this.prev_data = data;
-			this.versions(data.versions);
+			this.versions(map_item(lookup.versions, function (version_info) {
+				return {
+					name: version_info.name,
+					skills: hash_to_array(version_info.skills),
+					levels: hash_to_array(version_info.levels),
+					components: hash_to_array(version_info.components),
+				};
+			}));
 			this.version(DEFAULT_VERSION);
 			this.skills(hash_to_array(lookup.skills));
 			this.levels(hash_to_array(lookup.levels));
@@ -418,6 +419,10 @@ var StagesVm = function () {
 			result[obj[0]] = obj[1];
 		});
 		return result;
+	}
+
+	function unwrap_hash_keeping_keys(obj, value_transform) {
+		return map_item(ko.utils.unwrapObservable(obj), value_transform);
 	}
 
 	return StagesVm;
