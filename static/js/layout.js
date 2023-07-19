@@ -291,7 +291,7 @@ var StagesVm = function () {
 				dependency_kinds: unwrap_to_hash(this.kinds),
 				help_kinds: unwrap_to_hash(this.kinds_of_help),
 				skills: unwrap_to_hash(this.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
-				skill_descriptions: unwrap_to_hash(map_elt(ko.utils.unwrapObservable(this.skills), function (s) { return s.to_description(); }), function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
+				descriptions: unwrap_to_hash(map_elt(ko.utils.unwrapObservable(this.skills), function (s) { return s.to_description(); }), function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
 			};
 		},
 		set_data_error: function (reason) {
@@ -330,7 +330,7 @@ var StagesVm = function () {
 				kinds: create_items(data.dependency_kinds, KindVm),
 				skills: create_items(data.skills, SkillVm, { layout: layout, app: self }),
 				kinds_of_help: create_items(data.help_kinds, HelpKindVm),
-				skill_descriptions: create_items(data.skill_descriptions, SkillDescSerializer.from_JS, self),
+				descriptions: create_items(data.descriptions, DescSerializer.from_JS, self),
 			};
 			each_item(lookup.skills, function (skill) {
 				skill.resolve_obj_references(lookup, mark_invalid);
@@ -417,6 +417,9 @@ var LevelVm = function () {
 		this.label_position = layout.place_level_label(this);
 	}
 	base_class(LevelVm, {
+		to_description: function () {
+			return new DescSerializer(this._id, this.description, this.name, this.help_needed);
+		},
 		to_JS: function (unwrap) {
 			return {
 				name: unwrap(this.name),
@@ -518,7 +521,7 @@ var SkillVm = function () {
 	}
 	base_class(SkillVm, {
 		to_description: function () {
-			return new SkillDescSerializer(this._id, this.description, this.name, this.help_needed);
+			return new DescSerializer(this._id, this.description, this.name, this.help_needed);
 		},
 		to_JS: function (unwrap) {
 			return {
@@ -558,7 +561,7 @@ var SkillVm = function () {
 			this.obsoletes = map_elt(this.obsoletes, function (skill_id) {
 				return build_relation(skill_id, "IS_REQUIRED");
 			});
-			var desc = lookup.skill_descriptions[skill_id] || mark_invalid(error_failed_to_find_key, "description", skill_id, skill_id)
+			var desc = lookup.descriptions[skill_id] || mark_invalid(error_failed_to_find_key, "description", skill_id, skill_id)
 			this.description(desc.description);
 			this.name(desc.name);
 			this.help_needed(desc.help_needed);
@@ -580,8 +583,8 @@ var SkillVm = function () {
 	return SkillVm;
 }();
 
-var SkillDescSerializer = function () {
-	function SkillDescSerializer(skill_id, description, name, help_needed, x, y) {
+var DescSerializer = function () {
+	function DescSerializer(skill_id, description, name, help_needed, x, y) {
 		this._id = skill_id;
 		this.description = description;
 		this.name = name;
@@ -589,7 +592,7 @@ var SkillDescSerializer = function () {
 		this.x = x;
 		this.y = y;
 	}
-	base_class(SkillDescSerializer, {
+	base_class(DescSerializer, {
 		to_JS: function (unwrap) {
 			return {
 				name: unwrap(this.name),
@@ -600,11 +603,11 @@ var SkillDescSerializer = function () {
 		do_one_time_data_updates: function () {
 		},
 	});
-	SkillDescSerializer.from_JS = function from_JS(data, skill_id) {
+	DescSerializer.from_JS = function from_JS(data) {
 		const description = parse_multiline(data.description);
-		return new SkillDescSerializer("", description, data.name, data.help_needed, 0, 0)
+		return new DescSerializer("", description, data.name, data.help_needed, 0, 0)
 	}
-	return SkillDescSerializer;
+	return DescSerializer;
 }();
 
 function Painter(canvas) {

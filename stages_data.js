@@ -4604,7 +4604,7 @@ function load_data() {
 				"is_key": true
 			}
 		},
-		"skill_descriptions": {
+		"descriptions": {
 			"SK_WORK_GROUPS": {
 				"name": "Matrixed pseudo-teams",
 				"description": [
