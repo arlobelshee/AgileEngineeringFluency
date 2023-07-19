@@ -276,6 +276,7 @@ var StagesVm = function () {
 	base_class(StagesVm, {
 		to_JS: function () {
 			return {
+				file_format_version: "3.2.0",
 				version: this.version(),
 				versions: {
 					V_ONE: {
@@ -285,13 +286,12 @@ var StagesVm = function () {
 						components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
 					},
 				},
-				file_format_version: "3.1.0",
 				levels: unwrap_to_hash(this.levels),
 				components: unwrap_to_hash(this.components, function (l, r) { return l.min - r.min; }),
 				dependency_kinds: unwrap_to_hash(this.kinds),
 				help_kinds: unwrap_to_hash(this.kinds_of_help),
 				skills: unwrap_to_hash(this.skills, function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
-				descriptions: unwrap_to_hash(map_elt(ko.utils.unwrapObservable(this.skills), function (s) { return s.to_description(); }), function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
+				descriptions: unwrap_to_hash(map_elt(ko.utils.unwrapObservable(this.skills).concat(ko.utils.unwrapObservable(this.levels)), function (s) { return s.to_description(); }), function (l, r) { return l.x * 1000 - r.x * 1000 + l.y - r.y; }),
 			};
 		},
 		set_data_error: function (reason) {
@@ -418,7 +418,7 @@ var LevelVm = function () {
 	}
 	base_class(LevelVm, {
 		to_description: function () {
-			return new DescSerializer(this._id, this.description, this.name, this.help_needed);
+			return new DescSerializer(this._id, this.description, this.name, this.help_needed, this.min, 1);
 		},
 		to_JS: function (unwrap) {
 			return {
@@ -521,7 +521,7 @@ var SkillVm = function () {
 	}
 	base_class(SkillVm, {
 		to_description: function () {
-			return new DescSerializer(this._id, this.description, this.name, this.help_needed);
+			return new DescSerializer(this._id, this.description, this.name, this.help_needed, this.x, this.y);
 		},
 		to_JS: function (unwrap) {
 			return {
