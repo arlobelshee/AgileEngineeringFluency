@@ -195,6 +195,7 @@ html, body {
 
 .level.focus_dialog .contents .name {
 	border-bottom: solid #00008b 1px;
+	margin-bottom: 30px;
 }
 
 .focus_dialog .contents .stage {
