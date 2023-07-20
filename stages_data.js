@@ -1195,6 +1195,33 @@ function load_data() {
 						"slug": "session_manual_testing",
 						"is_key": false
 					},
+					"SK_RGR": {
+						"x": 17,
+						"y": 5,
+						"level": "L_LEVERAGE",
+						"component": "V_CHECK_WORK",
+						"requires": [
+							{
+								"skill": "SK_TEST_FIRST",
+								"kind": "IS_REQUIRED"
+							},
+							{
+								"skill": "SK_TEST_UNITS",
+								"kind": "IS_REQUIRED"
+							},
+							{
+								"skill": "SK_REFLECTIVE_DESIGN",
+								"kind": "IS_REQUIRED"
+							},
+							{
+								"skill": "SK_PAIR_ALWAYS",
+								"kind": "IS_HELPFUL"
+							}
+						],
+						"obsoletes": [],
+						"slug": "rgr",
+						"is_key": false
+					},
 					"SK_ROLLING_WAVE_PLANNING": {
 						"x": 17,
 						"y": 9,
@@ -1277,33 +1304,6 @@ function load_data() {
 						],
 						"obsoletes": [],
 						"slug": "test_legacy",
-						"is_key": false
-					},
-					"SK_RGR": {
-						"x": 18,
-						"y": 5,
-						"level": "L_NO_DEBT",
-						"component": "V_CHECK_WORK",
-						"requires": [
-							{
-								"skill": "SK_TEST_FIRST",
-								"kind": "IS_REQUIRED"
-							},
-							{
-								"skill": "SK_TEST_UNITS",
-								"kind": "IS_REQUIRED"
-							},
-							{
-								"skill": "SK_REFLECTIVE_DESIGN",
-								"kind": "IS_REQUIRED"
-							},
-							{
-								"skill": "SK_PAIR_ALWAYS",
-								"kind": "IS_HELPFUL"
-							}
-						],
-						"obsoletes": [],
-						"slug": "rgr",
 						"is_key": false
 					},
 					"SK_AUTO_DEPLOY_VERIFY": {
@@ -2763,21 +2763,6 @@ function load_data() {
 						"slug": "done_definition",
 						"is_key": false
 					},
-					"SK_AUTO_DEPLOY": {
-						"x": 16,
-						"y": 7,
-						"level": "L_LEVERAGE",
-						"component": "V_SHIP",
-						"requires": [
-							{
-								"skill": "SK_AUTO_BUILD_VERIFY",
-								"kind": "IS_REQUIRED"
-							}
-						],
-						"obsoletes": [],
-						"slug": "auto_deploy",
-						"is_key": false
-					},
 					"SK_LEARN_LOCALLY": {
 						"x": 13,
 						"y": 0,
@@ -3045,6 +3030,21 @@ function load_data() {
 						"slug": "test_beyond_correct",
 						"is_key": false
 					},
+					"SK_AUTO_DEPLOY": {
+						"x": 16,
+						"y": 7,
+						"level": "L_LEVERAGE",
+						"component": "V_SHIP",
+						"requires": [
+							{
+								"skill": "SK_AUTO_BUILD_VERIFY",
+								"kind": "IS_REQUIRED"
+							}
+						],
+						"obsoletes": [],
+						"slug": "auto_deploy",
+						"is_key": false
+					},
 					"SK_STORY_CLUSTERING": {
 						"x": 16,
 						"y": 8,
@@ -3275,7 +3275,7 @@ function load_data() {
 							{
 								"skill": "SK_AUTO_DEPLOY",
 								"kind": "IS_REQUIRED"
-							},
+							}
 						],
 						"obsoletes": [],
 						"slug": "auto_deploy_verify",
