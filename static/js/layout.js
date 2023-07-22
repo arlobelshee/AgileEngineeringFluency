@@ -50,6 +50,28 @@ function find_elt(arr, pred) {
 	return null;
 }
 
+const FLUENCIES_ORDERED = [
+	{label: "", value: 0, predecessor_value: 0, color: "0xffffff"},
+	{label: "Striving?", value: 1, predecessor_value: 1, color: "0xaaffff"},
+	{label: "Fluent?", value: 2, predecessor_value: 2, color: "0xaaffaa"},
+	{label: "Striving", value: 3, predecessor_value: 1, color: "0x00cccc"},
+	{label: "Fluent", value: 4, predecessor_value: 2, color: "0x00cc00"},
+];
+
+const FLUENCY = {
+	NONE: FLUENCIES_ORDERED[0],
+	LIKELY_STRIVING: FLUENCIES_ORDERED[1],
+	LIKELY_FLUENT: FLUENCIES_ORDERED[2],
+	STRIVING: FLUENCIES_ORDERED[3],
+	FLUENT: FLUENCIES_ORDERED[4],
+};
+
+function guess_fluency_level(known_level, ...later_node_levels) {
+	if (known_level.value > 2) return known_level;
+	const guess = later_node_levels.reduce(function (prev, e) { return prev > e.predecessor_value ? prev : e.predecessor_value; }, 0);
+	return FLUENCIES_ORDERED[guess];
+}
+
 function Clone() { }
 function clone(obj) {
 	Clone.prototype = obj;
@@ -565,6 +587,7 @@ var SkillVm = function () {
 		this.obsoletes = data.obsoletes;
 		this.slug = data.slug;
 		this.is_key = data.is_key;
+		this.team_level = ko.observable(FLUENCY.NONE);
 	}
 	base_class(SkillVm, {
 		to_description: function () {
