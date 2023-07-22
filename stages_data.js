@@ -3956,7 +3956,62 @@ function load_data() {
 						"slug": "sustain"
 					}
 				}
-			}
+			},
+			"V_CORE_SKILLS": {
+				"name": "Core microskills",
+				"skills": {
+					"SK_WORK_GROUPS": {
+						"x": 0,
+						"y": 0,
+						"level": "L_CORE",
+						"component": "V_NEW_CODE",
+						"requires": [],
+						"obsoletes": [],
+						"slug": "work_groups",
+						"is_key": false
+					},
+				},
+				"levels": {
+					"L_CORE": {
+						"slug": "modern_core",
+						"min": -1,
+						"max": 26,
+						"color": "#cccccc"
+					},
+				},
+				"components": {
+					"V_NEW_CODE": {
+						"name": "Create new code",
+						"techniques": "TDD, 4-part test",
+						"color": "cornflowerblue",
+						"slug": "new_code"
+					},
+					"V_MODIFY_CODE": {
+						"name": "Change existing code",
+						"techniques": "Refactoring, Design, Recovering legacy code, Poke testing",
+						"color": "limegreen",
+						"slug": "modify_code"
+					},
+					"V_RISK_AWARE": {
+						"name": "Communicate risks",
+						"techniques": "Commit notation, Risk of inaction, Friction as risk",
+						"color": "fuchsia",
+						"slug": "risk_aware"
+					},
+					"V_VERIFY": {
+						"name": "Prove your assumptions",
+						"techniques": "Microtests, Simulators, Disprove stories",
+						"color": "#A825D3",
+						"slug": "verify"
+					},
+					"V_REQUIREMENTS": {
+						"name": "Agree what to build",
+						"techniques": "Test as spec, Custom assertions, Generated microsites",
+						"color": "orange",
+						"slug": "spec"
+					},
+				}
+			},
 		},
 		"dependency_kinds": {
 			"IS_REQUIRED": {
