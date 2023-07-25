@@ -333,23 +333,46 @@ html, body {
 	overflow-wrap: break-word;
 }
 
-	.skill_text .fluency_level {
-		position: absolute;
-		bottom: -1em;
-		right: -1em;
-		font-size: 0.8em;
-		z-index: 100;
-		padding: 0.5em;
-		line-height: 1.0;
-		border-radius: 0.5em;
-		font-weight: normal;	}
+.skill_text.key {
+	font-weight: 600;
+	background-color: rgba(200, 255, 200, 0.9);
+}
 
-	.skill_text.key {
-		font-weight: 600;
-		background-color: rgba(200,255,200,0.9);
-	}
+.skill_text .fluency_level {
+	position: absolute;
+	bottom: -1em;
+	right: -1em;
+	font-size: 0.8em;
+	z-index: 100;
+	padding: 0.5em;
+	line-height: 1.0;
+	border-radius: 0.5em;
+	font-weight: normal;
+}
 
-		.skill_text:hover {
+.skill_text.striving,
+.skill_text.striving .fluency_level {
+	background-color: #fcdb03d9;
+}
+
+.skill_text.maybe.striving,
+.skill_text.maybe.striving .fluency_level {
+	background-color: #ffed7ad9;
+}
+
+.skill_text.fluent,
+.skill_text.fluent .fluency_level {
+	background-color: #af03ffd9;
+	color: white;
+}
+
+.skill_text.maybe.fluent,
+.skill_text.maybe.fluent .fluency_level {
+	background-color: #d277fcd9;
+	color: white;
+}
+
+.skill_text:hover {
 			border: 2px solid #bb0000;
 			padding: 6px;
 			cursor: pointer;

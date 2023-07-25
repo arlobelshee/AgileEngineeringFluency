@@ -51,11 +51,11 @@ function find_elt(arr, pred) {
 }
 
 const FLUENCIES_ORDERED = [
-	{label: "", value: 0, predecessor_value: 0, css_class: "", color: "#ffffff00"},
-	{label: "Striving?", value: 1, predecessor_value: 1, css_class: "maybe_striving", color: "#ffed7ad9"},
-	{label: "Fluent?", value: 2, predecessor_value: 2, css_class: "maybe_fluent", color: "#d277fcd9"},
-	{label: "Striving", value: 3, predecessor_value: 1, css_class: "striving", color: "#fcdb03d9"},
-	{label: "Fluent", value: 4, predecessor_value: 2, css_class: "fluent", color: "#af03ffd9"},
+	{label: "", value: 0, predecessor_value: 0, fluent: 0, striving: 0, css_class: "", color: "#ffffff00"},
+	{label: "Striving?", value: 1, predecessor_value: 1, fluent: 0, striving: 1, css_class: "maybe_striving", color: "#ffed7ad9"},
+	{label: "Fluent?", value: 2, predecessor_value: 2, fluent: 1, striving: 0, css_class: "maybe_fluent", color: "#d277fcd9"},
+	{label: "Striving", value: 3, predecessor_value: 1, fluent: 0, striving: 2, css_class: "striving", color: "#fcdb03d9"},
+	{label: "Fluent", value: 4, predecessor_value: 2, fluent: 2, striving: 0, css_class: "fluent", color: "#af03ffd9"},
 ];
 
 const FLUENCY = {
