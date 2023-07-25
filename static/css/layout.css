@@ -330,9 +330,19 @@ html, body {
 	background-color: rgba(255,255,255,0.85);
 	border-radius: 15px;
 	width: 92px;
-	overflow: hidden;
 	overflow-wrap: break-word;
 }
+
+	.skill_text .fluency_level {
+		position: absolute;
+		bottom: -1em;
+		right: -1em;
+		font-size: 0.8em;
+		z-index: 100;
+		padding: 0.5em;
+		line-height: 1.0;
+		border-radius: 0.5em;
+		font-weight: normal;	}
 
 	.skill_text.key {
 		font-weight: 600;

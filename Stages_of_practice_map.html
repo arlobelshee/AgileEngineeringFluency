@@ -68,8 +68,11 @@
 				<!-- ko foreach: skills -->
 				<div
 					class="skill_text"
-					data-bind="style: { top: label_position.top, left: label_position.left }, css {key: is_key, expanded: _id == ($parent.focal_skill() ? $parent.focal_skill()._id : null) }, click: $parent.show_skill_details"
+					data-bind="style: { top: label_position.top, left: label_position.left }, css {key: is_key, , expanded: _id == ($parent.focal_skill() ? $parent.focal_skill()._id : null) }, click: $parent.show_skill_details"
 				>
+				<!-- ko if: guessed_level().value > 0 -->
+					<div class="fluency_level" data-bind="text: guessed_level().label, style: { backgroundColor: guessed_level().color }"></div>
+				<!-- /ko -->
 					<span class="name" data-bind="text: name"></span>
 				</div>
 				<!-- ko if: help_to_request -->

@@ -51,11 +51,11 @@ function find_elt(arr, pred) {
 }
 
 const FLUENCIES_ORDERED = [
-	{label: "", value: 0, predecessor_value: 0, color: "0xffffff"},
-	{label: "Striving?", value: 1, predecessor_value: 1, color: "0xaaffff"},
-	{label: "Fluent?", value: 2, predecessor_value: 2, color: "0xaaffaa"},
-	{label: "Striving", value: 3, predecessor_value: 1, color: "0x00cccc"},
-	{label: "Fluent", value: 4, predecessor_value: 2, color: "0x00cc00"},
+	{label: "", value: 0, predecessor_value: 0, css_class: "", color: "#ffffff00"},
+	{label: "Striving?", value: 1, predecessor_value: 1, css_class: "maybe_striving", color: "#ffed7ad9"},
+	{label: "Fluent?", value: 2, predecessor_value: 2, css_class: "maybe_fluent", color: "#d277fcd9"},
+	{label: "Striving", value: 3, predecessor_value: 1, css_class: "striving", color: "#fcdb03d9"},
+	{label: "Fluent", value: 4, predecessor_value: 2, css_class: "fluent", color: "#af03ffd9"},
 ];
 
 const FLUENCY = {
@@ -66,10 +66,15 @@ const FLUENCY = {
 	FLUENT: FLUENCIES_ORDERED[4],
 };
 
-function guess_fluency_level(known_level, ...later_node_levels) {
-	if (known_level.value > 2) return known_level;
-	const guess = later_node_levels.reduce(function (prev, e) { return prev > e.predecessor_value ? prev : e.predecessor_value; }, 0);
-	return FLUENCIES_ORDERED[guess];
+function guess_fluency_level(known_level, later_node_levels) {
+	var result = function () {
+		if (known_level.value > 2) return known_level;
+		const guess = later_node_levels.reduce(function (prev, e) {
+			return (prev >= e.predecessor_value) ? (prev) : (e.predecessor_value);
+		}, 0);
+		return FLUENCIES_ORDERED[guess];
+	}();
+	return result;
 }
 
 function Clone() { }
@@ -352,6 +357,13 @@ var StagesVm = function () {
 			});
 			this.ask_for_help(data.ask_for_help);
 		},
+		guess_skill_levels: function () {
+			const skills = this.skills();
+			skills.sort(function (l, r) { return r.x * 1000 - l.x * 1000 + r.y - l.y; });
+			for (const skill of skills) {
+				skill.guessed_level(guess_fluency_level(skill.team_level(), skill.enables.map((s) => s.kind._id === "IS_REQUIRED" ? s.skill.guessed_level() : FLUENCY.NONE)));
+			}
+		},
 		update_data: function (data, is_initial_data) {
 			if (this.prev_data === data) return;
 			this.valid(true);
@@ -424,6 +436,8 @@ var StagesVm = function () {
 			});
 			this.ask_for_help.subscribe(update_url);
 			this.show_all_dependencies.subscribe(update_url);
+			each_elt(this.skills().filter((s) => s.x === 11), (s) => s.team_level(FLUENCY.FLUENT));
+			each_elt(this.skills().filter((s) => s.x === 21), (s) => s.team_level(FLUENCY.STRIVING));
 		},
 	});
 
@@ -588,6 +602,8 @@ var SkillVm = function () {
 		this.slug = data.slug;
 		this.is_key = data.is_key;
 		this.team_level = ko.observable(FLUENCY.NONE);
+		this.team_level.subscribe(function () { app.guess_skill_levels(); });
+		this.guessed_level = ko.observable(FLUENCY.NONE);
 	}
 	base_class(SkillVm, {
 		to_description: function () {
