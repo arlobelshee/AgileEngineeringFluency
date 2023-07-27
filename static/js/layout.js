@@ -442,8 +442,6 @@ var StagesVm = function () {
 			});
 			this.ask_for_help.subscribe(update_url);
 			this.show_all_dependencies.subscribe(update_url);
-			each_elt(this.skills().filter((s) => s.x === 11), (s) => s.team_level(FLUENCY.FLUENT));
-			each_elt(this.skills().filter((s) => s.x === 21), (s) => s.team_level(FLUENCY.STRIVING));
 		},
 	});
 
