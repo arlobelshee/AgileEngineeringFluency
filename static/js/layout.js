@@ -51,11 +51,11 @@ function find_elt(arr, pred) {
 }
 
 const FLUENCIES_ORDERED = [
-	{label: "", value: 0, predecessor_value: 0, fluent: 0, striving: 0},
-	{label: "Striving?", value: 1, predecessor_value: 1, fluent: 0, striving: 1},
-	{label: "Fluent?", value: 2, predecessor_value: 2, fluent: 1, striving: 0},
-	{label: "Striving", value: 3, predecessor_value: 1, fluent: 0, striving: 2},
-	{label: "Fluent", value: 4, predecessor_value: 2, fluent: 2, striving: 0},
+	{label: "No evidence", value: 0, predecessor_value: 0, fluent: 0, striving: 0, checked: false, indeterminate: false},
+	{label: "Striving?", value: 1, predecessor_value: 1, fluent: 0, striving: 1, checked: false, indeterminate: false},
+	{label: "Fluent?", value: 2, predecessor_value: 2, fluent: 1, striving: 0, checked: false, indeterminate: false},
+	{label: "Striving", value: 3, predecessor_value: 1, fluent: 0, striving: 2, checked: false, indeterminate: true},
+	{label: "Fluent", value: 4, predecessor_value: 2, fluent: 2, striving: 0, checked: true, indeterminate: false},
 ];
 
 const FLUENCY = {
@@ -65,6 +65,12 @@ const FLUENCY = {
 	STRIVING: FLUENCIES_ORDERED[3],
 	FLUENT: FLUENCIES_ORDERED[4],
 };
+
+FLUENCY.NONE.on_next_click = FLUENCY.STRIVING;
+FLUENCY.LIKELY_STRIVING.on_next_click = FLUENCY.FLUENT;
+FLUENCY.LIKELY_FLUENT.on_next_click = FLUENCY.NONE;
+FLUENCY.STRIVING.on_next_click = FLUENCY.FLUENT;
+FLUENCY.FLUENT.on_next_click = FLUENCY.NONE;
 
 function guess_fluency_level(known_level, later_node_levels) {
 	var result = function () {
@@ -602,10 +608,21 @@ var SkillVm = function () {
 		this.slug = data.slug;
 		this.is_key = data.is_key;
 		this.team_level = ko.observable(FLUENCY.NONE);
+		this.fluency = ko.computed({
+			read: function () {
+				return this.team_level().checked;
+			},
+			write: function (value) {
+			},
+			owner: this,
+		});
 		this.team_level.subscribe(function () { app.guess_skill_levels(); });
 		this.guessed_level = ko.observable(FLUENCY.NONE);
 	}
 	base_class(SkillVm, {
+		increment_team_fluency: function () {
+			this.team_level(this.guessed_level().on_next_click);
+		},
 		to_description: function () {
 			return new DescSerializer(this._id, this.description, this.name, this.help_needed, this.x, this.y);
 		},
@@ -923,5 +940,12 @@ function extend_ko() {
 		update: function (element, value_accessor, all_bindings, view_model, binding_context) {
 			populate_canvas(ko.unwrap(value_accessor()));
 		},
+	};
+
+	ko.bindingHandlers.indeterminate = {
+    update: function (element, valueAccessor) {
+        var value = ko.utils.unwrapObservable(valueAccessor());
+        element.indeterminate = value;
+    }
 	};
 }

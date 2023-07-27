@@ -71,9 +71,7 @@
 					data-bind="style: { top: label_position.top, left: label_position.left }, css {key: is_key, maybe: guessed_level().fluent == 1 || guessed_level().striving == 1, fluent: guessed_level().fluent > 0, striving: guessed_level().striving > 0, expanded: _id == ($parent.focal_skill() ? $parent.focal_skill()._id : null) }, click: $parent.show_skill_details"
 				>
 					<span class="name" data-bind="text: name"></span>
-				<!-- ko if: guessed_level().value > 0 -->
-					<div class="fluency_level" data-bind="text: guessed_level().label"></div>
-				<!-- /ko -->
+					<div class="fluency_level" data-bind="click: increment_team_fluency"><input type="checkbox" data-bind="checked: team_level().checked, indeterminate: team_level().indeterminate" /><label data-bind="text: guessed_level().label"></label></div>
 				</div>
 				<!-- ko if: help_to_request -->
 				<div

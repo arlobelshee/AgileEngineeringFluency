@@ -352,7 +352,6 @@ body {
 	font-size: 1.4em;
 	line-height: 1.3;
 	padding: 8px;
-	background-color: rgba(255, 255, 255, 0.85);
 	border-radius: 15px;
 	width: 92px;
 	overflow-wrap: break-word;
@@ -373,6 +372,12 @@ body {
 	line-height: 1;
 	border-radius: 0.5em;
 	font-weight: normal;
+	text-decoration: underline;
+}
+
+.skill_text,
+.skill_text .fluency_level {
+	background-color: rgba(255, 255, 255, 0.85);
 }
 
 .skill_text.striving,
