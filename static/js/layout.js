@@ -50,6 +50,39 @@ function find_elt(arr, pred) {
 	return null;
 }
 
+const FLUENCIES_ORDERED = [
+	{label: "No evidence", value: 0, predecessor_value: 0, fluent: 0, striving: 0, checked: false, indeterminate: false},
+	{label: "Striving?", value: 1, predecessor_value: 1, fluent: 0, striving: 1, checked: false, indeterminate: false},
+	{label: "Fluent?", value: 2, predecessor_value: 2, fluent: 1, striving: 0, checked: false, indeterminate: false},
+	{label: "Striving", value: 3, predecessor_value: 1, fluent: 0, striving: 2, checked: false, indeterminate: true},
+	{label: "Fluent", value: 4, predecessor_value: 2, fluent: 2, striving: 0, checked: true, indeterminate: false},
+];
+
+const FLUENCY = {
+	NONE: FLUENCIES_ORDERED[0],
+	LIKELY_STRIVING: FLUENCIES_ORDERED[1],
+	LIKELY_FLUENT: FLUENCIES_ORDERED[2],
+	STRIVING: FLUENCIES_ORDERED[3],
+	FLUENT: FLUENCIES_ORDERED[4],
+};
+
+FLUENCY.NONE.on_next_click = FLUENCY.STRIVING;
+FLUENCY.LIKELY_STRIVING.on_next_click = FLUENCY.FLUENT;
+FLUENCY.LIKELY_FLUENT.on_next_click = FLUENCY.NONE;
+FLUENCY.STRIVING.on_next_click = FLUENCY.FLUENT;
+FLUENCY.FLUENT.on_next_click = FLUENCY.NONE;
+
+function guess_fluency_level(known_level, later_node_levels) {
+	var result = function () {
+		if (known_level.value > 2) return known_level;
+		const guess = later_node_levels.reduce(function (prev, e) {
+			return (prev >= e.predecessor_value) ? (prev) : (e.predecessor_value);
+		}, 0);
+		return FLUENCIES_ORDERED[guess];
+	}();
+	return result;
+}
+
 function Clone() { }
 function clone(obj) {
 	Clone.prototype = obj;
@@ -330,6 +363,13 @@ var StagesVm = function () {
 			});
 			this.ask_for_help(data.ask_for_help);
 		},
+		guess_skill_levels: function () {
+			const skills = this.skills();
+			skills.sort(function (l, r) { return r.x * 1000 - l.x * 1000 + r.y - l.y; });
+			for (const skill of skills) {
+				skill.guessed_level(guess_fluency_level(skill.team_level(), skill.enables.map((s) => s.kind._id === "IS_REQUIRED" ? s.skill.guessed_level() : FLUENCY.NONE)));
+			}
+		},
 		update_data: function (data, is_initial_data) {
 			if (this.prev_data === data) return;
 			this.valid(true);
@@ -565,8 +605,22 @@ var SkillVm = function () {
 		this.obsoletes = data.obsoletes;
 		this.slug = data.slug;
 		this.is_key = data.is_key;
+		this.team_level = ko.observable(FLUENCY.NONE);
+		this.fluency = ko.computed({
+			read: function () {
+				return this.team_level().checked;
+			},
+			write: function (value) {
+			},
+			owner: this,
+		});
+		this.team_level.subscribe(function () { app.guess_skill_levels(); });
+		this.guessed_level = ko.observable(FLUENCY.NONE);
 	}
 	base_class(SkillVm, {
+		increment_team_fluency: function () {
+			this.team_level(this.guessed_level().on_next_click);
+		},
 		to_description: function () {
 			return new DescSerializer(this._id, this.description, this.name, this.help_needed, this.x, this.y);
 		},
@@ -884,5 +938,12 @@ function extend_ko() {
 		update: function (element, value_accessor, all_bindings, view_model, binding_context) {
 			populate_canvas(ko.unwrap(value_accessor()));
 		},
+	};
+
+	ko.bindingHandlers.indeterminate = {
+    update: function (element, valueAccessor) {
+        var value = ko.utils.unwrapObservable(valueAccessor());
+        element.indeterminate = value;
+    }
 	};
 }

@@ -1,4 +1,16 @@
-table, tr, td, th, html, body, div, canvas, ol, ul, li, p, input {
+table,
+tr,
+td,
+th,
+html,
+body,
+div,
+canvas,
+ol,
+ul,
+li,
+p,
+input {
 	margin: 0;
 	padding: 0;
 	border: 0 solid black;
@@ -8,11 +20,16 @@ a {
 	text-decoration: none;
 }
 
-	a:hover {
-		text-decoration: underline;
-	}
+a:hover {
+	text-decoration: underline;
+}
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-size: 100%;
 	margin: 0;
 	padding: 0;
@@ -21,11 +38,12 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: "Oswald";
 }
 
-html, body {
+html,
+body {
 	width: 100%;
 	font-size: 10px;
-	font-family: "Lato",sans-serif;
-	line-height: 1.0;
+	font-family: "Lato", sans-serif;
+	line-height: 1;
 }
 
 .canvas {
@@ -56,24 +74,24 @@ html, body {
 	line-height: 1.3;
 }
 
-	.options_pane p {
-		margin: 0.4em;
-	}
+.options_pane p {
+	margin: 0.4em;
+}
 
-	.options_pane textarea {
-		clear: both;
-		float: left;
-		display: block;
-		margin-right: 0.8em;
-	}
+.options_pane textarea {
+	clear: both;
+	float: left;
+	display: block;
+	margin-right: 0.8em;
+}
 
-	.options_pane ul {
-		list-style-type: none;
-	}
+.options_pane ul {
+	list-style-type: none;
+}
 
-	.options_pane .option input {
-		margin-right: 0.4em;
-	}
+.options_pane .option input {
+	margin-right: 0.4em;
+}
 
 .main_pane {
 	position: relative;
@@ -122,71 +140,72 @@ html, body {
 	z-index: 5;
 }
 
-	.focus_dialog .description_block {
-		position: relative;
-	}
+.focus_dialog .description_block {
+	position: relative;
+}
 
-		.focus_dialog .description_block .editor {
-			display: none;
-			position: fixed;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			width: 50%;
-			padding: 0.4em;
-			border-width: 0 0 0 1px;
-			background-color: #efefef;
-		}
+.focus_dialog .description_block .editor {
+	display: none;
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 50%;
+	padding: 0.4em;
+	border-width: 0 0 0 1px;
+	background-color: #efefef;
+}
 
-			.focus_dialog .description_block .editor button {
-				display: block;
-				margin: 0.5em 3em;
-			}
+.focus_dialog .description_block .editor button {
+	display: block;
+	margin: 0.5em 3em;
+}
 
-	.focus_dialog.editing .description_block .editor {
-		display: block;
-	}
+.focus_dialog.editing .description_block .editor {
+	display: block;
+}
 
-	.focus_dialog, .focus_dialog .contents {
-		background-color: #FFF;
-	}
+.focus_dialog,
+.focus_dialog .contents {
+	background-color: #fff;
+}
 
-		.focus_dialog .description_block .edit_button {
-			position: absolute;
-			display: block;
-			right: 20px;
-			top: -15px;
-			height: 25px;
-			width: 25px;
-			z-index: 1;
-			background: url('../img/edit.png') no-repeat right top;
-		}
+.focus_dialog .description_block .edit_button {
+	position: absolute;
+	display: block;
+	right: 20px;
+	top: -15px;
+	height: 25px;
+	width: 25px;
+	z-index: 1;
+	background: url("../img/edit.png") no-repeat right top;
+}
 
-			.focus_dialog .description_block .edit_button:hover {
-				background-image: url('../img/edit_hover.png');
-			}
+.focus_dialog .description_block .edit_button:hover {
+	background-image: url("../img/edit_hover.png");
+}
 
-		.focus_dialog.editing .description_block .edit_button {
-			display: none;
-		}
+.focus_dialog.editing .description_block .edit_button {
+	display: none;
+}
 
-		.focus_dialog .contents {
-			position: relative;
-		}
+.focus_dialog .contents {
+	position: relative;
+}
 
-		.focus_dialog.editing .contents {
-			position: fixed;
-			left: 0;
-			top: 0;
-			bottom: 0;
-			right: auto;
-			width: 50%;
-		}
+.focus_dialog.editing .contents {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: auto;
+	width: 50%;
+}
 
-		.focus_dialog .contents .name {
-			font-size: 2.5em;
-			padding: 0.4em 1.0em;
-		}
+.focus_dialog .contents .name {
+	font-size: 2.5em;
+	padding: 0.4em 1em;
+}
 
 .skill.focus_dialog .contents .name {
 	float: left;
@@ -195,6 +214,7 @@ html, body {
 
 .level.focus_dialog .contents .name {
 	border-bottom: solid #00008b 1px;
+	margin-bottom: 30px;
 }
 
 .focus_dialog .contents .stage {
@@ -205,58 +225,63 @@ html, body {
 	text-align: right;
 }
 
-	.focus_dialog .contents .stage span {
-		display: block;
-		margin: 0.3em 0;
-	}
+.focus_dialog .contents .stage span {
+	display: block;
+	margin: 0.3em 0;
+}
 
-.focus_dialog .description_block .display, .how_to {
+.focus_dialog .description_block .display,
+.how_to {
 	font-size: 1.4em;
 	line-height: 1.3;
 	padding: 0.5em 1.7857em;
 	text-align: justify;
 }
 
-	.focus_dialog .description_block .display h1, .how_to h1 {
-		font-size: 1.8em;
-		margin: 1.8em 0 0.3em;
-		border-top: 1px solid #000000;
-	}
+.focus_dialog .description_block .display h1,
+.how_to h1 {
+	font-size: 1.8em;
+	margin: 1.8em 0 0.3em;
+	border-top: 1px solid #000000;
+}
 
-	.focus_dialog .description_block .display h2, .how_to h2 {
-		font-size: 1.4em;
-		margin: 0.8em 0 0.3em;
-	}
+.focus_dialog .description_block .display h2,
+.how_to h2 {
+	font-size: 1.4em;
+	margin: 0.8em 0 0.3em;
+}
 
-	.focus_dialog .description_block .display h3, .how_to h3 {
-		font-size: 1.2em;
-		margin: 0.8em 0 0.3em;
-		font-style: italic;
-	}
+.focus_dialog .description_block .display h3,
+.how_to h3 {
+	font-size: 1.2em;
+	margin: 0.8em 0 0.3em;
+	font-style: italic;
+}
 
-	.focus_dialog .description_block .display p, .how_to p {
-		margin: 0.4em 0;
-	}
+.focus_dialog .description_block .display p,
+.how_to p {
+	margin: 0.4em 0;
+}
 
-	.focus_dialog .description_block .display ul {
-		margin: 0.4em 0;
-		list-style: disc outside;
-	}
+.focus_dialog .description_block .display ul {
+	margin: 0.4em 0;
+	list-style: disc outside;
+}
 
-	.focus_dialog .description_block .display ol {
-		margin: 0.4em 0;
-		list-style: decimal outside;
-	}
+.focus_dialog .description_block .display ol {
+	margin: 0.4em 0;
+	list-style: decimal outside;
+}
 
-	.focus_dialog .description_block .display li {
-		margin: 0 0 0 1.7857em;
-	}
+.focus_dialog .description_block .display li {
+	margin: 0 0 0 1.7857em;
+}
 
-	.focus_dialog .description_block .display blockquote {
-		margin: 1.0em 0;
-		color: #aaaaaa;
-		font-style: italic;
-	}
+.focus_dialog .description_block .display blockquote {
+	margin: 1em 0;
+	color: #aaaaaa;
+	font-style: italic;
+}
 
 .relationships {
 	padding: 0 1.3857em;
@@ -264,31 +289,32 @@ html, body {
 	clear: both;
 }
 
-	.relationships ul, .relationships ul > li {
-		display: inline-block;
-		line-height: 1.3;
-	}
+.relationships ul,
+.relationships ul > li {
+	display: inline-block;
+	line-height: 1.3;
+}
 
-		.relationships ul > li {
-			margin: 0.2em 0;
-			padding: 0.4em;
-		}
+.relationships ul > li {
+	margin: 0.2em 0;
+	padding: 0.4em;
+}
 
-			.relationships ul > li.relation {
-				background-color: #efefef;
-			}
+.relationships ul > li.relation {
+	background-color: #efefef;
+}
 
-	.relationships div {
-		margin: 0.2em 0;
-	}
+.relationships div {
+	margin: 0.2em 0;
+}
 
-	.relationships a {
-		color: #0091FF;
-	}
+.relationships a {
+	color: #0091ff;
+}
 
-		.relationships a.optional {
-			color: #666;
-		}
+.relationships a.optional {
+	color: #666;
+}
 
 .help_action {
 	position: absolute;
@@ -307,18 +333,18 @@ html, body {
 	line-height: 1.3;
 	text-align: center;
 	padding: 8px;
-	background-color: rgba(255,255,255,0.9);
+	background-color: rgba(255, 255, 255, 0.9);
 	border-radius: 15px;
 	overflow: hidden;
 	overflow-wrap: break-word;
 	border: 0 solid #000080;
 }
 
-	.level_title:hover {
-		border-width: 2px;
-		padding: 6px;
-		cursor: pointer;
-	}
+.level_title:hover {
+	border-width: 2px;
+	padding: 6px;
+	cursor: pointer;
+}
 
 .skill_text {
 	position: absolute;
@@ -326,29 +352,67 @@ html, body {
 	font-size: 1.4em;
 	line-height: 1.3;
 	padding: 8px;
-	background-color: rgba(255,255,255,0.85);
 	border-radius: 15px;
 	width: 92px;
-	overflow: hidden;
 	overflow-wrap: break-word;
 }
 
-	.skill_text.key {
-		font-weight: 600;
-		background-color: rgba(200,255,200,0.9);
-	}
+.skill_text.key {
+	font-weight: 600;
+	background-color: rgba(200, 255, 200, 0.9);
+}
 
-		.skill_text:hover {
-			border: 2px solid #bb0000;
-			padding: 6px;
-			cursor: pointer;
-		}
+.skill_text .fluency_level {
+	position: absolute;
+	bottom: -1em;
+	right: -1em;
+	font-size: 0.8em;
+	z-index: 100;
+	padding: 0.5em;
+	line-height: 1;
+	border-radius: 0.5em;
+	font-weight: normal;
+	text-decoration: underline;
+}
 
-		.skill_text.expanded {
-			border: 2px solid #808080;
-			padding: 3px;
-			cursor: pointer;
-		}
+.skill_text,
+.skill_text .fluency_level {
+	background-color: rgba(255, 255, 255, 0.85);
+}
+
+.skill_text.striving,
+.skill_text.striving .fluency_level {
+	background-color: #fcdb03d9;
+}
+
+.skill_text.maybe.striving,
+.skill_text.maybe.striving .fluency_level {
+	background-color: #ffed7ad9;
+}
+
+.skill_text.fluent,
+.skill_text.fluent .fluency_level {
+	background-color: #af03ffd9;
+	color: white;
+}
+
+.skill_text.maybe.fluent,
+.skill_text.maybe.fluent .fluency_level {
+	background-color: #d277fcd9;
+	color: white;
+}
+
+.skill_text:hover {
+	border: 2px solid #bb0000;
+	padding: 6px;
+	cursor: pointer;
+}
+
+.skill_text.expanded {
+	border: 2px solid #808080;
+	padding: 3px;
+	cursor: pointer;
+}
 
 .legend {
 	position: fixed;
@@ -359,12 +423,12 @@ html, body {
 	background-color: #fff;
 }
 
-	.legend h2 {
-		font-size: 1.8em;
-		text-decoration: underline;
-		margin: 0 auto 0.3em;
-		text-align: center;
-	}
+.legend h2 {
+	font-size: 1.8em;
+	text-decoration: underline;
+	margin: 0 auto 0.3em;
+	text-align: center;
+}
 
 .legend #version_selector {
 	position: absolute;
@@ -373,49 +437,49 @@ html, body {
 }
 
 .legend #version_selector select {
-	font-size: 1.0em;
+	font-size: 1em;
 }
 
 .legend #show_label {
-		position: absolute;
-		top: 1.8em;
-		left: 0.6em;
-	}
+	position: absolute;
+	top: 1.8em;
+	left: 0.6em;
+}
 
-	.legend .entry .solid_line {
-		display: inline-block;
-		border: 2px solid black;
-		height: 0px;
-		width: 20px;
-		vertical-align: middle;
-	}
+.legend .entry .solid_line {
+	display: inline-block;
+	border: 2px solid black;
+	height: 0px;
+	width: 20px;
+	vertical-align: middle;
+}
 
-	.legend .entry .block {
-		display: inline-block;
-		background: rgba(200,255,200,0.9);
-		height: 10px;
-		width: 24px;
-		vertical-align: middle;
-	}
+.legend .entry .block {
+	display: inline-block;
+	background: rgba(200, 255, 200, 0.9);
+	height: 10px;
+	width: 24px;
+	vertical-align: middle;
+}
 
-	.legend .entry td {
-		font-size: 1.2em;
-		padding: 1px 4px;
-	}
+.legend .entry td {
+	font-size: 1.2em;
+	padding: 1px 4px;
+}
 
-		.legend .entry td.techniques {
-			font-size: 1.0em;
-		}
+.legend .entry td.techniques {
+	font-size: 1em;
+}
 
-		.legend .entry td.show {
-			font-size: 1.0em;
-			padding: 0;
-		}
+.legend .entry td.show {
+	font-size: 1em;
+	padding: 0;
+}
 
-			.legend .entry td.show input {
-				height: 0.9em;
-				vertical-align: middle;
-			}
+.legend .entry td.show input {
+	height: 0.9em;
+	vertical-align: middle;
+}
 
 .how_to dt {
 	font-size: 1.2em;
@@ -433,7 +497,8 @@ html, body {
 	overflow: visible;
 }
 
-.display_port, .detail_pane {
+.display_port,
+.detail_pane {
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -448,7 +513,7 @@ html, body {
 .detail_pane {
 	right: 0;
 	width: 40%;
-	background-color: #FFF;
+	background-color: #fff;
 	overflow-y: scroll;
 }
 
